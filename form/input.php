@@ -151,7 +151,7 @@ $(function () {
           <tr>
            <th>会社名・屋号</th><th><span class="label req">必須</span></th>
            <td>
-            <input id="kaisyamei" type="text" name="kaisyamei" required="" placeholder="株式会社　労災建設" value="<?php echo $_SESSION['kaisyamei']; ?>">
+            <input id="kaisyamei" type="text" name="kaisyamei" required="" placeholder="株式会社労災建設" value="<?php echo $_SESSION['kaisyamei']; ?>">
            </td>
            
           </tr>
@@ -160,7 +160,7 @@ $(function () {
            <th>会社名・屋号 フリガナ</th><th><span class="label req">必須</span></th>
            <td>
             
-            <input id="kaisyamei_furi" type="text" name="kaisyamei_furi" required="" placeholder="カブシキガイシャ　ロウサイケンセツ" value="<?php echo $_SESSION['kaisyamei_furi']; ?>" pattern="[\u30A1-\u30FC\u3041-\u309F\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A|　| ]*" title="ひらがな、カタカナ">
+            <input id="kaisyamei_furi" type="text" name="kaisyamei_furi" required="" placeholder="カブシキガイシャロウサイケンセツ" value="<?php echo $_SESSION['kaisyamei_furi']; ?>" pattern="[\u30A1-\u30FC\u3041-\u309F\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A|　| ]*" title="ひらがな、カタカナ">
            </td>
            
           </tr>
@@ -288,7 +288,7 @@ $(function () {
            </td>
            
           </tr>
-          <tr>
+          <!--<tr>
            <th>メールアドレス(再入力)</th><th><span class="label req">必須</span></th>
            <td>
             
@@ -296,7 +296,7 @@ $(function () {
             <p class="emailerr" id="emailerr">e-mailの入力が一致しません</p>
            </td>
            
-          </tr>
+          </tr>-->
           
          </table>
          </figure>
@@ -1120,6 +1120,7 @@ console.log($val);
 </script>
 
   <script>
+   /*
 function check_email(){
 	$(".emailerr").hide();
  $ret = true;
@@ -1136,7 +1137,8 @@ function check_email(){
  
 	return $ret;
 }
-
+*/
+   
 function type_click(){
  $('.tr_hojin').hide();
  $('.tr_kojin').hide();
@@ -1215,9 +1217,11 @@ function sendonfax(){
 $(function(){
 		$(".emailerr").hide();
 
+ /*
 		$("form").submit(function(){
 			return check_email();
 		});
+  */
   $('input[name="type"]').click(function(){
    type_click();
   });
