@@ -4,17 +4,17 @@ $mode = 0;
 
 /* 共通設定コード */
 if($mode == -1){
- include $_SERVER["DOCUMENT_ROOT"].'/chusho-jigyonushi/pg_hash.php';
+ include $_SERVER["DOCUMENT_ROOT"].'/pg_hash.php';
  $pg_url = 'https://sandbox.paygent.co.jp/v/u/request';
  $seq_merchant_id = '52462';
 } else {
- include $_SERVER["DOCUMENT_ROOT"].'/chusho-jigyonushi/pg_hash_h.php';
+ include $_SERVER["DOCUMENT_ROOT"].'/pg_hash_h.php';
  $pg_url = 'https://link.paygent.co.jp/v/u/request';
  $seq_merchant_id = '62094';
 }
 
 $merchant_name = '労働保険事務組合ＲＪＣ';
-$banner_url = 'https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/assets/img/logo_pg.png';
+$banner_url = 'https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/logo_pg.png';
 
 $trading_id=$_SESSION['trading_id'];
 $payment_type='02';

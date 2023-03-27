@@ -1604,7 +1604,7 @@ nav.globalMenuSp.active {
  padding: 0;
 }
 #index_html div#main_body aside #as_menu ul li a{
- background-image: url(/chusho-jigyonushi/assets/img/sidebar_button.png);
+ background-image: url(/assets/img/sidebar_button.png);
  background-size: 100%;
  display: block;
  width: 280px;

@@ -64,7 +64,7 @@ navigator.geolocation.getCurrentPosition(function(pos) {
  var pref_no = prefs[0][3];
  //pref_no = '13'; // DEBUG
  console.log('pref_no='+pref_no);
- var css_url = 'url(/chusho-jigyonushi/assets/img/logo/'+pref_no+'.png)';
+ var css_url = 'url(/assets/img/logo/'+pref_no+'.png)';
  console.log('css_url='+css_url);
  $('.logo_slide_pref').css('background-image', css_url);
 });

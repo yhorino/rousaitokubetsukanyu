@@ -13,8 +13,7 @@ require_once('function.php');
 <html lang="ja">
 
 <head>
-<?php $TOP_PATH = '../../';?>
-<?php include_once  $TOP_PATH.'template_php/gtag_head.html'; ?>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_head.html'; ?>
 
  
   <title>お支払が完了しました：労働保険事務組合RJC　無料見積りフォーム</title>
@@ -24,18 +23,17 @@ require_once('function.php');
   <meta name="keywords" content="">
   <meta name="format-detection" content="telephone=no">
  
-  <link rel="canonical" href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/form_norikae/paid.php">
+  <link rel="canonical" href="https://www.xn--y5q0r2lqcz91qdrc.com/form_norikae/paid.php">
   <meta name="robots" content="all">
   <meta name="copyright" content="Copyright 2020 労働保険事務組合RJC All Rights Reserved.">
   <meta property="og:title" content="お支払が完了しました：労働保険事務組合RJC　無料見積りフォーム">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/form_norikae/paid.php">
-  <meta property="og:image" content="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/assets/img/h_logo.png">
+  <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/form_norikae/paid.php">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/h_logo.png">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/chusho-jigyonushi/apple-touch-icon-180x180.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/chusho-jigyonushi/apple-touch-icon-180x180.png">
-  <link rel="icon" href="/chusho-jigyonushi/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" href="/favicon.ico">
  
   <!-- CSS-->
   <link rel="stylesheet" href="../assets/css/reset.css">
@@ -47,14 +45,14 @@ require_once('function.php');
   <script src="../assets/js/app.js"></script>
 </head>
 <body id="paid_php">
-<?php include_once  $TOP_PATH.'template_php/gtag_body.html'; ?>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
  
  <a href="#main">メインコンテンツに移動</a>
 
     <header>
       <div class="header__flex">
-				<a href="/chusho-jigyonushi/"><img class="h_logo" src="../assets/img/h_logo.png" width="327" alt="" /></a>
+				<a href="/"><img class="h_logo" src="../assets/img/h_logo.png" width="327" alt="" /></a>
       </div>
      
      <div class="mitsumori-ttl-div mitsumori-ttl-div-main">
@@ -72,7 +70,7 @@ require_once('function.php');
          <img src="../assets/img/form_paid.png" alt="お申込みありがとうございます。お申込みのお礼と大切なご案内をさせていただきます。「事務組合RJC」の名前でご登録いただいたアドレスにメールを送信いたしました。３０分以内にメールが届かない場合は、　迷惑メールフォルダに入っていませんか？　間違ったアドレスでお手続きをされていませんか？　上記をご確認の上、GmailまたはYahoo!のアドレスで再度お申込みをお願いします。" class="show_pc hide_sp">
          <img src="../assets/img/form_paid_sp.png" alt="お申込みありがとうございます。お申込みのお礼と大切なご案内をさせていただきます。「事務組合RJC」の名前でご登録いただいたアドレスにメールを送信いたしました。３０分以内にメールが届かない場合は、　迷惑メールフォルダに入っていませんか？　間違ったアドレスでお手続きをされていませんか？　上記をご確認の上、GmailまたはYahoo!のアドレスで再度お申込みをお願いします。" class="show_sp hide_pc">
           <div class="mitsumori-btn_block">
-            <a class="mitsumori-btn" href="/chusho-jigyonushi/"><img src="../assets/img/form_totop.png" alt="TOPへ戻る"></a>
+            <a class="mitsumori-btn" href="/"><img src="../assets/img/form_totop.png" alt="TOPへ戻る"></a>
           </div>
         </section>
 
@@ -99,7 +97,7 @@ require_once('function.php');
 </body>
 </html>
 
-<?php error_log('['.date('Y-m-d H:i:s').'] '.'https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/ paid.php
+<?php error_log('['.date('Y-m-d H:i:s').'] '.'https://www.xn--y5q0r2lqcz91qdrc.com/paid.php
 '.print_r($_SESSION, true).' $paid='.$paid.' order_number='.$_GET['order_number'], 1, 'y_horino+sfdebug@tmgt.co.jp'); ?>
 
 <?php
@@ -153,7 +151,7 @@ FAX:0568-27-7556
 Mail: mail@rousai.jp
 営業時間：月～金 9:00‐17:30（土日祝を除く）
 
-サイトURL: https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/
+サイトURL: https://www.xn--y5q0r2lqcz91qdrc.com/
 ---------------------------------
 ';
 
