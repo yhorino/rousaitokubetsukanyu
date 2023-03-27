@@ -12,8 +12,7 @@ require_once('function.php');
 <html lang="ja">
 
 <head>
-<?php $TOP_PATH = '../../';?>
-<?php include_once  $TOP_PATH.'template_php/gtag_head.html'; ?>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_head.html'; ?>
  
  
   <title>申込内容入力：労働保険事務組合RJC　無料見積りフォーム</title>
@@ -23,17 +22,17 @@ require_once('function.php');
   <meta name="keywords" content="">
   <meta name="format-detection" content="telephone=no">
  
-  <link rel="canonical" href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/form_norikae/input.php">
+  <link rel="canonical" href="https://www.xn--y5q0r2lqcz91qdrc.com/form_norikae/input.php">
   <meta name="robots" content="all">
   <meta name="copyright" content="Copyright 2020 労働保険事務組合RJC All Rights Reserved.">
   <meta property="og:title" content="申込内容入力：労働保険事務組合RJC　無料見積りフォーム">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/form_norikae/input.php">
-  <meta property="og:image" content="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/chusho-jigyonushi/assets/img/h_logo.png">
+  <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/form_norikae/input.php">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/h_logo.png">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/chusho-jigyonushi/apple-touch-icon-180x180.png">
-  <link rel="icon" href="/chusho-jigyonushi/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" href="/favicon.ico">
  
   <!-- CSS-->
   <link rel="stylesheet" href="../assets/css/reset.css">
@@ -198,13 +197,13 @@ $(function () {
  
 <!--<body id="input_php">-->
 <body> 
-<?php include_once  $TOP_PATH.'template_php/gtag_body.html'; ?>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
  <a href="#main">メインコンテンツに移動</a>
 	
     <header>
       <div class="header__flex">
-        <a href="/chusho-jigyonushi/"><img class="h_logo" src="../assets/img/h_logo.png" width="327" alt="" /></a>
+        <a href="/"><img class="h_logo" src="../assets/img/h_logo.png" width="327" alt="" /></a>
       </div>
      
      <div class="mitsumori-ttl-div mitsumori-ttl-div-step">

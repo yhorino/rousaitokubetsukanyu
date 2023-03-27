@@ -36,8 +36,7 @@ $detect = new Mobile_Detect;
 <html lang="ja">
 
 <head>
-<?php $TOP_PATH = '../../';?>
-<?php include_once  $TOP_PATH.'template_php/gtag_head.html'; ?>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_head.html'; ?>
  
  
   <title>見積り：労働保険事務組合RJC　無料見積りフォーム</title>
@@ -259,7 +258,7 @@ $detect = new Mobile_Detect;
 </style>
  
 <body id="input_php">
-<?php include_once  $TOP_PATH.'template_php/gtag_body.html'; ?>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
  
     <header>
