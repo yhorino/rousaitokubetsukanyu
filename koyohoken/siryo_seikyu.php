@@ -4,7 +4,7 @@ header("Content-type: text/html;charset=utf-8");
 require_once('../form/function.php');
 
 /* reCAPTCHA */
-$RECAPTUER = "6LfFcX8jAAAAACLG1rc01eTFV_D_I4KSYZ8zoqNq";
+include_once('recaptcha.php');
 
 $message = null;
 
