@@ -86,56 +86,6 @@ setcookie('norikae', '0', 0, '/');
         <div class="mitsumori-inner">
           <div class="mitsumori-select">
            
-           <!--<div class="mitsumori-block-flex">
-            <div class="mitsumori-block">
-             <h2 class="mitsumori-subttl"><span class="st_blue">いつから</span>ご加入が必要ですか？</h2>
-							<?php
-							$sel1 = 'checked';
-							$sel2 = '';
-       $sel4 = '';
-							if($_SESSION['kikan']==$kanyu_month1){
-        $sel1 = 'checked';
-        $sel2 = '';
-        $sel4 = '';
-       }
-							if($_SESSION['kikan']==$kanyu2_month1){
-        $sel1 = '';
-        $sel2 = 'checked';
-        $sel4 = '';
-       }
-							if($_SESSION['kikan']==4){
-        $sel1 = '';
-        $sel2 = '';
-        $sel4 = 'checked';
-       }
-							?>
-             <script>console.log('last5day='+<?php echo $last5day; ?>);</script>
-              <ul class="mitsumori-list">
-                <li>
-                  <input id="kikan1" type="radio" name="kikan" value="<?php echo $kanyu_month1;?>" required="" <?php echo $sel1;?>>
-                  <label for="kikan1"><span><?php echo $kanyu_month1;?>月</span></label>
-                </li>
-                <li>
-                  <input id="kikan2" type="radio" name="kikan" value="<?php echo $kanyu2_month1;?>" required="" <?php echo $sel2;?>>
-                  <label for="kikan2"><span><?php echo $kanyu2_month1;?>月</span></label>
-                </li>
-              </ul>
-             
-               <?php /* 1月～2月　表示して受付する 
-               <ul class="mitsumori-list">              
-                <li style="position: relative;">
-                  <input id="kikan4" type="radio" name="kikan" value="4" required="" <?php echo $sel4;?>>
-                  <label for="kikan4"><span class="button_2line_span">新年度（4月）から加入</span></label>
-                 <div id="baloon-left">
-                 <p class="balloon1-left"><span>3月末まで</span><span>ご加入中の方は</span><span>こちら！</span></p>
-                 </div>
-                </li>
-               </ul>
-                1月～2月　表示して受付する */ ?>
-              
-            </div>
-           </div> mitsumori-block-flex -->
-
            <input id="kikan" type="hidden" name="kikan" value="<?php echo $kanyu_month1;?>">
            
            <div class="mitsumori-block-flex">
@@ -143,26 +93,8 @@ setcookie('norikae', '0', 0, '/');
              <h2 class="mitsumori-subttl"><span class="st_blue">従業員の人数</span>は？</h2>
               <ul class="mitsumori-list">
 								<?php 
-               /*
-        $show_num=2;
-        if($device=='スマホ'){
-         $show_num=2;
-        }
-        */
 								for($i=1;$i<=4;$i++){
          $class='';
-         /*
-         if($i>($show_num-1)){
-          $class='ninzu_sonota';
-         }
-         if($i==$show_num){
-          echo '
-         <span id="ninzu_sonota">
-           <input class="mitsumori-other ml_input170" type="button" name="ninzu_sonota" value="その他" onclick="show_sonota_ninzu();">
-         </span>';
-         }
-									$sel = '';
-         */
 									$sel = '';
          if($i==1){
  									if(!isset($_SESSION['ninzu']) || $_SESSION['ninzu']==$i) $sel = 'checked';
@@ -208,8 +140,6 @@ setcookie('norikae', '0', 0, '/');
                 </li>
               </ul>
 
-              <!--<a class="popup_link" onclick="popup('#msg_tekiyou');">雇用保険適用事業所番号とは？</a>-->
-             
             </div>
             
            </div>
@@ -239,56 +169,17 @@ setcookie('norikae', '0', 0, '/');
            </div>
            </div>
 
-           <!--
-           <div class="mitsumori-block-flex" id="koyo_hajimete">
-            <div class="mitsumori-block">
-             <h2 class="mitsumori-subttl"><span class="st_blue">雇用保険</span>は、はじめてですか？</h2>
-							<?php
-							$sel1 = '';
-							$sel2 = '';
-							if($_SESSION['koyo_hajimete']=="はい"){
-        $sel1 = 'checked';
-        $sel2 = '';
-       }
-							if($_SESSION['koyo_hajimete']=="いいえ") $sel2 = 'checked';
-							?>
-              <ul class="mitsumori-list">
-                <li>
-                  <input id="koyo_hajimete_y" type="radio" name="koyo_hajimete" value="はい" required="" <?php echo $sel1;?>>
-                  <label for="koyo_hajimete_y"><span>はい</span></label>
-                </li>
-                <li>
-                  <input id="koyo_hajimete_n" type="radio" name="koyo_hajimete" value="いいえ" required="" <?php echo $sel2;?>>
-                  <label for="koyo_hajimete_n"><span>いいえ</span></label>
-                </li>
-              </ul>
-
-            </div>
-            
-           </div> -->
-           
-           
            <div id="blue_tri">
            <img src="/assets/img/blue_tri.png" alt="">
            </div>
             
           </div>
          
-          <!--<input id="shiharai_tsuki" type="hidden" name="shiharai_tsuki" value="<?php echo $_SESSION['shiharai_tsuki']; ?>">-->
           <div class="mitsumori-result" id="mitumori_result">
           <input id="sougaku_normal" type="hidden" name="sougaku_normal" readonly required="" value="<?php echo $_SESSION['sougaku_normal']; ?>">
           <input id="sougaku" type="hidden" name="sougaku" readonly required="" value="<?php echo $_SESSION['sougaku']; ?>">
            
            <div id="mousikomi_result_flex">
-            
-            <!--
-            <div id="maitsuki_title" class="mitsumori_title">月々のお支払金額</div>
-            <div class="mitsumori-result_item">
-              <div id="sougaku_price">
-               <span id="shiharai_tsuki_disp"></span><span class="en_small">円（税別）</span>
-              </div>
-            </div>
-            -->
             
             <div id="sougaku_title" class="mitsumori_title">お支払い総額</div>
             <div class="mitsumori-result_item mitsumori-result_item2">
@@ -298,31 +189,7 @@ setcookie('norikae', '0', 0, '/');
                <span class="price_tri"><i class="fas fa-caret-right"></i></span>
                <span class="price_camp mitsumori_red"><span id="sougaku_disp"></span><span class="en_small">円<span class="zeibetsu">（税別）</span></span></span>
               </div>
-             <!--
-              <div id="uchiwake_price">
-               
-               <span class="uchiwake uchiwake_tetsuduki hajimete_item">
-                <span class="uchiwake_line1"><span class="uchiwake_line_title">・手続き費用<span class="mitsumori_red mitsumori_small">　※33%OFF適用</span></span></span>
-                <span class="uchiwake_line2"><span class="uchiwake_line_title mitsumori_small"><span class="tetsuduki_keisan"><span id="tetsuduki_normal"></span><span class="mitsumori_red"> - <span id="tetsuduki_waribiki"></span></span></span></span>
-                <span id="tetsuduki_goukei" class="uchiwake_line_value mitsumori_red"></span>
-                </span>
-               </span>
-               
-               <span class="uchiwake uchiwake_kaihi">
-                <span class="uchiwake_line1"><span class="uchiwake_line_title">・会費<span id="uchiwake_kaihi_months"></span>か月分</span></span>
-                <span class="uchiwake_line2"><span class="uchiwake_line_title mitsumori_small"><span id="kaihi_keisan"></span></span>
-                <span id="kaihi_goukei" class="uchiwake_line_value"></span>
-                </span>
-               </span>
-               
-               <span class="uchiwake uchiwake_goukei">
-                <span class="uchiwake_line_goukei"><span class="uchiwake_line_title">合計</span>
-                <span id="goukei_goukei" class="uchiwake_line_value mitsumori_red"></span>
-                </span>
-               </span>
-               
-              </div>
-              -->
+
             </div>
             <p class="mitsumori-result_info1">※ 雇用保険料は含まれていません</p>
             
@@ -393,68 +260,10 @@ $(function(){
 	function get_price(){
   $('#mitumori_result').hide();
   
-  /*$kanyu_month = parseInt($('input[name="kikan"]:checked').val());
-  if($kanyu_month <= 3){
-   $kanyu_tsukisu = 4 - $kanyu_month;   
-  } else {
-   $kanyu_tsukisu = 16 - $kanyu_month;
-  }*/
   $koyo_bangou = $('input[name="koyo_bangou"]:checked').val();
   $ninzu = $('input[name="ninzu"]:checked').val();
-  //$hajimete = $('input[name="koyo_hajimete"]:checked').val();
-  /*
-  var now = new Date();
-  $this_month = now.getMonth()+1;
-  $today = now.getDate();
-  */
+  if($koyo_bangou != undefined && $ninzu != undefined){
   
-  //if($kanyu_month != undefined && $ninzu != undefined && $hajimete != undefined){
-  if(/*$kanyu_month != undefined*/ $koyo_bangou != undefined && $ninzu != undefined){
-  
-   /*
-   // 表示は税別　決済は税込
-   // 月々の支払額　＝　事務委託費 5000
-   if($ninzu <= 5) {
-    $shiharai_tsuki = 5000;
-   } else {
-    $shiharai_tsuki = 5000 + (1000 * ($ninzu-5));    
-   }
-
-   // 初回支払額
-   // 雇用保険はじめて　当月19日以前加入　＝　事務委託費３か月分 15000
-   // 雇用保険はじめて　当月20日以降加入　＝　事務委託費４か月分 20000
-   // 雇用保険はじめてでない　当月19日以前加入
-   // 　＝　事務委託費３か月分 15000
-   // 　＋成立届 20000
-   // 　＋適用事業所設置届 20000
-   // 　＋従業員資格取得届 20000*人数
-   // 雇用保険はじめてでない　当月20日以降加入　＝　事務委託費４か月分
-   // 　＝　事務委託費４か月分 20000
-   // 　＋成立届 20000
-   // 　＋適用事業所設置届 2000
-   // 　＋従業員資格取得届 20000*人数
-   
-   // 20221108 事務委託費廃止　スポット対応化
-   
-   // 33%割引キャンペーン
-   
-   $jimu_itaku = $shiharai_tsuki*3;
-   $jimu_itaku_tsukisu = 3;
-   if($this_month == $kanyu_month && $today >= 20){
-    $jimu_itaku = $shiharai_tsuki*4;
-    $jimu_itaku_tsukisu = 4;
-   }
-   $syorui = 20000+20000+(20000*$ninzu);
-   $syorui_waribiki = Math.floor($syorui*(1/3));
-   $syorui_camp = $syorui-$syorui_waribiki;
-    $syokai_shiharai = $syorui;
-    $syokai_shiharai_camp = $syorui_camp;
-
-   // 雇用保険料（参考値）
-   // 月給（30万）×月数×16.5/1000×人数
-   $koyo_hokenryo = 300000*$kanyu_tsukisu*(16.5/1000)*$ninzu;
-*/
-   
    // 20221206 雇用保険　計算変更
    // 番号あり→3,000円×人数
    // 番号なし→37,000円＋（3,000円×人数）
@@ -464,24 +273,12 @@ $(function(){
     $syokai_shiharai_camp = 37000 + (3000 * $ninzu);
    }
    $syokai_shiharai = $syokai_shiharai_camp + 5000; // 会社登録費割引分
-   //$('input[name="shiharai_tsuki"]').val(($shiharai_tsuki*1.1).toLocaleString());
    $('input[name="sougaku_normal"]').val(($syokai_shiharai*1.1).toLocaleString());
    $('input[name="sougaku"]').val(($syokai_shiharai_camp*1.1).toLocaleString());
 
-   //$('#shiharai_tsuki_disp').text($shiharai_tsuki.toLocaleString());
    $('#sougaku_normal_disp').text($syokai_shiharai.toLocaleString());
    $('#sougaku_disp').text($syokai_shiharai_camp.toLocaleString());
    
-   //$('#tetsuduki_normal').text($syorui.toLocaleString());
-   //$('#tetsuduki_waribiki').text($syorui_waribiki.toLocaleString());
-   //$('#tetsuduki_goukei').text($syorui_camp.toLocaleString()+'円');
-   
-   //$('#uchiwake_kaihi_months').text($jimu_itaku_tsukisu);
-   //$('#kaihi_keisan').text($shiharai_tsuki.toLocaleString()+' × '+$jimu_itaku_tsukisu);
-   //$('#kaihi_goukei').text($jimu_itaku.toLocaleString()+'円');
-   
-   //$('#goukei_goukei').text($syokai_shiharai_camp.toLocaleString()+'円');
-
    $('#mitumori_result').show();
   }
 	}
@@ -494,7 +291,6 @@ $(function(){
  });
  ninzu_selchange();
  $('.ninzu_sonota').hide(); 
- //$('#mitumori_result').hide();
  get_price();
  function show_sonota_ninzu(){
   $('.ninzu_sonota').show();
