@@ -81,20 +81,6 @@ require_once('../../form/function.php');
 
   </main>
 
-  <!-- footer notes -------------------->
- <!--
-    <footer class="ctr f16">
-      <img src="../assets/img/f_logo.png" width="327" alt="" />
-      <ul class="fbox">
-        <li><a href="../tokusyou.html">特定商取引に基づく表記</a></li>
-        <p class="pc">　｜　</p>
-        <li><a href="../privacy.html">個人情報保護方針</a></li>
-        <p class="pc">　｜　</p>
-        <li><a href="../sitepolicy.html">サイトポリシー</a></li>
-      </ul>
-     <p style="font-size: 12px; margin: 10px auto;">Copyright 2020 労働保険事務組合RJC All Rights Reserved.</p>
-    </footer>
--->
 </body>
 </html>
 
@@ -154,12 +140,10 @@ Mail: mail@rousai.jp
 ---------------------------------
 ';
 
-// $from = 'mail@rousai.jp';
  $from = 'mail@rousai.jp';
  $from_name = '労働保険事務組合RJC';
  $to = $_SESSION['mail'];
  $to_name = $_SESSION['kaisyamei'].' 様';
-// $title = '◇支払完了通知【事務組合RJC】';
  $title = '☆【クレカ決済完了 雇用保険】 <'.$to_name.'>【事務組合RJC】';
  
   if(isset($_SESSION['kaisyamei']) && $_SESSION['kaisyamei'] != ''){
