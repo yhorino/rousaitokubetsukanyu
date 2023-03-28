@@ -1,0 +1,390 @@
+<?php 
+// セッションの開始
+ob_start();
+session_start();
+require_once('../form/function.php');
+
+?>
+<!DOCTYPE html>
+<html lang="ja">
+ 
+<head>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_head.html'; ?>
+ 
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>【雇用保険がネットでできる？！】従業員の労災・雇用保険</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="期間限定で今だけの特別価格！　33%OFFキャンペーン　建設業専門　全国対応可能　国の労災・雇用保険　女性スタッフがていねいに対応">
+  <link rel="stylesheet" href="/assets/css/reset.css">
+  <link rel="stylesheet" href="/assets/css/common.css">
+  <link rel="stylesheet" href="/assets/css/style2.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="canonical" href="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/">
+  <link rel="alternate" media="handheld" href="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/">
+ 
+  <meta name="robots" content="all">
+  <meta name="copyright" content="Copyright 2020 労働保険事務組合RJC All Rights Reserved.">
+  <meta property="og:title" content="【雇用保険がネットでできる？！】従業員の労災・雇用保険">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/">
+  <meta property="og:image" content="/koyohoken/img/img_tel.png">
+  <meta property="og:site_name" content="中小事業主の特別加入RJC">
+  <meta property="og:description" content="期間限定で今だけの特別価格！　33%OFFキャンペーン　建設業専門　全国対応可能　国の労災・雇用保険　女性スタッフがていねいに対応"> 
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" href="/favicon.ico">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous"> 
+ 
+</head>
+
+<body>
+<?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
+ 
+<?php include_once 'header.php'?>
+ 
+  <?php /* KV */ /* ?>
+  <div class="kh_kvimg kh_wrap">
+    <div class="kh_inner kh_kvimg_inner">
+      <div class="kh_kvimg_photo">
+        <img src="img/kv_pc.png" class="kh_kvimg_photo_img kh_kvimg_photo_img_pc" alt="">
+        <img src="img/kv_sp.png" class="kh_kvimg_photo_img kh_kvimg_photo_img_sp" alt="">
+        <p class="kh_kvimg_photo_title">
+          <span class="kh_kvimg_photo_title_line">RJCの<span class="kh_font_large kh_font_maincolor">女性スタッフ</span>に</span>
+          <span class="kh_kvimg_photo_title_line">お気軽にお話ください</span>
+        </p>
+      </div>
+      <div class="kh_kvimg_title">
+        <h1 class="kh_kvimg_title_h1">
+          <span class="kh_kvimg_title_h1_line1">従業員が現場に入るには</span>
+          <span class="kh_kvimg_title_h1_line2"><span class="kh_font_large">「労災・雇用保険」</span><br>が必要です！</span>
+          <span class="kh_kvimg_title_h1_no1">
+            <img src="img/ill_award_left.png" alt="">
+            <div class="kh_kvimg_title_h1_no1_lines">
+              <span class="kh_kvimg_title_h1_no1_line1">RJCは建設業専門！</span>
+              <span class="kh_kvimg_title_h1_no1_line2">ゼネコンに選ばれて<span class="kh_font_large kh_font_yellow">No.1</span></span>
+            </div>
+            <img src="img/ill_award_right.png" alt="">
+          </span>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <?php */ /* KV */ ?>
+ 
+  <?php /* KV 入社手続き3,000円 */ ?>
+  <div class="kh_kvimg_koyo-nyusha kh_wrap">
+    <div class="kh_kvimg_inner">
+      <img src="img/kv_koyo-nyusha_pc.png" class="kh_kvimg_photo_img kh_kvimg_photo_img_pc" alt="">
+      <img src="img/kv_koyo-nyusha_sp.png" class="kh_kvimg_photo_img kh_kvimg_photo_img_sp" alt="">
+    </div>
+  </div>
+  <?php /* 入社手続き3,000円 */ ?>
+ 
+  <?php /* フォームボタン */ ?>
+  <div class="kh_form_buttons kh_wrap">
+    <div class="kh_inner kh_form_inner">
+      <a href="form/mitsumori.php?button=mitsumori1" class="kh_form_formbutton kh_form_formbutton_kanyu">
+        <div class="kh_form_formbutton_body kh_form_formbutton_body_kanyu">
+          <span class="kh_form_formbutton_text">
+            <span class="kh_form_formbutton_text_line1">手続きを依頼する</span>
+          </span>
+          <i class="fas fa-caret-right kh_form_formbutton_faicon"></i>
+        </div>
+      </a>
+      <a href="#siryo_seikyu_form" class="kh_form_formbutton kh_form_formbutton_mitsumori">
+        <div class="kh_form_formbutton_body kh_form_formbutton_body_mitsumori">
+          <span class="kh_form_formbutton_text">
+            <span class="kh_form_formbutton_text_line1">資料請求はこちら</span>
+          </span>
+          <i class="fas fa-caret-right kh_form_formbutton_faicon"></i>
+        </div>
+      </a>
+    </div>
+    <a href="#siryo_seikyu_form" class="kh_form_formlink_mitsumori">
+     <span class="kh_form_formbutton_text_line1">資料請求はこちら <i class="fas fa-caret-right kh_form_formbutton_faicon"></i></span>
+    </a>
+  </div>
+  <?php /* フォームボタン */ ?>
+ 
+  <?php /* 電話ボタン */ ?>
+  <div class="kh_tel kh_wrap">
+    <div class="kh_inner">
+      <a href="tel:0120855865" class="kh_tel_telbutton">
+        <img src="img/img_tel.png" class="kh_tel_telbutton_photo" alt="">
+        <div class="kh_tel_telbutton_body">
+          <span class="kh_tel_telbutton_text">
+            <span class="kh_tel_telbutton_text_line1">お急ぎの人は</span>
+            <span class="kh_tel_telbutton_text_line2">
+              <img src="img/ill_freetel.png" class="kh_tel_telbutton_freetel">
+              <span class="kh_tel_telbutton_telno">0120-855-865</span>
+            </span>
+          </span>
+          <i class="fas fa-caret-right kh_tel_telbutton_faicon"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  <?php /* 電話ボタン */ ?>
+ 
+  <?php /* 問題提起 */ ?>
+  <div class="kh_probrem kh_wrap">
+    <div class="kh_inner">
+      <div class="kh_problem_speech">
+        <h2 class="kh_h2 kh_problem_ballon_text">
+         実は…<br>
+         雇用保険は自分でやると<br>
+         とっても大変！
+        </h2>
+        <img src="img/ill_speech.png" class="kh_problem_speech_img" alt="">
+      </div>
+      <div class="kh_problem_point">
+        <ul class="kh_problem_point_list">
+          <li><i class="fas fa-check kh_problem_point_faicon"></i> 用意する書類が多い</li>
+          <li><i class="fas fa-check kh_problem_point_faicon"></i> 書く書類が多い</li>
+          <li><i class="fas fa-check kh_problem_point_faicon"></i> 何度もハローワークに足を運ばないといけない</li>
+        </ul>
+      </div>
+      <div class="kh_problem_result">
+        <h2 class="kh_h2 kh_problem_result_text">雇用保険の手続きは面倒で難しい！！</h2>
+        <img src="img/ill_trouble.png" class="kh_problem_result_img" alt="">
+      </div>
+    </div>
+  </div>
+  <?php /* 問題提起 */ ?>
+
+  <?php /* 解決 */ ?>
+  <div class="kh_answer">
+    <div class="kh_answer_title kh_wrap">
+      <div class="kh_inner">
+        <p class="kh_answer_title_text">けど、そこで諦めないで！！</p>
+      </div>
+    </div>
+    <div class="kh_answer_body kh_wrap">
+      <div class="kh_answer_title_tri"></div>
+      <div class="kh_inner">
+        <h2 class="kh_answer_body_title">RJCなら実績多数のプロがいます！</h2>
+        <div class="kh_answer_body_points">
+          <div class="kh_answer_body_point point1">
+            <span class="kh_answer_body_point_title">おすすめ<span class="kh_font_large">１</span></span>
+            <div class="kh_answer_body_point_imgbox2">
+              <img src="img/img_staff.png" class="kh_answer_body_point_img2" alt="">
+            </div>
+            <h3 class="kh_answer_body_point_text">女性スタッフが丁寧に対応</h3>
+          </div>
+          <div class="kh_answer_body_point point2">
+            <span class="kh_answer_body_point_title">おすすめ<span class="kh_font_large">２</span></span>
+            <div class="kh_answer_body_point_imgbox">
+              <img src="img/ill country.png" class="kh_answer_body_point_img" alt="">
+            </div>
+            <h3 class="kh_answer_body_point_text">全国対応可能</h3>
+          </div>
+          <div class="kh_answer_body_point point3">
+            <span class="kh_answer_body_point_title">おすすめ<span class="kh_font_large">３</span></span>
+            <div class="kh_answer_body_point_imgbox">
+              <img src="img/ill_book.png" class="kh_answer_body_point_img" alt="">
+            </div>
+            <h3 class="kh_answer_body_point_text">多数の実績あり</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <?php /* 解決 */ ?>
+ 
+  <?php /* 電話ボタン */ ?>
+  <div class="kh_tel kh_wrap">
+    <div class="kh_inner">
+      <a href="tel:0120855865" class="kh_tel_telbutton">
+        <img src="img/img_tel.png" class="kh_tel_telbutton_photo" alt="">
+        <div class="kh_tel_telbutton_body">
+          <span class="kh_tel_telbutton_text">
+            <span class="kh_tel_telbutton_text_line1">お急ぎの人は</span>
+            <span class="kh_tel_telbutton_text_line2">
+              <img src="img/ill_freetel.png" class="kh_tel_telbutton_freetel">
+              <span class="kh_tel_telbutton_telno">0120-855-865</span>
+            </span>
+          </span>
+          <i class="fas fa-caret-right kh_tel_telbutton_faicon"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  <?php /* 電話ボタン */ ?>
+ 
+  <?php /* 雇用保険関連情報 */ ?>
+  <div class="kh_kanren kh_wrap">
+    <div class="kh_inner">
+      <h2 class="kh_kanren_title_text">
+        <span class="kh_kanren_title_text_line1">役に立つ</span>
+        <span class="kh_kanren_title_text_line2">雇用保険関連情報</span>
+      </h2>
+      <div class="kh_kanren_subtext">
+        <h3 class="kh_kanren_subtext_title">雇用保険とは</h3>
+        <p class="kh_kanren_subtext_text">
+         労働者を一人でも雇っていれば、雇用保険の加入手続が必要です。<br>
+         <span class="kh_font_red kh_font_bold">雇用保険に加入すると、雇用保険被保険者番号が発行されます。現場で必要なのはこの番号です。</span><br>
+         雇用保険は、労働者が失業して所得がなくなった時に、生活の安定や再就職を応援するために失業給付などを支給する保険です。
+        </p>
+      </div>
+      <div class="kh_kanren_subtext">
+        <h3 class="kh_kanren_subtext_title">二元適用事業とは</h3>
+        <p class="kh_kanren_subtext_text">
+         建設業は、労災保険と雇用保険の適用の仕方を区別する必要があるため、保険料の申告・納付等をそれぞれ分けて、二元的に行う事業です。<br>
+         一般には、農林漁業・建設業等が二元適用事業で、それ以外の事業が一元適用事業です。
+        </p>
+      </div>
+      <div class="kh_kanren_subtext">
+        <h3 class="kh_kanren_subtext_title">建設業の労災保険とは</h3>
+        <p class="kh_kanren_subtext_text">
+         建設業の労災保険は、一般的な労災保険とは異なります。<br>
+         工事の元請業者が現場ごとに加入する労災保険で、その元請業者の労働者はもちろん、下請業者の労働者の労働災害についても補償します。
+        </p>
+      </div>
+      <div class="kh_kanren_subtext">
+        <h3 class="kh_kanren_subtext_title">従業員が現場に入るには</h3>
+        <p class="kh_kanren_subtext_text">
+         元請業者の現場に入るには雇用保険被保険者番号が必要です。<br>
+         雇用保険に入っていないと現場に入れないのはもちろん、業務や通勤中の怪我に対して労災保険の給付を受けることができません。
+        </p>
+      </div>
+    </div>
+  </div>
+  <?php /* 雇用保険関連情報 */ ?>
+ 
+  <?php /* 電話ボタン前 */ ?>
+  <div class="kh_tel_before kh_wrap">
+    <div class="kh_inner">
+      <p class="kh_tel_before_text1">従業員が現場に入るには「労災・雇用保険」が必要です！</p>
+    </div>
+  </div>
+  <div class="kh_tel kh_wrap">
+    <div class="kh_inner">
+      <div class="kh_tel_before_tri"></div>
+      <p class="kh_tel_before_text2">女性スタッフが丁寧に対応、まずはお電話ください！</p>
+    </div>
+  </div>
+  <?php /* 電話ボタン前 */ ?>
+  <?php /* 電話ボタン */ ?>
+  <div class="kh_tel kh_wrap">
+    <div class="kh_inner">
+      <a href="tel:0120855865" class="kh_tel_telbutton">
+        <img src="img/img_tel.png" class="kh_tel_telbutton_photo" alt="">
+        <div class="kh_tel_telbutton_body">
+          <span class="kh_tel_telbutton_text">
+            <span class="kh_tel_telbutton_text_line1">お急ぎの人は</span>
+            <span class="kh_tel_telbutton_text_line2">
+              <img src="img/ill_freetel.png" class="kh_tel_telbutton_freetel">
+              <span class="kh_tel_telbutton_telno">0120-855-865</span>
+            </span>
+          </span>
+          <i class="fas fa-caret-right kh_tel_telbutton_faicon"></i>
+        </div>
+      </a>
+    </div>
+  </div>
+  <?php /* 電話ボタン */ ?>
+ 
+  <?php /* 資料請求フォーム */ ?>
+  <div class="kh_form kh_wrap" id="siryo_seikyu_form">
+    <div class="kh_ssf_inner">
+      <h2 class="kh_h2 kh_form_title">資料請求フォーム</h2>
+      <form name="form" method="post" action="siryo_seikyu.php" id="mail_form">
+       <div class="ssf_body">
+        <div class="ssf_item">
+         <label class="ssf_item_title">会社名</label>
+         <input type="text" name="kaisyamei" placeholder="会社名" required class="ssf_item_input">
+        </div>
+        <div class="ssf_border"></div>
+        <div class="ssf_item">
+         <label class="ssf_item_title">ご担当者名</label>
+         <input type="text" name="tantousyamei" placeholder="山田　太郎" required class="ssf_item_input">
+        </div>
+        <div class="ssf_border"></div>
+        <div class="ssf_item">
+         <label class="ssf_item_title">ご担当者名フリガナ</label>
+         <input type="text" name="tantousyamei_furi" placeholder="ヤマダ　タロウ" required class="ssf_item_input">
+        </div>
+        <div class="ssf_border"></div>
+        <div class="ssf_item">
+         <label class="ssf_item_title">電話番号</label>
+         <input type="tel" name="tel" placeholder="09011112222" required class="ssf_item_input">
+        </div>
+        <div class="ssf_border"></div>
+        <div class="ssf_item">
+         <label class="ssf_item_title">メールアドレス</label>
+         <input type="email" name="mail" placeholder="name@domain.co.jp" required class="ssf_item_input">
+        </div>
+        <div class="ssf_border"></div>
+        <div class="ssf_item">
+         <label class="ssf_item_title">お住まいの都道府県</label>
+         <div class="ssf_item_select">
+         <select id="pref" name="pref" required class="ssf_item_input">
+          <?php
+           for($i=1;$i<=47;$i++){
+            echo '<option value="'.$pref[$i].'">'.$pref[$i].'</option>';
+           }
+           ?>
+         </select>
+         </div>
+        </div>
+        <div class="ssf_border"></div>
+        <div class="ssf_item">
+         <label class="ssf_item_title">今回検討していること</label>
+         <div class="ssf_item_input">
+          <p class="ssf_item_text">下記で当てはまるものはすべてチェックしてください</p>
+          <div class="ssf_item_check">
+           <label><input type="checkbox" name="kento_nyusya" value="1">雇用保険　入社手続き</label>
+          </div>
+          <div class="ssf_item_check">
+           <label><input type="checkbox" name="kento_taisyoku" value="1">雇用保険　退職手続き</label>
+          </div>
+          <div class="ssf_item_check">
+           <label><input type="checkbox" name="kento_kanyu" value="1">中小事業主の特別加入</label>
+           <label></label>
+          </div>
+         </div>
+        </div>
+        
+        <input type="hidden" name="recaptchaToken" id="recaptchaToken">
+        <input type="submit" name="ssf_submit" value="&#xf0e0; 資料請求をする"  class="kh_omakase_button2 fas ssf_submit_button ssf_submit_button_yellow">
+        
+        <p class="ssf_info">※ 手続きは社会保険労務士事務所トータルマネジメントが行います</p>
+        
+       </div>
+      </form>
+    </div>
+  </div>
+  <?php /* 資料請求フォーム */ ?>
+ 
+<div id="index_html">
+<?php include_once '../inc/footer2.php'?>
+</div>
+ 
+<?php /* reCAPTCHA */ ?>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfFcX8jAAAAABM07Sgjtnh6m5HaYmB45fxAWvPb"></script>
+<script>
+document.getElementById("mail_form").addEventListener('submit', onSubmit);
+ 
+function onSubmit(e) 
+{
+	e.preventDefault();
+	grecaptcha.ready(function() 
+	{
+		grecaptcha.execute('6LfFcX8jAAAAABM07Sgjtnh6m5HaYmB45fxAWvPb', {action: 'submit'}).then(function(token)
+		{
+			// Add your logic to submit to your backend server here.
+			var recaptchaToken = document.getElementById('recaptchaToken');
+			recaptchaToken.value = token;
+			document.getElementById("mail_form").submit();
+		});
+	});
+}
+</script>
+<?php /* reCAPTCHA */ ?>
+ 
+</body>
+ 
+</html>
