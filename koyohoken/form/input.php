@@ -214,46 +214,9 @@ $(function () {
         <div class="mitsumori-inner">
           <div class="mitsumori-select">
            
-           <!--
-           <div class="mitsumori-block-flex" id="rjc_kanyu">
-            <div class="mitsumori-block">
-             <h2 class="mitsumori-subttl"><span class="st_blue">当団体（RJC）</span>に加入していますか？</h2>
-							<?php
-							$sel1 = '';
-							$sel2 = '';
-							if($_SESSION['rjc_kanyu']=="はい"){
-        $sel1 = 'checked';
-        $sel2 = '';
-       }
-							if($_SESSION['rjc_kanyu']=="いいえ") $sel2 = 'checked';
-							?>
-              <ul class="mitsumori-list">
-                <li>
-                  <input id="rjc_kanyu_y" type="radio" name="rjc_kanyu" value="はい" required="" <?php echo $sel1;?>>
-                  <label for="rjc_kanyu_y"><span>はい</span></label>
-                </li>
-                <li>
-                  <input id="rjc_kanyu_n" type="radio" name="rjc_kanyu" value="いいえ" required="" <?php echo $sel2;?>>
-                  <label for="rjc_kanyu_n"><span>いいえ</span></label>
-                </li>
-              </ul>
-
-            </div>
-            
-           </div>
-           -->
-
-           <!--
-           <div class="rjc_kanyu_query_yes">
-
-           <div id="blue_tri">
-           <img src="/assets/img/blue_tri.png" alt="">
-           </div>
-           -->
            <div class="mitsumori-block-flex rjc_kanyu_query">
             <div class="mitsumori-block">
              <h2 class="mitsumori-subttl input_table">労働保険番号がありますか？<span class="label req">必須</span></h2>
-             <!--<input id="roudouhoken_no" type="text" name="roudouhoken_no" placeholder="労働保険番号" value="<?php echo $_SESSION['roudouhoken_no']; ?>">-->
              
              <div class="roudouhoken_no_radio radio1">
               <label><input type="radio" name="roudouhoken_no_yn" id="roudouhoken_no_y" value="1" checked> ある（番号を記入ください）</label>
@@ -301,20 +264,10 @@ $(function () {
              </div>
              </div>
            
-           <!--</div>-->
-           
          </div>
        </div>
       </section>
      
-     <!--
-      <section class="mitsumori input_section">
-       <div id="flow_image">
-       <img src="../../assets/img/form_flow1.png" alt="STEP1 お客様情報の入力" class="show_pc hide_sp">
-       <img src="../../assets/img/form_flow1_sp.png" alt="STEP1 お客様情報の入力" class="show_sp hide_pc">
-       </div>
-      </section>
-     -->
       <section class="mitsumori input_section">
       <h1 class="mitsumori-ttl">お客様情報の入力</h1>
         <div class="mitsumori-inner">
@@ -1001,85 +954,6 @@ function check_email(){
 	return $ret;
 }
 
-/*
-function type_click(){
- $('.tr_hojin').hide();
- $('.tr_kojin').hide();
- $('.sec_kojin').hide();
- $typesel = $('input[name="type"]:checked').val();
-// $typesel = "<?php echo $_SESSION['type'];?>";
- if($typesel == '法人'){
-  $('.tr_hojin').show();
-  $('.tr_hojin input[type="file"]').attr('required', true);
-  $('.tr_kojin input[type="file"]').val("");
-  $('.tr_kojin input[type="file"]').removeAttr('required');
- } else if($typesel == '個人'){
-  $('.tr_kojin').show();
-  $('.sec_kojin').show();
-  $('.tr_kojin input[type="file"]').attr('required', true);
-  $('.tr_hojin input[type="file"]').val("");
-  $('.tr_hojin input[type="file"]').removeAttr('required');
- }
- $kikan = <?php echo $_SESSION['kikane'];?>;
- if($kikan == 0){
-  $('.tr_3month_hide').show();
-  $('.tr_3month_hide input[type="file"]').attr('required', true);
- } else {
-  $('.tr_3month_hide').hide();
-  $('.tr_3month_hide input[type="file"]').val("");
-  $('.tr_3month_hide input[type="file"]').removeAttr('required');
- }
-}
-*/
-
-/*
-function add_file_rirekisyo(){
- $num = $('input[name="f_num"]').val()*1;
- if($num <= 0) $num = 1;
- $num_next = $num+1;
- if($num == 1){
-  $('input[name="file_rirekisyo'+$num+'"]').after('<input type="file" name="file_rirekisyo'+$num_next+'" accept="image/*,.pdf" id="file_rirekisyo'+$num_next+'" required><input type="button" name="del_button" id="del_button" onclick="del_file_rirekisyo();" value="×">');
- } else {
-  $('input[name="file_rirekisyo'+$num+'"]').after('<input type="file" name="file_rirekisyo'+$num_next+'" accept="image/*,.pdf" id="file_rirekisyo'+$num_next+'" required>');
- }
- $('input[name="f_num"]').val($num_next);
-}
-
-function del_file_rirekisyo(){
- $num = $('input[name="f_num"]').val()*1;
- if($num <= 0) $num = 1;
- $num_prev = $num-1;
- $('input[name="file_rirekisyo'+$num+'"]').val("");
- $('input[name="file_rirekisyo'+$num+'"]').remove();
- $('input[name="f_num"]').val($num_prev);
- if($num_prev == 1){
-  $('#del_button').remove();
- }
-}
-
-function sendonfax(){
- $chk = $("#sendonfax").prop('checked');
- console.log($chk);
- if($chk == true){
-  $('.file_attach').hide();
-  $('.file_attach input[type="file"]').val("");
-  $('.file_attach input[type="file"]').removeAttr("required");
- } else {
-  $('.file_attach').show();
-  $('.file_attach input[type="file"]').attr("required");
-  for($i=0;$i<=5;$i++){
-   $('.file_attach'+$i).hide();
-   $('.file_attach'+$i+' input[type="file"]').val("");
-   $('.file_attach'+$i+' input[type="file"]').removeAttr("required");
-   if($i <= <?php echo $_SESSION['ninzu'];?>){
-    $('.file_attach'+$i).show();
-    $('.file_attach'+$i+' input[type="file"]').attr("required", "required");
-  }
-  }
- }
-}
-*/
-   
 $(function(){
 		$(".emailerr").hide();
 		$(".mynumbererr").hide();
@@ -1111,17 +985,6 @@ $(function(){
   });
   $('#roudouhoken_no1').prop('disabled', false);
   $('#roudouhoken_no2').prop('disabled', false);
- /*
-  $('input[name="type"]').click(function(){
-   type_click();
-  });
-  type_click();
-
-		$("#sendonfax").click(function(){
-   sendonfax();
-  });
-  sendonfax();
- */ 
 	});
    
 function popup($id){
@@ -1201,7 +1064,6 @@ function get_rjcdata(){
      $('input[name="kaisya_id"]').val('');
      $("#overlay2").fadeOut(300);
     }
-//     $('html,body').animate({scrollTop : $('#query_madoguchi2').offset().top  -40}, 0);
 			},
    error: function(){
     /* 20210831 金額取得がおかしい場合あり　原因不明　予防策としてエラー処理を追加 */

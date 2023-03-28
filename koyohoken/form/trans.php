@@ -19,24 +19,6 @@ $detect = new Mobile_Detect;
 			$device = 'スマホ';
 		}
 
-/*
-// セッション切れチェック
- $timeout = 900;
-
-// ini_set('session.gc_maxlifetime', $timeout);
-
- if (isset($_SESSION['idle_time']) && $_SESSION['idle_time'] < time()) {
-//     session_destroy();
-//     session_start();
-//     session_regenerate_id();
-     unset($_SESSION['idle_time']);
-     header('Location: ./session_out.php');
-     exit;
- }
-
- $_SESSION['idle_time'] = time() + $timeout;
-*/
-
 // 各ページから遷移したときに全てのPOST項目をSESSIONに保存する
    $params = array('kikan', 'ninzu', 'koyo_hajimete', 'shiharai_tsuki', 'sougaku', 'rjc_kanyu', 'roudouhoken_no', 'roudouhoken_no1', 'roudouhoken_no2', 'type', 'kaisyamei', 'kaisyamei_furi', 'zip', 'pref', 'city', 'address', 'apart', 'denwabangou', 'faxbangou', 'mail', 'daihyosyamei_sei', 'daihyosyamei_mei', 'daihyosyamei_furi_sei', 'daihyosyamei_furi_mei', 'daihyosyayakusyoku', 'jyugyoinmei_sei1', 'jyugyoinmei_mei1', 'jyugyoinmei_furi_sei1', 'jyugyoinmei_furi_mei1', 'gekkyu1', 'birthday_y1', 'birthday_m1', 'birthday_d1', 'mynumber1', 'zip1', 'pref1', 'city1', 'address1', 'address21', 'apart1', 'jyugyoinmei_sei2', 'jyugyoinmei_mei2', 'jyugyoinmei_furi_sei2', 'jyugyoinmei_furi_mei2', 'gekkyu2', 'birthday_y2', 'birthday_m2', 'birthday_d2', 'mynumber2', 'zip2', 'pref2', 'city2', 'address2', 'apart2', 'jyugyoinmei_sei3', 'jyugyoinmei_mei3', 'jyugyoinmei_furi_sei3', 'jyugyoinmei_furi_mei3', 'gekkyu3', 'birthday_y3', 'birthday_m3', 'birthday_d3', 'mynumber3', 'zip3', 'pref3', 'city3', 'address3', 'apart3', 'jyugyoinmei_sei4', 'jyugyoinmei_mei4', 'jyugyoinmei_furi_sei4', 'jyugyoinmei_furi_mei4', 'gekkyu4', 'birthday_y4', 'birthday_m4', 'birthday_d4', 'mynumber4', 'zip4', 'pref4', 'city4', 'address4', 'apart4', 'jyugyoinmei_sei5', 'jyugyoinmei_mei5', 'jyugyoinmei_furi_sei5', 'jyugyoinmei_furi_mei5', 'gekkyu5', 'birthday_y5', 'birthday_m5', 'birthday_d5', 'mynumber5', 'zip5', 'pref5', 'city5', 'address5', 'apart5', 'jyugyoinmei_sei6', 'jyugyoinmei_mei6', 'jyugyoinmei_furi_sei6', 'jyugyoinmei_furi_mei6', 'gekkyu6', 'birthday_y6', 'birthday_m6', 'birthday_d6', 'mynumber6', 'zip6', 'pref6', 'city6', 'address6', 'apart6', 'jyugyoinmei_sei7', 'jyugyoinmei_mei7', 'jyugyoinmei_furi_sei7', 'jyugyoinmei_furi_mei7', 'gekkyu7', 'birthday_y7', 'birthday_m7', 'birthday_d7', 'mynumber7', 'zip7', 'pref7', 'city7', 'address7', 'apart7', 'jyugyoinmei_sei8', 'jyugyoinmei_mei8', 'jyugyoinmei_furi_sei8', 'jyugyoinmei_furi_mei8', 'gekkyu8', 'birthday_y8', 'birthday_m8', 'birthday_d8', 'mynumber8', 'zip8', 'pref8', 'city8', 'address8', 'apart8', 'jyugyoinmei_sei9', 'jyugyoinmei_mei9', 'jyugyoinmei_furi_sei9', 'jyugyoinmei_furi_mei9', 'gekkyu9', 'birthday_y9', 'birthday_m9', 'birthday_d9', 'mynumber9', 'zip9', 'pref9', 'city9', 'address9', 'apart9', 'jyugyoinmei_sei10', 'jyugyoinmei_mei10', 'jyugyoinmei_furi_sei10', 'jyugyoinmei_furi_mei10', 'gekkyu10', 'birthday_y10', 'birthday_m10', 'birthday_d10', 'mynumber10', 'zip10', 'pref10', 'city10', 'address10', 'apart10', 'shiharai', 'kaisya_id', 'order_no', 'shimebi', 'shiharaibi', 'shiharaibi_month', 'koyo_bangou');
    // データを取得する ＋ 必須入力のvalidate
