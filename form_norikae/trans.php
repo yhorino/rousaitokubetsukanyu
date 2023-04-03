@@ -481,8 +481,8 @@ function upload_file($name, $filename, $tmp_name){
    $img_name = str_replace('　','',$img_name);
 
    //画像を保存
-//   move_uploaded_file($tmp_name, './upload/' . $img_name);
-   move_uploaded_file($tmp_name, '../../form_norikae/upload/' . $img_name);
+   move_uploaded_file($tmp_name, './upload/' . $img_name);
+//   move_uploaded_file($tmp_name, '../../form_norikae/upload/' . $img_name);
    $img_url = 'https://'.$_SERVER['HTTP_HOST'].'/form_norikae/upload/'.$img_name;
  }
  return $img_url;
