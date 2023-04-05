@@ -530,8 +530,8 @@ $detect = new Mobile_Detect;
              if($_SESSION['shiharai_kaisu']=='毎月払い') $sel1 = 'checked';
              if($_SESSION['shiharai_kaisu']=='年払い') $sel2 = 'checked';
              ?>
-             <li>
-               <input id="shiharai_kaisu1" type="radio" name="shiharai_kaisu" value="毎月払い" required="" <?php echo $sel1;?>>
+             <li class="disabled_button">
+               <input id="shiharai_kaisu1" type="radio" name="shiharai_kaisu" value="毎月払い" required="" <?php echo $sel1;?> disabled>
                <label for="shiharai_kaisu1"><span>毎月払い</span></label>
              </li>
              <li>
@@ -546,7 +546,7 @@ $detect = new Mobile_Detect;
              <div id="msg4">
              <div class="mitsumori-block2" style="display: none;">
               <p class="q_title">毎月払いとは？</p>
-              <p class="q_text">初回費用として保険料と3か月分の会費等をお支払いただき、4か月目から月額会費を口座振替にてお支払いただく方法です。</p>
+              <p class="q_text">初回費用として保険料と3か月分の会費等をお支払いただき、4か月目から月額会費を口座振替にてお支払いただく方法です。</p><br>
               <p class="q_title">年払いとは？</p>
               <p class="q_text">お申込み時に、保険料等を一括でお支払いただく方法です。</p>
              </div>

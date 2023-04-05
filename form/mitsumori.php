@@ -403,8 +403,8 @@ setcookie('norikae', '0', 0, '/');
 							if($_SESSION['shiharai_kaisu']=='年払い') $sel2 = 'checked';
 							?>
               <ul class="mitsumori-list">
-                <li>
-                  <input id="shiharai_kaisu1" type="radio" name="shiharai_kaisu" value="毎月払い" required="" <?php echo $sel1;?>>
+                <li class="disabled_button">
+                  <input id="shiharai_kaisu1" type="radio" name="shiharai_kaisu" value="毎月払い" required="" <?php echo $sel1;?> disabled>
                   <label for="shiharai_kaisu1"><span>毎月払い</span></label>
                 </li>
                 <li>
@@ -414,7 +414,7 @@ setcookie('norikae', '0', 0, '/');
               </ul>
              <p class="shiharai_kaisu_info_1">※ 毎月払い専用のクーポンです。</p>
              <p class="shiharai_kaisu_info_2">※ 年払い専用のクーポンです。</p>
-             <div class="shiharai_kaisu_info_ballon balloon1"><p>初回の費用を安く<br>したいならこちら！</p></div>
+             <div class="shiharai_kaisu_info_ballon balloon1"><p style="font-size: 13px;">現在、<br>受付を停止しております。</p></div>
             </div>
             <div id="msg3-2">
             <div class="mitsumori-block2">
