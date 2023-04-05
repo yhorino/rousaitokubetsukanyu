@@ -5233,3 +5233,15 @@ input[type="submit"].submit_card,
   }
 }
 /* 20230302 従業員雇っているか？ */
+
+/* ボタン無効化 */
+.disabled_button {
+ background-color: #aaa;
+}
+.disabled_button input + label {
+    /*color: #ddd!important;*/
+    cursor: not-allowed!important;
+    box-shadow: none!important;
+    opacity: 0.6!important;
+}
+/* ボタン無効化 */

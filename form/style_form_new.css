@@ -4684,3 +4684,16 @@ input[type="submit"].submit_card,
     width: 0px;
 }
 
+/* ボタン無効化 */
+.disabled_button {
+ background-color: #aaa;
+ border-radius: 5px;
+}
+.disabled_button input + label {
+    /*color: #ddd!important;*/
+    cursor: not-allowed!important;
+    box-shadow: none!important;
+    opacity: 0.6!important;
+}
+/* ボタン無効化 */
+
