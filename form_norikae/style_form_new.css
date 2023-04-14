@@ -3576,6 +3576,7 @@ div#blue_tri {
   padding: 0;
   margin: 20px;
 }
+/*
 #done_php .mitsumori-complete img.show_pc,
 #paid_php .mitsumori-complete img.show_pc {
   width: 850px;
@@ -3586,6 +3587,7 @@ div#blue_tri {
 #paid_php .mitsumori-complete img.hide_pc {
   display: none;
 }
+*/
 @media screen and (max-width: 768px) {
   .mitsumori-inner {
     padding: 20px;
@@ -3748,6 +3750,7 @@ div#blue_tri {
   #done_php .mitsumori-select .done_text {
     line-height: 24px;
   }
+ /*
   #paid_php .mitsumori-complete img.show_sp {
     width: 334px;
     margin: 0 auto;
@@ -3756,6 +3759,7 @@ div#blue_tri {
   #paid_php .mitsumori-complete img.hide_sp {
     display: none;
   }
+ */
 }
 @media screen and (max-width: 420px) {
   .mitsumori-block .mitsumori-list input.mitsumori-other,
