@@ -208,6 +208,13 @@ include('session_check.php');
            <table class="input_table">
 
             <tr>
+             <th colspan="2">メールアドレス</th>
+             <td>
+              <?php echo $_SESSION['mail'];?>
+             </td>
+            </tr>
+            
+            <tr>
              <th colspan="2">会社名・屋号</th>
              <td>
               <?php echo $_SESSION['kaisyamei_furi'];?><br>
@@ -243,13 +250,6 @@ include('session_check.php');
              <th colspan="2">FAX番号</th>
              <td>
               <?php echo $_SESSION['faxbangou'];?>
-             </td>
-            </tr>
-            
-            <tr>
-             <th colspan="2">メールアドレス</th>
-             <td>
-              <?php echo $_SESSION['mail'];?>
              </td>
             </tr>
             
