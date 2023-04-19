@@ -124,6 +124,25 @@ $(function () {
          <table class="input_table">
           
           <tr>
+           <th>メールアドレス</th><th><span class="label req">必須</span></th>
+           <td>
+            
+            <input id="email" type="email" name="mail" placeholder="name@domain.co.jp" value="<?php echo $_SESSION['mail']; ?>" required>
+            
+           </td>
+           
+          </tr>
+          <!--<tr>
+           <th>メールアドレス(再入力)</th><th><span class="label req">必須</span></th>
+           <td>
+            
+            <input id="emailchk" type="email" name="emailchk" placeholder="name@domain.co.jp" value="" oncopy="return false" onpaste="return false" oncontextmenu="return false" required>
+            <p class="emailerr" id="emailerr">e-mailの入力が一致しません</p>
+           </td>
+           
+          </tr>-->
+          
+          <tr>
            <th>個人ですか？法人ですか？</th><th><span class="label req">必須</span></th>
            <td>
             <?php
@@ -278,25 +297,6 @@ $(function () {
            </td>
            
           </tr>
-          
-          <tr>
-           <th>メールアドレス</th><th><span class="label req">必須</span></th>
-           <td>
-            
-            <input id="email" type="email" name="mail" placeholder="name@domain.co.jp" value="<?php echo $_SESSION['mail']; ?>" required>
-            
-           </td>
-           
-          </tr>
-          <!--<tr>
-           <th>メールアドレス(再入力)</th><th><span class="label req">必須</span></th>
-           <td>
-            
-            <input id="emailchk" type="email" name="emailchk" placeholder="name@domain.co.jp" value="" oncopy="return false" onpaste="return false" oncontextmenu="return false" required>
-            <p class="emailerr" id="emailerr">e-mailの入力が一致しません</p>
-           </td>
-           
-          </tr>-->
           
          </table>
          </figure>

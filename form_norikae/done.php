@@ -42,6 +42,9 @@ setcookie('norikae', '1', 0, '/');
   <link rel="stylesheet" href="style_form_new.css">
    <!-- JS-->
   <script src="../assets/js/app.js"></script>
+ 
+  <script src="https://kit.fontawesome.com/a366e23f99.js" crossorigin="anonymous"></script>
+ 
 </head>
 <body id="done_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
@@ -95,9 +98,14 @@ if($_SESSION['shiharai']=='クレジットカード'){ ?>
   <section class="mitsumori-complete">
    <img src="../assets/img/form_paid.png" alt="お申込みありがとうございます。お申込みのお礼と大切なご案内をさせていただきます。「事務組合RJC」の名前でご登録いただいたアドレスにメールを送信いたしました。３０分以内にメールが届かない場合は、　迷惑メールフォルダに入っていませんか？　間違ったアドレスでお手続きをされていませんか？　上記をご確認の上、GmailまたはYahoo!のアドレスで再度お申込みをお願いします。" class="show_pc hide_sp">
    <img src="../assets/img/form_paid_sp.png" alt="お申込みありがとうございます。お申込みのお礼と大切なご案内をさせていただきます。「事務組合RJC」の名前でご登録いただいたアドレスにメールを送信いたしました。３０分以内にメールが届かない場合は、　迷惑メールフォルダに入っていませんか？　間違ったアドレスでお手続きをされていませんか？　上記をご確認の上、GmailまたはYahoo!のアドレスで再度お申込みをお願いします。" class="show_sp hide_pc">
+   <?php /*
     <div class="mitsumori-btn_block">
       <a class="mitsumori-btn" href="/"><img src="../assets/img/form_totop.png" alt="TOPへ戻る"></a>
     </div>
+    */ ?>
+   <div class="tel_button_box">
+    <a href="tel:0120855865" class="kv_button kv_button_red">0120-855-865 へ電話する</a>
+   </div>
   </section>
   </div>
 <?php } ?>
