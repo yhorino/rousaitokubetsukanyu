@@ -4701,3 +4701,73 @@ input[type="submit"].submit_card,
 }
 /* ボタン無効化 */
 
+/* 20230417 kv_button */
+:root{
+ --main_color: #E66700;
+ --button_green_color: #00a26a;
+ --button_red_color: #ce0023;
+ --button_skyblue_color:#26B8ED;
+}
+
+.tel_button_box {
+ text-align: center;
+ width: min(90vw, 400px);
+ margin: 0 auto;
+ font-size: clamp(18px, 5vw, 25px);
+}
+
+.kv_button:hover,
+.kv_button {
+ color: #fff;
+ background-color: #ccc;
+ text-decoration: none;
+ /*height: min(4vw, 60px);*/
+ display: block;
+ border-radius: 38px;
+ display: grid;
+ grid-template-columns: 1fr;
+ justify-content: center;
+ align-items: center;
+ padding: 1em 0;
+ font-weight: bold;
+ position: relative;
+}
+.kv_button:after {
+ font-family: "Font Awesome 5 Free";
+ content: '\f138';
+ font-size: 20px;
+ font-weight: 900;
+ color: #fff;
+ position: absolute;
+ right: 15px;
+ top: 50%;
+ transform: translate(0%, -50%);
+ -webkit-transform: translate(0%, -50%);
+ -ms-transform: translate(0%, -50%);
+}
+.kv_button_narrow:after{
+ right: 10px;
+}
+.kv_button_line1 {
+ line-height: 1em;
+ font-size: 23px;
+ padding-top: clamp(0px, 0.01vw, 5px);
+}
+.kv_button_line2 {
+ line-height: 1em;
+}
+.kv_button_smalltext {
+ font-size: 14px;
+ font-weight: normal;
+}
+.kv_button_green:hover,
+.kv_button_green {
+ background-color: var(--button_green_color);
+}
+.kv_button_red:hover,
+.kv_button_red {
+ background-color: var(--button_red_color);
+}
+
+/* 20230417 kv_button */
+
