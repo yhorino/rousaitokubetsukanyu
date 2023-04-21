@@ -29,7 +29,7 @@ $_SESSION['zip'] = substr($_SESSION['zip'],0,3).'-'.substr($_SESSION['zip'],-4);
   <meta property="og:title" content="申込み内容確認：労働保険事務組合RJC　無料見積りフォーム">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/form_norikae/check.php">
-  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/h_logo.png">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/h_logo.svg">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
@@ -53,7 +53,7 @@ $_SESSION['zip'] = substr($_SESSION['zip'],0,3).'-'.substr($_SESSION['zip'],-4);
 	
     <header>
       <div class="header__flex">
-				<a href="/"><img class="h_logo" src="../assets/img/h_logo.png" width="327" alt="" /></a>
+				<a href="/"><img class="h_logo" src="../assets/img/h_logo.svg" width="327" alt="" /></a>
       </div>
      
      <div class="mitsumori-ttl-div mitsumori-ttl-div-step">
