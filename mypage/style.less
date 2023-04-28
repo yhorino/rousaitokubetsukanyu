@@ -1,0 +1,1583 @@
+/* CSS Document */
+@charset "utf-8";
+@main-color: #F9B830;
+@main-color-orange: #f18c17;
+@bg-color: #FBF8F2;
+@width: 1000px;
+@fontsize-l: 23px;
+@fontsize-s: 16px;
+
+*{
+ box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #ddd;
+}
+
+/* IE */
+input:-ms-input-placeholder {
+  color: #ddd;
+}
+
+/* Edge */
+input::-ms-input-placeholder {
+  color: #ddd;
+}
+
+.hide_sp{
+ display: block;
+}
+span.hide_sp{
+ display: inline-block;
+}
+span.hide_pc,
+.hide_pc{
+ display: none;
+}
+
+body{
+ background-color: @bg-color;
+ font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+ margin: 0;
+ font-size: @fontsize-s;
+}
+a:hover,
+button:hover{
+ opacity: 0.8;
+}
+h1{
+ font-size: @fontsize-l;
+ margin: 0;
+ padding: 0;
+ color: @main-color;
+}
+h2{
+ color: @main-color;
+ font-weight: normal;
+ font-size: @fontsize-l;
+}
+.marker_yellow {
+ background: linear-gradient(transparent 45%, #F7FBC6 45%, #F7FBC6 80%,transparent 80%);
+}
+header{
+	.flex_row{
+		display: flex;
+		flex-direction: row;
+  margin: 0 auto;
+		padding: 0;
+  border-left: 1px solid #fff;
+  justify-content: space-between;
+  max-width: 1000px;
+	}
+ #h_title{
+  background-color: #fff;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  #flex1{
+		 flex: initial;
+   img {
+    max-width: 330px;
+   }
+  }
+	 #flex2{
+		 flex: initial;
+		 text-align: right;
+   img {
+    max-width: 330px;
+   }
+   nav{
+    ul{
+     display: flex;
+     li{
+      width: auto;
+      padding: 0;
+      margin-left: 15px;
+      list-style: none;
+      a{
+       font-size: 13px;
+       color: #FF850D;
+       text-decoration: none;
+      }
+     }
+    }
+   }
+	 }
+	 #flex_sp{
+	 	flex: auto;
+	 }
+	}
+ #h_menu{
+  background-color: @main-color;
+  line-height: 3em;
+  ul li{
+ 		flex: initial;
+ 		list-style: none;
+   width: calc(100% / 6.0);
+   text-align: center;
+   border-right: 1px solid #fff;  
+	  a{
+    color: #fff;
+    text-decoration: none;
+    display: block;
+   }
+  }
+	}
+ #h_namebox {
+  margin: 1em auto 0.5em;
+  /*
+  border: 1px solid @main-color;
+  border-radius: 5px;
+  background-color: #fff;
+  */
+  border: none;
+  border-bottom: 5px solid @main-color;
+ }
+ #h_name,
+ #h_seirino{
+  padding: 0.5em 1em;
+ }
+ #h_name {
+  width: 68%;
+  /*
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;*/
+ }
+ #h_name_label,
+ #h_seirino_label{
+     margin: 0;
+ }
+ #logout {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 2em;
+    max-width: @width;
+    margin: 10px auto 0px;
+    text-align: right;  
+  a {
+   text-decoration: none;
+   border: 1px solid #ccc;
+   display: inline-block;
+   border-radius: 5px;
+   padding: 3px 1em;
+   background-color: #fa0;
+   color: #fff;
+   margin: 2px;
+   font-size: @fontsize-s;
+  }
+  #change_pw_button{
+   display: none;
+  }
+ }
+ h1#title {
+  clear: both;
+  color: @main-color;
+  display: flex;
+  justify-content: space-between;
+  font-size: @fontsize-l;
+  margin-top: 1em;
+  img#step_pc {
+   width: 528px;
+   padding: 0 0 0.5em;
+   max-width: 65%;
+  }
+ }
+ #title{
+  img{
+   width: 80%;
+  }
+  #h1_button{
+   width: 20%;
+   background-color: #fff;
+   a{
+    display: block;
+    margin: 9% auto 5%;
+    img{
+     width: 80%;
+     margin: 0 10%;
+    }
+   }
+  }
+ }
+}
+#title_i{
+ margin-top: 1em;
+ clear: both;
+ color: @main-color;
+ display: flex;
+ justify-content: space-between;
+ font-size: @fontsize-l;
+ img{
+  width: 80%;
+ }
+ #h1_button{
+  width: 20%;
+  background-color: #fff;
+  a{
+   display: block;
+   margin: 9% auto 5%;
+   img{
+    width: 80%;
+    margin: 0 10%;
+   }
+  }
+ }
+}
+
+.nenko{
+ position: relative;
+ #nenko_button{
+  position: relative;
+  margin: 0 2.5% 30px;
+  display: block;
+  width: 456px;
+  max-width: 95%;
+  img{
+   width: 100%;
+  }
+  img.ribbon{
+   position: absolute;
+   z-index: 100;
+   right: -10px;
+   top: 15%;
+   width: 20%;
+  }
+ }
+}
+
+footer{
+ background-color: #fff;
+ .copyright{
+  text-align: center;
+  margin: 2em 0;
+ }
+}
+
+.inner{
+	max-width: @width;
+	margin: 20px auto 10px;
+ color: #666;
+ font-size: @fontsize-s;
+}
+
+#nenko_php{
+ #meisai{
+  background-color: #fff;
+  padding: 2em 2em;
+  border: 1px solid @main-color;
+  border-radius: 10px;
+  box-sizing: border-box;
+  line-height: 2em;
+  table{
+   margin: 0 auto;
+   #tr_sougaku{
+    font-size: @fontsize-l;
+   }
+   th{
+    text-align: right;
+    padding-right: 30px;
+    color: @main-color;
+   }
+  }
+ } 
+}
+
+#dispinfo_php{
+ #license{
+  /*
+  border: 1px solid #cccc;
+  border-radius: 5px;
+  padding: 1em 2em;
+  width: 380px;
+  width: 516px;
+  height: 324px;*/
+  width: 590px;
+  height: 378px;
+  margin: 3em auto;
+/*  margin: 3em;*/
+/*  background-color: #fff;*/
+  background-image: url(image/card_bkimg_green.png);
+  background-size: 100%;
+  position: relative;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;  
+  font-size: @fontsize-s;
+  img#logo {
+   position: absolute;
+   bottom: 2%;
+   left: 3%;
+   width: 12%;
+  }
+  #license_table {
+    position: absolute;
+/*    top: 15px;
+    left: 40px;*/
+    top: 5%;
+    left: 7%;
+   th,td{
+    font-weight: normal;
+    text-align: left;
+   }
+   table.l1{
+    font-size: @fontsize-s;
+    width: 100%;
+   }
+   table.center_name{
+    text-align: left;
+    margin-left: 15%;
+   }
+   table.l2{
+/*    margin-left: 2em;*/
+    width: 26em;
+    margin-bottom: 15px;
+    th{
+     width: 7em;
+     text-align: left;
+/*     vertical-align: top;*/
+    }
+    td{
+/*     vertical-align: top;*/
+     /*
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+     max-width: 0;
+     */
+     line-height: 1.2em;
+    }
+   }
+  }
+ }
+ 
+ .link_editinfo{
+  text-align: right;
+/*  max-width: 600px;*/
+  margin: 1em;
+/*  max-width: 820px;*/
+ }
+ #print_button{
+  button{
+    background-color: @main-color;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #fff;
+    padding: 1em 2em;
+    margin: 2em auto;
+    display: block;
+    width: 200px;
+    text-align: center;
+    text-decoration: none;
+  }
+ }
+ 
+ #re_entry a{
+  background-color: @main-color;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em 2em;
+  margin: 0em auto 2em;
+  display: block;
+  width: 200px;
+  text-align: center;
+   text-decoration: none;
+   color: #fff;
+ }
+ 
+}
+
+table.info_table {
+    border: 1px solid #ccc;
+    width: 98%;
+/*    margin: 1em 1%;*/
+/*    max-width: 600px;
+    margin: 1em;*/
+    margin: 1% auto;
+  max-width: 820px;
+		th {
+				width: 180px;
+				text-align: left;
+				padding: 0.2em 0.5em;
+				background-color: @main-color;
+				border: 1px solid #fff;
+				font-weight: normal;
+    color: #fff;
+		}
+		td {
+				background-color: #fff;
+				border: 1px solid @main-color;
+				padding: 0.2em 0.5em;
+		}	
+}
+
+#logout_php,
+#login_php,
+#regist_php,
+#regist_pw_php,
+#regist_mail_php,
+#regist_pw_done_php{
+ #h_menu,
+ #h_namebox,
+ #title,
+ #logout{
+  display: none;
+ }
+ form{
+  width: 100%;
+  max-width: 700px;
+ }
+
+}
+
+#regist_mail_php{
+ #body_inner{
+  background-color: #fff;
+  padding: 50px 130px;
+ }
+ h1{
+  text-align: center;
+  color: #707070;
+ }
+ .alert{
+  text-align: center;
+  color: #f00;
+  font-size: 20px;
+ }
+ #word_info{
+  border: 1px solid #e70010;
+  padding: 40px 100px;
+  p{
+   margin: 0;
+  }
+  .wi1{
+   color: #fff;
+   background-color: #e70010;
+   font-size: 23px;
+   text-align: center;
+   font-weight: bold;
+  }
+  .wi1 + img{
+   display: block;
+   margin: 10px auto 0px;
+   width: 36px;
+  }
+  .wi2{
+   color: #e70010;
+   font-size: 20px;
+   margin: 27px 0 5px;
+   padding: 0.2em 0;
+  }
+  .wi_noflex,
+  .wi_flex{
+   display: flex;
+   justify-content: space-around;
+   div{
+    text-align: center;
+    margin-top: 20px;
+    a {
+     border: 1px solid #F9B830;
+     border-radius: 2em;
+     padding: 0.5em 1em;
+     text-decoration: none;
+     margin: 0.5em auto;
+     display: block;
+    }
+   }
+  }
+  .wi_noflex{
+   display: block;
+   padding-left: 50px;
+  }
+ }
+}
+
+#change_pw_php,
+#change_pw_done_php{
+ form{
+  width: 100%;
+  max-width: 700px;
+ }
+}
+
+#login_php {
+ #login_input{
+  overflow: hidden;
+ }
+ form{
+ float: left;
+  height: 270px;
+  box-sizing: border-box;
+  max-width: 690px;
+ }
+ div#regist {
+    float: left;
+    margin-left: 16px;
+    width: 290px;
+    background-color: #fff;
+    border: 1px solid @main-color;
+    padding: 4em 1em;
+    text-align: center;
+    height: 270px;
+    box-sizing: border-box;
+ }
+ #word_info{
+  clear: both;
+  margin-top: 1em;
+ }
+ .submit_button,
+ #submit_button{
+  width: 160px;
+ }
+ .back_button{
+  width: 160px;
+ }
+ #acc_link{
+  text-decoration: underline;
+  cursor: pointer;
+ }
+ #acc_seirino{
+  margin-bottom: 20px;
+  margin-left: 15px;
+  #acc_seirino_img{
+   display: flex;
+   position: relative;
+   img{
+    width: 60%;
+   }
+   p{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+   }
+  }
+ }
+}
+
+.submit_button,
+#submit_button{
+ background-color: @main-color-orange;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ color: #fff;
+ padding: 0.5em 0;
+ margin: 1em auto;
+ display: block;
+ max-width: 300px;
+ width: 90%;
+ text-align: center;
+ text-decoration: none;
+ font-weight: bold;
+ font-size: @fontsize-l;
+ cursor: pointer;
+}
+.back_button{
+ background-color: #ccc;
+ border: 1px solid #aaa;
+ border-radius: 5px;
+ color: #222;
+ padding: 0;
+ margin: 1em auto;
+ display: block;
+ max-width: 200px;
+ width: 90%;
+ text-align: center;
+ text-decoration: none;
+ font-size: @fontsize-s;
+ line-height: 1.5em; 
+}
+#login_button {
+ display: block;
+ margin: 0 auto;
+ padding: 0;
+ border: none;
+ background-color: transparent;
+ outline: none;
+ cursor: pointer;
+}
+
+#dispinfo_php,
+#logout_php,
+#login_php,
+#regist_php,
+#regist_pw_php,
+#regist_pw_done_php,
+#change_pw_php,
+#change_pw_done_php,
+#editinfo_php,
+#editinfo_kakunin_php,
+#editinfo_done_php{
+ .input_item{
+  margin: 1em auto;
+  .input_label{
+    width: 12em;
+    display: inline-block;
+    text-align: right;
+    padding-right: 1em;
+  }
+ }
+ #submit_button{
+  background-color: @main-color;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.5em 1em;
+  margin: 2em auto;
+  display: block;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+ }
+ form{
+  width: 100%;
+  padding: 20px 1em;
+  background-color: #fff;
+  border: 1px solid @main-color;
+  margin: 0 auto;
+  input{
+   width: 270px;
+   display: inline-block;
+   font-size: 16px;
+   line-height: 16px;
+   padding: 4px;
+  }
+  #submit_button{
+   display: block;
+  }
+ }
+ #word_info{
+  width: 95%;
+  li{
+   margin-bottom: 1em;
+  }
+ }
+}
+#regist_pw_php,
+#regist_php{
+ form{
+  padding: 3em 2em 0 2em;
+  margin: 0 auto;
+  input{
+/*   max-width: 310px;*/
+   max-width: 120px;
+   width: 100%;
+  }
+  input[name="email"]{
+   max-width: 310px;
+  }
+ }
+ .input_item{
+  margin: 0 auto 3em auto;
+/*  max-width: 500px;*/
+  max-width: 630px;
+  .input_label{
+/*    width: 9em;*/
+    width: 13em;
+  }
+ }
+}
+
+#regist_pw_php{
+ form{
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  max-width: none;
+ }
+ .input_item{
+  margin: 0;
+  max-width: none;
+  table{
+   border-collapse: collapse;
+   max-width: 760px;
+   width: 100%;
+   tr{
+    th, td{
+     border: 1px solid #707070;
+     padding: 5px 10px;
+     height: 5em;
+     input{
+      max-width: 300px;
+     }
+    }
+    th{
+     background-color: #F4F4F4;
+     .input_label{
+      text-align: left;
+     }
+    }
+    td{
+     width: 100%;
+     background-color: #fff;
+    }
+   }
+  }
+ }
+}
+
+#editinfo_php,
+#editinfo_kakunin_php{
+ form{
+  width: 100%;
+  max-width: 100%;
+/*  max-width: 600px;*/
+  td input{
+   width: 98%;
+  }
+  input[type="checkbox"]{
+   width: auto;
+  }
+  #tr_license input {
+   margin: 1em 0 3em 0;
+   width: 80%;
+  }
+  #check_info{
+   margin-left: 1em;
+  }
+ }
+ #submit_button.disabled{
+  background-color: #ccc;
+  color: #aaa;
+  font-weight: normal;
+ }
+}
+
+#top_php{
+ header #logout #change_pw_button{
+  display: inline-block;
+ }
+
+ .inner ul{
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li{
+   overflow: hidden;
+   margin: 20px 0;
+   img{
+    width: 100%;
+    max-width: 100px;
+    margin-right: 20px;
+    float: left;
+   }
+   img.ribbon{
+    position: absolute;
+    z-index: 100;
+    right: -10px;
+    top: 10px;
+    width: 35%;
+   }
+  }
+ }
+}
+
+#kanyusya_php{
+ .gray_box{
+  background-color: #EBECED;
+  padding: 10px 15px;
+  margin: 56px 0;
+  .roudouhokenbangou td:nth-child(1) {
+    width: 70px;
+  }
+  .roudouhokenbangou td:nth-child(2) {
+    width: 200px;
+  }
+ }
+}
+
+#syoumei_php{
+ table.info_table{
+  max-width: 600px;
+  th{
+   width: auto;
+  }
+  td{
+/*   text-align: center;*/
+  }
+ }
+}
+
+#index_i_ul{
+ list-style: none;
+ background-color: #fff;
+ padding: 1em;
+ li{
+  font-size: @fontsize-s;
+  line-height: 30px;
+  a{
+   text-decoration: none;
+   color: #222;
+  }
+  a:hover{
+   text-decoration: underline;
+  }
+ }
+}
+
+#nenko_edit_php{
+ .inner article#normal{
+  position: relative;
+ }
+ .inner article {
+    background-color: #fff;
+    padding: 2em 3em;
+    border: 1px solid @main-color;
+    border-radius: 20px;
+  table{
+   margin: 2em auto;
+   line-height: 2em;
+   width: 95%;
+   box-sizing: border-box;
+   th{
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    text-align: right;
+    padding-right: 1em;
+   }
+   td{
+    border-bottom: 1px solid #ccc;
+    padding-left: 1em;
+   }
+   tr:last-child{
+    th, td{
+     border-bottom: none;
+    }
+   }
+  }
+ }
+ #henkou_yn{
+  max-width: 430px;
+  margin: 0 auto;
+  input{
+   display: none;
+  }
+  input + label{
+   margin: 1em;
+   display: inline-block;
+   border: 1px solid @main-color;
+   padding: 1em;
+   border-radius: 5px;
+   color: @main-color;
+   font-weight: bold;
+  }
+  input:checked + label{
+   background-color: @main-color;
+   color: #fff;
+  }
+ }
+}
+
+@media screen and (max-width: 640px){
+
+ span.hide_sp,
+ .hide_sp{
+  display: none;
+ }
+ .hide_pc{
+  display: block;
+ }
+ span.hide_pc{
+  display: inline-block;
+ }
+ table.info_table{
+  margin: 0;
+ }
+ 
+ img#step_sp {
+     width: 96%;
+     margin: 0 2% 1em;
+ }
+ 
+ header {
+  #h_title{
+   #flex1{
+    img{
+     max-width: 204px;
+    }
+   }
+  }
+  .flex_row{
+   flex-wrap: wrap;
+  }
+  #h_menu ul li {
+   width: 50%;
+   border-bottom: 1px solid #fff;
+   box-sizing: border-box;
+  }
+  #h_namebox{
+   margin: 10px;
+  }
+  #h_name,
+  #h_seirino{
+   width: 100%;
+   border: none;
+   #h_name_label,
+   #h_seirino_label {
+    display: block;
+   }
+  }
+  #h_name{
+   padding-bottom: 0;
+  }
+  #h_seirino{
+   padding-top: 10px;
+  }
+  
+  h1#title{
+   display: block;
+   img{
+    width: 96%;
+    margin: 0 2%;
+   }
+   #h1_button{
+    width: 100%;
+    background-color: transparent;
+    a{
+     display: inline-block;
+     margin: 0px 2%;
+     width: 46%;
+     img{
+      width: 100%;
+      margin: 0;
+     }
+    }
+   }
+  }
+  
+ }
+ #title_i{
+  display: block;
+  img{
+   width: 96%;
+   margin: 0 2%;
+  }
+  #h1_button{
+   width: 100%;
+   background-color: transparent;
+   a{
+    display: inline-block;
+    margin: 0px 2%;
+    width: 46%;
+    img{
+     width: 100%;
+     margin: 0;
+    }
+   }
+  }
+ }
+ 
+ .inner{
+  padding: 0 10px;
+ }
+ 
+ #login_php{
+  .inner{
+   padding-top: 0px;
+  }
+  #title_i{
+   margin-top: 0;
+  }
+  .input_item .input_label{
+   text-align: left;
+  }
+  form{
+   float: none;
+   height: auto;
+  }
+  div#regist{
+    float: none;
+    width: 100%;
+    margin: auto;
+    margin-top: 1em;
+    height: auto;
+    padding: 1em;
+  }
+ }
+
+ 
+ #logout_php,
+ #login_php,
+ #regist_php,
+ #regist_pw_php,
+ #regist_pw_done_php,
+ #change_pw_php,
+ #change_pw_done_php,
+ #editinfo_php,
+ #editinfo_kakunin_php,
+ #editinfo_done_php{
+  .submit_button,
+  #submit_button{
+   margin-left: auto;
+   margin-right: auto;
+  }
+  .back_button{
+   margin-left: auto;
+   margin-right: auto;
+  }
+ }
+ 
+ #regist_pw_php,
+ #regist_php{
+  form{
+   padding: 3em 1em 0 1em;
+   input{
+   }
+  }
+  .input_item{
+   .input_label{
+    text-align: left;
+   }
+  }
+ }
+ #regist_pw_php{
+  .input_item{
+   table tr{
+    th,td{
+     display: block;
+     width: 100%;
+     height: auto;
+     padding: 10px;
+     .input_label{
+      width: 100%;
+     }
+    }
+   }
+  }
+ }
+ 
+ #regist_mail_php{
+ #body_inner{
+  margin: 15px;
+  padding: 50px 20px;
+ }
+ h1{
+ }
+ .alert{
+ }
+ #word_info{
+  padding: 40px 20px;
+  p{
+  }
+  .wi1{
+  }
+  .wi1 + img{
+  }
+  .wi2{
+  }
+  .wi_noflex,
+  .wi_flex{
+   display: block;
+   div{
+    margin-top: 30px;
+    a {
+    }
+   }
+  }
+  .wi_noflex{
+   padding-left: 0;
+  }
+ }
+}
+
+ #top_php{
+  .inner ul#top_menu li {
+    width: 42%;
+    margin: 0;
+    margin: 5px 4%;
+  }
+  .inner ul#top_menu li.clear {
+   clear: both;
+  }
+ }
+ 
+ #dispinfo_php{
+  #license{
+/*   transform: scale(0.5);*/
+/*   transform-origin: top left;
+   margin: 0 auto;*/
+  }
+  #re_entry{
+   margin: 0 auto;
+  }
+  table th, table td {
+    box-sizing: border-box;
+    border: none;
+    min-height: 2em;
+  }
+  table.info_table th, table.info_table  td {
+    display: block;
+    width: 100%;
+  }
+ }
+ #nenko_php{
+  #meisai{
+   padding: 2em 1em;
+   margin: 5px;
+   font-size: @fontsize-s;
+   table{
+    width: 100%;
+    #tr_sougaku{
+     td span{
+      font-size: @fontsize-l;
+     }
+    }
+    th, td{
+     display: block;
+     width: 100%;
+     box-sizing: border-box;
+     border: none;
+     min-height: 2em;
+     text-align: center;
+     padding: 0;
+    }
+   }
+   .submit_button,
+   #submit_button{
+    font-size: @fontsize-s;
+    width: 85%;
+   }
+   .back_button{
+    font-size: @fontsize-s;
+    width: 85%;
+   }
+  }  
+ }
+ #editinfo_php{
+  table th, table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    input{
+     width: 100%;
+     box-sizing: border-box;
+     padding: 10px 2px;
+     margin: 2% 0;
+   }
+  }
+ }
+ #nenko_edit_php{
+  #henkou_yn{
+   max-width: 220px;
+  }
+  .submit_button,
+  #submit_button{
+   font-size: @fontsize-s;
+  }
+  .back_button{
+   font-size: @fontsize-s;
+  }
+  .inner article{
+   padding: 2em 1em;
+   table th, table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    border: none;
+   }
+  }
+ }
+}
+
+@media screen and (max-width: @width){
+ #login_php{
+  .hide_sp{
+   display: none;
+  }
+  .hide_pc{
+   display: block;
+  }
+  #acc_seirino{
+   margin-left: 0;
+   #acc_seirino_img{
+    display: block;
+    img.show_sp{
+     width: 100%;
+     display: block;
+    }
+    p{
+     position: relative;    
+    }
+    p br{
+     display: none;
+    }
+   }
+  }
+ }
+}
+
+
+/* 20210710～　マイページ */
+body{
+ header #h_namebox{
+  font-size: @fontsize-l;
+  line-height: @fontsize-l;
+  #h_name{
+   padding: 17px 0px;
+  }
+  #h_seirino{
+   padding: 17px 50px 17px 0px;
+   font-size: @fontsize-l;
+  }
+ }
+ .inner{
+  input[type="button"],
+  input[type="submit"]{
+   display: block;
+   margin: 50px auto;
+   width: 220px;
+   height: 50px;
+   font-size: @fontsize-l;
+   color: #707070;
+   border: 1px solid #707070;
+   background-color: #EBF4FC;
+   cursor: pointer;
+  }
+  a{
+   color: inherit;
+  }
+  figure{
+   width: 100%;
+   max-width: 1000px;
+   margin: 2em auto 1em;
+   figcaption{
+    font-size: @fontsize-l;
+   }
+   table{
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    th{
+     width: auto;
+     height: @fontsize-s * 2;
+     border: 1px solid #707070;
+     font-size: @fontsize-s;
+     background-color: @main-color;
+     text-align: left;
+     font-weight: normal;
+     padding: 2px 8px;
+    }
+    td{
+     width: auto;
+     height: @fontsize-s * 2;
+     border: 1px solid #707070;
+     font-size: @fontsize-s;
+     background-color: #fff;
+     padding: 2px 8px;
+     input{
+      width: 100%;
+      line-height: 1.7em;
+     }
+    }
+   }
+  }
+ }
+}
+
+#top_php{
+ body{
+  .inner{
+   ul{
+    li{
+     float: left;
+     width: 50%;
+     font-size: @fontsize-s;
+     padding-right: 2em;
+     img{
+      width: 110px;
+      max-width: 100%;
+     }
+    }
+    li:nth-child(2n+1){
+     clear: both;
+    }
+   }
+  }
+ }
+}
+
+#kaisya_edit_php,
+#kaisya_check_php,
+#kaisya_done_php,
+#kaisya_php{
+ body{
+  .inner{
+   figure{
+    max-width: 800px;
+    font-size: @fontsize-s;
+    table{
+     border-collapse: separate;
+     border-spacing: 5px;
+     th{
+      width: 35%;
+      border: none;
+      font-size: @fontsize-s;
+      height: @fontsize-s * 2;
+     }
+     td{
+      width: 65%;
+      font-size: @fontsize-s;
+      height: @fontsize-s * 2;
+     }
+    }
+   }
+  }
+ }
+}
+#kaisya_edit_php{
+  table tr td{
+    border: none;
+    padding: 0;
+    input{
+      height: @fontsize-s * 2;
+      font-size: @fontsize-s;
+      line-height: @fontsize-s * 2;
+    }
+  }
+  #readcheck{
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+}
+#kaisya_done_php{
+  .inner input[type="submit"]{
+    width: 425px;
+  }
+}
+
+
+#kanyusya_php{
+ body{
+  .inner{
+   figure{
+    .roudouhokenbangou{
+     max-width: 720px;
+    }
+    table{
+     th{
+      height: 33px;
+     }
+     td{
+      height: 45px;
+     }
+    }
+   }
+  }
+ }
+}
+
+#download_php{
+ body{
+  #roudouhokenbangou{
+   font-size: @fontsize-l;
+  }
+  .inner{
+   figure{
+    table{
+     th{
+     }
+     td{
+     }
+    }
+   }
+  }
+ }
+}
+
+#kaiinsyo_php{
+ body{
+  .inner{
+   figure{
+    max-width: 800px;
+    #kaiinsyo_div{
+     width: 90%;
+     max-width: 91.2mm;
+     margin: 0 auto;
+     position: relative;
+     font-family: serif;
+     font-size: 15px;
+     font-weight: bold;
+     img{
+      width: 100%;
+     }
+     p{
+      white-space: nowrap;
+      max-width: 310px;
+      overflow: hidden;
+      left: 35px;
+      font-size: 14px;
+      display: flex;
+     }
+     .kaiinsyo_title{
+      display: flex;
+      margin-right: 1em;
+      width: 60px;
+      font-size: 10px;
+      justify-content: space-between;
+      padding: 0.3em 0;
+     }
+     p#nendo {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      top: 13px;
+     }
+     p#roudouhokenbangou {
+      position: absolute;
+      top: 27px;
+     }
+     p#jigyosyo{
+      position: absolute;
+      top: 44px;
+     }
+     p#seiribangou {
+      position: absolute;
+      top: 59px;
+     }
+     p#name {
+      position: absolute;
+      top: 76px;
+     }
+     p#hakkou {
+      position: absolute;
+      top: 92px;
+     }
+     p#kigen {
+      position: absolute;
+      top: 109px;
+     }
+    }
+    #kaiinsyo_print {
+    font-size: @fontsize-l;
+    max-width: 120px;
+    margin: 40px auto;
+    display: block;
+    }
+    table{
+     th{
+     }
+     td{
+     }
+    }
+   }
+  }
+ }
+}
+
+@media screen and (max-width: @width){
+ .header_body{
+  .main-nav{
+   justify-content: space-between;
+  }
+  #telicon{
+   display: none;
+  }
+  #h_namebox{
+   #h_name{
+    font-size: @fontsize-s;
+    width: auto;
+    padding-bottom: 0;
+   }
+   #h_seirino{
+    font-size: @fontsize-s;
+    width: auto;
+    padding-bottom: 0;   
+   }
+  }
+ }
+ 
+ #top_php{
+  body{
+   .inner{
+    margin-top: 0;
+    ul#top_menu{
+     li{
+      float: left;
+      width: 50%;
+      margin: 15px auto;
+      padding: 0;
+      a{
+       display: block;
+       overflow: hidden;
+       text-align: center;
+       img{
+        margin: 0 auto;
+        display: block;
+        float: none;
+       }
+      }
+      p{
+       display: none;
+      }
+     }
+    }
+   }
+  }
+ }
+ #download_php{
+  body{
+   .inner{
+    margin-top: 0;
+    figure{
+     margin-top: 0;
+     table{
+      width: 90%;
+      margin: 30px auto 0;
+      th{
+       height: 45px;
+       min-width: 4em;
+       text-align: center;
+      }
+      td{
+       height: auto;
+      }
+     }
+     table + p{
+      margin: 5px auto 1em;
+      width: 90%;
+      padding-left: 5px;
+     }
+    }
+   }
+  }
+ }
+ #kaisya_edit_php,
+ #kaisya_check_php,
+ #kaisya_done_php,
+ #kaisya_php{
+  body{
+   .inner{
+    figure{
+     table{
+      border-collapse: collapse;
+      th{
+       border: 1px solid #707070;
+      }
+      td{
+       border: 1px solid #707070;
+      }
+     }
+    }
+   }
+  }
+ }
+
+}
+llapse: collapse;
+      th{
+       border: 1px solid #707070;
+      }
+      td{
+       border: 1px solid #707070;
+      }
+     }
+    }
+   }
+  }
+ }
+
+}

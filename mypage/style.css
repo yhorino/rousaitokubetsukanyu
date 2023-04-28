@@ -1,0 +1,1492 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+  box-sizing: border-box;
+}
+input::placeholder {
+  color: #ddd;
+}
+/* IE */
+input:-ms-input-placeholder {
+  color: #ddd;
+}
+/* Edge */
+input::-ms-input-placeholder {
+  color: #ddd;
+}
+.hide_sp {
+  display: block;
+}
+span.hide_sp {
+  display: inline-block;
+}
+span.hide_pc,
+.hide_pc {
+  display: none;
+}
+body {
+  background-color: #FBF8F2;
+  font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+  margin: 0;
+  font-size: 16px;
+}
+a:hover,
+button:hover {
+  opacity: 0.8;
+}
+h1 {
+  font-size: 23px;
+  margin: 0;
+  padding: 0;
+  color: #F9B830;
+}
+h2 {
+  color: #F9B830;
+  font-weight: normal;
+  font-size: 23px;
+}
+.marker_yellow {
+  background: linear-gradient(transparent 45%, #F7FBC6 45%, #F7FBC6 80%, transparent 80%);
+}
+header .flex_row {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 0;
+  border-left: 1px solid #fff;
+  justify-content: space-between;
+  max-width: 1000px;
+}
+header #h_title {
+  background-color: #fff;
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+header #h_title #flex1 {
+  flex: initial;
+}
+header #h_title #flex1 img {
+  max-width: 330px;
+}
+header #h_title #flex2 {
+  flex: initial;
+  text-align: right;
+}
+header #h_title #flex2 img {
+  max-width: 330px;
+}
+header #h_title #flex2 nav ul {
+  display: flex;
+}
+header #h_title #flex2 nav ul li {
+  width: auto;
+  padding: 0;
+  margin-left: 15px;
+  list-style: none;
+}
+header #h_title #flex2 nav ul li a {
+  font-size: 13px;
+  color: #FF850D;
+  text-decoration: none;
+}
+header #h_title #flex_sp {
+  flex: auto;
+}
+header #h_menu {
+  background-color: #F9B830;
+  line-height: 3em;
+}
+header #h_menu ul li {
+  flex: initial;
+  list-style: none;
+  width: calc(16.66666667%);
+  text-align: center;
+  border-right: 1px solid #fff;
+}
+header #h_menu ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+header #h_namebox {
+  margin: 1em auto 0.5em;
+  /*
+  border: 1px solid @main-color;
+  border-radius: 5px;
+  background-color: #fff;
+  */
+  border: none;
+  border-bottom: 5px solid #F9B830;
+}
+header #h_name,
+header #h_seirino {
+  padding: 0.5em 1em;
+}
+header #h_name {
+  width: 68%;
+  /*
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;*/
+}
+header #h_name_label,
+header #h_seirino_label {
+  margin: 0;
+}
+header #logout {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 2em;
+  max-width: 1000px;
+  margin: 10px auto 0px;
+  text-align: right;
+}
+header #logout a {
+  text-decoration: none;
+  border: 1px solid #ccc;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 3px 1em;
+  background-color: #fa0;
+  color: #fff;
+  margin: 2px;
+  font-size: 16px;
+}
+header #logout #change_pw_button {
+  display: none;
+}
+header h1#title {
+  clear: both;
+  color: #F9B830;
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+  margin-top: 1em;
+}
+header h1#title img#step_pc {
+  width: 528px;
+  padding: 0 0 0.5em;
+  max-width: 65%;
+}
+header #title img {
+  width: 80%;
+}
+header #title #h1_button {
+  width: 20%;
+  background-color: #fff;
+}
+header #title #h1_button a {
+  display: block;
+  margin: 9% auto 5%;
+}
+header #title #h1_button a img {
+  width: 80%;
+  margin: 0 10%;
+}
+#title_i {
+  margin-top: 1em;
+  clear: both;
+  color: #F9B830;
+  display: flex;
+  justify-content: space-between;
+  font-size: 23px;
+}
+#title_i img {
+  width: 80%;
+}
+#title_i #h1_button {
+  width: 20%;
+  background-color: #fff;
+}
+#title_i #h1_button a {
+  display: block;
+  margin: 9% auto 5%;
+}
+#title_i #h1_button a img {
+  width: 80%;
+  margin: 0 10%;
+}
+.nenko {
+  position: relative;
+}
+.nenko #nenko_button {
+  position: relative;
+  margin: 0 2.5% 30px;
+  display: block;
+  width: 456px;
+  max-width: 95%;
+}
+.nenko #nenko_button img {
+  width: 100%;
+}
+.nenko #nenko_button img.ribbon {
+  position: absolute;
+  z-index: 100;
+  right: -10px;
+  top: 15%;
+  width: 20%;
+}
+footer {
+  background-color: #fff;
+}
+footer .copyright {
+  text-align: center;
+  margin: 2em 0;
+}
+.inner {
+  max-width: 1000px;
+  margin: 20px auto 10px;
+  color: #666;
+  font-size: 16px;
+}
+#nenko_php #meisai {
+  background-color: #fff;
+  padding: 2em 2em;
+  border: 1px solid #F9B830;
+  border-radius: 10px;
+  box-sizing: border-box;
+  line-height: 2em;
+}
+#nenko_php #meisai table {
+  margin: 0 auto;
+}
+#nenko_php #meisai table #tr_sougaku {
+  font-size: 23px;
+}
+#nenko_php #meisai table th {
+  text-align: right;
+  padding-right: 30px;
+  color: #F9B830;
+}
+#dispinfo_php #license {
+  /*
+  border: 1px solid #cccc;
+  border-radius: 5px;
+  padding: 1em 2em;
+  width: 380px;
+  width: 516px;
+  height: 324px;*/
+  width: 590px;
+  height: 378px;
+  margin: 3em auto;
+  /*  margin: 3em;*/
+  /*  background-color: #fff;*/
+  background-image: url(image/card_bkimg_green.png);
+  background-size: 100%;
+  position: relative;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  font-size: 16px;
+}
+#dispinfo_php #license img#logo {
+  position: absolute;
+  bottom: 2%;
+  left: 3%;
+  width: 12%;
+}
+#dispinfo_php #license #license_table {
+  position: absolute;
+  /*    top: 15px;
+    left: 40px;*/
+  top: 5%;
+  left: 7%;
+}
+#dispinfo_php #license #license_table th,
+#dispinfo_php #license #license_table td {
+  font-weight: normal;
+  text-align: left;
+}
+#dispinfo_php #license #license_table table.l1 {
+  font-size: 16px;
+  width: 100%;
+}
+#dispinfo_php #license #license_table table.center_name {
+  text-align: left;
+  margin-left: 15%;
+}
+#dispinfo_php #license #license_table table.l2 {
+  /*    margin-left: 2em;*/
+  width: 26em;
+  margin-bottom: 15px;
+}
+#dispinfo_php #license #license_table table.l2 th {
+  width: 7em;
+  text-align: left;
+  /*     vertical-align: top;*/
+}
+#dispinfo_php #license #license_table table.l2 td {
+  /*     vertical-align: top;*/
+  /*
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+     max-width: 0;
+     */
+  line-height: 1.2em;
+}
+#dispinfo_php .link_editinfo {
+  text-align: right;
+  /*  max-width: 600px;*/
+  margin: 1em;
+  /*  max-width: 820px;*/
+}
+#dispinfo_php #print_button button {
+  background-color: #F9B830;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  padding: 1em 2em;
+  margin: 2em auto;
+  display: block;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+}
+#dispinfo_php #re_entry a {
+  background-color: #F9B830;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1em 2em;
+  margin: 0em auto 2em;
+  display: block;
+  width: 200px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+table.info_table {
+  border: 1px solid #ccc;
+  width: 98%;
+  /*    margin: 1em 1%;*/
+  /*    max-width: 600px;
+    margin: 1em;*/
+  margin: 1% auto;
+  max-width: 820px;
+}
+table.info_table th {
+  width: 180px;
+  text-align: left;
+  padding: 0.2em 0.5em;
+  background-color: #F9B830;
+  border: 1px solid #fff;
+  font-weight: normal;
+  color: #fff;
+}
+table.info_table td {
+  background-color: #fff;
+  border: 1px solid #F9B830;
+  padding: 0.2em 0.5em;
+}
+#logout_php #h_menu,
+#login_php #h_menu,
+#regist_php #h_menu,
+#regist_pw_php #h_menu,
+#regist_mail_php #h_menu,
+#regist_pw_done_php #h_menu,
+#logout_php #h_namebox,
+#login_php #h_namebox,
+#regist_php #h_namebox,
+#regist_pw_php #h_namebox,
+#regist_mail_php #h_namebox,
+#regist_pw_done_php #h_namebox,
+#logout_php #title,
+#login_php #title,
+#regist_php #title,
+#regist_pw_php #title,
+#regist_mail_php #title,
+#regist_pw_done_php #title,
+#logout_php #logout,
+#login_php #logout,
+#regist_php #logout,
+#regist_pw_php #logout,
+#regist_mail_php #logout,
+#regist_pw_done_php #logout {
+  display: none;
+}
+#logout_php form,
+#login_php form,
+#regist_php form,
+#regist_pw_php form,
+#regist_mail_php form,
+#regist_pw_done_php form {
+  width: 100%;
+  max-width: 700px;
+}
+#regist_mail_php #body_inner {
+  background-color: #fff;
+  padding: 50px 130px;
+}
+#regist_mail_php h1 {
+  text-align: center;
+  color: #707070;
+}
+#regist_mail_php .alert {
+  text-align: center;
+  color: #f00;
+  font-size: 20px;
+}
+#regist_mail_php #word_info {
+  border: 1px solid #e70010;
+  padding: 40px 100px;
+}
+#regist_mail_php #word_info p {
+  margin: 0;
+}
+#regist_mail_php #word_info .wi1 {
+  color: #fff;
+  background-color: #e70010;
+  font-size: 23px;
+  text-align: center;
+  font-weight: bold;
+}
+#regist_mail_php #word_info .wi1 + img {
+  display: block;
+  margin: 10px auto 0px;
+  width: 36px;
+}
+#regist_mail_php #word_info .wi2 {
+  color: #e70010;
+  font-size: 20px;
+  margin: 27px 0 5px;
+  padding: 0.2em 0;
+}
+#regist_mail_php #word_info .wi_noflex,
+#regist_mail_php #word_info .wi_flex {
+  display: flex;
+  justify-content: space-around;
+}
+#regist_mail_php #word_info .wi_noflex div,
+#regist_mail_php #word_info .wi_flex div {
+  text-align: center;
+  margin-top: 20px;
+}
+#regist_mail_php #word_info .wi_noflex div a,
+#regist_mail_php #word_info .wi_flex div a {
+  border: 1px solid #F9B830;
+  border-radius: 2em;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  margin: 0.5em auto;
+  display: block;
+}
+#regist_mail_php #word_info .wi_noflex {
+  display: block;
+  padding-left: 50px;
+}
+#change_pw_php form,
+#change_pw_done_php form {
+  width: 100%;
+  max-width: 700px;
+}
+#login_php #login_input {
+  overflow: hidden;
+}
+#login_php form {
+  float: left;
+  height: 270px;
+  box-sizing: border-box;
+  max-width: 690px;
+}
+#login_php div#regist {
+  float: left;
+  margin-left: 16px;
+  width: 290px;
+  background-color: #fff;
+  border: 1px solid #F9B830;
+  padding: 4em 1em;
+  text-align: center;
+  height: 270px;
+  box-sizing: border-box;
+}
+#login_php #word_info {
+  clear: both;
+  margin-top: 1em;
+}
+#login_php .submit_button,
+#login_php #submit_button {
+  width: 160px;
+}
+#login_php .back_button {
+  width: 160px;
+}
+#login_php #acc_link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+#login_php #acc_seirino {
+  margin-bottom: 20px;
+  margin-left: 15px;
+}
+#login_php #acc_seirino #acc_seirino_img {
+  display: flex;
+  position: relative;
+}
+#login_php #acc_seirino #acc_seirino_img img {
+  width: 60%;
+}
+#login_php #acc_seirino #acc_seirino_img p {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.submit_button,
+#submit_button {
+  background-color: #f18c17;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.5em 0;
+  margin: 1em auto;
+  display: block;
+  max-width: 300px;
+  width: 90%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 23px;
+  cursor: pointer;
+}
+.back_button {
+  background-color: #ccc;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  color: #222;
+  padding: 0;
+  margin: 1em auto;
+  display: block;
+  max-width: 200px;
+  width: 90%;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1.5em;
+}
+#login_button {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+#dispinfo_php .input_item,
+#logout_php .input_item,
+#login_php .input_item,
+#regist_php .input_item,
+#regist_pw_php .input_item,
+#regist_pw_done_php .input_item,
+#change_pw_php .input_item,
+#change_pw_done_php .input_item,
+#editinfo_php .input_item,
+#editinfo_kakunin_php .input_item,
+#editinfo_done_php .input_item {
+  margin: 1em auto;
+}
+#dispinfo_php .input_item .input_label,
+#logout_php .input_item .input_label,
+#login_php .input_item .input_label,
+#regist_php .input_item .input_label,
+#regist_pw_php .input_item .input_label,
+#regist_pw_done_php .input_item .input_label,
+#change_pw_php .input_item .input_label,
+#change_pw_done_php .input_item .input_label,
+#editinfo_php .input_item .input_label,
+#editinfo_kakunin_php .input_item .input_label,
+#editinfo_done_php .input_item .input_label {
+  width: 12em;
+  display: inline-block;
+  text-align: right;
+  padding-right: 1em;
+}
+#dispinfo_php #submit_button,
+#logout_php #submit_button,
+#login_php #submit_button,
+#regist_php #submit_button,
+#regist_pw_php #submit_button,
+#regist_pw_done_php #submit_button,
+#change_pw_php #submit_button,
+#change_pw_done_php #submit_button,
+#editinfo_php #submit_button,
+#editinfo_kakunin_php #submit_button,
+#editinfo_done_php #submit_button {
+  background-color: #F9B830;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.5em 1em;
+  margin: 2em auto;
+  display: block;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+}
+#dispinfo_php form,
+#logout_php form,
+#login_php form,
+#regist_php form,
+#regist_pw_php form,
+#regist_pw_done_php form,
+#change_pw_php form,
+#change_pw_done_php form,
+#editinfo_php form,
+#editinfo_kakunin_php form,
+#editinfo_done_php form {
+  width: 100%;
+  padding: 20px 1em;
+  background-color: #fff;
+  border: 1px solid #F9B830;
+  margin: 0 auto;
+}
+#dispinfo_php form input,
+#logout_php form input,
+#login_php form input,
+#regist_php form input,
+#regist_pw_php form input,
+#regist_pw_done_php form input,
+#change_pw_php form input,
+#change_pw_done_php form input,
+#editinfo_php form input,
+#editinfo_kakunin_php form input,
+#editinfo_done_php form input {
+  width: 270px;
+  display: inline-block;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 4px;
+}
+#dispinfo_php form #submit_button,
+#logout_php form #submit_button,
+#login_php form #submit_button,
+#regist_php form #submit_button,
+#regist_pw_php form #submit_button,
+#regist_pw_done_php form #submit_button,
+#change_pw_php form #submit_button,
+#change_pw_done_php form #submit_button,
+#editinfo_php form #submit_button,
+#editinfo_kakunin_php form #submit_button,
+#editinfo_done_php form #submit_button {
+  display: block;
+}
+#dispinfo_php #word_info,
+#logout_php #word_info,
+#login_php #word_info,
+#regist_php #word_info,
+#regist_pw_php #word_info,
+#regist_pw_done_php #word_info,
+#change_pw_php #word_info,
+#change_pw_done_php #word_info,
+#editinfo_php #word_info,
+#editinfo_kakunin_php #word_info,
+#editinfo_done_php #word_info {
+  width: 95%;
+}
+#dispinfo_php #word_info li,
+#logout_php #word_info li,
+#login_php #word_info li,
+#regist_php #word_info li,
+#regist_pw_php #word_info li,
+#regist_pw_done_php #word_info li,
+#change_pw_php #word_info li,
+#change_pw_done_php #word_info li,
+#editinfo_php #word_info li,
+#editinfo_kakunin_php #word_info li,
+#editinfo_done_php #word_info li {
+  margin-bottom: 1em;
+}
+#regist_pw_php form,
+#regist_php form {
+  padding: 3em 2em 0 2em;
+  margin: 0 auto;
+}
+#regist_pw_php form input,
+#regist_php form input {
+  /*   max-width: 310px;*/
+  max-width: 120px;
+  width: 100%;
+}
+#regist_pw_php form input[name="email"],
+#regist_php form input[name="email"] {
+  max-width: 310px;
+}
+#regist_pw_php .input_item,
+#regist_php .input_item {
+  margin: 0 auto 3em auto;
+  /*  max-width: 500px;*/
+  max-width: 630px;
+}
+#regist_pw_php .input_item .input_label,
+#regist_php .input_item .input_label {
+  /*    width: 9em;*/
+  width: 13em;
+}
+#regist_pw_php form {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  max-width: none;
+}
+#regist_pw_php .input_item {
+  margin: 0;
+  max-width: none;
+}
+#regist_pw_php .input_item table {
+  border-collapse: collapse;
+  max-width: 760px;
+  width: 100%;
+}
+#regist_pw_php .input_item table tr th,
+#regist_pw_php .input_item table tr td {
+  border: 1px solid #707070;
+  padding: 5px 10px;
+  height: 5em;
+}
+#regist_pw_php .input_item table tr th input,
+#regist_pw_php .input_item table tr td input {
+  max-width: 300px;
+}
+#regist_pw_php .input_item table tr th {
+  background-color: #F4F4F4;
+}
+#regist_pw_php .input_item table tr th .input_label {
+  text-align: left;
+}
+#regist_pw_php .input_item table tr td {
+  width: 100%;
+  background-color: #fff;
+}
+#editinfo_php form,
+#editinfo_kakunin_php form {
+  width: 100%;
+  max-width: 100%;
+  /*  max-width: 600px;*/
+}
+#editinfo_php form td input,
+#editinfo_kakunin_php form td input {
+  width: 98%;
+}
+#editinfo_php form input[type="checkbox"],
+#editinfo_kakunin_php form input[type="checkbox"] {
+  width: auto;
+}
+#editinfo_php form #tr_license input,
+#editinfo_kakunin_php form #tr_license input {
+  margin: 1em 0 3em 0;
+  width: 80%;
+}
+#editinfo_php form #check_info,
+#editinfo_kakunin_php form #check_info {
+  margin-left: 1em;
+}
+#editinfo_php #submit_button.disabled,
+#editinfo_kakunin_php #submit_button.disabled {
+  background-color: #ccc;
+  color: #aaa;
+  font-weight: normal;
+}
+#top_php header #logout #change_pw_button {
+  display: inline-block;
+}
+#top_php .inner ul {
+  overflow: hidden;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#top_php .inner ul li {
+  overflow: hidden;
+  margin: 20px 0;
+}
+#top_php .inner ul li img {
+  width: 100%;
+  max-width: 100px;
+  margin-right: 20px;
+  float: left;
+}
+#top_php .inner ul li img.ribbon {
+  position: absolute;
+  z-index: 100;
+  right: -10px;
+  top: 10px;
+  width: 35%;
+}
+#kanyusya_php .gray_box {
+  background-color: #EBECED;
+  padding: 10px 15px;
+  margin: 56px 0;
+}
+#kanyusya_php .gray_box .roudouhokenbangou td:nth-child(1) {
+  width: 70px;
+}
+#kanyusya_php .gray_box .roudouhokenbangou td:nth-child(2) {
+  width: 200px;
+}
+#syoumei_php table.info_table {
+  max-width: 600px;
+}
+#syoumei_php table.info_table th {
+  width: auto;
+}
+#syoumei_php table.info_table td {
+  /*   text-align: center;*/
+}
+#index_i_ul {
+  list-style: none;
+  background-color: #fff;
+  padding: 1em;
+}
+#index_i_ul li {
+  font-size: 16px;
+  line-height: 30px;
+}
+#index_i_ul li a {
+  text-decoration: none;
+  color: #222;
+}
+#index_i_ul li a:hover {
+  text-decoration: underline;
+}
+#nenko_edit_php .inner article#normal {
+  position: relative;
+}
+#nenko_edit_php .inner article {
+  background-color: #fff;
+  padding: 2em 3em;
+  border: 1px solid #F9B830;
+  border-radius: 20px;
+}
+#nenko_edit_php .inner article table {
+  margin: 2em auto;
+  line-height: 2em;
+  width: 95%;
+  box-sizing: border-box;
+}
+#nenko_edit_php .inner article table th {
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  text-align: right;
+  padding-right: 1em;
+}
+#nenko_edit_php .inner article table td {
+  border-bottom: 1px solid #ccc;
+  padding-left: 1em;
+}
+#nenko_edit_php .inner article table tr:last-child th,
+#nenko_edit_php .inner article table tr:last-child td {
+  border-bottom: none;
+}
+#nenko_edit_php #henkou_yn {
+  max-width: 430px;
+  margin: 0 auto;
+}
+#nenko_edit_php #henkou_yn input {
+  display: none;
+}
+#nenko_edit_php #henkou_yn input + label {
+  margin: 1em;
+  display: inline-block;
+  border: 1px solid #F9B830;
+  padding: 1em;
+  border-radius: 5px;
+  color: #F9B830;
+  font-weight: bold;
+}
+#nenko_edit_php #henkou_yn input:checked + label {
+  background-color: #F9B830;
+  color: #fff;
+}
+@media screen and (max-width: 640px) {
+  span.hide_sp,
+  .hide_sp {
+    display: none;
+  }
+  .hide_pc {
+    display: block;
+  }
+  span.hide_pc {
+    display: inline-block;
+  }
+  table.info_table {
+    margin: 0;
+  }
+  img#step_sp {
+    width: 96%;
+    margin: 0 2% 1em;
+  }
+  header #h_title #flex1 img {
+    max-width: 204px;
+  }
+  header .flex_row {
+    flex-wrap: wrap;
+  }
+  header #h_menu ul li {
+    width: 50%;
+    border-bottom: 1px solid #fff;
+    box-sizing: border-box;
+  }
+  header #h_namebox {
+    margin: 10px;
+  }
+  header #h_name,
+  header #h_seirino {
+    width: 100%;
+    border: none;
+  }
+  header #h_name #h_name_label,
+  header #h_seirino #h_name_label,
+  header #h_name #h_seirino_label,
+  header #h_seirino #h_seirino_label {
+    display: block;
+  }
+  header #h_name {
+    padding-bottom: 0;
+  }
+  header #h_seirino {
+    padding-top: 10px;
+  }
+  header h1#title {
+    display: block;
+  }
+  header h1#title img {
+    width: 96%;
+    margin: 0 2%;
+  }
+  header h1#title #h1_button {
+    width: 100%;
+    background-color: transparent;
+  }
+  header h1#title #h1_button a {
+    display: inline-block;
+    margin: 0px 2%;
+    width: 46%;
+  }
+  header h1#title #h1_button a img {
+    width: 100%;
+    margin: 0;
+  }
+  #title_i {
+    display: block;
+  }
+  #title_i img {
+    width: 96%;
+    margin: 0 2%;
+  }
+  #title_i #h1_button {
+    width: 100%;
+    background-color: transparent;
+  }
+  #title_i #h1_button a {
+    display: inline-block;
+    margin: 0px 2%;
+    width: 46%;
+  }
+  #title_i #h1_button a img {
+    width: 100%;
+    margin: 0;
+  }
+  .inner {
+    padding: 0 10px;
+  }
+  #login_php .inner {
+    padding-top: 0px;
+  }
+  #login_php #title_i {
+    margin-top: 0;
+  }
+  #login_php .input_item .input_label {
+    text-align: left;
+  }
+  #login_php form {
+    float: none;
+    height: auto;
+  }
+  #login_php div#regist {
+    float: none;
+    width: 100%;
+    margin: auto;
+    margin-top: 1em;
+    height: auto;
+    padding: 1em;
+  }
+  #logout_php .submit_button,
+  #login_php .submit_button,
+  #regist_php .submit_button,
+  #regist_pw_php .submit_button,
+  #regist_pw_done_php .submit_button,
+  #change_pw_php .submit_button,
+  #change_pw_done_php .submit_button,
+  #editinfo_php .submit_button,
+  #editinfo_kakunin_php .submit_button,
+  #editinfo_done_php .submit_button,
+  #logout_php #submit_button,
+  #login_php #submit_button,
+  #regist_php #submit_button,
+  #regist_pw_php #submit_button,
+  #regist_pw_done_php #submit_button,
+  #change_pw_php #submit_button,
+  #change_pw_done_php #submit_button,
+  #editinfo_php #submit_button,
+  #editinfo_kakunin_php #submit_button,
+  #editinfo_done_php #submit_button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #logout_php .back_button,
+  #login_php .back_button,
+  #regist_php .back_button,
+  #regist_pw_php .back_button,
+  #regist_pw_done_php .back_button,
+  #change_pw_php .back_button,
+  #change_pw_done_php .back_button,
+  #editinfo_php .back_button,
+  #editinfo_kakunin_php .back_button,
+  #editinfo_done_php .back_button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #regist_pw_php form,
+  #regist_php form {
+    padding: 3em 1em 0 1em;
+  }
+  #regist_pw_php .input_item .input_label,
+  #regist_php .input_item .input_label {
+    text-align: left;
+  }
+  #regist_pw_php .input_item table tr th,
+  #regist_pw_php .input_item table tr td {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+  #regist_pw_php .input_item table tr th .input_label,
+  #regist_pw_php .input_item table tr td .input_label {
+    width: 100%;
+  }
+  #regist_mail_php #body_inner {
+    margin: 15px;
+    padding: 50px 20px;
+  }
+  #regist_mail_php #word_info {
+    padding: 40px 20px;
+  }
+  #regist_mail_php #word_info .wi_noflex,
+  #regist_mail_php #word_info .wi_flex {
+    display: block;
+  }
+  #regist_mail_php #word_info .wi_noflex div,
+  #regist_mail_php #word_info .wi_flex div {
+    margin-top: 30px;
+  }
+  #regist_mail_php #word_info .wi_noflex {
+    padding-left: 0;
+  }
+  #top_php .inner ul#top_menu li {
+    width: 42%;
+    margin: 0;
+    margin: 5px 4%;
+  }
+  #top_php .inner ul#top_menu li.clear {
+    clear: both;
+  }
+  #dispinfo_php #license {
+    /*   transform: scale(0.5);*/
+    /*   transform-origin: top left;
+   margin: 0 auto;*/
+  }
+  #dispinfo_php #re_entry {
+    margin: 0 auto;
+  }
+  #dispinfo_php table th,
+  #dispinfo_php table td {
+    box-sizing: border-box;
+    border: none;
+    min-height: 2em;
+  }
+  #dispinfo_php table.info_table th,
+  #dispinfo_php table.info_table td {
+    display: block;
+    width: 100%;
+  }
+  #nenko_php #meisai {
+    padding: 2em 1em;
+    margin: 5px;
+    font-size: 16px;
+  }
+  #nenko_php #meisai table {
+    width: 100%;
+  }
+  #nenko_php #meisai table #tr_sougaku td span {
+    font-size: 23px;
+  }
+  #nenko_php #meisai table th,
+  #nenko_php #meisai table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    min-height: 2em;
+    text-align: center;
+    padding: 0;
+  }
+  #nenko_php #meisai .submit_button,
+  #nenko_php #meisai #submit_button {
+    font-size: 16px;
+    width: 85%;
+  }
+  #nenko_php #meisai .back_button {
+    font-size: 16px;
+    width: 85%;
+  }
+  #editinfo_php table th,
+  #editinfo_php table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+  }
+  #editinfo_php table th input,
+  #editinfo_php table td input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 2px;
+    margin: 2% 0;
+  }
+  #nenko_edit_php #henkou_yn {
+    max-width: 220px;
+  }
+  #nenko_edit_php .submit_button,
+  #nenko_edit_php #submit_button {
+    font-size: 16px;
+  }
+  #nenko_edit_php .back_button {
+    font-size: 16px;
+  }
+  #nenko_edit_php .inner article {
+    padding: 2em 1em;
+  }
+  #nenko_edit_php .inner article table th,
+  #nenko_edit_php .inner article table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    border: none;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #login_php .hide_sp {
+    display: none;
+  }
+  #login_php .hide_pc {
+    display: block;
+  }
+  #login_php #acc_seirino {
+    margin-left: 0;
+  }
+  #login_php #acc_seirino #acc_seirino_img {
+    display: block;
+  }
+  #login_php #acc_seirino #acc_seirino_img img.show_sp {
+    width: 100%;
+    display: block;
+  }
+  #login_php #acc_seirino #acc_seirino_img p {
+    position: relative;
+  }
+  #login_php #acc_seirino #acc_seirino_img p br {
+    display: none;
+  }
+}
+/* 20210710～　マイページ */
+body header #h_namebox {
+  font-size: 23px;
+  line-height: 23px;
+}
+body header #h_namebox #h_name {
+  padding: 17px 0px;
+}
+body header #h_namebox #h_seirino {
+  padding: 17px 50px 17px 0px;
+  font-size: 23px;
+}
+body .inner input[type="button"],
+body .inner input[type="submit"] {
+  display: block;
+  margin: 50px auto;
+  width: 220px;
+  height: 50px;
+  font-size: 23px;
+  color: #707070;
+  border: 1px solid #707070;
+  background-color: #EBF4FC;
+  cursor: pointer;
+}
+body .inner a {
+  color: inherit;
+}
+body .inner figure {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2em auto 1em;
+}
+body .inner figure figcaption {
+  font-size: 23px;
+}
+body .inner figure table {
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+body .inner figure table th {
+  width: auto;
+  height: 32px;
+  border: 1px solid #707070;
+  font-size: 16px;
+  background-color: #F9B830;
+  text-align: left;
+  font-weight: normal;
+  padding: 2px 8px;
+}
+body .inner figure table td {
+  width: auto;
+  height: 32px;
+  border: 1px solid #707070;
+  font-size: 16px;
+  background-color: #fff;
+  padding: 2px 8px;
+}
+body .inner figure table td input {
+  width: 100%;
+  line-height: 1.7em;
+}
+#top_php body .inner ul li {
+  float: left;
+  width: 50%;
+  font-size: 16px;
+  padding-right: 2em;
+}
+#top_php body .inner ul li img {
+  width: 110px;
+  max-width: 100%;
+}
+#top_php body .inner ul li:nth-child(2n+1) {
+  clear: both;
+}
+#kaisya_edit_php body .inner figure,
+#kaisya_check_php body .inner figure,
+#kaisya_done_php body .inner figure,
+#kaisya_php body .inner figure {
+  max-width: 800px;
+  font-size: 16px;
+}
+#kaisya_edit_php body .inner figure table,
+#kaisya_check_php body .inner figure table,
+#kaisya_done_php body .inner figure table,
+#kaisya_php body .inner figure table {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+#kaisya_edit_php body .inner figure table th,
+#kaisya_check_php body .inner figure table th,
+#kaisya_done_php body .inner figure table th,
+#kaisya_php body .inner figure table th {
+  width: 35%;
+  border: none;
+  font-size: 16px;
+  height: 32px;
+}
+#kaisya_edit_php body .inner figure table td,
+#kaisya_check_php body .inner figure table td,
+#kaisya_done_php body .inner figure table td,
+#kaisya_php body .inner figure table td {
+  width: 65%;
+  font-size: 16px;
+  height: 32px;
+}
+#kaisya_edit_php table tr td {
+  border: none;
+  padding: 0;
+}
+#kaisya_edit_php table tr td input {
+  height: 32px;
+  font-size: 16px;
+  line-height: 32px;
+}
+#kaisya_edit_php #readcheck {
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+#kaisya_done_php .inner input[type="submit"] {
+  width: 425px;
+}
+#kanyusya_php body .inner figure .roudouhokenbangou {
+  max-width: 720px;
+}
+#kanyusya_php body .inner figure table th {
+  height: 33px;
+}
+#kanyusya_php body .inner figure table td {
+  height: 45px;
+}
+#download_php body #roudouhokenbangou {
+  font-size: 23px;
+}
+#kaiinsyo_php body .inner figure {
+  max-width: 800px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div {
+  width: 90%;
+  max-width: 91.2mm;
+  margin: 0 auto;
+  position: relative;
+  font-family: serif;
+  font-size: 15px;
+  font-weight: bold;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div img {
+  width: 100%;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p {
+  white-space: nowrap;
+  max-width: 310px;
+  overflow: hidden;
+  left: 35px;
+  font-size: 14px;
+  display: flex;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div .kaiinsyo_title{
+ display: flex;
+ margin-right: 1em;
+ width: 60px;
+ font-size: 10px;
+ justify-content: space-between;
+ padding: 0.3em 0;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p#nendo {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 13px;
+  left: 30px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p#roudouhokenbangou {
+  position: absolute;
+  top: 27px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p#jigyosyo {
+  position: absolute;
+  top: 44px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p#seiribangou {
+  position: absolute;
+  top: 59px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p#name {
+  position: absolute;
+  top: 76px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p#hakkou {
+  position: absolute;
+  top: 92px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_div p#kigen {
+  position: absolute;
+  top: 109px;
+}
+#kaiinsyo_php body .inner figure #kaiinsyo_print {
+  font-size: 23px;
+  max-width: 120px;
+  margin: 40px auto;
+  display: block;
+}
+@media screen and (max-width: 1000px) {
+  .header_body .main-nav {
+    justify-content: space-between;
+  }
+  .header_body #telicon {
+    display: none;
+  }
+  .header_body #h_namebox #h_name {
+    font-size: 16px;
+    width: auto;
+    padding-bottom: 0;
+  }
+  .header_body #h_namebox #h_seirino {
+    font-size: 16px;
+    width: auto;
+    padding-bottom: 0;
+  }
+  #top_php body .inner {
+    margin-top: 0;
+  }
+  #top_php body .inner ul#top_menu li {
+    float: left;
+    width: 50%;
+    margin: 15px auto;
+    padding: 0;
+  }
+  #top_php body .inner ul#top_menu li a {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+  }
+  #top_php body .inner ul#top_menu li a img {
+    margin: 0 auto;
+    display: block;
+    float: none;
+  }
+  #top_php body .inner ul#top_menu li p {
+    display: none;
+  }
+  #download_php body .inner {
+    margin-top: 0;
+  }
+  #download_php body .inner figure {
+    margin-top: 0;
+  }
+  #download_php body .inner figure table {
+    width: 90%;
+    margin: 30px auto 0;
+  }
+  #download_php body .inner figure table th {
+    height: 45px;
+    min-width: 4em;
+    text-align: center;
+  }
+  #download_php body .inner figure table td {
+    height: auto;
+  }
+  #download_php body .inner figure table + p {
+    margin: 5px auto 1em;
+    width: 90%;
+    padding-left: 5px;
+  }
+  #kaisya_edit_php body .inner figure table,
+  #kaisya_check_php body .inner figure table,
+  #kaisya_done_php body .inner figure table,
+  #kaisya_php body .inner figure table {
+    border-collapse: collapse;
+  }
+  #kaisya_edit_php body .inner figure table th,
+  #kaisya_check_php body .inner figure table th,
+  #kaisya_done_php body .inner figure table th,
+  #kaisya_php body .inner figure table th {
+    border: 1px solid #707070;
+  }
+  #kaisya_edit_php body .inner figure table td,
+  #kaisya_check_php body .inner figure table td,
+  #kaisya_done_php body .inner figure table td,
+  #kaisya_php body .inner figure table td {
+    border: 1px solid #707070;
+  }
+}
+aisya_check_php body .inner figure table td,
+  #kaisya_done_php body .inner figure table td,
+  #kaisya_php body .inner figure table td {
+    border: 1px solid #707070;
+  }
+}
