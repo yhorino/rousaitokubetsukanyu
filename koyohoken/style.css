@@ -873,3 +873,35 @@ input.kh_omakase_button2.ssf_submit_button,
 }
 /* 資料請求フォーム */
 
+.headline {
+ background-color: #009BEB;
+ color: #fff;
+ text-align: center;
+ font-size: clamp(12px, 3vw, 15px);
+ padding: 1em 0 1.2em;
+ line-height: 1.2em;
+ cursor: pointer;
+ position: relative;
+}
+.headline::after {
+ position: absolute;
+ bottom: 0px;
+ left: 50%;
+ content: '\f0d7';
+ font-family: "Font Awesome 5 Free";
+ font-weight: bold;
+}
+.headline.opened {
+}
+.headline.opened::after {
+ content: '\f0d8';
+ /*display: none;*/
+}
+.headline_body{
+ background-color: #009BEB;
+ color: #fff;
+ text-align: center;
+ font-size: clamp(12px, 3vw, 15px);
+ padding: 0 0 1em 0; 
+ line-height: 1.2em;
+}

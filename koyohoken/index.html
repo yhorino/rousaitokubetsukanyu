@@ -45,6 +45,22 @@ require_once('../form/function.php');
  
 <?php include_once 'header.php'?>
  
+ <div class="headline">
+  <span class="headline_text">現在、証明書の発行までに大変お時間がかかっています</span>
+ </div>
+ <div class="headline_body">
+  <span class="headline_text">ハローワークは、毎年4月、5月の期間は1年の中で一番混雑します。<br>お急ぎの方は、すぐにお申込みください。</span>
+ </div>
+ <script>
+  $(function(){
+   $('.headline_body').hide();
+   $('.headline').click(function(){
+    $('.headline_body').slideToggle();
+    $('.headline').toggleClass('opened');
+   });
+  })
+ </script>
+ 
   <?php /* KV */ /* ?>
   <div class="kh_kvimg kh_wrap">
     <div class="kh_inner kh_kvimg_inner">
