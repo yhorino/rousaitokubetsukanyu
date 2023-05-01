@@ -163,7 +163,7 @@ function getInsuranceFee($Kanyuhopemonth, $Kanyukikan, $M_hokenryonitigaku){
 
  $khm = $Kanyuhopemonth.'月';
   $returns = array();
-  $query = "SELECT Sonobadeuketori__c, Kanyuhopemonth__c, Kanyukikan__c, Newkaihi__c, KaihiZangaku__c, Kaihinenko_Currency__c, M_hokenryonitigaku__c, Nownitigaku__c, ShiharaiType__c, Bumon__c, Mnyukaikin__c, NKchangeShiharaiType__c, NKchangenitigaku__c, MiharaiTukisu__c, Hokenryounew__c, HokenryouZangaku__c, Nenkohokenryo__c FROM InsuranceFee__c WHERE Kanyuhopemonth__c = '$khm' AND Kanyukikan__c = $Kanyukikan AND M_hokenryonitigaku__c = '$M_hokenryonitigaku' AND Bumon__c = 'RJC'";
+  $query = "SELECT Sonobadeuketori__c, Kanyuhopemonth__c, Kanyukikan__c, Newkaihi__c, KaihiZangaku__c,  M_hokenryonitigaku__c, Nownitigaku__c, ShiharaiType__c, Bumon__c, Mnyukaikin__c,   MiharaiTukisu__c, Hokenryounew__c, HokenryouZangaku__c, Nenkohokenryo__c FROM InsuranceFee__c WHERE Kanyuhopemonth__c = '$khm' AND Kanyukikan__c = $Kanyukikan AND M_hokenryonitigaku__c = '$M_hokenryonitigaku' AND Bumon__c = 'RJC'";
   try {
     $response = $_con->query($query);
 
