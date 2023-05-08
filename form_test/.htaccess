@@ -1,0 +1,16 @@
+  AddHandler php-script .php .html
+  AddType application/x-httpd-php .php .html
+  
+php_value upload_max_filesize 1G
+php_value post_max_size 1G
+php_value memory_limit 2048M
+php_value max_execution_time 300
+
+# authenticate(Basic)
+AuthUserFile /home/rjc/domains/xn--y5q0r2lqcz91qdrc.com/public_html/form_test/.htpasswd
+AuthGroupFile /dev/null
+AuthName MembersOnly
+AuthType Basic
+<Limit GET POST>
+require valid-user
+</Limit>
