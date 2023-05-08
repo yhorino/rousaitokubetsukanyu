@@ -125,6 +125,26 @@ setcookie('norikae', '0', 0, '/');
        </div>
       </div><!-- mitsumori-block-flex -->
         
+      <div class="mitsumori-block-flex motouke">
+       <div class="mitsumori-block">
+        <h2 class="mitsumori-subttl"><span class="st_orange">元請工事</span>はありますか？</h2>
+         <ul class="mitsumori-list">
+           <li>
+             <input id="motouke2" type="radio" name="motouke" value="-1">
+             <label for="motouke2"><span>いいえ</span></label>
+           </li>
+           <li>
+             <input id="motouke1" type="radio" name="motouke" value="1">
+             <label for="motouke1"><span>はい</span></label>
+           </li>
+           <li class="motouke_msg">
+            <p class="motouke_msg_info">当組合ではご加入いただけません。</p>
+            <a href="/" class="totop_button">トップページへ</a>
+           </li>
+         </ul>
+       </div>
+      </div><!-- mitsumori-block-flex -->
+        
      </section>
      <?php /* 20230302 従業員雇っているか？ */ ?>
      
@@ -747,14 +767,29 @@ $(function(){
   function init_mitsumori_start(){
    $('.mitsumori').hide();
    $('.to_oyakata').hide();
+   $('.mitsumori-block-flex.motouke').hide();
   }
   function show_mitsumori(){
    $('.mitsumori').show();
    $('.to_oyakata').hide();
+   $('.motouke_msg').hide();
   }
   function show_to_oyakata(){
    $('.mitsumori').hide();
    $('.to_oyakata').show();
+   $('.mitsumori-block-flex.motouke').hide();
+  }
+  function show_motouke(){
+   $('.mitsumori-block-flex.motouke').show();
+   $('.to_oyakata').hide();
+   $('.motouke_msg').hide();
+   $('.mitsumori').hide();
+  }
+  function show_motouke_msg(){
+   $('.mitsumori-block-flex.motouke').show();
+   $('.to_oyakata').hide();
+   $('.motouke_msg').show();
+   $('.mitsumori').hide();
   }
   
   init_mitsumori_start();
@@ -764,7 +799,7 @@ $(function(){
    const val_no = -1;
    const selected_val = $('input[name="tanin"]:checked').val();
    if(selected_val == val_yes){
-    show_mitsumori();
+    show_motouke();
    } else if(selected_val == val_no){
     show_to_oyakata();
    } else {
@@ -772,6 +807,18 @@ $(function(){
    }
   });
   /* 20230302 従業員雇っているか？ */
+  $('input[name="motouke"]').click(function(){
+   const val_yes = 1;
+   const val_no = -1;
+   const selected_val = $('input[name="motouke"]:checked').val();
+   if(selected_val == val_yes){
+    show_motouke_msg();
+   } else if(selected_val == val_no){
+    show_mitsumori();
+   } else {
+    init_mitsumori_start();
+   }
+  });
 	});
 
  function browser(){
