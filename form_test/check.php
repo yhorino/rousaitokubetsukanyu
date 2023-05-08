@@ -88,7 +88,7 @@ include('session_check.php');
         <input type="hidden" id="jugyouin" name="jugyouin" value = "<?php echo $_SESSION['jugyouin'];?>">
         <input type="hidden" id="jugyouinninzu" name="jugyouinninzu" value = "<?php echo $_SESSION['jugyouinninzu'];?>">
         <input type="hidden" id="nitigaku" name="nitigaku" value = "<?php echo $_SESSION['nitigaku'];?>">
-        <input type="hidden" id="shiharai_kaisu" name="shiharai_kaisu" value = "<?php echo $_SESSION['shiharai_kaisu'];?>">
+        <input type="hidden" id="kanyu_kikan" name="kanyu_kikan" value = "<?php echo $_SESSION['kanyu_kikan'];?>">
         
         <input type="hidden" id="kikan" name="kikan" value = "<?php echo $_SESSION['kikan'];?>">
         <input type="hidden" id="jigyou" name="jigyou" value = "<?php echo $_SESSION['jigyou'];?>">
@@ -470,7 +470,7 @@ include('session_check.php');
            </table>
            </figure>
            
-           <figure id="kikan_alert" <?php if($_SESSION['shiharai_kaisu'] == '毎月払い'){echo ' style="display: none;" ';}?>>
+           <figure id="kikan_alert">
             <?php
              $this_month = date('m');
              if(intval($_SESSION['kikan']) == intval($this_month)){
@@ -508,282 +508,9 @@ include('session_check.php');
              </td>
             </tr>
             
-            <!--
-            <tr>
-             <th colspan="2">支払種別</th>
-             <td>
-              <?php echo $_SESSION['shiharai_kaisu']; ?>
-             </td>
-            </tr>
-            -->
            </table>
            </figure>
 
-           <!--
-            <dl class="mitsumori-form_item -confirm">
-              <dt>家族以外の従業員はいますか？</dt>
-              <dd><?php echo $_SESSION['jugyouin'];?></dd>
-            </dl>
-            <dl class="mitsumori-form_item -confirm">
-              <dt>個人ですか？法人ですか？</dt>
-              <dd><?php echo $_SESSION['type'];?></dd>
-            </dl>
-            <dl class="mitsumori-form_item -confirm">
-              <dt>特別加入する人数</dt>
-              <dd><?php echo $_SESSION['ninzu'];?> 人</dd>
-            </dl>
-            <dl class="mitsumori-form_item -confirm">
-              <dt>従業員数</dt>
-              <dd><?php echo $_SESSION['jugyouinninzu'];?> 人</dd>
-            </dl>
-            -->
-           
-
-           
-           <?php /************************************/ ?>
-           <?php /* 20211122 Y.Horino アンケート入力 */ ?>
-           <!--
-           <section id="q_form">
-            <h2>アンケート回答後、次へお進みください</h2>
-            
-            <div id="q_form_body">
-             
-            <div class="q_form_item">
-             <h3>Q1 RJCについてお聞きします<span class="required_text"> ※ 必須</span></h3>
-             
-             <?php /* https://kodocode.net/design-css-rating/ */ ?>
-             <div class="q_form_item_a star">
-              <input type="radio" name="RJC_hayasa__c" id="star1-null" value="" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-1" value="不満" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-2" value="やや不満" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-3" value="やや満足" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-4" value="紹介したい" required />
-
-              <input type="radio" name="RJC_kantan__c" id="star2-null" value="" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-1" value="不満" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-2" value="やや不満" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-3" value="やや満足" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-4" value="紹介したい" required />
-
-              <input type="radio" name="RJC_anshin__c" id="star3-null" value="" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-1" value="不満" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-2" value="やや不満" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-3" value="やや満足" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-4" value="紹介したい" required />
-
-               <table id="sec">
-                <tr><th></th><th>不満</th><th>やや不満</th><th>やや満足</th><th>紹介したい</th></tr>
-
-                <tr><th>早さ</th>
-                 <td>
-                  <label for="star1-1">
-                   <svg width="255" height="240" viewBox="0 0 51 48">
-                     <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                   </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star1-2">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star1-3">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star1-4">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                </tr>
-
-                <tr><th>かんたん</th>
-                 <td>
-                  <label for="star2-1">
-                   <svg width="255" height="240" viewBox="0 0 51 48">
-                     <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                   </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star2-2">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star2-3">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star2-4">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                </tr>
-
-                <tr><th>安心</th>
-                 <td>
-                  <label for="star3-1">
-                   <svg width="255" height="240" viewBox="0 0 51 48">
-                     <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                   </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star3-2">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star3-3">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star3-4">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                </tr>
-
-               </table>
-              </div>
-             
-            </div>
-            
-            <div class="q_form_item">
-             <h3>Q2 RJCをどのようにして知りましたか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_1" value="Yahoo" required><label for="find_1">Yahoo</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_2" value="Google" required><label for="find_2">Google</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_3" value="知人の紹介" required><label for="find_3">知人の紹介</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_4" value="一人親方労災保険RJCに加入していた" required><label for="find_4">一人親方労災保険RJCに加入していた</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_5" value="チラシ" required><label for="find_5">チラシ</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_other" value="その他" required><label for="find_other">その他</label></p>
-              <textarea name="RJC_from_sonota__c" id="RJC_from_sonota__c" class="textarea_sonota"></textarea>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q3 なぜRJCを選びましたか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_1" value="会員カードが即日発行だから" required><label for="select_1">会員カードが即日発行だから</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_2" value="申込みが簡単だから" required><label for="select_2">申込みが簡単だから</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_3" value="金額が安いから" required><label for="select_3">金額が安いから</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_other" value="その他" required><label for="select_other">その他</label></p>
-              <textarea name="RJC_why_sonota__c" id="RJC_why_sonota__c" class="textarea_sonota"></textarea>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q4 なぜ特別加入が必要になりましたか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_1" value="現場で必要と言われたから" required><label for="need_1">現場で必要と言われたから</label></p>
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_2" value="初めて従業員を雇ったから" required><label for="need_2">初めて従業員を雇ったから</label></p>
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_3" value="本当はずっと前から従業員を雇っているから" required><label for="need_3">本当はずっと前から従業員を雇っているから</label></p>
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_other" value="その他"><label for="need_other" required>その他</label></p>
-              <textarea name="tokubetsukanyu_why_sonota__c" id="tokubetsukanyu_why_sonota__c" class="textarea_sonota"></textarea>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q5 建設業許可を持っていますか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="have_kyoka__c" id="kyoka_y" value="はい" required><label for="kyoka_y">はい</label></p>
-              <p class="radio_p"><input type="radio" name="have_kyoka__c" id="kyoka_n" value="いいえ" required><label for="kyoka_n">いいえ</label></p>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q6 従業員は何人いますか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="jyugyouin_ninzu__c" id="jyugyouin_1" value="１人" required><label for="jyugyouin_1">１人</label></p>
-              <p class="radio_p"><input type="radio" name="jyugyouin_ninzu__c" id="jyugyouin_2" value="２人" required><label for="jyugyouin_2">２人</label></p>
-              <p class="radio_p"><input type="radio" name="jyugyouin_ninzu__c" id="jyugyouin_3" value="３人以上" required><label for="jyugyouin_3">３人以上</label></p>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q7 雇用保険に入っていますか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="join_koyouhoken__c" id="koyou_y" value="はい" required><label for="koyou_y">はい</label></p>
-              <p class="radio_p"><input type="radio" name="join_koyouhoken__c" id="koyou_n" value="いいえ" required><label for="koyou_n">いいえ</label></p>
-             </div>
-            </div>
-             
-            </div>
-            
-           </section>
-           <script>
-            $(function(){
-             $('.textarea_sonota').hide();
-             $('input[name="RJC_from__c"]').click(function(){
-              if($('input[name="RJC_from__c"]:checked').val() == 'その他'){
-               $('#RJC_from_sonota__c').show();
-               $('#RJC_from_sonota__c').attr("required", "required");
-              } else {
-               $('#RJC_from_sonota__c').hide();               
-               $('#RJC_from_sonota__c').val("");
-               $('#RJC_from_sonota__c').removeAttr("required");
-              }
-             });
-             $('input[name="RJC_why__c"]').click(function(){
-              if($('input[name="RJC_why__c"]:checked').val() == 'その他'){
-               $('#RJC_why_sonota__c').show();
-               $('#RJC_why_sonota__c').attr("required", "required");
-              } else {
-               $('#RJC_why_sonota__c').hide();               
-               $('#RJC_why_sonota__c').val("");
-               $('#RJC_why_sonota__c').removeAttr("required");
-              }
-             });
-             $('input[name="tokubetsukanyu_why__c"]').click(function(){
-              if($('input[name="tokubetsukanyu_why__c"]:checked').val() == 'その他'){
-               $('#tokubetsukanyu_why_sonota__c').show();
-               $('#tokubetsukanyu_why_sonota__c').attr("required", "required");
-              } else {
-               $('#tokubetsukanyu_why_sonota__c').hide();               
-               $('#tokubetsukanyu_why_sonota__c').val("");
-               $('#tokubetsukanyu_why_sonota__c').removeAttr("required");
-              }
-             });
-            });
-           </script>
--->
-           <?php /* 20211122 Y.Horino アンケート入力 */ ?>
-           <?php /************************************/ ?>
-           
-           
-           
-           
-           
            
           <section class="mitsumori-regulation" id="regulation">
             <h2 class="mitsumori-regulation_ttl">注意事項及び団体則</h2>
@@ -1002,16 +729,9 @@ include('session_check.php');
   </style>
   <script>
 $(".popup").hide();
-<?php if($_SESSION['shiharai_kaisu'] == '毎月払い') { ?>
-$("#submit").on("click", function() {
- $(".popup").fadeIn();
- return false;
-});
-<?php } else { ?>
 $("#submit").on("click", function() {
  return true;
 });
-<?php } ?>
    
 $("#popup_close").on("click", function() {
  //$(".popup").fadeOut();
