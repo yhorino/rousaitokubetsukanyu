@@ -52,7 +52,7 @@ $detect = new Mobile_Detect;
   <meta property="og:title" content="見積り：労働保険事務組合RJC　無料見積りフォーム">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/form_norikae/mitsumori.php">
-  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/h_logo.svg">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/logo_jimukumiai-1.png">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
@@ -263,7 +263,7 @@ $detect = new Mobile_Detect;
  
     <header>
       <div class="header__flex">
-        <a href="/"><img class="h_logo" src="../assets/img/h_logo.svg" width="327" alt="" /></a>
+        <a href="/"><img class="h_logo" src="../assets/img/logo_jimukumiai-1.png" width="327" alt="" /></a>
       </div>
      <div class="mitsumori-ttl-div mitsumori-ttl-div-step">
      <div class="div_center"><span>切替えステップ</span><img src="img/flow1.png" alt=""></div>
@@ -320,6 +320,39 @@ $detect = new Mobile_Detect;
 
          </div>
        </div>
+       
+        <div class="mitsumori-inner motouke">
+          <div class="mitsumori-select">
+           
+           <div class="mitsumori-block-flex">
+            <div class="mitsumori-block-title">
+             <p><span>元請工事</span><span>はありますか？</span></p>
+            </div>
+            <div class="mitsumori-block-button">
+            <ul class="mitsumori-list">
+              <li>
+                <input id="motouke2" type="radio" name="motouke" value="いいえ" >
+                <label for="motouke2"><span>いいえ</span></label>
+              </li>
+              <li>
+                <input id="motouke1" type="radio" name="motouke" value="はい" >
+                <label for="motouke1"><span>はい</span></label>
+              </li>
+
+             </ul>
+            </div>
+            <div class="mitsumori-block-hint">
+            </div>
+           </div><!-- mitsumori-block-flex -->
+           
+           <div class="motouke_msg">
+            <p class="motouke_msg_info">当組合ではご加入いただけません。</p>
+            <a href="/" class="totop_button">トップページへ</a>
+           </div>
+
+         </div>
+       </div>
+       
       </section>
      
      
@@ -638,6 +671,7 @@ $(function(){
 <?php include("table.js"); ?>
  
 	$(function(){
+  /*
   $('#jyugyoin-ari_after_div').hide();
   $('.to_oyakata').hide();
   $('#jyugyoin-ari1').click(function(){
@@ -648,6 +682,64 @@ $(function(){
    $('#jyugyoin-ari_after_div').hide();
    $('.to_oyakata').show();
   });
+  */
+  /* 20230302 従業員雇っているか？ */
+  function init_mitsumori_start(){
+   $('#jyugyoin-ari_after_div').hide();
+   $('.to_oyakata').hide();
+   $('.mitsumori-inner.motouke').hide();
+  }
+  function show_mitsumori(){
+   $('#jyugyoin-ari_after_div').show();
+   $('.to_oyakata').hide();
+   $('.motouke_msg').hide();
+  }
+  function show_to_oyakata(){
+   $('#jyugyoin-ari_after_div').hide();
+   $('.to_oyakata').show();
+   $('.mitsumori-inner.motouke').hide();
+  }
+  function show_motouke(){
+   $('.mitsumori-inner.motouke').show();
+   $('.to_oyakata').hide();
+   $('.motouke_msg').hide();
+   $('#jyugyoin-ari_after_div').hide();
+  }
+  function show_motouke_msg(){
+   $('.mitsumori-inner.motouke').show();
+   $('.to_oyakata').hide();
+   $('.motouke_msg').show();
+   $('#jyugyoin-ari_after_div').hide();
+  }
+  
+  init_mitsumori_start();
+  $('input[name="jyugyoin-ari"]').prop('checked', false);
+  $('input[name="jyugyoin-ari"]').click(function(){
+   const val_yes = 'はい';
+   const val_no = 'いいえ';
+   const selected_val = $('input[name="jyugyoin-ari"]:checked').val();
+   if(selected_val == val_yes){
+    show_motouke();
+   } else if(selected_val == val_no){
+    show_to_oyakata();
+   } else {
+    init_mitsumori_start();
+   }
+  });
+  /* 20230302 従業員雇っているか？ */
+  $('input[name="motouke"]').click(function(){
+   const val_yes = 'はい';
+   const val_no = 'いいえ';
+   const selected_val = $('input[name="motouke"]:checked').val();
+   if(selected_val == val_yes){
+    show_motouke_msg();
+   } else if(selected_val == val_no){
+    show_mitsumori();
+   } else {
+    init_mitsumori_start();
+   }
+  });
+
  });
  
  $(window).on('load', function() {
