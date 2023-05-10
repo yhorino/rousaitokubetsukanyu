@@ -146,6 +146,38 @@ switch($_POST['pagename']){
   $_SESSION['kyuyoshiharaibi'] = $_SESSION['shiharaibi_month'].$_SESSION['shiharaibi'];
   /* 20230206 給与支払日項目追加 */
   
+  $kanyumankibi = '';
+  //global $kanyu_month;
+  //global $kanyu_year;
+  //global $kanyu2_year;
+  $kanyutuki = intval($_SESSION['kikan']);
+  $_kanyuyear = 0;
+  if($kanyutuki == intval($kanyu_month)){
+   $_kanyuyear = intval($kanyu_year);
+  } else {
+   $_kanyuyear = intval($kanyu2_year);
+  }
+  $_kanyu_tsukisu = 0;
+  if($_SESSION['kanyu_kikan'] != '長期'){
+   if($_SESSION['kanyu_kikan'] == '１か月'){
+    $_kanyu_tsukisu = 1;
+   }
+   if($_SESSION['kanyu_kikan'] == '２か月'){
+    $_kanyu_tsukisu = 2;
+   }
+   if($_SESSION['kanyu_kikan'] == '３か月'){
+    $_kanyu_tsukisu = 3;
+   }
+   $em_next = $kanyutuki + $_kanyu_tsukisu /*- 1*/;
+   if($em_next > 12) $em_next -= 12;
+   $ey = ceil((($_kanyuyear-1)*12+$kanyutuki+$_kanyu_tsukisu)/12);
+   $kanyumankibi_nextday_time = strtotime($ey.'/'.$em_next.'/1');
+   $kanyumankibi = date('Y/m/d', strtotime('-1 day', $kanyumankibi_nextday_time));
+   //$kanyumankibi = '2023/5/31';//test
+   //$kanyumankibi = $_kanyuyear.'/5/31';//test
+  }
+  $_SESSION['kanyumankibi'] = $kanyumankibi;
+  
   web2case_kaisya($_SESSION);
   
  $i = 0;
@@ -246,7 +278,9 @@ $oid = '00Dp0000000A0zw';
  
 $nyukaikin = intval(str_replace(',','',$items['nyukaikin'])) + intval(str_replace(',','',$items['nyukaikin_camp_wari']));
 $kaihi = intval(str_replace(',','',$items['kaihi'])) + intval(str_replace(',','',$items['camp_kaihi_wari']));
+$card_hakkohiyo = 3300;
  
+
 $fields = array(
 // Salesforceへのパラメーター
 'orgid' => $oid,
@@ -284,7 +318,8 @@ $fields = array(
 'Nyukinshubetsu__c'=>urlencode($items['shiharai']),
 'Nyukaikin__c'=>$nyukaikin,
 'Kaihi__c'=>$kaihi,
-'Hokenryou__c'=>urlencode(intval(str_replace(',','',$items['sougaku']))-(intval($kaihi)+intval($nyukaikin))),
+'card_hakkohiyo__c'=>$card_hakkohiyo,
+'Hokenryou__c'=>urlencode(intval(str_replace(',','',$items['sougaku']))-(intval($kaihi)+intval($nyukaikin)+intval($card_hakkohiyo))),
 'Hokenryou1__c'=>urlencode(intval(str_replace(',','',$items['hokenryo1']))),
 'Hokenryou2__c'=>urlencode(intval(str_replace(',','',$items['hokenryo2']))),
 'jimuKanyusya1_No__c'=>'0001',
@@ -315,6 +350,8 @@ $fields = array(
 'trading_id__c'=>urlencode($items['trading_id']),
 'shimebi__c'=>urlencode($items['shimebi']),
 'shiharaibi__c'=>urlencode($items['kyuyoshiharaibi']),
+'Kanyumankibi__c'=>urlencode($items['kanyumankibi']),
+ 
 //'debug' => '1',
 //'debugEmail' => urlencode("xxx@xxxx"),
 );
@@ -418,6 +455,7 @@ $oid = '00Dp0000000A0zw';
  'jimuCellsNo__c'=>urlencode($cellsno),
  'jimuKanyuOyakatadantai__c'=>urlencode($items['jimuKanyuOyakatadantai'.$i]),
  'Phone__c'=>urlencode($items['denwabangou'.$i]),
+ 'Kanyumankibi__c'=>urlencode($items['kanyumankibi']),
  //'debug' => '1',
  //'debugEmail' => urlencode("xxx@xxxx"),
  );
