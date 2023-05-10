@@ -8,12 +8,6 @@ header("Content-type: text/html;charset=utf-8");
 require_once('function.php');
 require_once('Mobile_Detect.php');
 
-require_once('regist_sf_function.php');
-$formdata = new FormData();
-$formdata->setName(session_id());
-$formdata->setEmail('');
-$formdata->RegistSalesforceLead();
-
 $detect = new Mobile_Detect;
  
 		$device = 'PC';
