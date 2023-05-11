@@ -833,6 +833,7 @@ $(function(){
   $('#result_kikan_s').text($_kanyuyear+"年"+$kanyutuki+"月");
   const $ey = Math.ceil((($_kanyuyear-1)*12+$kanyutuki+parseInt($_kanyu_tsukisu))/12);
   $('#result_kikan_e').text($ey+"年"+$em+"月末日");
+  $('input[name="kikane"]').val($ey+""+$em);
   
   let $syokai_sougaku = $hokenryo + $nyukaikin + $kaihi_2y + $card_hiyou;
   $syokai_sougaku = Math.floor($syokai_sougaku);
@@ -1109,6 +1110,7 @@ $(function(){
   get_price();
   
   /* 20211227 いつまでご加入が必要ですか？ */
+  /*
   $end_year = <?php echo $end_year;?>;
   $end_month = <?php echo $end_month;?>;
   $end_year_3m = <?php echo $end_year_3m;?>;
@@ -1130,7 +1132,8 @@ $(function(){
    $('#kikane1 + label span').text("令和" + $end_year_3m_r + "年" + $end_month_3m + "月末日");
   }
   $('#kikane2 + label span').text("令和" + $end_year_r + "年" + $end_month + "月末日");
-
+*/
+  
   /* 20211227 塗装、防水を選んだら３か月、毎月払い不可 */
   $jigyou = $('input[name="jigyou"]:checked').val();
   
