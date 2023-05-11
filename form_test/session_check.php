@@ -5,9 +5,9 @@
 // ini_set('session.gc_maxlifetime', $timeout);
 
  if (isset($_SESSION['idle_time']) && $_SESSION['idle_time'] < time()) {
-//     session_destroy();
-//     session_start();
-//     session_regenerate_id();
+     session_destroy();
+     session_start();
+     session_regenerate_id();
      unset($_SESSION['idle_time']);
      header('Location: ./session_out.php');
      exit;

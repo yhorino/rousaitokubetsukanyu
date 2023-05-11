@@ -16,10 +16,16 @@ class FormData{
  public function setEmail($__email){
   $this->email = urlencode($__email);
  }
- 
+
+ private $form_action;
+ public function setFormAction($__form_action){
+  $this->form_action = urlencode($__form_action);
+ }
+
  function __construct(){
   $this->name = '';
   $this->email = '';
+  $this->form_action = '';
  }
  
  public function RegistSalesforceLead(){
@@ -40,6 +46,7 @@ class FormData{
   'last_name' => $this->name, 
   'company' => $this->name, 
   'email' => $this->email, 
+  'form_action__c' => $this->form_action, 
   //'debug' => '1',
   //'debugEmail' => urlencode("xxx@xxxx"),
   );
