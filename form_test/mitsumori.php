@@ -424,23 +424,23 @@ setcookie('norikae', '0', 0, '/');
 							if($_SESSION['kanyu_kikan']=='１か月') $sel1 = 'checked';
 							if($_SESSION['kanyu_kikan']=='２か月') $sel2 = 'checked';
 							if($_SESSION['kanyu_kikan']=='３か月') $sel3 = 'checked';
-							if($_SESSION['kanyu_kikan']=='年度') $sel4 = 'checked';
+							if($_SESSION['kanyu_kikan']=='年払い') $sel4 = 'checked';
 							?>
               <ul class="mitsumori-list">
-                <li>
+                <li class="kikan_short">
                   <input id="kanyu_kikan1" type="radio" name="kanyu_kikan" value="１か月" required="" <?php echo $sel1;?>>
                   <label for="kanyu_kikan1"><span>１か月</span></label>
                 </li>
-                <li>
+                <li class="kikan_short">
                   <input id="kanyu_kikan2" type="radio" name="kanyu_kikan" value="２か月" required="" <?php echo $sel2;?>>
                   <label for="kanyu_kikan2"><span>２か月</span></label>
                 </li>
-                <li>
+                <li class="kikan_short">
                   <input id="kanyu_kikan3" type="radio" name="kanyu_kikan" value="３か月" required="" <?php echo $sel3;?>>
                   <label for="kanyu_kikan3"><span>３か月</span></label>
                 </li>
                 <li>
-                  <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年度" required="" <?php echo $sel4;?>>
+                  <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年払い" required="" <?php echo $sel4;?>>
                   <label for="kanyu_kikan4"><span class="button_label_small">2024年3月31日まで</span></label>
                 </li>
               </ul>
@@ -522,6 +522,7 @@ setcookie('norikae', '0', 0, '/');
            
            <input id="hokenryo1" type="hidden" name="hokenryo1" value="">
            <input id="hokenryo2" type="hidden" name="hokenryo2" value="">
+           <input id="card_hiyou" type="hidden" name="card_hiyou" value="">
            
            <p class="mitsumori_info">※1 お支払総額には会費、保険料、会員カード発行費用が含まれています。</p>
            
@@ -888,6 +889,7 @@ $(function(){
   $("#kaihi_disp").val($kaihi_2y.toLocaleString());
   $("#kaihi").val($kaihi_2y.toLocaleString());
   $("#hokenryo").val($hokenryo.toLocaleString());
+  $("#card_hiyou").val($card_hiyou.toLocaleString());
 
   $(".camp").show();
   const $syokei = $syokai_sougaku;
@@ -991,7 +993,7 @@ $(function(){
  function get_kikan(){
   const $_kikan = $('input[name="kanyu_kikan"]:checked').val();
   let $ret = 0;
-  if($_kikan == '年度'){
+  if($_kikan == '年払い'){
    $ret = 12;
   } else if($_kikan == '１か月'){
    $ret = 1;
@@ -1005,7 +1007,7 @@ $(function(){
  function is_kikan_tyoki(){
   const $_kikan = $('input[name="kanyu_kikan"]:checked').val();
   let $ret = false;
-  if($_kikan == '年度'){
+  if($_kikan == '年払い'){
    $ret = true;
   }
   return $ret;
@@ -1107,7 +1109,7 @@ $(function(){
    $('#nitigaku1').parent('li').show();
    $('#nitigaku4').prop('checked', false);
   
-  get_price();
+//  get_price();
   
   /* 20211227 いつまでご加入が必要ですか？ */
   /*
@@ -1135,6 +1137,7 @@ $(function(){
 */
   
   /* 20211227 塗装、防水を選んだら３か月、毎月払い不可 */
+  $('.kikan_short').show();
   $jigyou = $('input[name="jigyou"]:checked').val();
   
   // 有機溶剤項目表示復元
@@ -1142,6 +1145,8 @@ $(function(){
    $('#youzai_box').show();
    if($('input[name="youzai"]:checked').val() == 'はい'){
     $('#youzai_next').show();
+    $('.kikan_short').hide();
+    $('.kikan_short input').prop('checked', false);
    }
   } else {
    $('#youzai_box').hide();
@@ -1154,6 +1159,7 @@ $(function(){
   } else {
   }
   
+  get_price();
   
  }
  
