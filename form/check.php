@@ -88,7 +88,7 @@ include('session_check.php');
         <input type="hidden" id="jugyouin" name="jugyouin" value = "<?php echo $_SESSION['jugyouin'];?>">
         <input type="hidden" id="jugyouinninzu" name="jugyouinninzu" value = "<?php echo $_SESSION['jugyouinninzu'];?>">
         <input type="hidden" id="nitigaku" name="nitigaku" value = "<?php echo $_SESSION['nitigaku'];?>">
-        <input type="hidden" id="shiharai_kaisu" name="shiharai_kaisu" value = "<?php echo $_SESSION['shiharai_kaisu'];?>">
+        <input type="hidden" id="kanyu_kikan" name="kanyu_kikan" value = "<?php echo $_SESSION['kanyu_kikan'];?>">
         
         <input type="hidden" id="kikan" name="kikan" value = "<?php echo $_SESSION['kikan'];?>">
         <input type="hidden" id="jigyou" name="jigyou" value = "<?php echo $_SESSION['jigyou'];?>">
@@ -470,7 +470,7 @@ include('session_check.php');
            </table>
            </figure>
            
-           <figure id="kikan_alert" <?php if($_SESSION['shiharai_kaisu'] == '毎月払い'){echo ' style="display: none;" ';}?>>
+           <figure id="kikan_alert">
             <?php
              $this_month = date('m');
              if(intval($_SESSION['kikan']) == intval($this_month)){
@@ -508,282 +508,9 @@ include('session_check.php');
              </td>
             </tr>
             
-            <!--
-            <tr>
-             <th colspan="2">支払種別</th>
-             <td>
-              <?php echo $_SESSION['shiharai_kaisu']; ?>
-             </td>
-            </tr>
-            -->
            </table>
            </figure>
 
-           <!--
-            <dl class="mitsumori-form_item -confirm">
-              <dt>家族以外の従業員はいますか？</dt>
-              <dd><?php echo $_SESSION['jugyouin'];?></dd>
-            </dl>
-            <dl class="mitsumori-form_item -confirm">
-              <dt>個人ですか？法人ですか？</dt>
-              <dd><?php echo $_SESSION['type'];?></dd>
-            </dl>
-            <dl class="mitsumori-form_item -confirm">
-              <dt>特別加入する人数</dt>
-              <dd><?php echo $_SESSION['ninzu'];?> 人</dd>
-            </dl>
-            <dl class="mitsumori-form_item -confirm">
-              <dt>従業員数</dt>
-              <dd><?php echo $_SESSION['jugyouinninzu'];?> 人</dd>
-            </dl>
-            -->
-           
-
-           
-           <?php /************************************/ ?>
-           <?php /* 20211122 Y.Horino アンケート入力 */ ?>
-           <!--
-           <section id="q_form">
-            <h2>アンケート回答後、次へお進みください</h2>
-            
-            <div id="q_form_body">
-             
-            <div class="q_form_item">
-             <h3>Q1 RJCについてお聞きします<span class="required_text"> ※ 必須</span></h3>
-             
-             <?php /* https://kodocode.net/design-css-rating/ */ ?>
-             <div class="q_form_item_a star">
-              <input type="radio" name="RJC_hayasa__c" id="star1-null" value="" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-1" value="不満" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-2" value="やや不満" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-3" value="やや満足" required />
-              <input type="radio" name="RJC_hayasa__c" id="star1-4" value="紹介したい" required />
-
-              <input type="radio" name="RJC_kantan__c" id="star2-null" value="" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-1" value="不満" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-2" value="やや不満" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-3" value="やや満足" required />
-              <input type="radio" name="RJC_kantan__c" id="star2-4" value="紹介したい" required />
-
-              <input type="radio" name="RJC_anshin__c" id="star3-null" value="" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-1" value="不満" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-2" value="やや不満" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-3" value="やや満足" required />
-              <input type="radio" name="RJC_anshin__c" id="star3-4" value="紹介したい" required />
-
-               <table id="sec">
-                <tr><th></th><th>不満</th><th>やや不満</th><th>やや満足</th><th>紹介したい</th></tr>
-
-                <tr><th>早さ</th>
-                 <td>
-                  <label for="star1-1">
-                   <svg width="255" height="240" viewBox="0 0 51 48">
-                     <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                   </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star1-2">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star1-3">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star1-4">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                </tr>
-
-                <tr><th>かんたん</th>
-                 <td>
-                  <label for="star2-1">
-                   <svg width="255" height="240" viewBox="0 0 51 48">
-                     <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                   </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star2-2">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star2-3">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star2-4">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                </tr>
-
-                <tr><th>安心</th>
-                 <td>
-                  <label for="star3-1">
-                   <svg width="255" height="240" viewBox="0 0 51 48">
-                     <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                   </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star3-2">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star3-3">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                 <td>
-                  <label for="star3-4">
-                    <svg width="255" height="240" viewBox="0 0 51 48">
-                      <path d="m25,1 6,17h18l-14,11 5,17-15-10-15,10 5-17-14-11h18z">
-                    </svg>
-                  </label>
-                 </td>
-                </tr>
-
-               </table>
-              </div>
-             
-            </div>
-            
-            <div class="q_form_item">
-             <h3>Q2 RJCをどのようにして知りましたか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_1" value="Yahoo" required><label for="find_1">Yahoo</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_2" value="Google" required><label for="find_2">Google</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_3" value="知人の紹介" required><label for="find_3">知人の紹介</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_4" value="一人親方労災保険RJCに加入していた" required><label for="find_4">一人親方労災保険RJCに加入していた</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_5" value="チラシ" required><label for="find_5">チラシ</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_from__c" id="find_other" value="その他" required><label for="find_other">その他</label></p>
-              <textarea name="RJC_from_sonota__c" id="RJC_from_sonota__c" class="textarea_sonota"></textarea>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q3 なぜRJCを選びましたか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_1" value="会員カードが即日発行だから" required><label for="select_1">会員カードが即日発行だから</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_2" value="申込みが簡単だから" required><label for="select_2">申込みが簡単だから</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_3" value="金額が安いから" required><label for="select_3">金額が安いから</label></p>
-              <p class="radio_p"><input type="radio" name="RJC_why__c" id="select_other" value="その他" required><label for="select_other">その他</label></p>
-              <textarea name="RJC_why_sonota__c" id="RJC_why_sonota__c" class="textarea_sonota"></textarea>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q4 なぜ特別加入が必要になりましたか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_1" value="現場で必要と言われたから" required><label for="need_1">現場で必要と言われたから</label></p>
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_2" value="初めて従業員を雇ったから" required><label for="need_2">初めて従業員を雇ったから</label></p>
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_3" value="本当はずっと前から従業員を雇っているから" required><label for="need_3">本当はずっと前から従業員を雇っているから</label></p>
-              <p class="radio_p"><input type="radio" name="tokubetsukanyu_why__c" id="need_other" value="その他"><label for="need_other" required>その他</label></p>
-              <textarea name="tokubetsukanyu_why_sonota__c" id="tokubetsukanyu_why_sonota__c" class="textarea_sonota"></textarea>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q5 建設業許可を持っていますか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="have_kyoka__c" id="kyoka_y" value="はい" required><label for="kyoka_y">はい</label></p>
-              <p class="radio_p"><input type="radio" name="have_kyoka__c" id="kyoka_n" value="いいえ" required><label for="kyoka_n">いいえ</label></p>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q6 従業員は何人いますか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="jyugyouin_ninzu__c" id="jyugyouin_1" value="１人" required><label for="jyugyouin_1">１人</label></p>
-              <p class="radio_p"><input type="radio" name="jyugyouin_ninzu__c" id="jyugyouin_2" value="２人" required><label for="jyugyouin_2">２人</label></p>
-              <p class="radio_p"><input type="radio" name="jyugyouin_ninzu__c" id="jyugyouin_3" value="３人以上" required><label for="jyugyouin_3">３人以上</label></p>
-             </div>
-            </div>
-             
-            <div class="q_form_item">
-             <h3>Q7 雇用保険に入っていますか？<span class="required_text"> ※ 必須</span></h3>
-             
-             <div class="q_form_item_a">
-              <p class="radio_p"><input type="radio" name="join_koyouhoken__c" id="koyou_y" value="はい" required><label for="koyou_y">はい</label></p>
-              <p class="radio_p"><input type="radio" name="join_koyouhoken__c" id="koyou_n" value="いいえ" required><label for="koyou_n">いいえ</label></p>
-             </div>
-            </div>
-             
-            </div>
-            
-           </section>
-           <script>
-            $(function(){
-             $('.textarea_sonota').hide();
-             $('input[name="RJC_from__c"]').click(function(){
-              if($('input[name="RJC_from__c"]:checked').val() == 'その他'){
-               $('#RJC_from_sonota__c').show();
-               $('#RJC_from_sonota__c').attr("required", "required");
-              } else {
-               $('#RJC_from_sonota__c').hide();               
-               $('#RJC_from_sonota__c').val("");
-               $('#RJC_from_sonota__c').removeAttr("required");
-              }
-             });
-             $('input[name="RJC_why__c"]').click(function(){
-              if($('input[name="RJC_why__c"]:checked').val() == 'その他'){
-               $('#RJC_why_sonota__c').show();
-               $('#RJC_why_sonota__c').attr("required", "required");
-              } else {
-               $('#RJC_why_sonota__c').hide();               
-               $('#RJC_why_sonota__c').val("");
-               $('#RJC_why_sonota__c').removeAttr("required");
-              }
-             });
-             $('input[name="tokubetsukanyu_why__c"]').click(function(){
-              if($('input[name="tokubetsukanyu_why__c"]:checked').val() == 'その他'){
-               $('#tokubetsukanyu_why_sonota__c').show();
-               $('#tokubetsukanyu_why_sonota__c').attr("required", "required");
-              } else {
-               $('#tokubetsukanyu_why_sonota__c').hide();               
-               $('#tokubetsukanyu_why_sonota__c').val("");
-               $('#tokubetsukanyu_why_sonota__c').removeAttr("required");
-              }
-             });
-            });
-           </script>
--->
-           <?php /* 20211122 Y.Horino アンケート入力 */ ?>
-           <?php /************************************/ ?>
-           
-           
-           
-           
-           
            
           <section class="mitsumori-regulation" id="regulation">
             <h2 class="mitsumori-regulation_ttl">注意事項及び団体則</h2>
@@ -796,54 +523,56 @@ include('session_check.php');
 <pre style="white-space: pre-wrap ;">
 1.	労働者災害補償保険法（以下「法」という。）の補償開始日は、管轄労働局の承認日とする。
 2.	当団体が受託する事務委託を継続するには当団体の指定する期日までの年度更新手続を要するものとする。
-3.	当団体は、会員等が希望する保険関係について事務委託するものとし、事務委託しない保険関係は自社にて手続を行うものとする。
+3.	当団体は、会員等が希望する保険関係について事務受託するものとし、その他の保険関係は会員等にて手続を行うものとする。なお、元請工事の請負がない、かつ今後も元請工事を請け負う予定がない加入希望者は、末尾5の事務委託を希望することができる。
 4.	用語の定義
-①　「脱退」とは、委託解除し当団体及び第一種特別加入から脱退することをいう。
+①　「脱退」とは、委託解除し当団体及び第1種特別加入から脱退することをいう。
+②  「短期加入」とは、会員等が加入申込時に、加入月分の会費及び労働保険料（以下「保険料等」という。）を支払い、加入日の属する月から起算し申込月数後の末日をもって脱退する方法をいう。なお、健康診断が必要な場合は、短期加入はできないものとする。
 5.	当団体は、次に該当すると思料される者からの加入申込みまたは会員資格の継続は、理由を附さずして断ることができる。
 ①　入会の意図が社会的、倫理的見地から検討して不当であると思料されるとき
 ②　「暴力団員による不当な行為の防止等に関する法律」第9条に該当すると思料されるとき
 ③　労働者災害補償保険法第33条第1項の要件を満たさないとき
 ④　その他、当団体が一般会員とすることを不適当と判断したとき
-6.	会員等のうち第一種特別加入希望者が、特定業務従事期間が定められている期間を超え加入後も当該業務に従事する予定がある場合は、事前に健康診断を受診し管轄労働局長の承認を受けなければ会員カードの発行ができないものとする。なお、当団体より指定された期限内に健康診断を受診し、不承認であった場合は、未使用の労働保険料から振込手数料を控除した額を返金する。ただし、当団体より指定された期限内に健康診断を受診せず、不承認となった場合は、不承認となった日の属する月の末日をもって委託解除し、25.を適用する。
-7.	加入希望者は、加入申込み後、当団体の指定する期限内に入会必要書類並びに会費及び労働保険料（以下「保険料等」という。）の支払いを完了させることで加入申込み完了とする。当団体の指定期限内に加入申込みが完了しないときは、事前通知なく一方的に加入手続を中止する。
+6.	会員等のうち第1種特別加入希望者が、特定業務従事期間が定められている期間を超え加入後も当該業務に従事する予定がある場合は、事前に健康診断を受診し管轄労働局長の承認を受けなければ会員カードの発行ができないものとする。なお、当団体より指定された期限内に健康診断を受診し、不承認であった場合は、未使用の労働保険料から手続き費用及び振込手数料を控除した額を返金する。ただし、当団体より指定された期限内に健康診断を受診せず、不承認となった場合は、不承認となった日の属する月の末日をもって委託解除する。
+7.	加入希望者は、加入申込み後、当団体の指定する期限内に加入必要書類並びに保険料等の支払いを完了させることで加入申込み完了とする。当団体の指定期限内に加入申込みが完了しないときは、事前通知なく一方的に加入手続を中止する。
 8.	当団体は、会員等がいったん支払った会費は、いかなる理由があっても返金することはない。
 9.	当団体から加入希望者に対してメール等で行う手続き開始連絡前に加入希望者から加入手続き取消しの申し出があったときは、①加入希望者がすでに保険料等振込み完了済みの場合は保険料等から振込手数料を控除した額を加入希望者の指定する金融機関口座に返金するものとし、②クレジットカードで支払いの場合は当団体がクレジットカード支払いを取り消すものとする。ただし、当団体から加入希望者に対してメール等で手続き開始連絡後に当該申し出があったときは、8.に該当し加入月の末日までを保険期間とし、25.を適用する。
-10.	会員等は、当団体が必要とする個人情報を開示しなければならない。なお、当団体は、会員等から収集した行政手続における特定の個人を識別するための番号の利用等に関する法律（以下「マイナンバー法」という。）に定められた個人番号（以下「マイナンバー」という。）は内容確認後直ちに廃棄するものとする。
-11.	当団体は、会員等からマイナンバーが記載された書類等を受領した場合、マイナンバー部分に黒塗り等の処理を施すことにより判別不能にした後に各種手続を行うものとし、マイナンバー法に定められたる利用範囲を越えたマイナンバーの保管、保有および活用はしない。
+10．一般会員は、末尾5元請工事開始日の14日前までに当団体へ連絡しなければならない。当団体は、当該連絡がない、または開始後に連絡があった場合は、当該年度をもって委託解除としなければならない。　
+11.	会員等は、当団体が必要とする個人情報を開示しなければならない。なお、当団体は、会員等から収集した行政手続における特定の個人を識別するための番号の利用等に関する法律（以下「マイナンバー法」という。）に定められた個人番号（以下「マイナンバー」という。）が記載された書類等を受領した場合、マイナンバー法に定められたる利用範囲を越えたマイナンバーの保管、保有および活用はしない。
 12.	当団体は、会員等の個人情報を当団体の定める「個人情報取扱規程」に準じて適正に処理する。
-13．保険期間は、1．に定める補償開始日より一般会員から脱退の申し出または保険料等の口座振替不能確認後に当団体が定める脱退日または当該年度末とする。
-14.	当団体が会員等に送付した預金口座振替依頼書が指定返送期限までに返送されないときは、5.④に該当すると判断し会員カード記載期間をもって脱退する。
-15.	当団体は、一般会員より特段の申し出がない限り脱退日をもって保険関係は事業廃止とする。
-16.	当団体は、会員等が当団体の定める「反社会的勢力の排除条項」に該当することを知ったときは、事前に会員等に何ら通告せず本委託を解除し、かつ捜査機関への通報及び協力をしなければならない。
-17.	当団体が前項の規定により事務委託を解除した場合は、会員等に損害が生じても当団体は何らこれを賠償、補償することを要しない。また、解除により当団体に損害が生じたときは、会員等はその損害を賠償しなければならない。
-18.	年度更新の意思確認は、毎年11月以降に当団体より一般会員宛に郵送、ＦＡＸまたはメールにて行う。一般会員は、指定期日迄に当団体の定める方法による意思確認かつ保険料等の納付（以下「継続手続」という。）を完了しなければならない。指定期日迄に継続手続が確認できないときは、年度末をもって脱退とする。
-19.	年度更新時の給付基礎日額は、一般会員より特段の申し出がない限り、加入時に申し出た給付基礎日額を変更なく継続する。
-20.	一般会員が脱退を希望するときは、脱退希望日の60日前までに当団体に連絡しなければならない。
-21.	当団体は、過去に5.に該当し委託解除した一般会員の個人事業主又はその3親等以内の親族並びに法人の役員が加入希望者であったときは、当団体へ事務委託はできないものとする。
-22．当団体は、会員が21.であることが判明したときは、5.に該当する者と判断し当団体が決定した日をもって脱退するものとする。
+13．保険期間は、1．に定める補償開始日より一般会員からの脱退の申し出または、短期加入の場合は加入日の属する月から起算して申込月数後の末日または当該年度末とする。
+14.	当団体は、一般会員より特段の申し出がない限り脱退日をもって保険関係は事業廃止（労働者なし）とする。
+15.	当団体は、会員等が当団体の定める「反社会的勢力の排除条項」に該当することを知ったときは、事前に会員等に何ら通告せず本委託を解除し、かつ捜査機関への通報及び協力をしなければならない。
+16.	当団体が前項の規定により事務委託を解除した場合は、会員等に損害が生じても当団体は何らこれを賠償、補償することを要しない。また、解除により当団体に損害が生じたときは、会員等はその損害を賠償しなければならない。
+17.	年度更新の意思確認は、毎年11月以降に当団体より一般会員宛に郵送、ＦＡＸまたはメールにて行う。一般会員は、指定期日迄に当団体の定める方法による意思確認かつ保険料等の納付（以下「継続手続き」という。）を完了しなければならない。指定期日迄に継続手続きが確認できないときは、年度末に脱退する意思表示とみなし年度末をもって脱退とする。
+18.	加入時に選択した給付基礎日額は、翌々年度に変更することができる。その後の給付基礎日額は、一般会員より特段の申し出がない限り、継続するものとする。
+19. 一般会員が脱退を希望するときは、脱退届、一括有期事業報告書および会員カードの返送確認をした日の属する月の翌々月の末日をもって脱退とする。会員カードの所有権は当団体に帰属し、年度途中で脱退を希望するときは、脱退届と併せて当団体に返却しなければならない。なお、期限内に脱退届および一括有期事業報告書の提出、会員カードの返却をしない場合は、元請工事なしとの意思表示とみなし直ちに委託解除されるものとする。　
+20.	一般会員が脱退を希望するときは、必ず事前に当団体に連絡しなければならない。事前の連絡がない場合は、脱退月までの保険料等が発生し一般会員は支払う義務を負うものとする。
+21.	当団体は、過去に5.に該当し委託解除した一般会員の個人事業主又はその3親等以内の親族並びに法人の役員が加入希望者であったときは、原則として事務委託はできないものとする。
+22．当団体は、一般会員が21.であることが判明したときは、5.に該当する者と判断し当団体が決定した日をもって脱退しなければならない。
 23.	一般会員が次のいずれかに該当する場合は、一般会員の事前合意なしに当団体の一方的判断によって脱退手続を行う。
-①　一般会員が、指定期日までに会費又は労働保険料を支払わないとき
+①　一般会員が、指定期日までに保険料等を支払わないとき
 ②　一般会員の連絡先に連絡が取れなくなった日の翌日から起算して連続又は断続して暦日で14日間連絡が取れないとき
 ③　一般会員が、日本国内外の法令に違反し、脱退手続を取ることが相当であると当団体が判断したとき
 ④　一般会員としてふさわしくないと当団体が判断したとき
 ⑤　その他前各号に準ずるとき
 24.	一般会員は、次のいずれかに該当した場合は直ちに当団体まで連絡しなければならない。連絡がない場合は、労災保険給付請求ができない等の不利益を被ることがある。
-①　年間100日以上労働者（パート、アルバイトを含む）を雇入れなくなったとき
+①　労働者（パート、アルバイトを含む）を雇う見込みがなくなったとき
 ②　建設業に従事しなくなったとき、または従事できなくなったとき
 ③　業種（職種）または除染作業区分を変更したとき
 ④　法人会員の場合は、法人の所在地、商号、電話番号等を、個人事業主会員の場合は、事業主の住所、屋号、電話番号等を変更したとき
 ⑤　その他前各号に準ずるとき 
-25.	一般会員が年度途中に脱退、5.又は9.但し書きに該当し脱退となったときは、既納の保険料等のうち未使用の労働保険料から手続き費用及び振込手数料（以下「手続き費用等」という。）を差し引いた後に残余の労働保険料がある場合は、一般会員の指定する金融機関口座に返金する。なお、手続き費用等の不足額が生じた場合は一般会員に不足額を請求するものとする。
-26.	労働保険事務組合は、法により一般会員及び一般会員に属する従業員の労災事故に係る労災保険給付請求手続は行うことができない。
-27.	一般会員の事務委託に関する法の給付手続については、一般会員が行うものとする。
-28.	当団体の会費は、国税庁通達№6467に該当し仕入税額控除の対象とはならず、また、印紙税法別表第一　課税物件表第17号文書非課税物件欄2かっこ書に該当するため、印紙税法非課税である。 
+25.	一般会員が年度途中に脱退、5.又は9.但し書きに該当し脱退となったときは、既納の保険料等のうち未使用の労働保険料から手続き費用及び振込手数料を差し引いた後に残余の労働保険料がある場合は、一般会員の指定する金融機関口座に返金する。未使用の労働保険料が、手続き費用及び振込手数料を下回る場合は返金できないものとする。
+26. 第1種特別加入を脱退し、当該年度に再度第1種特別加入するときは、原則として従前の給付基礎日額で加入しなければならない　　
+27.	労働保険事務組合は、法により一般会員及び一般会員に属する従業員の労災事故に係る労災保険給付請求手続は行うことができない。
+28.	当団体の会費は、国税庁通達№6467に該当し仕入税額控除の対象とはならず、また、印紙税法別表第一　課税物件表第17号文書非課税物件欄2かっこ書に該当するため、印紙税法非課税である。 ただし、会員カード発行費を除く。　
 29.	当団体が実施するキャンペーン、サービス等は、会員等への事前の承諾なく終了することがある。
-30.	団体則、すべての規程及び規則等（以下「団体則等」という。）は、理事会または役員会に諮り会員の事前承諾なく変更する場合がある。
+30.	団体則、すべての規程及び規則等（以下「団体則等」という。）は、理事会または役員会に諮り会員等の事前承諾なく変更する場合がある。
 31.	会員等は、上記団体則等を遵守し、団体則等の執行により被った損害等に関し如何なる名目においても当団体に損害等を請求できない。当団体は、上記団体則等の執行により会員等に生じる如何なる損害等に関しても一切責任を負わないものとする。
 32.	当団体の運営並びに総会及び諸会議における議決事項については、理事長またはその会議の長に委任するものとする。
 
+
 </pre>
-<p style='text-align: right;'>作成及び使用開始；20221201</p>
+<p style='text-align: right;'>作成及び使用開始；20230515</p>
               </div>
             </div>
           </section>
@@ -880,27 +609,27 @@ include('session_check.php');
 <pre style="white-space: pre-wrap ;">
 　このたび、貴団体に入会し一括有期事業（末尾５）を委託するにあたり、下記事項を確認し遵守することを誓約いたします。
 
-１．私は、貴団体の定めた定款、団体則、規約等を遵守いたします。
+１．私（当社）は、貴団体の定めた定款、団体則、規約等を遵守いたします。
 ２．委託する労働保険事務は、一括有期事業（末尾５）です。 
-３． 委託期間は受託日より委託解除日までとし、年度途中の給付基礎日額変更できないことを理解しました。
-４．入会後の最初の会員カードは、加入月の末日が有効期限となるものが発行されることを理解しました。
-５．貴団体が指定する期間内に口座振替依頼書の送付がないときは、会員カード記載期間で委託解除となることを理解しました。 
-６．過去に、団体の指示に従わなかったことを事由として委託解除されたことがある場合は、再度貴団体への事務委託はできないことを理解しました。
-７．委託解除については、委託期間満了の６０日前までに申し出ます。
-８．次年度の委託期間の更新は、貴団体の指定期日までに貴団体の指定する方法にて行います。
-９．一括有期事業（末尾５）以外の保険関係を他労働保険事務組合に委託いたしません。
-10．入会前の未加入労災事故はありません。
-11．第一種特別加入する者は、貴団体のＷＥＢサイト申込みフォームに入力したとおりです。
-12． ２．で委託した手続は、届出書類の提出及び保険料等の納入を貴団体が確認後、開始されることを理解しました。
-13．次年度以降の労働保険料等は、年一括で私が指定した金融機関口座より貴団体の指定した時期に口座振替にて支払います。 
-14．会費は、第一種特別加入者数に基づき、毎年度新たに算定されることを理解しました。
-15．13.の口座振替ができなかったときは、私からの委託解除の意思表示とみなされ直ちに委託解除されることを理解しました。
-16. 15．の委託解除日を以て一括有期事業は事業廃止（元請工事がないため）されることを理解しました。
-17. 貴団体からの連絡不能状態が１４日以上連続した場合は、理由の如何にかかわらず事業をする意志がないものとみなされ一方的に委託解除されても一切異議を申し立てません。
-18．委託解除されたことにより被った損失に関しては、すべて自己責任であることを理解しました。
-19．未納分の保険料等については、口座振替、差押え、取引先へ請求等されても一切異議を申し立てません。
-20．私は、反社会的勢力（暴力団、暴力団員、暴力団員でなくなった時から５年を経過しない者、暴力団準構成員、暴力団関係企業、総会屋等、社会運動等標ぼうゴロ又は特殊知能暴力集団、その他これらに準ずる者をいう）に属する者ではなく、貴団体との契約において暴力的な要求行為等を行いません。
-21．その他貴団体に損害を与える行為をしないことをここに誓約いたします。
+３．委託期間は受託日より委託解除日までとし、年度途中の給付基礎日額の変更はできないことを理解しました。
+４．私（当社）は、元請工事はありません。また、今後も元請工事を請け負う予定はありません。元請工事が発生するときは、工事開始日の１４日前までに貴団体へ連絡し、ただちに概算保険料を納入することを確認しました。
+５．私（当社）が前号に違反したときは、貴団体の指定する期日または当該年度末をもって自ら脱退いたします。
+６．私（当社）は過去に貴団体の指示に従わなかったこと等を事由として委託解除されたことがある場合は、再度事務委託はできないことを理解しました。
+７．私（当社）は、委託解除について、脱退届、一括有期事業報告書および会員カードの返送確認をした日の属する月の翌々月の末日で脱退となることを確認しました。なお、期限内に脱退届および一括有期事業報告書の提出、会員カードの返却をしない場合は、元請工事なしとの意思表示とみなされ直ちに委託解除されることを承認します。
+８．一括有期事業（末尾５）以外の保険関係を他の労働保険事務組合に委託いたしません。
+９．入会前の未加入労働災害、通勤災害はありません。
+10．私（当社）の第１種特別加入する者は、貴団体に申し出た通りです。
+11． ２．で委託した手続は、届出書類の提出及び保険料等の納入を貴団体が確認後、開始されることを理解しました。
+12．会費は、第一種特別加入者数に基づき、毎年度新たに算定されることを理解しました。
+13．次年度以降の労働保険料等は、貴団体の指定した時期に、年一括で振込または私（当社）が指定した金融機関口座より口座振替にて支払います。 
+14．貴団体が指定する期限までに13.の労働保険料の支払いが確認できなかったときは、私（当社）からの委託解除の意思表示とみなされ直ちに委託解除されることを承認します。
+15. 15．の委託解除日を以て一括有期事業は事業廃止（労働者なし）されることを理解しました。
+16. 貴団体との連絡が連続又は断続して１４日以上とれなくなったときは、理由の如何にかかわらず事業を継続する意志がないものとみなされ一方的に委託解除されても一切異議を申し立てません。
+17．委託解除されたことにより被った損失に関しては、すべて自己責任であることを理解しました。
+18．未納分の保険料等については、口座振替、差押え、取引先への請求、破産等の申立て等されても一切異議を申し立てません。
+19．私（当社の役員、主たる株主）は、反社会的勢力（暴力団、暴力団員、暴力団員でなくなった時から５年を経過しない者、暴力団準構成員、暴力団関係企業、総会屋等、社会運動等標ぼうゴロ又は特殊知能暴力集団、その他これらに準ずる者をいう。）に属する者ではなく、貴団体との契約において暴力的な要求行為等を行いません。
+20．その他貴団体に損害を与える行為をしないことをここに誓約いたします。
+
 </pre>
 <!--<br>
 <figure id="sei_tbl">
@@ -1002,16 +731,9 @@ include('session_check.php');
   </style>
   <script>
 $(".popup").hide();
-<?php if($_SESSION['shiharai_kaisu'] == '毎月払い') { ?>
-$("#submit").on("click", function() {
- $(".popup").fadeIn();
- return false;
-});
-<?php } else { ?>
 $("#submit").on("click", function() {
  return true;
 });
-<?php } ?>
    
 $("#popup_close").on("click", function() {
  //$(".popup").fadeOut();
