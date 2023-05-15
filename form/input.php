@@ -8,6 +8,14 @@ require_once('function.php');
 
 include('session_check.php');
 
+/*
+require_once('regist_sf_function.php');
+$formdata = new FormData();
+$formdata->setName(session_id());
+$formdata->setEmail('');
+$formdata->RegistSalesforceLead();
+*/
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -1233,6 +1241,35 @@ $(function(){
   sendonfax();
  
 	});
+
+ /* 20230510 メールアドレス入力をSFリードに登録 */
+ $(function(){
+  regist_sflead('フォーム：ページ表示');
+  $('input[name="mail"]').focusout(function(){
+   regist_sflead('フォーム：メールアドレス入力');
+  });
+  $('input[name="submit"]').click(function(){
+   regist_sflead('フォーム：送信ボタンクリック');
+  });
+	});
+ function regist_sflead($_form_action){
+		$.ajax({
+			type: 'POST',
+			cache: false,
+			url: 'regist_sf.php',
+   timeout: 10000,
+			data:{
+				'email' : $('input[name="mail"]').val(),
+				'form_action' : $_form_action,
+			},
+			success: function(j_data){
+			},
+   error: function(){
+   }
+		});
+  
+ }
+   
   </script>
 
   
