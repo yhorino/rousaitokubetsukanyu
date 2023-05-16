@@ -72,13 +72,6 @@ $title="会員カード";
 <?php include_once('header.php'); ?>
 <?php
  $kaiinsyo = 'kaiinsyo.png';
- /*
- if($_SESSION['rank'] == 'ゴールド会員'){
-  $kaiinsyo = 'kaiinsyo_gold.png';
- } else if($_SESSION['rank'] == 'シルバー会員'){
-  $kaiinsyo = 'kaiinsyo_silver.png';
- }
- */
  $bangou = $kanyusya['jimuRoudouhokenBangou0__c'];
  if($bangou == '') $bangou = $kanyusya['jimuRoudouhokenBangou6__c'];
  if($bangou == '') $bangou = $kanyusya['jimuRoudouhokenBangou5__c'];
@@ -91,20 +84,6 @@ $title="会員カード";
   $bangou = $kanyusya['jimuRoudouhokenBangou'.$matsubi_get.'__c'];
  }
  $jigyosyo = $_SESSION['row']['Name'];
- 
- /*
- if($matsubi == '0'){
-  $kaiinsyo = 'kaiinsyo_pink.png';
- } else if($matsubi == '6'){
-  $kaiinsyo = 'kaiinsyo_blue.png';
- } else if($matsubi == '5'){
-  $kaiinsyo = 'kaiinsyo_orange.png';
-  if($kaisyano_int <= 2050265){
-  // 旧末尾5：緑
-   $kaiinsyo = 'kaiinsyo_green.png';
-  }
- }
- */
  
  $y = date('Y');
  $m = date('m');
