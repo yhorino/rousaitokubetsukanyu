@@ -158,7 +158,7 @@ switch($_POST['pagename']){
    $_kanyuyear = intval($kanyu2_year);
   }
   $_kanyu_tsukisu = 0;
-  if($_SESSION['kanyu_kikan'] != '長期'){
+  if($_SESSION['kanyu_kikan'] != '年払い'){
    if($_SESSION['kanyu_kikan'] == '１か月'){
     $_kanyu_tsukisu = 1;
    }

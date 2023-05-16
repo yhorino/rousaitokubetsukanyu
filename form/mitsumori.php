@@ -339,7 +339,8 @@ setcookie('norikae', '0', 0, '/');
                  }
                 }
                 if(mb_strlen($ksb)>10){
-                 $fs = ' style="font-size: 10px; margin-left:20px; line-height: 16px; width: 60%;" ';
+                 //$fs = ' style="font-size: 10px; margin-left:20px; line-height: 16px; width: 60%;" ';
+                 $fs = ' style="font-size: min(2.5vw, 10px);" ';
                 }
                 ?>
                 <li class="<?php echo $class; ?>">

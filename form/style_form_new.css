@@ -1364,7 +1364,7 @@ input[type="reset"].mitsumori-back {
   width: 176px;
   line-height: 60px;
   height: 60px;
-  padding: 0;
+  padding: 0 0 0 15px;
   border: none;
   margin: 0;
   font-family: "メイリオ", "ヒラギノ角ゴ Pro W3", Arial, sans-serif;
@@ -1403,7 +1403,7 @@ input[type="reset"].mitsumori-back {
   width: 176px;
   height: 60px;
   line-height: 60px;
-  padding: 0;
+  /*padding: 0*;*/
   border: none;
   font-family: "メイリオ", "ヒラギノ角ゴ Pro W3", Arial, sans-serif;
   background-image: url(../assets/img/form_btn_on.png);
@@ -2838,7 +2838,7 @@ input[type="button"].mitsumori-other:hover {
     -ms-flex-pack: center;
     height: 50px;
     justify-content: center;
-    padding: 0 4px;
+    padding: 0 5px 0 15px;
   }
   input[type="button"].mitsumori-other {
     align-items: center;
@@ -2851,7 +2851,7 @@ input[type="button"].mitsumori-other:hover {
     -ms-flex-pack: center;
     height: 50px;
     justify-content: center;
-    padding: 0 4px;
+    padding: 0 5px 0 15px;
   }
   .mitsumori-result_item {
     margin-bottom: 20px;
@@ -3796,7 +3796,7 @@ div#blue_tri {
     width: 145px;
     height: 49px;
     margin: 0;
-    padding: 0;
+    /*padding: 0;*/
     line-height: 45px;
     font-size: 14px;
   }
@@ -3804,7 +3804,7 @@ div#blue_tri {
   .mitsumori-block .mitsumori-list input:checked + label span,
   .mitsumori-block .mitsumori-list input + label span {
     line-height: 45px;
-    margin-left: 10%;
+    /*margin-left: 10%;*/
   }
   .mitsumori-block .mitsumori-list li:nth-of-type(3n) {
     margin-right: 1%;
@@ -4772,8 +4772,9 @@ input[type="submit"].submit_card,
 /* 20230417 kv_button */
 
 .button_label_small{
- font-size: clamp(10px, 3vw, 13px);
-    padding-left: clamp(10px, 0.5vw, 20px);
+ /*font-size: clamp(10px, 2.5vw, 13px);*/
+ font-size: min(2.6vw, 13px)
+ /* padding-left: clamp(10px, 0.5vw, 20px);*/
 }
 
 .mitsumori_start .totop_button:hover,
