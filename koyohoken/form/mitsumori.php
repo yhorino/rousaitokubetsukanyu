@@ -44,7 +44,7 @@ setcookie('norikae', '0', 0, '/');
   <meta property="og:title" content="雇用保険見積り：労働保険事務組合RJC　雇用保険の加入フォーム">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/form/mitsumori.php">
-  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/logo_jimukumiai-1.png">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/logo_img/logo_jimukumiai.png">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
@@ -69,7 +69,7 @@ setcookie('norikae', '0', 0, '/');
  
   <header>
     <div class="header__flex">
-      <a href="/koyohoken/"><img class="h_logo" src="../../assets/img/logo_jimukumiai-1.png" width="327" alt="" /></a>
+      <a href="/koyohoken/"><img class="h_logo" src="../../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
     </div>
     <h1 class="mitsumori-maintitle">雇用保険の加入申込み</h1>
     <h2 class="mitsumori-ttl">かんたん見積もり</h2>
