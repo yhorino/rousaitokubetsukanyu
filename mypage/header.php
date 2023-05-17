@@ -271,7 +271,7 @@ header #h_title #flex1 a {
 <div class="pc">
 <div id="h_title">
 <div class="flex_row inner">
-<div id="flex1"><a href="/"><img src="/assets/img/logo_jimukumiai-1.png" alt="労働保険事務組合RJC"></a></div>
+<div id="flex1"><a href="/"><img src="/assets/logo_img/logo_jimukumiai.png" alt="労働保険事務組合RJC"></a></div>
 <div id="flex2">
  <?php
  if($_SESSION['row']['Name'] != ''){
@@ -301,7 +301,7 @@ header #h_title #flex1 a {
           <div id="header">
             <nav>
               <ul class="main-nav">
-                <li><a href="/" class="logo"><img src="/assets/img/logo_jimukumiai-1.png" alt="労働保険事務組合RJC"></a></li>
+                <li><a href="/" class="logo"><img src="/assets/logo_img/logo_jimukumiai.png" alt="労働保険事務組合RJC"></a></li>
                <li>
                <li>
                 <div class="header_top-right">

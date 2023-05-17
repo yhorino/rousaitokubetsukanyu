@@ -107,7 +107,7 @@ $title="会員カード";
 <figure>
  <figcaption></figcaption>
  <div id="kaiinsyo_div">
-  <img src="image/<?php echo $kaiinsyo;?>" alt="会員カード">
+  <img src="/assets/logo_img/<?php echo $kaiinsyo;?>" alt="会員カード">
   <!--<p id="nendo"><?php echo $nendo;?></p>-->
   <p id="roudouhokenbangou"><span id="title_roudouhokenbangou" class="kaiinsyo_title"><span>労</span><span>働</span><span>保</span><span>険</span><span>番</span><span>号</span></span><span><?php echo $bangou;?></span></p>
   <p id="jigyosyo"><span id="title_jigyosyo" class="kaiinsyo_title"><span>事</span><span>業</span><span>所</span><span>名</span></span><span style="font-size: 10px; padding: 0.3em 0;"><?php echo $jigyosyo;?></span></p>

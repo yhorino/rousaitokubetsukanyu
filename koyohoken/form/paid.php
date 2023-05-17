@@ -28,7 +28,7 @@ require_once('../../form/function.php');
   <meta property="og:title" content="お支払が完了しました：雇用保険の加入申込み 労働保険事務組合RJC　無料見積りフォーム">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/form/paid.php">
-  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/logo_jimukumiai-1.png">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/logo_img/logo_jimukumiai.png">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
@@ -52,7 +52,7 @@ require_once('../../form/function.php');
 
     <header>
       <div class="header__flex">
-				<a href="/koyohoken/"><img class="h_logo" src="../../assets/img/logo_jimukumiai-1.png" width="327" alt="" /></a>
+				<a href="/koyohoken/"><img class="h_logo" src="../../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
       </div>
      
       <div id="flow_image">
