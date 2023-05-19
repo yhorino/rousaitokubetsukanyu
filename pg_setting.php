@@ -14,7 +14,7 @@ if($mode == -1){
 }
 
 $merchant_name = '労働保険事務組合ＲＪＣ';
-$banner_url = 'https://www.xn--y5q0r2lqcz91qdrc.com/assets/img/logo_pg.png';
+$banner_url = 'https://www.xn--y5q0r2lqcz91qdrc.com/assets/logo_img/logo_jimukumiai_s.png';
 
 $trading_id=$_SESSION['trading_id'];
 $payment_type='02';
