@@ -1,0 +1,18 @@
+  AddHandler php-script .php .html
+  AddType application/x-httpd-php .php .html
+  
+php_value upload_max_filesize 1G
+php_value post_max_size 1G
+php_value memory_limit 2048M
+php_value max_execution_time 300
+
+# authenticate(Basic)
+#AuthUserFile /virtual/aichi1998/public_html/www.xn--u9j030g7pan0b35gwu1bj0pb79budya.tokyo/.htpasswd
+AuthUserFile /home/rjc/domains/xn--u9j030g7pan0b35gwu1bj0pb79budya.tokyo/public_html/.htpasswd
+AuthGroupFile /dev/null
+AuthName MembersOnly
+AuthType Basic
+<Limit GET POST>
+require valid-user
+</Limit>
+
