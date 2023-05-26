@@ -47,37 +47,55 @@ $detect = new Mobile_Detect;
 switch($_POST['pagename']){
  case 'mitsumori.php':
  {
-  $result = (array)getAccountAll($_SESSION['CellsNo__c']);
-  $row = (array)$result['fields'];
-  
-  $_SESSION['Previd__c'] = $result['Id'];
-  
-  $_SESSION['kaisyamei'] = "";
-  $_SESSION['kaisyamei_furi'] = "";
-  $_SESSION['daihyosyamei_sei'] = $row['LastName'];
-  $_SESSION['daihyosyamei_mei'] = $row['FirstName'];
-  $_SESSION['daihyosyamei_furi_sei'] = $row['Furi__c'];
-  $_SESSION['daihyosyamei_furi_mei'] = $row['Furi2__c'];
-//  $_SESSION['tantousyamei_sei'] = $row['LastName'];
-//  $_SESSION['tantousyamei_mei'] = $row['FirstName'];
-//  $_SESSION['tantousyamei_furi_sei'] = $row['Furi__c'];
-//  $_SESSION['tantousyamei_furi_mei'] = $row['Furi2__c'];
-  $_SESSION['zip'] = $row['BillingPostalCode'];
-  $_SESSION['pref'] = $row['BillingState'];
-  $_SESSION['city'] = $row['BillingCity'];
-  $_SESSION['address'] = $row['BillingStreet'];
-  $_SESSION['apart'] = $row['BillingAddress'];
-  $_SESSION['denwabangou'] = $row['PersonMobilePhone'];
-  $_SESSION['faxbangou'] = $row['Fax'];
-  $_SESSION['mail'] = $row['PersonEmail'];
-//  $_SESSION['tantoumobile'] = $row['PersonMobilePhone'];
-//  $_SESSION['shiharai_kaisu'] = '年払い';
-  
-  $birthday = explode('-',$row['PersonBirthdate']);
-  $_SESSION['birth_year'] = $birthday[0];
-  $_SESSION['birth_month'] = $birthday[1];
-  $_SESSION['birth_date'] = $birthday[2];
+  if(isset($_SESSION['CellsNo__c']) && $_SESSION['CellsNo__c'] != ''){
+   $result = (array)getAccountAll($_SESSION['CellsNo__c']);
+   $row = (array)$result['fields'];
 
+   $_SESSION['Previd__c'] = $result['Id'];
+
+   $_SESSION['kaisyamei'] = "";
+   $_SESSION['kaisyamei_furi'] = "";
+   $_SESSION['daihyosyamei_sei'] = $row['LastName'];
+   $_SESSION['daihyosyamei_mei'] = $row['FirstName'];
+   $_SESSION['daihyosyamei_furi_sei'] = $row['Furi__c'];
+   $_SESSION['daihyosyamei_furi_mei'] = $row['Furi2__c'];
+   $_SESSION['zip'] = $row['BillingPostalCode'];
+   $_SESSION['pref'] = $row['BillingState'];
+   $_SESSION['city'] = $row['BillingCity'];
+   $_SESSION['address'] = $row['BillingStreet'];
+   $_SESSION['apart'] = $row['BillingAddress'];
+   $_SESSION['denwabangou'] = $row['PersonMobilePhone'];
+   $_SESSION['faxbangou'] = $row['Fax'];
+   $_SESSION['mail'] = $row['PersonEmail'];
+
+   $birthday = explode('-',$row['PersonBirthdate']);
+   $_SESSION['birth_year'] = $birthday[0];
+   $_SESSION['birth_month'] = $birthday[1];
+   $_SESSION['birth_date'] = $birthday[2];
+  } else {
+   $_SESSION['Previd__c'] = '';
+
+   $_SESSION['kaisyamei'] = "";
+   $_SESSION['kaisyamei_furi'] = "";
+   $_SESSION['daihyosyamei_sei'] = '';
+   $_SESSION['daihyosyamei_mei'] = '';
+   $_SESSION['daihyosyamei_furi_sei'] = '';
+   $_SESSION['daihyosyamei_furi_mei'] = '';
+   $_SESSION['zip'] = '';
+   $_SESSION['pref'] = '';
+   $_SESSION['city'] = '';
+   $_SESSION['address'] = '';
+   $_SESSION['apart'] = '';
+   $_SESSION['denwabangou'] = '';
+   $_SESSION['faxbangou'] = '';
+   $_SESSION['mail'] = '';
+
+   $_SESSION['birth_year'] = '';
+   $_SESSION['birth_month'] = '';
+   $_SESSION['birth_date'] = '';
+   
+  }
+  
 //var_dump($_SESSION);
   session_write_close();
 		header('Location: input.php');
