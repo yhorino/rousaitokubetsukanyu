@@ -95,6 +95,7 @@ setcookie('norikae', '0', 0, '/');
    
     <form name="form" method="post" action="trans.php" enctype="multipart/mitsumori-data">
       <input type="hidden" id="pagename" name="pagename" value = "mitsumori.php">
+        <input type="hidden" id="CellsNo__c" name="CellsNo__c" value = "<?php echo $_GET['cellsno'];?>">
      
      <?php /* 20230302 従業員雇っているか？ */ ?>
      <section class="mitsumori_start">

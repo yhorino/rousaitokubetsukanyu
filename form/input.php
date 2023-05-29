@@ -118,6 +118,7 @@ $(function () {
    
     <form name="form" method="post" action="trans.php" enctype="multipart/form-data">
       <input type="hidden" id="pagename" name="pagename" value = "input.php">
+      <input type="hidden" id="Previd__c" name="Previd__c" value = "<?php echo $_SESSION['Previd__c'];?>">
 
 <?php /* 20220122 紹介クーポン */ ?>
         <input type="hidden" id="syoukai_kaisya_id" name="syoukai_kaisya_id" value = "<?php echo $_SESSION['syoukai_kaisya_id'];?>">
