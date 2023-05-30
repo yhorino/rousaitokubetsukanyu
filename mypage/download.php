@@ -60,7 +60,7 @@ $title="各種ダウンロード・印刷";
    <td>02</td><td>特別加入証明書</td><td>2023/03/23</td><td><a href="kanyusya.php">閲覧・印刷</a></td><td>特別加入の証明書を閲覧・印刷できます。</td>
   </tr>
   <tr>
-   <td>03</td><td>団体則</td><td>2023/05/15</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
+   <td>03</td><td>団体則</td><td>2023/05/30</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
   </tr>
   <!--
   <tr>
@@ -100,7 +100,7 @@ $title="各種ダウンロード・印刷";
 
  <table>
   <tr>
-   <th>No</th><td>03</td><th>更新日</th><td>2022/12/01</td>
+   <th>No</th><td>03</td><th>更新日</th><td>2023/05/30</td>
   </tr>
   <tr>
    <th>名称</th><td colspan="3">団体則</td>
