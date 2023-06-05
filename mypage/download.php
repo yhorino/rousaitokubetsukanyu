@@ -62,6 +62,11 @@ $title="各種ダウンロード・印刷";
   <tr>
    <td>03</td><td>団体則</td><td>2023/05/30</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
   </tr>
+  <?php if($_SESSION['row']['kyotei36_URL__c'] != ''){ ?>
+  <tr>
+   <td>04</td><td>休日・時間外労働に関する協定届</td><td></td><td><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">閲覧・印刷</a></td><td>休日・時間外労働に関する協定届を閲覧・印刷できます。</td>
+  </tr>
+  <?php } ?>
   <!--
   <tr>
    <td>04</td><td>労働保険保険関係成立証明書</td><td></td><td><a href="#" onclick="outputPDF_hokenseiritu();" >閲覧・印刷</a></td><td>労働保険保険関係成立証明書を閲覧・印刷できます。</td>
@@ -110,6 +115,20 @@ $title="各種ダウンロード・印刷";
   </tr>
  </table>
  <p><a href="dantaisoku.pdf">表示・印刷</a></p>
+ <?php if($_SESSION['row']['kyotei36_URL__c'] != ''){ ?>
+ <table>
+  <tr>
+   <th>No</th><td>04</td><th>更新日</th><td></td>
+  </tr>
+  <tr>
+   <th>名称</th><td colspan="3">休日・時間外労働に関する協定届</td>
+  </tr>
+  <tr>
+   <th>詳細</th><td colspan="3">休日・時間外労働に関する協定届を閲覧・印刷できます。</td>
+  </tr>
+ </table>
+ <p><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">表示・印刷</a></p>
+ <?php } ?>
  <!--
  <table>
   <tr>
