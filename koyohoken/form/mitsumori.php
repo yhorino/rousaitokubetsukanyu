@@ -81,6 +81,7 @@ setcookie('norikae', '0', 0, '/');
    
     <form name="form" method="post" action="trans.php" enctype="multipart/mitsumori-data">
       <input type="hidden" id="pagename" name="pagename" value = "mitsumori.php">
+      <input type="hidden" id="jimuKaiinNo__c" name="jimuKaiinNo__c" value = "<?php echo $_GET['no']; ?>">
      
       <section class="mitsumori">
         <div class="mitsumori-inner">
