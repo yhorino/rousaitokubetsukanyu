@@ -64,7 +64,7 @@ $title="各種ダウンロード・印刷";
   </tr>
   <?php if($_SESSION['row']['kyotei36_URL__c'] != ''){ ?>
   <tr>
-   <td>04</td><td>休日・時間外労働に関する協定届</td><td></td><td><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">閲覧・印刷</a></td><td>休日・時間外労働に関する協定届を閲覧・印刷できます。</td>
+   <td>04</td><td>休日・時間外労働に関する協定届</td><td>2023/06/09</td><td><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">閲覧・印刷</a></td><td>休日・時間外労働に関する協定届を閲覧・印刷できます。</td>
   </tr>
   <?php } ?>
   <!--
