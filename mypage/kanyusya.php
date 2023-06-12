@@ -58,6 +58,9 @@ $no = 1;
  $matsubi[0] = 0;
  $matsubi[1] = 5;
  $matsubi[2] = 6;
+ $kanyudate_itemname[0] = 'matubi0kanyubi__c';
+ $kanyudate_itemname[1] = 'Kanyudate__c';
+ $kanyudate_itemname[2] = 'matubi6kanyubi__c';
 ?>
  
 <?php
@@ -77,14 +80,14 @@ if($roudouno[$j] != '') {
  <figcaption>特別加入者情報</figcaption>
  <table>
   <tr>
-   <th>会員番号</th><th>氏名</th><th>給付基礎日額</th><th>加入日</th><th>脱退日</th><th>会員カード</th><th>加入証明書</th>
+   <th>整理番号</th><th>氏名</th><th>給付基礎日額</th><th>加入日</th><th>脱退日</th><th>会員カード</th><th>加入証明書</th>
   </tr>';
    $count = 0;
    for($i=1;$i<=5;$i++){
     $kanyusya = $_SESSION['row_kaiin'.$i];
     
-    $kanyudate = $kanyusya['Kanyudate__c'];
-    if($kanyusya['Kanyudate__c'] == ''){$kanyudate = '2023-04-01';}
+    $kanyudate = $kanyusya[$kanyudate_itemname[$j]];
+    if($j==1 && $kanyudate == ''){$kanyudate = '2023-04-01';}
     
     if($kanyusya['Name'] != '' && 
        (
@@ -133,7 +136,7 @@ if($roudouno[$j] != '') {
        )
       ){
      echo '  <tr>
-   <th>会員番号</th><td>'.$kanyusya['CellsNo__c'].'</td>
+   <th>整理番号</th><td>'.$kanyusya['CellsNo__c'].'</td>
   </tr>
 ';
      echo '  <tr><th>氏名</th><td>'.$kanyusya['Name'].'</td>
@@ -221,7 +224,18 @@ function outputPDF($i, $roudouno){
  var NamePHP = ["","<?php echo $_SESSION['row_kaiin1']['Name'];?>", "<?php echo $_SESSION['row_kaiin2']['Name'];?>", "<?php echo $_SESSION['row_kaiin3']['Name'];?>", "<?php echo $_SESSION['row_kaiin4']['Name'];?>", "<?php echo $_SESSION['row_kaiin5']['Name'];?>"];
  var NitigakuPHP = ["","<?php echo $_SESSION['row_kaiin1']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin2']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin3']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin4']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin5']['Kyuhukisonitigaku__c'];?>"];
  var CellsNoPHP = ["","<?php echo $_SESSION['row_kaiin1']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin2']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin3']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin4']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin5']['CellsNo__c'];?>"];
- var KanyudatePHP = ["","<?php echo $_SESSION['row_kaiin1']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin2']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin3']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin4']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin5']['Kanyudate__c'];?>"];
+
+ var KanyudatePHP0 = ["","<?php echo $_SESSION['row_kaiin1']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin2']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin3']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin4']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin5']['matubi0kanyubi__c'];?>"];
+ var KanyudatePHP5 = ["","<?php echo $_SESSION['row_kaiin1']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin2']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin3']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin4']['Kanyudate__c'];?>", "<?php echo $_SESSION['row_kaiin5']['Kanyudate__c'];?>"];
+ var KanyudatePHP6 = ["","<?php echo $_SESSION['row_kaiin1']['matubi6kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin2']['matubi6kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin3']['matubi6kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin4']['matubi6kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin5']['matubi6kanyubi__c'];?>"];
+
+ var KanyudatePHP = KanyudatePHP0;
+ var roudouno_split = $roudouno.split('-');
+ var matsubi = parseInt(roudouno_split[1].substr(-1));
+ if(matsubi == 0){ KanyudatePHP = KanyudatePHP0; }
+ if(matsubi == 5){ KanyudatePHP = KanyudatePHP5; }
+ if(matsubi == 6){ KanyudatePHP = KanyudatePHP6; }
+ 
  var KanyumankibiPHP = ["","<?php echo $_SESSION['row_kaiin1']['Kanyumankibinew__c'];?>", "<?php echo $_SESSION['row_kaiin2']['Kanyumankibinew__c'];?>", "<?php echo $_SESSION['row_kaiin3']['Kanyumankibinew__c'];?>", "<?php echo $_SESSION['row_kaiin4']['Kanyumankibinew__c'];?>", "<?php echo $_SESSION['row_kaiin5']['Kanyumankibinew__c'];?>"];
  
  var now = new Date();

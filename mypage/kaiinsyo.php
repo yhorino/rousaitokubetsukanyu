@@ -95,7 +95,11 @@ $title="会員カード";
   $endy = $y;
  }
  
- $Kanyunengappiwareki__c = $kanyusya['Kanyudate__c'];
+ $kanyudate_itemname[0] = 'matubi0kanyubi__c';
+ $kanyudate_itemname[5] = 'Kanyudate__c';
+ $kanyudate_itemname[6] = 'matubi6kanyubi__c';
+ //$Kanyunengappiwareki__c = $kanyusya['Kanyudate__c'];
+ $Kanyunengappiwareki__c = $kanyusya[$kanyudate_itemname[$matsubi]];
  $Kanyumankiwareki__c = $kanyusya['Kanyumankibinew__c'];
  
  /* 20220325 SFデータ入力完了までは2022/4/1～2023/3/31にする */
