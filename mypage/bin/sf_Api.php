@@ -182,7 +182,7 @@ function getJimuKanyusya($kaisya_id){
   global $_con;
 
   $returns = array();
-  $query = "SELECT Id, No__c, Name, Furi__c, Phone, Fax, Email__c,  BillingPostalCode, BillingState, BillingCity, BillingStreet, PrefectureCodeNew__c, torimatome_ninzu__c, PrefCode__c, Hokenryoutorimatome__c, Daihyosya__c, DaihyousyaFuri__c, DaijyoKeitai__c, Tantousya__c, TantousyaFuri__c, Torimatome_tanntoutel__c, HoujinBangou__c, jimuRoudouhokenBangou0__c, jimuRoudouhokenBangou2__c, jimuRoudouhokenBangou5__c, jimuRoudouhokenBangou6__c, PersonBirthdate, Kyuhukisonitigaku__c,Nownitigaku__c,Kanyudate__c,CellsNo__c,Kanyumankibinew__c,DattaiNenggapi__c FROM Account WHERE RecordType.Name = '事務組合加入者' AND jimuKaisya__c = '$kaisya_id' order by CellsNo__c asc";
+  $query = "SELECT Id, No__c, Name, Furi__c, Phone, Fax, Email__c,  BillingPostalCode, BillingState, BillingCity, BillingStreet, PrefectureCodeNew__c, torimatome_ninzu__c, PrefCode__c, Hokenryoutorimatome__c, Daihyosya__c, DaihyousyaFuri__c, DaijyoKeitai__c, Tantousya__c, TantousyaFuri__c, Torimatome_tanntoutel__c, HoujinBangou__c, jimuRoudouhokenBangou0__c, jimuRoudouhokenBangou2__c, jimuRoudouhokenBangou5__c, jimuRoudouhokenBangou6__c, PersonBirthdate, Kyuhukisonitigaku__c,Nownitigaku__c,Kanyudate__c,CellsNo__c,Kanyumankibinew__c,DattaiNenggapi__c,matubi0kanyubi__c,matubi6kanyubi__c FROM Account WHERE RecordType.Name = '事務組合加入者' AND jimuKaisya__c = '$kaisya_id' order by CellsNo__c asc";
   try {
 
     $response = $_con->query($query);
