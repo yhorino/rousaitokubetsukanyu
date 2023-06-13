@@ -28,6 +28,12 @@ $detect = new Mobile_Detect;
        }
    }
 
+ if(isset($_POST['debug'])){
+  $_SESSION['debug'] = $_POST['debug'];
+ } else {
+  unset($_SESSION['debug']);
+ }
+
 switch($_POST['pagename']){
 
  case 'mitsumori.php':
@@ -43,11 +49,38 @@ switch($_POST['pagename']){
    $jimuRoudouhokenBangou5__c_nohyp = str_replace('-','',$jimuRoudouhokenBangou5__c);
    $_SESSION['roudouhoken_no1'] = substr($jimuRoudouhokenBangou5__c_nohyp,0,11);
    $_SESSION['roudouhoken_no2'] = substr($jimuRoudouhokenBangou5__c_nohyp,-3);
-
+   $_SESSION['roudouhoken_no'] = $_SESSION['roudouhoken_no1'].$_SESSION['roudouhoken_no2'];
   }
   
+  if(isset($_SESSION['debug'])){
+  include('get_rjcdata_test.php');
+
+    if($ret_getrjcdata['kaisyamei'] != null && $ret_getrjcdata['kaisyamei'] != ""){
+     $_SESSION['type'] = $ret_getrjcdata['type'];
+     $_SESSION['id'] = $ret_getrjcdata['id'];
+     $_SESSION['kaisyamei'] = $ret_getrjcdata['kaisyamei'];
+     $_SESSION['kaisyamei_furi'] = $ret_getrjcdata['kaisyamei_furi'];
+     $_SESSION['zip'] = $ret_getrjcdata['zip'];
+     $_SESSION['pref'] = $ret_getrjcdata['pref'];
+     $_SESSION['city'] = $ret_getrjcdata['city'];
+     $_SESSION['address'] = $ret_getrjcdata['address'];
+     $_SESSION['denwabangou'] = $ret_getrjcdata['denwabangou'];
+     $_SESSION['faxbangou'] = $ret_getrjcdata['faxbangou'];
+     $_SESSION['mail'] = $ret_getrjcdata['mail'];
+     $_SESSION['daihyosyamei_sei'] = $ret_getrjcdata['daihyosyamei_sei'];
+     $_SESSION['daihyosyamei_mei'] = $ret_getrjcdata['daihyosyamei_mei'];
+     $_SESSION['daihyosyamei_furi_sei'] = $ret_getrjcdata['daihyosyamei_furi_sei'];
+     $_SESSION['daihyosyamei_furi_mei'] = $ret_getrjcdata['daihyosyamei_furi_mei'];
+     $_SESSION['daihyosyayakusyoku'] = $ret_getrjcdata['daihyosyayakusyoku'];
+     $_SESSION['order_no'] = $ret_getrjcdata['order_no'];
+    }
+  
+  session_write_close();
+		header('Location: input_test.php');
+ } else {
   session_write_close();
 		header('Location: input.php');
+ }
   exit;
   break;
  }
