@@ -83,6 +83,10 @@ setcookie('norikae', '0', 0, '/');
       <input type="hidden" id="pagename" name="pagename" value = "mitsumori.php">
       <input type="hidden" id="jimuKaiinNo__c" name="jimuKaiinNo__c" value = "<?php echo $_GET['no']; ?>">
      
+<?php if(isset($_GET['debug'])){ ?>
+      <input type="hidden" id="debug" name="debug" value = "1">
+<?php } ?>
+     
       <section class="mitsumori">
         <div class="mitsumori-inner">
           <div class="mitsumori-select">
