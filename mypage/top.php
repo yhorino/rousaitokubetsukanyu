@@ -76,7 +76,7 @@ $title="マイページTOP";
 <p>会員カードや加入証明書などのダウンロード・印刷ができます。</p>
 </li>
  
-<?php if(isset($_GET['debug'])){ ?>
+<?php if(isset($_GET['debug']) || isset($_SESSION['debug'])){ ?>
 <li>
 <a href="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/form/mitsumori.php?no=<?php echo $_SESSION['row']['jimuKaiinNo__c'];?>&debug=1"><img src="image/img_syokai.png">
 </a>

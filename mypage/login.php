@@ -17,6 +17,13 @@ header("Content-type: text/html;charset=utf-8");
 // 日付関数(date)を(後で)使うのでタイムゾーンの設定
 date_default_timezone_set('Asia/Tokyo');
 
+ if(isset($_POST['debug'])){
+  $_SESSION['debug'] = $_POST['debug'];
+ } else {
+  unset($_SESSION['debug']);
+ }
+
+
 // ユーザ入力情報を保持する配列を準備する
 $user_input_data = array();
 // エラー情報を保持する配列を準備する
