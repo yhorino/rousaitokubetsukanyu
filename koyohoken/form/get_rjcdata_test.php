@@ -48,8 +48,9 @@ if($result_getrjcdata['Id'] != ''){
  $daihyosyayakusyoku = $row_getrjcdata['Daihyouyakusyoku__c'];
  $shiharai = $row_getrjcdata['ShiharaiType__c'];
  $order_no = $row_getrjcdata['order_no__c'];
+ $jimuChinginShimeShiharaibi__c = $row_getrjcdata['jimuChinginShimeShiharaibi__c'];
 }
 
-	$ret_getrjcdata = array('id'=>$id, 'type'=>$type, 'kaisyamei'=>$kaisyamei, 'kaisyamei_furi'=>$kaisyamei_furi, 'zip'=>$zip, 'pref'=>$pref, 'city'=>$city, 'address'=>$address, 'denwabangou'=>$denwabangou, 'faxbangou'=>$faxbangou, 'mail'=>$mail, 'daihyosyamei_sei'=>$daihyosyamei_sei, 'daihyosyamei_mei'=>$daihyosyamei_mei, 'daihyosyamei_furi_sei'=>$daihyosyamei_furi_sei, 'daihyosyamei_furi_mei'=>$daihyosyamei_furi_mei, 'daihyosyayakusyoku'=>$daihyosyayakusyoku, 'order_no'=>$order_no);
+	$ret_getrjcdata = array('id'=>$id, 'type'=>$type, 'kaisyamei'=>$kaisyamei, 'kaisyamei_furi'=>$kaisyamei_furi, 'zip'=>$zip, 'pref'=>$pref, 'city'=>$city, 'address'=>$address, 'denwabangou'=>$denwabangou, 'faxbangou'=>$faxbangou, 'mail'=>$mail, 'daihyosyamei_sei'=>$daihyosyamei_sei, 'daihyosyamei_mei'=>$daihyosyamei_mei, 'daihyosyamei_furi_sei'=>$daihyosyamei_furi_sei, 'daihyosyamei_furi_mei'=>$daihyosyamei_furi_mei, 'daihyosyayakusyoku'=>$daihyosyayakusyoku, 'order_no'=>$order_no, 'jimuChinginShimeShiharaibi__c'=>$jimuChinginShimeShiharaibi__c);
 
 ?>
