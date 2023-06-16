@@ -4969,3 +4969,10 @@ input[type="submit"].submit_card,
 
 /* 20221209 会社登録費０円 */
 
+
+.input_fixed_message {
+    font-size: 16px;
+    margin: 0;
+    padding: 10px 0;
+}
+

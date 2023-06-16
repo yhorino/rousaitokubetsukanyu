@@ -8,6 +8,17 @@ require_once('../../form/function.php');
 
 include('session_check.php');
 
+function item_set($item){
+ if(isset($item) && $item != '') return true;
+ else return false;
+}
+function disp_fixeditem($itemname){
+ echo '
+ <input type="hidden" name="'.$itemname.'" id="'.$itemname.'" value="'.$_SESSION[$itemname].'">
+ <span class="input_fixed">'.$_SESSION[$itemname].'</span>
+ '; 
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -213,6 +224,9 @@ $(function () {
      
       <section class="mitsumori input_section">
       <h1 class="mitsumori-ttl">お客様情報の入力</h1>
+        <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+        <p class="input_fixed_message">内容をご確認いただき、変更がある場合は申込後にご連絡ください。</p>
+        <?php } ?>
         <div class="mitsumori-inner">
          
          <figure>
@@ -247,7 +261,11 @@ $(function () {
           <tr>
            <th>会社名・屋号</th><th><span class="label req">必須</span></th>
            <td>
-            <input id="kaisyamei" type="text" name="kaisyamei" required="" placeholder="株式会社　労災建設" value="<?php echo $_SESSION['kaisyamei']; ?>">
+            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php disp_fixeditem('kaisyamei'); ?>
+            <?php } else { ?>
+            <input id="kaisyamei" type="text" name="kaisyamei" required="" placeholder="株式会社　労災建設" value="">
+            <?php } ?>
            </td>
            
           </tr>
@@ -256,7 +274,11 @@ $(function () {
            <th>会社名・屋号 フリガナ</th><th><span class="label req">必須</span></th>
            <td>
             
+            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php disp_fixeditem('kaisyamei_furi'); ?>
+            <?php } else { ?>
             <input id="kaisyamei_furi" type="text" name="kaisyamei_furi" required="" placeholder="カブシキガイシャ　ロウサイケンセツ" value="<?php echo $_SESSION['kaisyamei_furi']; ?>" pattern="[\u30A1-\u30FC\u3041-\u309F\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A|　| ]*" title="ひらがな、カタカナ">
+            <?php } ?>
            </td>
            
           </tr>
@@ -265,82 +287,127 @@ $(function () {
           <tr>
           <th>郵便番号</th><th><span class="label req">必須</span></th>
           <td>
-          <input type="tel" name="zip" id="zip" class="zip" placeholder="1234567(ハイフンなし)" maxlength="8" value="<?php echo $_SESSION['zip']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)" required>
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('zip'); ?>
+           <?php } else { ?>
+           <input type="tel" name="zip" id="zip" class="zip" placeholder="1234567(ハイフンなし)" maxlength="8" value="<?php echo $_SESSION['zip']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)" required>
+           <?php } ?>
           </td>
           </tr>
 
           <tr>
           <th>都道府県</th><th><span class="label req">必須</span></th>
           <td>
-          <select id="pref" name="pref" class="" required>
-          <option value="">選択してください</option>
-          <?php
-           for($i=1;$i<=47;$i++){
-  $sel = '';
-  if($_SESSION['pref']==$pref[$i]) $sel = 'selected';
-            echo '<option value="'.$pref[$i].'" '.$sel.'>'.$pref[$i].'</option>';
-           }
-           ?>
-          </select>
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('pref'); ?>
+           <?php } else { ?>
+           <select id="pref" name="pref" class="" required>
+           <option value="">選択してください</option>
+           <?php
+            for($i=1;$i<=47;$i++){
+   $sel = '';
+   if($_SESSION['pref']==$pref[$i]) $sel = 'selected';
+             echo '<option value="'.$pref[$i].'" '.$sel.'>'.$pref[$i].'</option>';
+            }
+            ?>
+           </select>
+           <?php } ?>
           </td>
           </tr>
 
           <tr>
           <th>市区町村</th><th><span class="label req">必須</span></th>
           <td>
-          <input id="city" type="text" name="city" required="" placeholder="千代田区" value="<?php echo $_SESSION['city']; ?>">
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('city'); ?>
+           <?php } else { ?>
+           <input id="city" type="text" name="city" required="" placeholder="千代田区" value="<?php echo $_SESSION['city']; ?>">
+           <?php } ?>
           </td>
           </tr>
 
           <tr>
           <th>丁目・番地号</th><th><span class="label req">必須</span></th>
           <td>
-          <input id="address" type="text" name="address" required="" placeholder="千代田１－１" value="<?php echo $_SESSION['address']; ?>">
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('address'); ?>
+           <?php } else { ?>
+           <input id="address" type="text" name="address" required="" placeholder="千代田１－１" value="<?php echo $_SESSION['address']; ?>">
+           <?php } ?>
           </td>
           </tr>
 
           <tr>
           <th>建物名等</th><th></th>
           <td>
-          <input id="apart" class="no-required" type="text" name="apart" placeholder="東京ビルディング１０１" value="<?php echo $_SESSION['apart']; ?>">
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('apart'); ?>
+           <?php } else { ?>
+           <input id="apart" class="no-required" type="text" name="apart" placeholder="東京ビルディング１０１" value="<?php echo $_SESSION['apart']; ?>">
+           <?php } ?>
           </td>
           </tr>
           
           <?php $_SESSION['denwabangou'] = str_replace('-', '', $_SESSION['denwabangou']); ?>
           <tr>
-           <th>電話番号</th><th><span class="label req">必須</span></th>
-           <td>
+          <th>電話番号</th><th><span class="label req">必須</span></th>
+          <td>
+
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('denwabangou'); ?>
+           <?php } else { ?>
+           <input id="denwabangou" type="tel" name="denwabangou" class="" required="" placeholder="0311112222(ハイフンなし)" maxlength="13" value="<?php echo $_SESSION['denwabangou']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)">
+           <?php } ?>
             
-            <input id="denwabangou" type="tel" name="denwabangou" class="" required="" placeholder="0311112222(ハイフンなし)" maxlength="13" value="<?php echo $_SESSION['denwabangou']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)">
-            
-           </td>
-           
+          </td>
+
           </tr>
           
           <?php $_SESSION['faxbangou'] = str_replace('-', '', $_SESSION['faxbangou']); ?>
           <tr>
-           <th>FAX番号</th></th><th>
-           <td>
+          <th>FAX番号</th></th><th>
+          <td>
             
-            <input id="faxbangou" type="tel" name="faxbangou" class="" placeholder="0311112223(ハイフンなし)" maxlength="13" value="<?php echo $_SESSION['faxbangou']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)">
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('faxbangou'); ?>
+           <?php } else { ?>
+           <input id="faxbangou" type="tel" name="faxbangou" class="" placeholder="0311112223(ハイフンなし)" maxlength="13" value="<?php echo $_SESSION['faxbangou']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)">
+           <?php } ?>
             
-           </td>
+          </td>
            
           </tr>
           
           <tr>
-           <th>メールアドレス</th><th><span class="label req">必須</span></th>
-           <td>
-            
-            <input id="email" type="email" name="mail" placeholder="name@domain.co.jp" value="<?php echo $_SESSION['mail']; ?>" required>
-            
-           </td>
+          <th>メールアドレス</th><th><span class="label req">必須</span></th>
+          <td>
+
+           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php disp_fixeditem('mail'); ?>
+           <?php } else { ?>
+           <input id="email" type="email" name="mail" placeholder="name@domain.co.jp" value="<?php echo $_SESSION['mail']; ?>" required>
+           <?php } ?>
+
+          </td>
            
           </tr>
           
           <tr>
            <th>給与支払い</th><th><span class="label req">必須</span></th>
            <td>
+            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php 
+             $shimebi = mb_substr($_SESSION['jimuChinginShimeShiharaibi__c'],0,mb_strpos($_SESSION['jimuChinginShimeShiharaibi__c'],'締'));
+             $shimebi_after = mb_substr($_SESSION['jimuChinginShimeShiharaibi__c'],mb_strpos($_SESSION['jimuChinginShimeShiharaibi__c'],'締')+1);
+             $shiharaibi_month = mb_substr($shimebi_after,0,mb_strpos($shimebi_after,'月')+1);
+             $shiharaibi_month_after = mb_substr($shimebi_after,mb_strpos($shimebi_after,'月')+1);
+             $shiharaibi = mb_substr($shiharaibi_month_after,0,mb_strpos($shiharaibi_month_after,'払'));
+            ?>
+            <input type="hidden" name="shimebi" id="shimebi" value="<?php echo $shimebi; ?>">
+            <input type="hidden" name="shiharaibi_month" id="shiharaibi_month" value="<?php echo $shiharaibi_month; ?>">
+            <input type="hidden" name="shiharaibi" id="shiharaibi" value="<?php echo $shiharaibi; ?>">
+            <span class="input_fixed"><?php echo $_SESSION['jimuChinginShimeShiharaibi__c']; ?></span>
+            <?php } else { ?>
             <div class="kyuyo_selbox">
              <span class="kyuyo_selitem">
               <span class="kyuyo_selitem_label">締め日</span>
@@ -372,6 +439,7 @@ $(function () {
               </span>
              </span>
             </div>
+            <?php } ?>
            </td>
            
           </tr>
@@ -385,9 +453,14 @@ $(function () {
           <tr class="fl_l fl_c">
            <th>氏名</th><th><span class="label req">必須</span></th>
            <td>
+            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php disp_fixeditem('daihyosyamei_sei'); ?>
+            <?php disp_fixeditem('daihyosyamei_mei'); ?>
+            <?php } else { ?>
             <div class="input_table_flex">
             <input id="daihyosyamei_sei" type="text" name="daihyosyamei_sei" required="" placeholder="代表" value="<?php echo $_SESSION['daihyosyamei_sei']; ?>">　<input id="daihyosyamei_mei" type="text" name="daihyosyamei_mei" required="" placeholder="太郎" value="<?php echo $_SESSION['daihyosyamei_mei']; ?>">
             </div>
+            <?php } ?>
            </td>
            
           </tr>
@@ -395,20 +468,30 @@ $(function () {
           <tr class="fl_l fl_c">
            <th>フリガナ</th><th><span class="label req">必須</span></th>
            <td>
+            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php disp_fixeditem('daihyosyamei_furi_sei'); ?>
+            <?php disp_fixeditem('daihyosyamei_furi_mei'); ?>
+            <?php } else { ?>
             <div class="input_table_flex">
             <input id="daihyosyamei_furi_sei" type="text" name="daihyosyamei_furi_sei" required="" placeholder="ダイヒョウ" value="<?php echo $_SESSION['daihyosyamei_furi_sei']; ?>" pattern="[\u30A1-\u30FC\u3041-\u309F|　| ]*" title="ひらがな、カタカナ">　<input id="daihyosyamei_furi_mei" type="text" name="daihyosyamei_furi_mei" required="" placeholder="タロウ" value="<?php echo $_SESSION['daihyosyamei_furi_mei']; ?>" pattern="[\u30A1-\u30FC\u3041-\u309F|　| ]*" title="ひらがな、カタカナ">
+            </div>
+            <?php } ?>
            </td>
            
           <tr class="fl_c">
            <th>役職</th><th><span class="label req">必須</span></th>
            <td>
             
+            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php disp_fixeditem('daihyosyayakusyoku'); ?>
+            <?php } else { ?>
             <select id="daihyosyayakusyoku" type="text" name="daihyosyayakusyoku" class="" required="">
              <option value="代表">代表</option>
              <option value="取締役">取締役</option>
              <option value="代表取締役">代表取締役</option>
              <option value="代表社員">代表社員</option>
             </select>
+            <?php } ?>
            </td>
           </tr>
           
@@ -438,6 +521,59 @@ $(function () {
                 <div class="input_table_flex">
                 <input id="jyugyoinmei_furi_sei'.$no.'" type="text" name="jyugyoinmei_furi_sei'.$no.'" placeholder="ロウサイ" value="'.$_SESSION['jyugyoinmei_furi_sei'.$no].'" pattern="[\u30A1-\u30FC\u3041-\u309F|　| ]*" title="ひらがな、カタカナ">　<input id="jyugyoinmei_furi_mei'.$no.'" type="text" name="jyugyoinmei_furi_mei'.$no.'" placeholder="タロウ" value="'.$_SESSION['jyugyoinmei_furi_mei'.$no].'" pattern="[\u30A1-\u30FC\u3041-\u309F|　| ]*" title="ひらがな、カタカナ">
                 </div>
+               </td>
+
+              </tr>
+              
+              <tr>
+               <th>入社日</th><th><span class="label req">必須</span></th>
+               <td>
+               
+               <div class="input_table_flex">
+        <select name="nyusyadate_y'.$no.'" id="nyusyadate_y'.$no.'" class="nyusyadate">';
+							 
+echo '<option value="">-- 年 --</option>';
+							 
+					for($y=intval(date('Y'))-60;$y<=intval(date('Y'));$y++){
+						$sel = '';
+						if($_SESSION['nyusyadate_y'.$no]==$y) $sel = 'selected';
+						echo '<option value="'.$y.'" '.$sel.'>'.seireki_to_wareki($y).'年('.$y.'年)</option>';
+					}
+					echo '</select>　';
+					echo '<select name="nyusyadate_m'.$no.'" id="nyusyadate_m'.$no.'" class="nyusyadate">';
+							 
+echo '<option value="">-- 月 --</option>';
+							 
+					for($m=1;$m<=12;$m++){
+						$sel = '';
+						if($_SESSION['nyusyadate_m'.$no]==$m) $sel = 'selected';
+						echo '<option value="'.$m.'" '.$sel.'>'.$m.'月</option>';
+					}
+					echo '</select>　';
+					echo '<select name="nyusyadate_d'.$no.'" id="nyusyadate_d'.$no.'" class="nyusyadate">';
+							 
+echo '<option value="">-- 日 --</option>';
+							 
+					for($d=1;$d<=31;$d++){
+						$sel = '';
+						if($_SESSION['nyusyadate_d'.$no]==$d) $sel = 'selected';
+						echo '<option value="'.$d.'" '.$sel.'>'.$d.'日</option>';
+					}
+					echo '</select></div>
+     
+               </td>
+
+              </tr>
+              
+              <tr>
+               <th>給与区分</th><th><span class="label req">必須</span></th>
+               <td>
+                <select id="kyuyokubun'.$no.'" name="kyuyokubun'.$no.'">
+                <option value="">-- 選択 --</option>
+                <option value="時給">時給</option>
+                <option value="日給">日給</option>
+                <option value="日給月給">日給月給</option>
+                </select>
                </td>
 
               </tr>
@@ -548,6 +684,13 @@ echo '<option value="">-- 日 --</option>';
               <th>建物名等</th><th></th>
               <td>
               <input id="apart'.$no.'" class="no-required" type="text" name="apart'.$no.'" placeholder="東京ビルディング１０１" value="'.$_SESSION['apart'.$no].'">
+              </td>
+              </tr>
+
+              <tr>
+              <th>携帯電話番号</th><th><span class="label req">必須</span></th>
+              <td>
+              <input id="mobile'.$no.'" type="tel" name="mobile'.$no.'" required="" placeholder="09011112222" value="'.$_SESSION['mobile'.$no].'">
               </td>
               </tr>
 

@@ -41,7 +41,7 @@ function getjimuKaisyabyRoudouhokenNo($roudouhoken_no){
   global $_con;
 
   $returns = array();
-  $query = "SELECT Id,Type,Name,BillingPostalCode,BillingState,BillingCity,BillingStreet,Fax,BillingAddress,Phone,Email__c,order_no__c,Furi__c,Daihyosya__c,DaihyousyaFuri__c,Daihyouyakusyoku__c,ShiharaiType__c FROM Account WHERE RecordType.Name = '事務組合会社' AND jimuRoudouhokenBangou5__c = '$roudouhoken_no' order by CreatedDate desc";
+  $query = "SELECT Id,Type,Name,BillingPostalCode,BillingState,BillingCity,BillingStreet,Fax,BillingAddress,Phone,Email__c,order_no__c,Furi__c,Daihyosya__c,DaihyousyaFuri__c,Daihyouyakusyoku__c,ShiharaiType__c,jimuChinginShimeShiharaibi__c FROM Account WHERE RecordType.Name = '事務組合会社' AND jimuRoudouhokenBangou5__c = '$roudouhoken_no' order by CreatedDate desc";
   try {
 
     $response = $_con->query($query);
