@@ -272,7 +272,7 @@ function outputPDF($i, $roudouno){
  if(Kanyunengappiwareki__c == '') Kanyunengappiwareki__c = '2023-04-01';
  if(Kanyumankiwareki__c == '') Kanyumankiwareki__c = '2024-03-31';
  
-var Nitigaku = Number(Nownitigaku__c).toLocaleString()+' 円';
+var Nitigaku = Number(Nownitigaku__c).toLocaleString('ja-JP')+' 円';
 var kanyuymd = Kanyunengappiwareki__c.split('-');
 var dattaiymd = Kanyumankiwareki__c.split('-');
 var Kanyukikan = kanyuymd[0]+' 年 '+kanyuymd[1]+' 月 '+kanyuymd[2]+' 日 から';
