@@ -1044,7 +1044,7 @@ $(function(){
      // 20211227 会費計算修正
      
      $('.maitsuki_text').show();
-     $('.maitsuki_val').text($kaihi1.toLocaleString());
+     $('.maitsuki_val').text($kaihi1.toLocaleString('ja-JP'));
      $('input[name="maitsuki_kaihi"]').val($kaihi1);
      $kaihi_2y = $kaihi;
      $kaihi_camp = $kaihi;
@@ -1107,16 +1107,16 @@ $(function(){
      $('#input_sec input, #input_sec select').prop('disabled', true);
     }
     
-    $("#sougaku_disp").text($syokai_sougaku_camp.toLocaleString());
-    $("#sougaku_disp_nowari").text($syokai_sougaku.toLocaleString());
-    $("#sougaku_nowari").val($syokai_sougaku.toLocaleString());
-    $("#sougaku").val($syokai_sougaku_camp.toLocaleString());
-    $("#kaihi_disp").text($kaihi.toLocaleString());
-    $("#kaihi_nowari").val($kaihi.toLocaleString());
-    $("#kaihi").val($kaihi_camp.toLocaleString());
-    $("#hokenryo_disp").text($hokenryo.toLocaleString());
-    $("#hokenryo_nowari").val($hokenryo.toLocaleString());
-    $("#hokenryo").val($hokenryo.toLocaleString());
+    $("#sougaku_disp").text($syokai_sougaku_camp.toLocaleString('ja-JP'));
+    $("#sougaku_disp_nowari").text($syokai_sougaku.toLocaleString('ja-JP'));
+    $("#sougaku_nowari").val($syokai_sougaku.toLocaleString('ja-JP'));
+    $("#sougaku").val($syokai_sougaku_camp.toLocaleString('ja-JP'));
+    $("#kaihi_disp").text($kaihi.toLocaleString('ja-JP'));
+    $("#kaihi_nowari").val($kaihi.toLocaleString('ja-JP'));
+    $("#kaihi").val($kaihi_camp.toLocaleString('ja-JP'));
+    $("#hokenryo_disp").text($hokenryo.toLocaleString('ja-JP'));
+    $("#hokenryo_nowari").val($hokenryo.toLocaleString('ja-JP'));
+    $("#hokenryo").val($hokenryo.toLocaleString('ja-JP'));
     $("#nyukaikin").text("0");
     $("#nyukaikin_disp").val("10,000");
     $("#nyukaikin_nowari").val("10,000");
@@ -1126,20 +1126,20 @@ $(function(){
      $nyukaikin_wari = -1 * ($nyukaikin - $nyukaikin_camp);
      $kaihi_wari = -1 * ($kaihi_2y - $kaihi_camp);
      $sougaku_wari = -1 * ($syokai_sougaku - $syokai_sougaku_camp);
-     $("#syokei").val($syokei.toLocaleString());
-     $("#camp_nyukaikin_wari").val($nyukaikin_wari.toLocaleString());
-     $("#camp_kaihi_wari").val($kaihi_wari.toLocaleString());
-     $("#sougaku").val($syokai_sougaku_camp.toLocaleString());
+     $("#syokei").val($syokei.toLocaleString('ja-JP'));
+     $("#camp_nyukaikin_wari").val($nyukaikin_wari.toLocaleString('ja-JP'));
+     $("#camp_kaihi_wari").val($kaihi_wari.toLocaleString('ja-JP'));
+     $("#sougaku").val($syokai_sougaku_camp.toLocaleString('ja-JP'));
     } else if($kikan <= 0 && $shiharai_kaisu == '毎月払い'){
      $syokei = $syokai_sougaku;
      $nyukaikin_wari = -1 * ($nyukaikin - $nyukaikin_camp);
      $kaihi_wari = -1 * ($kaihi_2y - $kaihi_camp);
      $sougaku_wari = -1 * ($syokai_sougaku - $syokai_sougaku_camp);
-     $("#syokei").val($syokei.toLocaleString());
-     $("#camp_nyukaikin_wari").val($nyukaikin_wari.toLocaleString());
+     $("#syokei").val($syokei.toLocaleString('ja-JP'));
+     $("#camp_nyukaikin_wari").val($nyukaikin_wari.toLocaleString('ja-JP'));
      $("#camp_kaihi_wari_tr").hide();
-     $("#camp_kaihi_wari").val($kaihi_wari.toLocaleString());
-     $("#sougaku").val($syokai_sougaku_camp.toLocaleString());
+     $("#camp_kaihi_wari").val($kaihi_wari.toLocaleString('ja-JP'));
+     $("#sougaku").val($syokai_sougaku_camp.toLocaleString('ja-JP'));
     }
      
     $('html,body').animate({scrollTop : $('div#mitumori_result').offset().top}, 0);

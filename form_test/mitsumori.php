@@ -888,19 +888,19 @@ $(function(){
    $('#input_sec input, #input_sec select').prop('disabled', true);
   }
 
-  $("#kaihi_disp").val($kaihi_2y.toLocaleString());
-  $("#kaihi").val($kaihi_2y.toLocaleString());
-  $("#hokenryo").val($hokenryo.toLocaleString());
-  $("#card_hiyou").val($card_hiyou.toLocaleString());
+  $("#kaihi_disp").val($kaihi_2y.toLocaleString('ja-JP'));
+  $("#kaihi").val($kaihi_2y.toLocaleString('ja-JP'));
+  $("#hokenryo").val($hokenryo.toLocaleString('ja-JP'));
+  $("#card_hiyou").val($card_hiyou.toLocaleString('ja-JP'));
 
   $(".camp").show();
   const $syokei = $syokai_sougaku;
   const $nyukaikin_wari = -1 * ($nyukaikin);
   const $kaihi_wari = -1 * ($kaihi_2y - $kaihi);
-  $("#syokei").val($syokei.toLocaleString());
-  $("#camp_nyukaikin_wari").val($nyukaikin_wari.toLocaleString());
-  $("#camp_kaihi_wari").val($kaihi_wari.toLocaleString());
-  $("#sougaku").val($syokai_sougaku_camp.toLocaleString());
+  $("#syokei").val($syokei.toLocaleString('ja-JP'));
+  $("#camp_nyukaikin_wari").val($nyukaikin_wari.toLocaleString('ja-JP'));
+  $("#camp_kaihi_wari").val($kaihi_wari.toLocaleString('ja-JP'));
+  $("#sougaku").val($syokai_sougaku_camp.toLocaleString('ja-JP'));
 
 	}
  

@@ -310,7 +310,7 @@ $(function () {
          </table>
          </figure>
          <figure>
-         <figcaption>代表者情報</figcaption>
+         <figcaption>代表者情報 <span class="input_title_info">ご加入状況などの個人情報は、代表者または担当者以外の方にはお話しできません</span></figcaption>
          <table class="input_table">
           
           <tr class="fl_l fl_c">
@@ -346,7 +346,7 @@ $(function () {
          </table>
          </figure>
          <figure>
-         <figcaption>担当者情報 <input type="button" name="kanyusya_input_copy0" id="kanyusya_input_copy0" class="kanyusya_input_copy"  onClick="kanyusya_copy(0);" value="代表者名をコピー"></figcaption>
+         <figcaption>担当者情報 <!--<input type="button" name="kanyusya_input_copy0" id="kanyusya_input_copy0" class="kanyusya_input_copy"  onClick="kanyusya_copy(0);" value="代表者名をコピー">--><span class="input_title_info">ご加入状況などの個人情報は、代表者または担当者以外の方にはお話しできません</span></figcaption>
          <table class="input_table">
           
           <tr class="fl_l fl_c">

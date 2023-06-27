@@ -278,11 +278,11 @@ $(function(){
     $syokai_shiharai_camp = 37000 + (3000 * $ninzu);
    }
    $syokai_shiharai = $syokai_shiharai_camp + 5000; // 会社登録費割引分
-   $('input[name="sougaku_normal"]').val(($syokai_shiharai*1.1).toLocaleString());
-   $('input[name="sougaku"]').val(($syokai_shiharai_camp*1.1).toLocaleString());
+   $('input[name="sougaku_normal"]').val(($syokai_shiharai*1.1).toLocaleString('ja-JP'));
+   $('input[name="sougaku"]').val(($syokai_shiharai_camp*1.1).toLocaleString('ja-JP'));
 
-   $('#sougaku_normal_disp').text($syokai_shiharai.toLocaleString());
-   $('#sougaku_disp').text($syokai_shiharai_camp.toLocaleString());
+   $('#sougaku_normal_disp').text($syokai_shiharai.toLocaleString('ja-JP'));
+   $('#sougaku_disp').text($syokai_shiharai_camp.toLocaleString('ja-JP'));
    
    $('#mitumori_result').show();
   }
