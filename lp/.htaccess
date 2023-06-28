@@ -1,0 +1,2 @@
+  AddHandler php-script .php .html
+  AddType application/x-httpd-php .php .html
