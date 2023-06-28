@@ -4815,3 +4815,9 @@ input[type="submit"].submit_card,
     text-align: center;
 }
 
+.input_title_info {
+    font-size: 12px;
+    font-weight: normal;
+    display: inline-block;
+}
+
