@@ -236,6 +236,9 @@ $(function () {
           <tr>
            <th>個人ですか？法人ですか？</th><th><span class="label req">必須</span></th>
            <td>
+           <?php if(item_set($_SESSION['type'])) { ?>
+           <?php disp_fixeditem('type'); ?>
+           <?php } else { ?>
             <?php
             $sel1 = 'checked';
             $sel2 = '';
@@ -254,6 +257,7 @@ $(function () {
 
             <input id="type2" type="radio" name="type" value="法人" required="" <?php echo $sel2;?>>
             <label for="type2"><span>法人</span></label>
+            <?php } ?>
             
            </td>
           </tr>
@@ -261,7 +265,7 @@ $(function () {
           <tr>
            <th>会社名・屋号</th><th><span class="label req">必須</span></th>
            <td>
-            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php if(item_set($_SESSION['kaisyamei'])) { ?>
             <?php disp_fixeditem('kaisyamei'); ?>
             <?php } else { ?>
             <input id="kaisyamei" type="text" name="kaisyamei" required="" placeholder="株式会社　労災建設" value="">
@@ -274,7 +278,7 @@ $(function () {
            <th>会社名・屋号 フリガナ</th><th><span class="label req">必須</span></th>
            <td>
             
-            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php if(item_set($_SESSION['kaisyamei_furi'])) { ?>
             <?php disp_fixeditem('kaisyamei_furi'); ?>
             <?php } else { ?>
             <input id="kaisyamei_furi" type="text" name="kaisyamei_furi" required="" placeholder="カブシキガイシャ　ロウサイケンセツ" value="<?php echo $_SESSION['kaisyamei_furi']; ?>" pattern="[\u30A1-\u30FC\u3041-\u309F\uFF10-\uFF19\uFF21-\uFF3A\uFF41-\uFF5A|　| ]*" title="ひらがな、カタカナ">
@@ -287,7 +291,7 @@ $(function () {
           <tr>
           <th>郵便番号</th><th><span class="label req">必須</span></th>
           <td>
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['zip'])) { ?>
            <?php disp_fixeditem('zip'); ?>
            <?php } else { ?>
            <input type="tel" name="zip" id="zip" class="zip" placeholder="1234567(ハイフンなし)" maxlength="8" value="<?php echo $_SESSION['zip']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)" required>
@@ -298,7 +302,7 @@ $(function () {
           <tr>
           <th>都道府県</th><th><span class="label req">必須</span></th>
           <td>
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['pref'])) { ?>
            <?php disp_fixeditem('pref'); ?>
            <?php } else { ?>
            <select id="pref" name="pref" class="" required>
@@ -318,7 +322,7 @@ $(function () {
           <tr>
           <th>市区町村</th><th><span class="label req">必須</span></th>
           <td>
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['city'])) { ?>
            <?php disp_fixeditem('city'); ?>
            <?php } else { ?>
            <input id="city" type="text" name="city" required="" placeholder="千代田区" value="<?php echo $_SESSION['city']; ?>">
@@ -329,7 +333,7 @@ $(function () {
           <tr>
           <th>丁目・番地号</th><th><span class="label req">必須</span></th>
           <td>
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['address'])) { ?>
            <?php disp_fixeditem('address'); ?>
            <?php } else { ?>
            <input id="address" type="text" name="address" required="" placeholder="千代田１－１" value="<?php echo $_SESSION['address']; ?>">
@@ -340,7 +344,7 @@ $(function () {
           <tr>
           <th>建物名等</th><th></th>
           <td>
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['apart'])) { ?>
            <?php disp_fixeditem('apart'); ?>
            <?php } else { ?>
            <input id="apart" class="no-required" type="text" name="apart" placeholder="東京ビルディング１０１" value="<?php echo $_SESSION['apart']; ?>">
@@ -353,7 +357,7 @@ $(function () {
           <th>電話番号</th><th><span class="label req">必須</span></th>
           <td>
 
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['denwabangou'])) { ?>
            <?php disp_fixeditem('denwabangou'); ?>
            <?php } else { ?>
            <input id="denwabangou" type="tel" name="denwabangou" class="" required="" placeholder="0311112222(ハイフンなし)" maxlength="13" value="<?php echo $_SESSION['denwabangou']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)">
@@ -368,7 +372,7 @@ $(function () {
           <th>FAX番号</th></th><th>
           <td>
             
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['faxbangou'])) { ?>
            <?php disp_fixeditem('faxbangou'); ?>
            <?php } else { ?>
            <input id="faxbangou" type="tel" name="faxbangou" class="" placeholder="0311112223(ハイフンなし)" maxlength="13" value="<?php echo $_SESSION['faxbangou']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)">
@@ -382,7 +386,7 @@ $(function () {
           <th>メールアドレス</th><th><span class="label req">必須</span></th>
           <td>
 
-           <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+           <?php if(item_set($_SESSION['mail'])) { ?>
            <?php disp_fixeditem('mail'); ?>
            <?php } else { ?>
            <input id="email" type="email" name="mail" placeholder="name@domain.co.jp" value="<?php echo $_SESSION['mail']; ?>" required>
@@ -395,7 +399,7 @@ $(function () {
           <tr>
            <th>給与支払い</th><th><span class="label req">必須</span></th>
            <td>
-            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php if(item_set($_SESSION['jimuChinginShimeShiharaibi__c'])) { ?>
             <?php 
              $shimebi = mb_substr($_SESSION['jimuChinginShimeShiharaibi__c'],0,mb_strpos($_SESSION['jimuChinginShimeShiharaibi__c'],'締'));
              $shimebi_after = mb_substr($_SESSION['jimuChinginShimeShiharaibi__c'],mb_strpos($_SESSION['jimuChinginShimeShiharaibi__c'],'締')+1);
@@ -453,7 +457,7 @@ $(function () {
           <tr class="fl_l fl_c">
            <th>氏名</th><th><span class="label req">必須</span></th>
            <td>
-            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php if(item_set($_SESSION['daihyosyamei_sei'])) { ?>
             <?php disp_fixeditem('daihyosyamei_sei'); ?>
             <?php disp_fixeditem('daihyosyamei_mei'); ?>
             <?php } else { ?>
@@ -468,7 +472,7 @@ $(function () {
           <tr class="fl_l fl_c">
            <th>フリガナ</th><th><span class="label req">必須</span></th>
            <td>
-            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php if(item_set($_SESSION['daihyosyamei_furi_sei'])) { ?>
             <?php disp_fixeditem('daihyosyamei_furi_sei'); ?>
             <?php disp_fixeditem('daihyosyamei_furi_mei'); ?>
             <?php } else { ?>
@@ -482,7 +486,7 @@ $(function () {
            <th>役職</th><th><span class="label req">必須</span></th>
            <td>
             
-            <?php if(item_set($_SESSION['roudouhoken_no'])) { ?>
+            <?php if(item_set($_SESSION['daihyosyayakusyoku'])) { ?>
             <?php disp_fixeditem('daihyosyayakusyoku'); ?>
             <?php } else { ?>
             <select id="daihyosyayakusyoku" type="text" name="daihyosyayakusyoku" class="" required="">
