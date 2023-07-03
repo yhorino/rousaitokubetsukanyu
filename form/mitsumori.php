@@ -114,7 +114,7 @@ setcookie('norikae', '0', 0, '/');
            </li>
            <li class="to_oyakata">
             <p class="to_oyakata_info">赤の他人を雇っていない方は一人親方労災保険へのご加入となります。</p>
-            <a href="/mailform_new/single_new/mitsumori_input.php" class="to_oyakata_button">一人親方労災保険はこちら</a>
+            <a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/mailform_new/single_new/mitsumori_input.php" class="to_oyakata_button">一人親方労災保険はこちら</a>
            </li>
          </ul>
          <p class="info_tel info_tel_pc">
