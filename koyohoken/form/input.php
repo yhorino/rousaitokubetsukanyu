@@ -240,7 +240,7 @@ $(function () {
            <?php disp_fixeditem('type'); ?>
            <?php } else { ?>
             <?php
-            $sel1 = 'checked';
+            $sel1 = '';
             $sel2 = '';
             if($_SESSION['type']=='個人') {
              $sel1 = 'checked';
