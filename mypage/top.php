@@ -76,12 +76,14 @@ $title="マイページTOP";
 <p>会員カードや加入証明書などのダウンロード・印刷ができます。</p>
 </li>
  
+<?php if($_SESSION['row']['Kanyutype__c']!='旧会員（会費3期払い）' && $_SESSION['row']['Kanyutype__c']!='旧会員（会費毎月払い）' && $_SESSION['row']['koyouhokenitakuhi__c']==''){ ?>
 <li>
 <a href="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/form/mitsumori.php?no=<?php echo $_SESSION['row']['jimuKaiinNo__c'];?>"><img src="image/img_koyohoken.png">
 </a>
 <a href="https://www.xn--y5q0r2lqcz91qdrc.com/koyohoken/form/mitsumori.php?no=<?php echo $_SESSION['row']['jimuKaiinNo__c'];?>">雇用保険申込</a>
 <p>従業員の雇用保険申込ができます。</p>
 </li>
+<?php } ?>
  
  <!--
 <li>
