@@ -309,7 +309,7 @@ $detect = new Mobile_Detect;
            
            <div class="to_oyakata">
             <p class="to_oyakata_info">赤の他人を雇っていない方は一人親方労災保険へのご加入となります。</p>
-            <a href="/mailform_new/single_new/mitsumori_input.php" class="to_oyakata_button">一人親方労災保険はこちら</a>
+            <a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/mailform_new/single_new/mitsumori_input.php" class="to_oyakata_button">一人親方労災保険はこちら</a>
            </div>
            <p class="info_tel info_tel_pc">
             ※ 雇っているかわからない方は、労働保険事務組合RJC（0120-855-865）までお電話ください。
