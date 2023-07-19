@@ -44,7 +44,7 @@ setcookie('norikae', '0', 0, '/');
   <meta property="og:title" content="労働保険事務組合RJC　無料見積りフォーム">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/form/mitsumori.php">
-  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/assets/logo_img/logo_jimukumiai.png">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/wp-content/uploads/2023/07/kv_sp_sns2.png">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
@@ -181,8 +181,7 @@ setcookie('norikae', '0', 0, '/');
             <div class="mitsumori-block2">
              <div class="shiharai_kaisu_info_1 shiharai_kaisu_info_0">
              <p class="q_title">毎月払いとは？</p>
-             <p class="q_text maitsuki_text2_3">初回費用として保険料と3か月分の会費等をお支払いただき、4か月目から月額会費を口座振替にてお支払いただく方法です。</p>
-             <p class="q_text maitsuki_text2_4">毎月払いで20日以降の当月加入の場合、初回費用として保険料と4か月分の会費等をお支払いただき、5か月目から月額会費を口座振替にてお支払いただく方法です。</p>
+             <p class="q_text">初回費用として保険料と4か月分の会費等をお支払いただき、5か月目から月額会費を口座振替にてお支払いただく方法です。</p>
              <br>
              </div>
              <div class="shiharai_kaisu_info_2 shiharai_kaisu_info_0">
@@ -254,16 +253,17 @@ setcookie('norikae', '0', 0, '/');
             <div class="mitsumori-block">
              <h2 class="mitsumori-subttl"><span class="st_orange">いつまで</span>ご加入が必要ですか？</h2>
 							<?php
-							$sel1 = '';
-							$sel2 = '';
+							//$sel1 = '';
+							//$sel2 = '';
 							$sel3 = '';
 							$sel4 = 'checked';
-							if($_SESSION['kanyu_kikan']=='１か月') $sel1 = 'checked';
-							if($_SESSION['kanyu_kikan']=='２か月') $sel2 = 'checked';
+							//if($_SESSION['kanyu_kikan']=='１か月') $sel1 = 'checked';
+							//if($_SESSION['kanyu_kikan']=='２か月') $sel2 = 'checked';
 							if($_SESSION['kanyu_kikan']=='３か月') $sel3 = 'checked';
 							if($_SESSION['kanyu_kikan']=='年払い') $sel4 = 'checked';
 							?>
               <ul class="mitsumori-list">
+               <?php /*
                 <li class="kikan_short">
                   <input id="kanyu_kikan1" type="radio" name="kanyu_kikan" value="１か月" required="" <?php echo $sel1;?>>
                   <label for="kanyu_kikan1"><span>１か月</span></label>
@@ -272,6 +272,7 @@ setcookie('norikae', '0', 0, '/');
                   <input id="kanyu_kikan2" type="radio" name="kanyu_kikan" value="２か月" required="" <?php echo $sel2;?>>
                   <label for="kanyu_kikan2"><span>２か月</span></label>
                 </li>
+                */ ?>
                 <li class="kikan_short">
                   <input id="kanyu_kikan3" type="radio" name="kanyu_kikan" value="３か月" required="" <?php echo $sel3;?>>
                   <label for="kanyu_kikan3"><span>３か月</span></label>
@@ -569,8 +570,7 @@ setcookie('norikae', '0', 0, '/');
            
            <p class="mitsumori_info">※1 お支払総額には会費、保険料、会員カード発行費用が含まれています。</p>
            
-           <p class="maitsuki_text3 mitsumori_info">※2 毎月払いの場合は、初回費用として３か月分をお支払いただき、４か月目から月々<span class="maitsuki_val"></span>円を口座振替にてお支払いただきます。</p>
-           <p class="maitsuki_text4 mitsumori_info">※2 毎月払いで20日以降の当月加入の場合は、初回費用として４か月分をお支払いただき、５か月目から月々<span class="maitsuki_val"></span>円を口座振替にてお支払いただきます。</p>
+           <p class="mitsumori_info">※2 毎月払いの場合は、初回費用として4か月分をお支払いただき、5か月目から月々<span class="maitsuki_val"></span>円を口座振替にてお支払いただきます。</p>
            <input type="hidden" name="maitsuki_kaihi" value="">
            
           </div>
@@ -866,8 +866,8 @@ console.log('hokenryo:'+$hokenryo);
 console.log('kaihi:'+$kaihi);
 console.log('card_hiyou:'+$card_hiyou);
   
-  $('.maitsuki_text3').hide();
-  $('.maitsuki_text4').hide();
+  //$('.maitsuki_text3').hide();
+  //$('.maitsuki_text4').hide();
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
   let $kaihi_2y = $kaihi;
   if($kanyutuki <= 3){
@@ -891,30 +891,25 @@ console.log('card_hiyou:'+$card_hiyou);
    var now = new Date();
    var today = now.getDate();
    var today_m = now.getMonth()+1;
-   var month3 = new Date($kanyu_year, $kanyu_month+2, 0);
-   var month3_2 = new Date($kanyu2_year, $kanyu2_month+2, 0);
+   //var month3 = new Date($kanyu_year, $kanyu_month+2, 0);
+   //var month3_2 = new Date($kanyu2_year, $kanyu2_month+2, 0);
    var month4 = new Date($kanyu_year, $kanyu_month+3, 0);
+   var month4_2 = new Date($kanyu2_year, $kanyu2_month+3, 0);
    var kikan_e;
    var kikan_s_y;
    var $m;
    if($kanyutuki == today_m){
-    if(today > 20){
-     $m = 4;
-     kikan_s_y = $kanyu_year;
-     kikan_e = month4;
-    } else{
-     $m = 3;
-     kikan_s_y = $kanyu_year;
-     kikan_e = month3;
-    }
+    $m = 4;
+    kikan_s_y = $kanyu_year;
+    kikan_e = month4;
    } else {
-    $m = 3;
+    $m = 4;
     if($kanyutuki == $kanyu_month){
      kikan_s_y = $kanyu_year;
-     kikan_e = month3;
+     kikan_e = month4;
     } else {
      kikan_s_y = $kanyu2_year;
-     kikan_e = month3_2;     
+     kikan_e = month4_2;
     }
    }
    $('#result_kikan_s').text(kikan_s_y+"年"+$kanyutuki+"月");
@@ -1130,11 +1125,14 @@ console.log('tsukisu:'+$_tsukisu);
      // 20211227 会費計算修正
   }
   if(is_shiharai_ikatsu()){
+   /*
    if(is_kikan_tyoki()){
     $ret = $_kaihi_base + ($_kaihi_per_ninzu * ($_ninzu - 1));
    } else if(is_kikan_tanki()){
     $ret = $_kaihi_base_tanki + ($_kaihi_per_ninzu_tanki * ($_ninzu - 1));
    }
+   */
+   $ret = $_kaihi_base + ($_kaihi_per_ninzu * ($_ninzu - 1));
   }
   return $ret;
  }
