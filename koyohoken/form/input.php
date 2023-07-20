@@ -144,6 +144,13 @@ $(function () {
 </style>
  
 <body id="input_php">
+ 
+ <?php
+  //if(isset($_GET['debug']) && $_GET['debug'] == 1){
+   include_once('popup.php');
+  //}
+ ?>
+ 
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
  
