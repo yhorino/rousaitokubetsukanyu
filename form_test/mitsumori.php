@@ -1110,6 +1110,7 @@ console.log('tsukisu:'+$_tsukisu);
   if(is_shiharai_maitsuki()){
    let $kaihi1 = calc_kaihi_per_month();
      // 20211227 会費計算修正
+   /*
      if($kanyutuki == today_m){
       if(today > 20){
        $m = 4;
@@ -1122,6 +1123,9 @@ console.log('tsukisu:'+$_tsukisu);
       $m = 3;
       $ret = $kaihi1 * 3;      
      }
+     */
+     $m = 4;
+     $ret = $kaihi1 * 4;
      // 20211227 会費計算修正
   }
   if(is_shiharai_ikatsu()){
