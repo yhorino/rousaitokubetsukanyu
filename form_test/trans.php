@@ -299,8 +299,7 @@ $oid = '00Dp0000000A0zw';
  $kanyusya1_5 = '';
  for($i=1;$i<=$items['ninzu'];$i++){
   $kanyusya1_5 .= '加入者'.$i.':'.$items['kanyusyamei'.$i].'('.$items['kanyusyamei_furi'.$i].')
-'.(seireki_to_wareki($items['birthday_y'.$i])).'('.$items['birthday_y'.$i].')年'.$items['birthday_m'.$i].'月'.$items['birthday_d'.$i].'日
-今入っている組合:'.$items['jimuKanyuOyakatadantai'.$i];
+'.(seireki_to_wareki($items['birthday_y'.$i])).'('.$items['birthday_y'.$i].')年'.$items['birthday_m'.$i].'月'.$items['birthday_d'.$i].'日';
   
    if($items['funjin'.$i] == 'はい'){
     $kanyusya1_5 .= ' 粉じん作業内容:'.$items['funjin_naiyou'.$i];
