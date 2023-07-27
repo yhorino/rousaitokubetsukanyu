@@ -1,4 +1,8 @@
 <?php
+ include $_SERVER['DOCUMENT_ROOT'] .'/maintenance_check.php';
+?>
+
+<?php
 // セッションの開始
 ob_start();
 session_start();
