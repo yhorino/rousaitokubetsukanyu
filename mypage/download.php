@@ -62,9 +62,12 @@ $title="各種ダウンロード・印刷";
   <tr>
    <td>03</td><td>団体則</td><td>2023/07/21</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
   </tr>
+  <tr>
+   <td>04</td><td>労災請求に関する確認事項</td><td>2023/08/03</td><td><a href="#" onclick="outputPDF_kakuninjikou();">閲覧・印刷</a></td><td>労働保険事務組合RJCの労災請求に関する確認事項を<br>閲覧・印刷できます。</td>
+  </tr>
   <?php if($_SESSION['row']['kyotei36_URL__c'] != ''){ ?>
   <tr>
-   <td>04</td><td>休日・時間外労働に関する協定届</td><td>2023/06/09</td><td><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">閲覧・印刷</a></td><td>休日・時間外労働に関する協定届を閲覧・印刷できます。</td>
+   <td>05</td><td>休日・時間外労働に関する協定届</td><td>2023/06/09</td><td><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">閲覧・印刷</a></td><td>休日・時間外労働に関する協定届を閲覧・印刷できます。</td>
   </tr>
   <?php } ?>
   <!--
@@ -115,10 +118,24 @@ $title="各種ダウンロード・印刷";
   </tr>
  </table>
  <p><a href="dantaisoku.pdf">表示・印刷</a></p>
+ 
+ <table>
+  <tr>
+   <th>No</th><td>04</td><th>更新日</th><td>2023/08/03</td>
+  </tr>
+  <tr>
+   <th>名称</th><td colspan="3">労災請求に関する確認事項</td>
+  </tr>
+  <tr>
+   <th>詳細</th><td colspan="3">労働保険事務組合RJCの労災請求に関する確認事項を閲覧・印刷できます。</td>
+  </tr>
+ </table>
+ <p><a href="#" onclick="outputPDF_kakuninjikou();">表示・印刷</a></p>
+ 
  <?php if($_SESSION['row']['kyotei36_URL__c'] != ''){ ?>
  <table>
   <tr>
-   <th>No</th><td>04</td><th>更新日</th><td></td>
+   <th>No</th><td>05</td><th>更新日</th><td></td>
   </tr>
   <tr>
    <th>名称</th><td colspan="3">休日・時間外労働に関する協定届</td>
@@ -480,6 +497,67 @@ function outputPDF_hokenseiritu(){
 //  pdfMake.createPdf(docDefinition).download('加入証明書.pdf');
   pdfMake.createPdf(docDefinition).open();
 }
+ 
+function outputPDF_kakuninjikou(){
+ 
+  // ここでフォントを指定
+  pdfMake.fonts = {
+      GenShin: {
+        normal: 'GenShinGothic-Normal-Sub.ttf',
+        bold: 'GenShinGothic-Normal-Sub.ttf',
+        italics: 'GenShinGothic-Normal-Sub.ttf',
+        bolditalics: 'GenShinGothic-Normal-Sub.ttf'
+      }
+    }
+ 
+ var now = new Date();
+ var y = Number(now.getFullYear());
+ var m = now.getMonth()+1;
+ var d = now.getDate();
+ /* 注：全角数字、記号等は文字化けする？フォントの問題？ */
+ var KaisyaName = "<?php echo $_SESSION['row']['Name'];?>";
+ var Daihyosyaname = "<?php echo $_SESSION['row']['Daihyosya__c'];?>";
+
+ var doc_content = new Array();
+ 
+ doc_content.push({image: '<?php include 'bk_kakuninjikou1.php'; ?>', absolutePosition:{x:0,y:0}, width: 595});
+ 
+ doc_content.push({text: '', pageBreak: 'before'});
+ doc_content.push(     
+     {
+      text: zth(y), absolutePosition:{x:65,y:379}, fontSize: 10
+     },
+     {
+      text: zth(m), absolutePosition:{x:105,y:379}, fontSize: 10
+     },
+     {
+      text: zth(d), absolutePosition:{x:130,y:379}, fontSize: 10
+     },
+     {
+      text: zth(KaisyaName), absolutePosition:{x:340,y:393}, fontSize: 10
+     },
+     {
+      text: zth(Daihyosyaname), absolutePosition:{x:340,y:408}, fontSize: 10
+     },
+  );
+ 
+ var docDefinition = {
+    pageSize: 'A4',
+    pageMargins: [0, 0, 0, 0],
+    content: doc_content,
+    defaultStyle:{
+      font: 'GenShin'//ここでデフォルトのスタイル名を指定しています。
+    },
+    background: [ // https://hamayapp.appspot.com/static/data_uri_conv.html
+        {
+            image: '<?php include 'bk_kakuninjikou2.php' ;?>', width: 595
+        }
+    ]
+};
+ 
+//  pdfMake.createPdf(docDefinition).download('加入証明書.pdf');
+  pdfMake.createPdf(docDefinition).open();
+} 
 </script> 
  
 </body>
