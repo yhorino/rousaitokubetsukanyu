@@ -4821,3 +4821,11 @@ input[type="submit"].submit_card,
     display: inline-block;
 }
 
+.maitsuki_input{
+ margin-top: 40px;
+}
+.maitsuki_input input{
+ display: inline;
+ width: auto!important;
+}
+
