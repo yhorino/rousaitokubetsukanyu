@@ -1,5 +1,5 @@
 <?php
- include $_SERVER['DOCUMENT_ROOT'] .'/maintenance_check.php';
+ //include $_SERVER['DOCUMENT_ROOT'] .'/maintenance_check.php';
 ?>
 
 <?php

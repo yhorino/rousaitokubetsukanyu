@@ -26,7 +26,7 @@ $_config = array(
 		// "sf_password" => "skp2jTwHPvZB7M1vM4kR+g==",
 
  // Sandboxへ接続
-		"sf_user"     => "y_horino@tmgt.co.jp.nyukin",
+		"sf_user"     => "y_horino@tmgt.co.jp.ikou0814",
 		"sf_password" => "NeaicbtOnEZpbjS2REcRlw==",
 
  
