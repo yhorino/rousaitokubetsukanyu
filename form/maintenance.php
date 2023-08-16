@@ -52,7 +52,7 @@ require_once('Mobile_Detect.php');
       <div class="header__flex">
         <a href="/"><img class="h_logo" src="../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
       </div>
-      <h1 class="mitsumori-maintitle">ただいまメンテナンス中です</h1>
+      <h1 class="mitsumori-maintitle">台風７号の影響による休止期間延長のお知らせ（～8/21）</h1>
     </header>
 	
   <!-- contents ///////////////////////////////////-->
@@ -62,13 +62,24 @@ require_once('Mobile_Detect.php');
   <article>
   <?php /* https://www.hometen.net/notes/maintenance_now/ */ ?>
    <section id="input_kyoutu" style="margin: 20px auto; line-height: 1.5em;">
+    <!--
     <p>いつも労働保険事務組合RJCをご利用いただきまして、誠にありがとうございます。</p>
-    <p>労働保険事務組合RJCはメンテナンス作業のため、下記の期間申込受付を休止しております。</p>
+    <p>労働保険事務組合RJCは台風7号の影響により、休止期間を延長させていただきます。</p>
     <br>
     <p>【受付休止期間】</p>
-    <p>　8月11日（金・祝）17:00　～　8月15日（火）9:00</p>
+    <p>　8月11日（金・祝）17:00　～　8月16日（水）9:00</p>
     <br>
     <p>ご不便、ご迷惑をおかけいたしますが、何とぞご理解いただきますようお願い申し上げます。</p>
+-->
+<p>いつも労働保険事務組合RJCをご利用いただきまして、誠にありがとうございます。</p>
+<p>労働保険事務組合RJCは台風7号の影響により、作業遅延のため、マイページのメンテナンス期間を延長させていただきます。</p>
+<br>
+<p>【メンテナンス期間】</p>
+<p>　8月11日（金・祝）17:00　～　8月21日（月）9:00</p>
+<br>
+<p>会員カードのダウンロード等を希望されるご加入者様は、0120-855-865までお電話ください。</p>
+<p>ご不便、ご迷惑をおかけいたしますが、何とぞご理解いただきますようお願い申し上げます。</p>
+    
     <a href="/">トップページへ</a>
    </section>
 
