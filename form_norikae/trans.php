@@ -4,7 +4,7 @@ header("Content-type: text/html;charset=utf-8");
 require_once('function.php');
 require_once 'Mobile_Detect.php';
 
-  require_once("bin/sf_Api_sb.php");
+  require_once("bin/sf_Api.php");
   init();
   sf_login();
 
@@ -245,16 +245,16 @@ switch($_POST['pagename']){
 function web2case_kaisya($items) {
  
 /* 本番 */
- /*
 $url = 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
 // Salesforceの組織ID
 $oid = '00D7F0000001NoF';
- */
  
 /* Sandbox ikou0814 */
+ /*
 $url = 'https://d7f0000001nofuau--ikou0814.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
 // Salesforceの組織ID
 $oid = '00DAz000000q7lN';
+ */
  
 /* Sandbox del */
  /*
@@ -381,16 +381,16 @@ return $result;
 function web2case($items) {
  
 /* 本番 */
- /*
 $url = 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
 // Salesforceの組織ID
 $oid = '00D7F0000001NoF';
- */
  
 /* Sandbox ikou0814 */
+ /*
 $url = 'https://d7f0000001nofuau--ikou0814.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
 // Salesforceの組織ID
 $oid = '00DAz000000q7lN';
+ */
  
 /* Sandbox del */
  /*
