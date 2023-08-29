@@ -289,6 +289,13 @@ $url = 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
 // Salesforceの組織ID
 $oid = '00D7F0000001NoF';
  
+/* Sandbox ikou0814 */
+ /*
+$url = 'https://d7f0000001nofuau--ikou0814.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
+// Salesforceの組織ID
+$oid = '00DAz000000q7lN';
+ */
+ 
 /* Sandbox del */
  /*
 $url = 'https://cs31.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
@@ -432,6 +439,13 @@ function web2case($items) {
 $url = 'https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
 // Salesforceの組織ID
 $oid = '00D7F0000001NoF';
+ 
+/* Sandbox ikou0814 */
+ /*
+$url = 'https://d7f0000001nofuau--ikou0814.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8';
+// Salesforceの組織ID
+$oid = '00DAz000000q7lN';
+ */
  
 /* Sandbox del */
  /*
