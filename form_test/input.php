@@ -714,6 +714,22 @@ $(function () {
          </figure>
 -->
          <input id="shiharai2" type="hidden" name="shiharai" value="銀行振込">
+
+         <?php if($_SESSION['shiharai_kaisu']=='毎月払い'){ ?>
+         <figure class="maitsuki_input" style="">
+         <table class="input_table">
+          
+          <tr>
+           <th>ご確認ください</th><th><span class="label req">必須</span></th>
+           <td>
+            毎月払いの場合は、初回費用として4か月分をお支払いただき、5か月目から月々8,000円を口座振替にてお支払いただきます。<br>
+            <label><input id="check_maitsuki" type="checkbox" name="check_maitsuki" value="1" required> 確認しました</label>
+           </td>
+          </tr>
+          </table>
+         </figure>
+          <?php } ?>
+          
           
          <!-- https://www.sejuku.net/blog/104657 -->
          <div class="popup">

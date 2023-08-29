@@ -1,4 +1,8 @@
 <?php
+ //include $_SERVER['DOCUMENT_ROOT'] .'/maintenance_check.php';
+?>
+
+<?php
 // セッションの開始
 ob_start();
 session_start();
@@ -102,6 +106,26 @@ setcookie('norikae', '0', 0, '/');
         
       <div class="mitsumori-block-flex">
        <div class="mitsumori-block">
+        <h2 class="mitsumori-subttl"><span class="st_orange">元請工事</span>はありますか？</h2>
+         <ul class="mitsumori-list">
+           <li>
+             <input id="motouke2" type="radio" name="motouke" value="-1">
+             <label for="motouke2"><span>いいえ</span></label>
+           </li>
+           <li>
+             <input id="motouke1" type="radio" name="motouke" value="1">
+             <label for="motouke1"><span>はい</span></label>
+           </li>
+           <li class="motouke_msg">
+            <p class="motouke_msg_info">当組合ではご加入いただけません。</p>
+            <a href="/" class="totop_button">トップページへ</a>
+           </li>
+         </ul>
+       </div>
+      </div><!-- mitsumori-block-flex -->
+        
+      <div class="mitsumori-block-flex second_block">
+       <div class="mitsumori-block">
         <h2 class="mitsumori-subttl"><span class="st_orange">赤の他人</span>を雇っていますか？</h2>
          <ul class="mitsumori-list">
            <li>
@@ -123,26 +147,6 @@ setcookie('norikae', '0', 0, '/');
          <p class="info_tel info_tel_sp">
           ※ 雇っているかわからない方は、お電話ください。<br><a href="tel:0120855865">労働保険事務組合RJCへ電話する</a>
          </p>
-       </div>
-      </div><!-- mitsumori-block-flex -->
-        
-      <div class="mitsumori-block-flex motouke">
-       <div class="mitsumori-block">
-        <h2 class="mitsumori-subttl"><span class="st_orange">元請工事</span>はありますか？</h2>
-         <ul class="mitsumori-list">
-           <li>
-             <input id="motouke2" type="radio" name="motouke" value="-1">
-             <label for="motouke2"><span>いいえ</span></label>
-           </li>
-           <li>
-             <input id="motouke1" type="radio" name="motouke" value="1">
-             <label for="motouke1"><span>はい</span></label>
-           </li>
-           <li class="motouke_msg">
-            <p class="motouke_msg_info">当組合ではご加入いただけません。</p>
-            <a href="/" class="totop_button">トップページへ</a>
-           </li>
-         </ul>
        </div>
       </div><!-- mitsumori-block-flex -->
         
@@ -777,7 +781,8 @@ $(function(){
   function init_mitsumori_start(){
    $('.mitsumori').hide();
    $('.to_oyakata').hide();
-   $('.mitsumori-block-flex.motouke').hide();
+   $('.mitsumori-block-flex.second_block').hide();
+   $('.motouke_msg').hide();
   }
   function show_mitsumori(){
    $('.mitsumori').show();
@@ -787,16 +792,15 @@ $(function(){
   function show_to_oyakata(){
    $('.mitsumori').hide();
    $('.to_oyakata').show();
-   $('.mitsumori-block-flex.motouke').hide();
   }
-  function show_motouke(){
-   $('.mitsumori-block-flex.motouke').show();
+  function show_tanin(){
+   $('.mitsumori-block-flex.second_block').show();
    $('.to_oyakata').hide();
-   $('.motouke_msg').hide();
    $('.mitsumori').hide();
+   $('.motouke_msg').hide();
   }
   function show_motouke_msg(){
-   $('.mitsumori-block-flex.motouke').show();
+   $('.mitsumori-block-flex.second_block').hide();
    $('.to_oyakata').hide();
    $('.motouke_msg').show();
    $('.mitsumori').hide();
@@ -809,7 +813,7 @@ $(function(){
    const val_no = -1;
    const selected_val = $('input[name="tanin"]:checked').val();
    if(selected_val == val_yes){
-    show_motouke();
+    show_mitsumori();
    } else if(selected_val == val_no){
     show_to_oyakata();
    } else {
@@ -824,7 +828,7 @@ $(function(){
    if(selected_val == val_yes){
     show_motouke_msg();
    } else if(selected_val == val_no){
-    show_mitsumori();
+    show_tanin();
    } else {
     init_mitsumori_start();
    }
@@ -869,12 +873,14 @@ console.log('card_hiyou:'+$card_hiyou);
   //$('.maitsuki_text3').hide();
   //$('.maitsuki_text4').hide();
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
+
   let $kaihi_2y = $kaihi;
   if($kanyutuki <= 3){
    $kaihi_2y = $kaihi * 2;
   } else {
    $kaihi_2y = $kaihi;
   }
+
   let $_kanyuyear = 0;
   if($kanyutuki == <?php echo $kanyu_month;?>){
    $_kanyuyear = <?php echo $kanyu_year;?>;
