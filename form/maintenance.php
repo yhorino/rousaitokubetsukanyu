@@ -25,7 +25,7 @@ require_once('Mobile_Detect.php');
   <meta property="og:title" content="ただいまメンテナンス中です">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://www.xn--y5q0r2lqcz91qdrc.com/form/mitsumori.php">
-  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/wp-content/uploads/2023/07/kv_sp_sns2.png">
+  <meta property="og:image" content="https://www.xn--y5q0r2lqcz91qdrc.com/wp-content/uploads/2023/08/kv_sp_capture.png">
   <meta property="og:site_name" content="建設業専門　全国対応　中小事業主の特別加入RJC">
   <meta property="og:description" content="" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
