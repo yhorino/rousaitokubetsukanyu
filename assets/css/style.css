@@ -35,7 +35,7 @@ header {
   justify-content: space-between;
   max-width: 1000px;
   margin: auto;
-  padding: 8px 0;
+  padding: 10px 0;
 }
 .main {
   background: bottom / 2500px no-repeat url("../img/mbg.jpg");
@@ -1029,3 +1029,8 @@ nav.globalMenuSp.active {
    left: 5%;
   } 
  }
+
+
+.h_logo{
+ width: 300px;
+}
