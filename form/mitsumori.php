@@ -390,9 +390,9 @@ setcookie('norikae', '0', 0, '/');
               <ul class="mitsumori-list">
                <?php
                $i=0;
-               $show_num=4;
+               $show_num=5;
                if($device=='スマホ'){
-                $show_num=4;
+                $show_num=5;
                }
                foreach($kouji_syubetu_btn as $ksb){
                 $class='';

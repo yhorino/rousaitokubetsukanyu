@@ -339,10 +339,11 @@ function get_youzai_syurui(){
     $pref["鹿児島県"]="46";
     $pref["沖縄県"]="47";
 
+    $kouji_syubetu_btn[]='足場';
     $kouji_syubetu_btn[]='電気';
-    $kouji_syubetu_btn[]='とび・土工・コンクリート';
     $kouji_syubetu_btn[]='内装';
     $kouji_syubetu_btn[]='管';
+    $kouji_syubetu_btn[]='とび・土工・コンクリート';
     $kouji_syubetu_btn[]='大工';
     $kouji_syubetu_btn[]='塗装';
     $kouji_syubetu_btn[]='防水';
@@ -351,7 +352,6 @@ function get_youzai_syurui(){
     $kouji_syubetu_btn[]='左官';
     $kouji_syubetu_btn[]='鉄筋';
     $kouji_syubetu_btn[]='屋根';
-    $kouji_syubetu_btn[]='足場';
     $kouji_syubetu_btn[]='機械器具設置';
     $kouji_syubetu_btn[]='電気通信';
     $kouji_syubetu_btn[]='建具';
