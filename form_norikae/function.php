@@ -403,7 +403,7 @@ function get_youzai_syurui(){
     $roumu["左官"] = 3506;
     $roumu["鉄筋"] = 3501;
     $roumu["屋根"] = 3506;
-    $roumu["足場"] = 3506;
+    $roumu["足場"] = 3501;
     $roumu["電気"] = 3507;
     $roumu["内装"] = 3506;
     $roumu["管"] = 3504;
@@ -415,9 +415,9 @@ function get_youzai_syurui(){
     $roumu["消防施設"] = 3801;
     $roumu["美装"] = 3506;
     $roumu["とび・土工・コンクリート"] = 3718;
-    $roumu["解体"] = 3716;
+    $roumu["解体"] = 3505;
 //    $roumu["しゅんせつ"] = 3718;
-    $roumu["造園"] = 3719;
+    $roumu["造園"] = 3506;
 //    $roumu["石"] = 3502;
 //    $roumu["ほ装"] = 3301;
 //    $roumu["さく井"] = 37;
