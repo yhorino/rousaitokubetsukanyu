@@ -202,7 +202,7 @@ function getKaisyabyKaiinNo($kaiin_no){
   global $_con;
 
   $returns = array();
-  $query = "SELECT Id, jimuKaiinNo__c, No__c, Name, Furi__c, Phone, Fax, Email__c,  BillingPostalCode, BillingState, BillingCity, BillingStreet, PrefectureCodeNew__c, torimatome_ninzu__c, PrefCode__c, Hokenryoutorimatome__c, Daihyosya__c, DaihyousyaFuri__c, DaijyoKeitai__c, Tantousya__c, TantousyaFuri__c, Torimatome_tanntoutel__c, HoujinBangou__c, jimuRoudouhokenBangou0__c, jimuRoudouhokenBangou2__c, jimuRoudouhokenBangou5__c, jimuRoudouhokenBangou6__c, jimuIkkatuyuukiRousaihokenBangou__c, jimuKanyusya1_Name__c, jimuKanyusya2_Name__c, jimuKanyusya3_Name__c, jimuKanyusya4_Name__c, jimuKanyusya5_Name__c, Kanyudate__c,order_no__c, tetudukikaisibi__c, DattaiNenggapi__c,jimusyahokigou1__c, jimusyahokigou2__c, jimukyokaikenpono__c, jimuKoyouhokenBangou__c, KojiType__c,Kanyumankibinew__c,kyotei36_URL__c,Kanyutype__c,koyouhokenitakuhi__c FROM Account WHERE RecordType.Name = '事務組合会社' AND jimuKaiinNo__c = '$kaiin_no' order by CreatedDate desc";
+  $query = "SELECT Id, jimuKaiinNo__c, No__c, Name, Furi__c, Phone, Fax, Email__c,  BillingPostalCode, BillingState, BillingCity, BillingStreet, PrefectureCodeNew__c, torimatome_ninzu__c, PrefCode__c, Hokenryoutorimatome__c, Daihyosya__c, DaihyousyaFuri__c, DaijyoKeitai__c, Tantousya__c, TantousyaFuri__c, Torimatome_tanntoutel__c, HoujinBangou__c, jimuRoudouhokenBangou0__c, jimuRoudouhokenBangou2__c, jimuRoudouhokenBangou5__c, jimuRoudouhokenBangou6__c, jimuIkkatuyuukiRousaihokenBangou__c, Kanyudate__c,order_no__c, tetudukikaisibi__c, DattaiNenggapi__c,jimusyahokigou1__c, jimusyahokigou2__c, jimukyokaikenpono__c, jimuKoyouhokenBangou__c, KojiType__c,Kanyumankibinew__c,kyotei36_URL__c,Kanyutype__c,koyouhokenitakuhi__c FROM Account WHERE RecordType.Name = '事務組合会社' AND jimuKaiinNo__c = '$kaiin_no' order by CreatedDate desc";
   try {
 
     $response = $_con->query($query);
@@ -222,7 +222,7 @@ function getKaisyabyOrderNo($order_no){
   global $_con;
 
   $returns = array();
-  $query = "SELECT Id, No__c, Name, Furi__c, Phone, Fax, Email__c,  BillingPostalCode, BillingState, BillingCity, BillingStreet, PrefectureCodeNew__c, torimatome_ninzu__c, PrefCode__c, Hokenryoutorimatome__c, Daihyosya__c, DaihyousyaFuri__c, DaijyoKeitai__c, Tantousya__c, TantousyaFuri__c, Torimatome_tanntoutel__c, HoujinBangou__c, jimuRoudouhokenBangou5__c, jimuKanyusya1_Name__c, jimuKanyusya2_Name__c, jimuKanyusya3_Name__c, jimuKanyusya4_Name__c, jimuKanyusya5_Name__c, Kanyudate__c, KojiType__c FROM Account WHERE RecordType.Name = '事務組合会社' AND order_no__c = '$order_no' order by CreatedDate desc";
+  $query = "SELECT Id, No__c, Name, Furi__c, Phone, Fax, Email__c,  BillingPostalCode, BillingState, BillingCity, BillingStreet, PrefectureCodeNew__c, torimatome_ninzu__c, PrefCode__c, Hokenryoutorimatome__c, Daihyosya__c, DaihyousyaFuri__c, DaijyoKeitai__c, Tantousya__c, TantousyaFuri__c, Torimatome_tanntoutel__c, HoujinBangou__c, jimuRoudouhokenBangou5__c, Kanyudate__c, KojiType__c FROM Account WHERE RecordType.Name = '事務組合会社' AND order_no__c = '$order_no' order by CreatedDate desc";
   try {
 
     $response = $_con->query($query);
