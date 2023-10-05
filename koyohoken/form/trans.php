@@ -33,6 +33,7 @@ switch($_POST['pagename']){
  case 'mitsumori.php':
  {
   
+  $_SESSION['kaisya_id']='';
   /* マイページから→会社情報取得して入力欄に入れておく */
   if(isset($_SESSION['jimuKaiinNo__c']) && $_SESSION['jimuKaiinNo__c'] != '') {
    $result_kaisya = null;
@@ -44,6 +45,8 @@ switch($_POST['pagename']){
    $_SESSION['roudouhoken_no1'] = substr($jimuRoudouhokenBangou5__c_nohyp,0,11);
    $_SESSION['roudouhoken_no2'] = substr($jimuRoudouhokenBangou5__c_nohyp,-3);
    $_SESSION['roudouhoken_no'] = $_SESSION['roudouhoken_no1'].$_SESSION['roudouhoken_no2'];
+   
+   $_SESSION['kaisya_id']=$result_kaisya['Id'];
   }
   
   include('get_rjcdata.php');
