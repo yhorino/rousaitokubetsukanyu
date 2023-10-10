@@ -225,7 +225,7 @@ $(function () {
       <input type="hidden" id="koyo_bangou" name="koyo_bangou" value = "<?php echo $_SESSION['koyo_bangou'];?>">
       <input type="hidden" id="sougaku" name="sougaku" value = "<?php echo $_SESSION['sougaku'];?>">
      
-      <input type="hidden" id="kaisya_id" name="kaisya_id" value = "">
+      <input type="hidden" id="kaisya_id" name="kaisya_id" value = "<?php echo $_SESSION['kaisya_id'];?>">
       <input type="hidden" id="order_no" name="order_no" value = "">
       <input type="hidden" id="roudouhoken_no" name="roudouhoken_no" value = "<?php echo $_SESSION['roudouhoken_no']; ?>">
      
