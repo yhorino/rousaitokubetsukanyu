@@ -63,9 +63,7 @@ if($mode==2){
 ?>
 
 <?php /* 20220717 会員カード発行ポップアップ */ ?>
-<?php /*
-<div class="kanyusyasyo_popup_fixbutton_box" onclick="popup_kanyusyasyo();"> <img src="/img/ic_question.png" alt=""><span class="kanyusyasyo_popup_text">いつ会員カードが受け取れる？</span> </div>
-*/ ?>
+<div class="kanyusyasyo_popup_fixbutton_box show_sp hide_pc" onclick="popup_kanyusyasyo();"> <img src="/img/ic_question.png" alt=""><span class="kanyusyasyo_popup_text">いつ労災保険番号がわかる？</span> </div>
 <link rel="stylesheet" href="/wp-content/themes/cocoon-child-master/index_kanyusyasyo_popup.css" type="text/css">
 <script>
 function popup_kanyusyasyo(){
@@ -78,12 +76,10 @@ function close_popup_kanyusyasyo(){
 $(".popup_kanyusyasyo").hide();
 $(function(){
   <?php /* https://sterfield.co.jp/designer/%E3%80%90jquery%E3%80%91%E3%82%B9%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%AB%E4%B8%AD%E3%81%AB%E9%9D%9E%E8%A1%A8%E7%A4%BA%E3%81%AB%E3%81%99%E3%82%8Bjquery%E3%81%AE%E3%82%B3%E3%83%BC%E3%83%89/ */ ?>
- /*
     $(window).on("scroll touchmove", function(){
     $('.kanyusyasyo_popup_fixbutton_box').stop();
     $('.kanyusyasyo_popup_fixbutton_box').css('display', 'none').delay(100).fadeIn();
   });
-  */
   if($('.show_sp').is(':visible')){
     $('.popup_kanyusyasyo').hide();
   }
@@ -95,7 +91,7 @@ $(function(){
     <div class="popup_kanyusyasyo_close" onclick="close_popup_kanyusyasyo();"></div>
     <a href="/form/mitsumori.php?from=<?php echo $PATH_HTTP;?>&page=/&pos=popup_kanyusyasyo" class="popup_kanyusyasyo_button"></a>
     <p class="popup_kanyusyasyo_title"><?php echo $m.'/'.$d.'('.$dow.')'?><?php echo $kigen_time; ?><span class="small">までに</span><br>
-    会員カード発行</p>
+    労災保険番号がわかる</p>
     <img src="/img/kanyusyasyo_popup.png" alt="">
   </div>
 </div>
