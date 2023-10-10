@@ -1,0 +1,123 @@
+.kanyusyasyo_popup_fixbutton_box{
+  position: fixed;
+  right: -100%;
+  top: 30%;
+  width: 8.5%;
+  max-width: 60px;
+  z-index: 100;
+ 
+ background-color: #E4111D;
+ padding: 5px 2px 0 2px;
+ cursor: pointer;
+ border-radius: 5px 0 0 5px;
+}
+.kanyusyasyo_popup_fixbutton_box img{
+  width: 50%;
+  cursor: pointer;
+}
+.kanyusyasyo_popup_text {
+ color: #fff;
+ writing-mode: vertical-rl;
+ font-size: 12px;
+ line-height: 1em;
+ margin-top: 5px;
+}
+
+.popup_kanyusyasyo {
+  height: auto;
+  width: 400px;
+  background: transparent;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.popup_kanyusyasyo .content{
+  position: relative;
+}
+.popup_kanyusyasyo .popup_kanyusyasyo_close {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 22%;
+  right: 6%;
+  width: 6%;
+  height: 11%;
+}
+.popup_kanyusyasyo .popup_kanyusyasyo_button {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  bottom: 12%;
+  left: 20%;
+  width: 63%;
+  height: 23%;
+}
+.popup_kanyusyasyo img{
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.popup_kanyusyasyo .popup_kanyusyasyo_title {
+  display: block;
+  position: absolute;
+  top: 30%;
+  left: 33%;
+  width: 60%;
+  font-size: 18px;
+  color: #fff;
+  text-align: left;
+  line-height: 1.3em;
+  font-weight: bold;
+  margin: 0;
+}
+.popup_kanyusyasyo .popup_kanyusyasyo_title .small{
+  font-size: 12px;
+  font-weight: normal;
+  display: inline-block;
+  margin: 0 0.3em;
+}
+@media screen and (max-width: 960px) {
+  .kanyusyasyo_popup_fixbutton_box{
+    position: fixed;
+    right: 0%;
+    top: 30%;
+    /*width: 8.5%;*/
+    max-width: 60px;
+    z-index: 100;
+  }
+  .popup_kanyusyasyo {
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  .popup_kanyusyasyo .popup_kanyusyasyo_title {
+    display: block;
+    position: absolute;
+    top: 30%;
+    left: 33%;
+    width: 60%;
+    font-size: 5vw;
+    color: #fff;
+    text-align: left;
+    line-height: 1.3em;
+    font-weight: bold;
+  }
+  .popup_kanyusyasyo .popup_kanyusyasyo_title .small{
+    font-size: 3vw;
+    font-weight: normal;
+    display: inline-block;
+    margin: 0 0.3em;
+  }
+
+}
