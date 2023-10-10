@@ -63,7 +63,7 @@ if($mode==2){
 ?>
 
 <?php /* 20220717 会員カード発行ポップアップ */ ?>
-<div class="kanyusyasyo_popup_fixbutton_box show_sp hide_pc" onclick="popup_kanyusyasyo();"> <img src="/img/ic_question.png" alt=""><span class="kanyusyasyo_popup_text">いつ労災保険番号がわかる？</span> </div>
+<div class="kanyusyasyo_popup_fixbutton_box show_sp hide_pc" onclick="popup_kanyusyasyo();"> <img src="/img/ic_question.png" alt=""><span class="kanyusyasyo_popup_text">いつ労働保険番号がわかる？</span> </div>
 <link rel="stylesheet" href="/wp-content/themes/cocoon-child-master/index_kanyusyasyo_popup.css" type="text/css">
 <script>
 function popup_kanyusyasyo(){
@@ -91,7 +91,7 @@ $(function(){
     <div class="popup_kanyusyasyo_close" onclick="close_popup_kanyusyasyo();"></div>
     <a href="/form/mitsumori.php?from=<?php echo $PATH_HTTP;?>&page=/&pos=popup_kanyusyasyo" class="popup_kanyusyasyo_button"></a>
     <p class="popup_kanyusyasyo_title"><?php echo $m.'/'.$d.'('.$dow.')'?><?php echo $kigen_time; ?><span class="small">までに</span><br>
-    労災保険番号がわかる</p>
+    労働保険番号がわかる</p>
     <img src="/img/kanyusyasyo_popup.png" alt="">
   </div>
 </div>
