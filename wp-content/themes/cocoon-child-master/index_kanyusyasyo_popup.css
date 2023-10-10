@@ -14,6 +14,9 @@
 .kanyusyasyo_popup_fixbutton_box img{
   width: 50%;
   cursor: pointer;
+ margin: 0 auto;
+    display: block;
+    font-size: 10px;
 }
 .kanyusyasyo_popup_text {
  color: #fff;
@@ -21,6 +24,8 @@
  font-size: 12px;
  line-height: 1em;
  margin-top: 5px;
+ display: block;
+    margin: 5px auto;
 }
 
 .popup_kanyusyasyo {
@@ -88,6 +93,7 @@
     /*width: 8.5%;*/
     max-width: 60px;
     z-index: 100;
+   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
   }
   .popup_kanyusyasyo {
     height: 100vh;
@@ -120,4 +126,19 @@
     margin: 0 0.3em;
   }
 
+}
+
+.popup_kanyusyasyo{
+ font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+}
+
+@media screen and (max-width: 960px) {
+ .show_pc, .hide_sp{
+  display: none;
+ }
+}
+@media screen and (min-width: 960px) {
+ .show_sp, .hide_pc{
+  display: none;
+ }
 }
