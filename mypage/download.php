@@ -60,7 +60,7 @@ $title="各種ダウンロード・印刷";
    <td>02</td><td>特別加入証明書</td><td>2023/03/23</td><td><a href="kanyusya.php">閲覧・印刷</a></td><td>特別加入の証明書を閲覧・印刷できます。</td>
   </tr>
   <tr>
-   <td>03</td><td>団体則</td><td>2023/07/21</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
+   <td>03</td><td>団体則</td><td>2023/10/17</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
   </tr>
   <tr>
    <td>04</td><td>労災請求に関する確認事項</td><td>2023/08/03</td><td><a href="#" onclick="outputPDF_kakuninjikou();">閲覧・印刷</a></td><td>労働保険事務組合RJCの労災請求に関する確認事項を閲覧・印刷できます。</td>
