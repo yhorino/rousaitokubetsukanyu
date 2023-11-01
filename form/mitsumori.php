@@ -947,6 +947,7 @@ console.log('card_hiyou:'+$card_hiyou);
    const $ey = Math.ceil((($_kanyuyear-1)*12+$kanyutuki+parseInt($_kanyu_tsukisu))/12);
    $('#result_kikan_e').text($ey+"年"+$em+"月末日");
    $('input[name="kikane"]').val($ey+""+$em);
+   $('input[name="maitsuki_kaihi"]').val("");
   }
   
   let $syokai_sougaku = $hokenryo + $nyukaikin + $kaihi_2y + $card_hiyou;
