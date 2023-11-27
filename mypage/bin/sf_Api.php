@@ -10,6 +10,8 @@
 header('Content-Type: text/html; charset=UTF-8');
 $_sf_root = dirname(dirname(__FILE__));
 
+ define('NENDO', '2023年度確定2024年度概算');
+
 require_once("$_sf_root/lib/conf.php");
 require_once("$_sf_root/lib/soapclient/SforcePartnerClient.php");
 require_once("$_sf_root/lib/soapclient/SforceHeaderOptions.php");
@@ -17,6 +19,28 @@ require_once("$_sf_root/lib/Print.php");
 require_once("$_sf_root/lib/Proxy.php");
 require_once("$_sf_root/lib/SfLogin.php");
 require_once("$_sf_root/lib/Util.php");
+
+function getNendkoshinId_NoMoshikomiuketsuke($kaisya_no){
+  global $_con;
+
+  $_nendo = NENDO;
+  $returns = array();
+  $query = "SELECT ID, Name FROM nendokoshin__c WHERE dairimadokuchikaishabango__c = '$kaisya_no' AND dairishinchokujokyo__c = '' AND Nendo__c = '$_nendo'";
+  try {
+    $response = $_con->query($query);
+
+    $queryResult = new QueryResult($response);
+
+    for ($queryResult->rewind(); $queryResult->pointer < $queryResult->size; $queryResult->next()) {
+      array_push($returns, $queryResult->current());
+    }
+  } catch (Exception $e) {
+    err_die(__LINE__, __FUNCTION__ . "["  . __LINE__ . "]: ". $e->getMessage());
+  }
+  return $returns[0];
+ 
+}
+
 
 /**
  * 20201021 Y.Horino

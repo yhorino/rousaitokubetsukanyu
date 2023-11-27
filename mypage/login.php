@@ -98,11 +98,15 @@ if (false === $login_flg) {
 
 $sessionid = session_id();
 
+require_once("bin/sf_Api.php");
+ init();
+ sf_login();
  $result2 = null;
  $result2 = (array)getKaisyabyKaiinNo($user_input_data['id']);
 
  $result_kaiin = null;
  $result_kaiin = (array)getJimuKanyusya($result2['Id']);
+ sf_logout();
 
  session_id($sessionid);
 
