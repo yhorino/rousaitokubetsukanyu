@@ -138,9 +138,14 @@
     ryouritsu[37] = 0.015;
   
     var tukisuu = {};
+/*
     tukisuu[1] = 15;
     tukisuu[2] = 14;
     tukisuu[3] = 13;
+    */
+    tukisuu[1] = 3;
+    tukisuu[2] = 2;
+    tukisuu[3] = 1;
     tukisuu[4] = 12;
     tukisuu[5] = 11;
     tukisuu[6] = 10;

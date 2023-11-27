@@ -277,10 +277,12 @@ setcookie('norikae', '0', 0, '/');
                   <label for="kanyu_kikan2"><span>２か月</span></label>
                 </li>
                 */ ?>
+               <?php /* 202404まで停止
                 <li class="kikan_short">
                   <input id="kanyu_kikan3" type="radio" name="kanyu_kikan" value="３か月" required="" <?php echo $sel3;?>>
                   <label for="kanyu_kikan3"><span>３か月</span></label>
                 </li>
+                */ ?>
                 <li>
                   <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年払い" required="" <?php echo $sel4;?>>
                   <label for="kanyu_kikan4"><span class="button_label_small">2024年3月31日まで</span></label>
@@ -574,7 +576,7 @@ setcookie('norikae', '0', 0, '/');
            
            <p class="mitsumori_info">※1 お支払総額には会費、保険料、会員カード発行費用が含まれています。</p>
            
-           <p class="mitsumori_info">※2 毎月払いの場合は、初回費用として4か月分をお支払いただき、5か月目から月々<span class="maitsuki_val"></span>円を口座振替にてお支払いただきます。</p>
+           <p class="mitsumori_info">※2 毎月払いの場合は、初回費用として<span id="syokai_tsukisu">4</span>か月分をお支払いただき、<span id="syokai_tsukisu_next">5</span>か月目から月々<span class="maitsuki_val"></span>円を口座振替にてお支払いただきます。</p>
            <input type="hidden" name="maitsuki_kaihi" value="">
            
           </div>
@@ -875,12 +877,14 @@ console.log('card_hiyou:'+$card_hiyou);
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
 
   let $kaihi_2y = $kaihi;
+  /*
   if($kanyutuki <= 3){
    $kaihi_2y = $kaihi * 2;
   } else {
    $kaihi_2y = $kaihi;
   }
-
+*/
+  
   let $_kanyuyear = 0;
   if($kanyutuki == <?php echo $kanyu_month;?>){
    $_kanyuyear = <?php echo $kanyu_year;?>;
@@ -897,27 +901,47 @@ console.log('card_hiyou:'+$card_hiyou);
    var now = new Date();
    var today = now.getDate();
    var today_m = now.getMonth()+1;
-   //var month3 = new Date($kanyu_year, $kanyu_month+2, 0);
-   //var month3_2 = new Date($kanyu2_year, $kanyu2_month+2, 0);
+   var month3 = new Date($kanyu_year, $kanyu_month+2, 0);
+   var month3_2 = new Date($kanyu2_year, $kanyu2_month+2, 0);
    var month4 = new Date($kanyu_year, $kanyu_month+3, 0);
    var month4_2 = new Date($kanyu2_year, $kanyu2_month+3, 0);
    var kikan_e;
    var kikan_s_y;
    var $m;
    if($kanyutuki == today_m){
-    $m = 4;
-    kikan_s_y = $kanyu_year;
-    kikan_e = month4;
-   } else {
-    $m = 4;
-    if($kanyutuki == $kanyu_month){
+    if($kanyutuki == 1){
+     $m = 3;
+     kikan_s_y = $kanyu_year;
+     kikan_e = month3;
+    } else {
+     $m = 4;
      kikan_s_y = $kanyu_year;
      kikan_e = month4;
+    }
+   } else {
+    if($kanyutuki == 1){
+     $m = 3;
+     if($kanyutuki == $kanyu_month){
+      kikan_s_y = $kanyu_year;
+      kikan_e = month3;
+     } else {
+      kikan_s_y = $kanyu2_year;
+      kikan_e = month3_2;
+     }
     } else {
-     kikan_s_y = $kanyu2_year;
-     kikan_e = month4_2;
+     $m = 4;
+     if($kanyutuki == $kanyu_month){
+      kikan_s_y = $kanyu_year;
+      kikan_e = month4;
+     } else {
+      kikan_s_y = $kanyu2_year;
+      kikan_e = month4_2;
+     }
     }
    }
+   $('#syokai_tsukisu').text($m);
+   $('#syokai_tsukisu_next').text($m+1);
+   
    $('#result_kikan_s').text(kikan_s_y+"年"+$kanyutuki+"月");
    $('#result_kikan_e').text(kikan_e.getFullYear()+"年"+(kikan_e.getMonth()+1)+"月末日");
    
