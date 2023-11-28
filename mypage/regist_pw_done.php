@@ -8,18 +8,18 @@ require_once('common_function.php');
 
 if(isset($_COOKIE['regist']) && $_COOKIE['regist'] == 1){
 
-// require_once("bin/sf_Api.php");
+ require_once("bin/sf_Api.php");
 
 $sessionid = session_id();
  
  // SFから取引先データ取得
-//  init();
-//  sf_login();
+  init();
+  sf_login();
  $result = (array)mp_getAccount_kaisya($_SESSION['kaiin_no']);
  $datum = (array)$result['fields'];
  //var_dump($datum);
 
-//  sf_logout();
+  sf_logout();
  
 session_id($sessionid);
  

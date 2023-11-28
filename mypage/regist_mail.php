@@ -17,13 +17,13 @@ if (true === isset($_SESSION['output_buffer'])) {
 // 確認
 //var_dump($view_data);
 
-// require_once("bin/sf_Api.php");
+ require_once("bin/sf_Api.php");
 
 $sessionid = session_id();
  
  // SFから取引先データ取得
-//  init();
-//  sf_login();
+  init();
+  sf_login();
  if(isset($_POST['kaiin_no'])){
   $_SESSION['regist_kaiin_no'] = convertto_haneisu($_POST['kaiin_no']);
  }
@@ -38,7 +38,7 @@ $sessionid = session_id();
   $datum = (array)$result['fields'];
  //var_dump($datum);
  }
-//  sf_logout();
+  sf_logout();
 
 //var_dump($datum);
 if ( !((isset($view_data['error_invalid_update']))&&(true === $view_data['error_invalid_update'])) ){
