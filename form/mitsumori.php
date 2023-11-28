@@ -1155,8 +1155,12 @@ console.log('tsukisu:'+$_tsukisu);
       $ret = $kaihi1 * 3;      
      }
      */
-     $m = 4;
-     $ret = $kaihi1 * 4;
+     if($kanyutuki == 1){
+      $m = 3;
+     } else {
+      $m = 4;
+     }
+     $ret = $kaihi1 * $m;
      // 20211227 会費計算修正
   }
   if(is_shiharai_ikatsu()){
