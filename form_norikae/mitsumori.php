@@ -215,9 +215,14 @@ $detect = new Mobile_Detect;
     ryouritsu[37] = 0.015;
   
     var tukisuu = {};
+   /*
     tukisuu[1] = 15;
     tukisuu[2] = 14;
     tukisuu[3] = 13;
+    */
+    tukisuu[1] = 3;
+    tukisuu[2] = 2;
+    tukisuu[3] = 1;
     tukisuu[4] = 12;
     tukisuu[5] = 11;
     tukisuu[6] = 10;
@@ -583,7 +588,7 @@ $detect = new Mobile_Detect;
              <div id="msg4">
              <div class="mitsumori-block2" style="display: none;">
               <p class="q_title">毎月払いとは？</p>
-              <p class="q_text">初回費用として保険料と3か月分の会費等をお支払いただき、4か月目から月額会費を口座振替にてお支払いただく方法です。</p><br>
+              <p class="q_text">初回費用として保険料と<span id="syokai_tsukisu">4</span>か月分の会費等をお支払いただき、<span id="syokai_tsukisu_next">5</span>か月目から月額会費を口座振替にてお支払いただく方法です。</p><br>
               <p class="q_title">年払いとは？</p>
               <p class="q_text">お申込み時に、保険料等を一括でお支払いただく方法です。</p>
              </div>
@@ -968,6 +973,8 @@ $(function(){
     $b = Math.floor($tmp_a * (ryouritsu[$roumu_val] * 1000));
     $hokenryo = $a + $b;
   
+    $card_hiyou = 3300 * $ninzu;
+  
     $kanyu_year = <?php echo $kanyu_year;?>;
     $kanyu2_year = <?php echo $kanyu2_year;?>;
     $kanyu_month = <?php echo $kanyu_month;?>;
@@ -1002,7 +1009,7 @@ $(function(){
      if($kanyutuki == today_m){
       if(today > 20){
        $m = 4;
-       $kaihi = $kaihi1 * 4;
+       $kaihi = $kaihi1 * $m;
        $('#result_kikan_s').text($kanyu_year+"年"+$kanyutuki+"月");
        $('#result_kikan_e').text(month4.getFullYear()+"年"+(month4.getMonth()+1)+"月末日");
        $('#kikan_sy').val($kanyu_year);
@@ -1011,7 +1018,7 @@ $(function(){
        $('#kikan_em').val(month4.getMonth()+1);
       } else {
        $m = 3;
-       $kaihi = $kaihi1 * 3;
+       $kaihi = $kaihi1 * $m;
        $('#result_kikan_s').text($kanyu_year+"年"+$kanyutuki+"月");
        $('#result_kikan_e').text(month3.getFullYear()+"年"+(month3.getMonth()+1)+"月末日");
        $('#kikan_sy').val($kanyu_year);
@@ -1021,7 +1028,7 @@ $(function(){
       }
      } else {
       $m = 3;
-      $kaihi = $kaihi1 * 3;      
+      $kaihi = $kaihi1 * $m;      
       if($kanyutuki == $kanyu_month){
        $('#result_kikan_s').text($kanyu_year+"年"+$kanyutuki+"月");
        $('#result_kikan_e').text(month3.getFullYear()+"年"+(month3.getMonth()+1)+"月末日");
@@ -1046,6 +1053,9 @@ $(function(){
       } 
      }
      // 20211227 会費計算修正
+     
+     $('#syokai_tsukisu').text($m);
+     $('#syokai_tsukisu_next').text($m+1);
      
      $('.maitsuki_text').show();
      $('.maitsuki_val').text($kaihi1.toLocaleString('ja-JP'));
@@ -1084,10 +1094,10 @@ $(function(){
   console.log("kaihi="+$kaihi);
   
   
-    $syokai_sougaku = $hokenryo + $nyukaikin + $jikotou_tsumitatekin + $kaihi ;
+    $syokai_sougaku = $hokenryo + $nyukaikin + $jikotou_tsumitatekin + $kaihi + $card_hiyou;
     $syokai_sougaku = Math.floor($syokai_sougaku);
 
-    $syokai_sougaku_camp = $hokenryo + $jikotou_tsumitatekin + $kaihi_camp;
+    $syokai_sougaku_camp = $hokenryo + $jikotou_tsumitatekin + $kaihi_camp + $card_hiyou;
     $syokai_sougaku_camp = Math.floor($syokai_sougaku_camp);
   
     $('#mousikomi_next').show();

@@ -208,13 +208,14 @@ function mp_changePW($no, $newpass){
 }
 
 
+
+function mp_getAccountbyNo($no){
 require_once("bin/sf_Api.php");
  init();
  sf_login();
-
-function mp_getAccountbyNo($no){
  $result = (array)mp_getAccount_kaisya($no);
  $row = (array)$result['fields'];
+ sf_logout();
  return $row;
 }
 
