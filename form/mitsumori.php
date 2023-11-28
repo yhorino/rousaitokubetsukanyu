@@ -60,8 +60,9 @@ setcookie('norikae', '0', 0, '/');
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="style_form_new.css">
   <!-- JS-->
-  <script src="../assets/js/app.js"></script>
-  <script src="value.js"></script>
+  <?php $v = time(); ?>
+  <script src="../assets/js/app.js?v=<?php echo $v;?>"></script>
+  <script src="value.js?v=<?php echo $v;?>"></script>
 
   <script type="text/javascript" src="../assets/js/jquery.jpostal.js-master/jquery.jpostal.js"></script>
   <script src="https://kit.fontawesome.com/a366e23f99.js" crossorigin="anonymous"></script>
