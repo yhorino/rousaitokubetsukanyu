@@ -2,6 +2,7 @@
 include_once('auth.php');
 require_once('common_function.php');
 header("Content-type: text/html;charset=utf-8");
+$TOP_PATH = '../../';
 
 $title="マイページTOP";
 ?>

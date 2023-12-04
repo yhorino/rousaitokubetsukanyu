@@ -489,6 +489,7 @@ include('session_check.php');
               } else {
                $end = date('Y年3月末日', strtotime('+2 year'));               
               }
+              $end = date('Y年3月末日', strtotime('+1 year')); // 202301対応　あとで削除すること
              }
             ?>
             <div>

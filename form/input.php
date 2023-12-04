@@ -722,7 +722,15 @@ $(function () {
           <tr>
            <th>ご確認ください</th><th><span class="label req">必須</span></th>
            <td>
-            毎月払いの場合は、初回費用として4か月分をお支払いただき、5か月目から月々8,000円を口座振替にてお支払いただきます。<br>
+            <?php 
+             if(intval($_SESSION['kikan'])==1){
+              $kikan_m = 3;
+             } else {
+              $kikan_m = 4;
+             }
+             $kikan_m_next = $kikan_m + 1;
+            ?>
+            毎月払いの場合は、初回費用として<?php echo $kikan_m;?>か月分をお支払いただき、<?php echo $kikan_m_next;?>か月目から月々8,000円を口座振替にてお支払いただきます。<br>
             <label><input id="check_maitsuki" type="checkbox" name="check_maitsuki" value="1" required> 確認しました</label>
            </td>
           </tr>
