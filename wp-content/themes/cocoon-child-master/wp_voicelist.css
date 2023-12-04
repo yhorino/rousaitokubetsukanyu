@@ -1,0 +1,107 @@
+.voice_items_outer {
+ width: 1100px;
+ max-width: 100%;
+ margin: 0 auto 40px;
+}
+
+.voice_title img {
+ width: 146px;
+ display: block;
+ margin: 0 auto 20px;
+}
+
+.voice_items {
+ display: flex;
+ gap: 30px;
+ overflow: hidden;
+ overflow-x: scroll;
+ user-select: none;
+ cursor: grab;
+}
+
+.voice_item {
+ padding: 30px;
+ border: 1px solid #e4e4e4;
+ display: grid;
+ grid-template-columns: 1fr;
+ grid-template-rows: 96px 1em 1fr;
+ grid-row-gap: 10px;
+ text-align: left;
+ font-size: 18px;
+ 
+ width: 330px;
+ max-width: 100%;
+ flex: 0 0 330px;
+ box-sizing: border-box;
+}
+.voice_item img{
+ width: 100%;
+ pointer-events: none;
+}
+
+.voice_item_img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-width: 330px;
+}
+.voice_item_title {
+ font-size: 12px;
+ color: #22893B;
+}
+
+.voice_item_content p{
+ margin: 0;
+}
+
+.note {
+    background: linear-gradient(to bottom, transparent 1.4em, #e4e4e4 1.4em, #e4e4e4 1.45em, transparent 1.45em);
+    background-size: 100% 1.5em;
+    line-height: 1.5em;
+}
+
+@media screen and (max-width: 1100px) {
+ .voice_items{
+  padding: 0 20px;
+ }
+ .voice_item{
+  width: 80vw;
+  flex: 0 0 80vw;
+ }
+}
+
+/* Webkitブラウザ向けのスクロールバー */
+.voice_items_outer ::-webkit-scrollbar {
+  height: 6px; /* スクロールバーの幅 */
+}
+
+.voice_items_outer ::-webkit-scrollbar-thumb {
+ background-color: #aaccff; /* スクロールバーのつまみの色 */
+ border-radius: 6px; /* スクロールバーのつまみの角丸 */
+ opacity: 0.5;
+}
+
+.voice_items_outer ::-webkit-scrollbar-track {
+  background-color: #fafcff; /* スクロールバーの背景色 */
+ opacity: 0.5;
+}
+
+.voice_scroll_controller {
+ margin: 10px auto;
+ display: grid;
+ grid-template-columns: 2em 2em;
+ justify-content: center;
+ align-items: center;
+ grid-column-gap: 20px;
+}
+.voice_scroll_controller_button {
+ font-size: 20px;
+ cursor: pointer;
+ color: #aaccff;
+}
+
+@media screen and (max-width: 1100px) {
+ .voice_scroll_controller {
+  display: none;
+ }
+}
