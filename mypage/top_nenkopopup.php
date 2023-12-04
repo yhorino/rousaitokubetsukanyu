@@ -25,19 +25,22 @@
   }
   if($datetime > $current){
 ?>
+<link rel="stylesheet" href="<?php echo $TOP_PATH;?>button.css">
+
 <!-- https://www.sejuku.net/blog/104657 -->
  <!-- 年度更新のポップアップ -->
 <div class="popup_nenko" style="">
   <div class="content">
+   <div class="popup_nenko_x" id="popup_nenko_close">×</div>
    <div class="popup_nenko_title">継続手続き期間中です！</div>
    <div class="popup_nenko_body" id="popup_body1">
     <p class="popup_nenko_kigen"><?php echo $y;?><span class="ymd_ch">年</span><?php echo $m;?><span class="ymd_ch">月</span><?php echo $d;?><span class="ymd_ch">日</span>まで<br>あと、<span class="marker_yellow"><?php echo $kigen_days; ?><span class="ymd_ch">日</span></span></p>
     <p>継続手続きをする</p>
-    <p class="popup_nenko_buttonbox"><a href="#" class="popup_nenko_button_yes" id="popup_nenko_button_yes">する</a><a href="#" id="popup_nenko_close" class="popup_nenko_button_no">今はしない</a></p>
+    <p class="popup_nenko_buttonbox"><a href="#" class="popup_nenko_button_yes common_button" id="popup_nenko_button_yes">する</a><a href="#" id="popup_nenko_close2" class="popup_nenko_button_no common_button reverse noshadow">今はしない</a></p>
    </div>
    <div class="popup_nenko_body" id="popup_body2">
     <p class="">2023年<?php echo $kanyu_month;?>月～2023年12月の間に元請工事はありますか？</p>
-    <p class="popup_nenko_buttonbox2"><a href="https://www.kenpoke.com/nenko/trans.php?type=11&no=<?php echo $_SESSION['row']['jimuKaiinNo__c'];?>" class="popup_nenko_button_yes">元請工事はありません</a></p>
+    <p class="popup_nenko_buttonbox2"><a href="https://www.kenpoke.com/nenko/trans.php?type=11&no=<?php echo $_SESSION['row']['jimuKaiinNo__c'];?>" class="popup_nenko_button_yes common_button">元請工事はありません</a></p>
     <p class="popup_info">※ 万が一、元請工事をされている場合は、<a href="tel:0120855865">0120-855-865</a>にお電話ください。</p>
    </div>
   </div>
@@ -48,6 +51,9 @@ $(function(){
 $(".popup_nenko").fadeIn();
 $("#popup_body2").hide();
 $("#popup_nenko_close").on("click", function() {
+  $(".popup_nenko").fadeOut();
+});
+$("#popup_nenko_close2").on("click", function() {
   $(".popup_nenko").fadeOut();
 });
 $("#popup_nenko_button_yes").on("click", function() {
@@ -88,7 +94,7 @@ $("#popup_nenko_button_yes").on("click", function() {
  margin: 5px;
 }
 .popup_nenko_title{
- background-color: #318F39;
+ background-color: #E66700;
  border-radius: 5px 5px 0 0;
  color: #fff;
  font-size: clamp(16px, 5vw, 32px);
@@ -98,11 +104,11 @@ $("#popup_nenko_button_yes").on("click", function() {
 .popup_nenko_body{
  background-color: #fff;
  padding: 30px 95px 40px 95px;
- border: 2px solid #318F39;
+ border: 2px solid #E66700;
  border-radius: 0 0 5px 5px;
 }
 .popup_nenko_kigen{
- color: #318F39;
+ color: #E66700;
  font-size: clamp(18px, 5vw, 40px);
  padding-bottom: 30px;
 }
@@ -113,8 +119,18 @@ $("#popup_nenko_button_yes").on("click", function() {
  grid-column-gap: 20px;
  margin: 20px 0;
 }
+.popup_nenko_button_yes,
+.popup_nenko_button_no {
+ font-size: clamp(12px, 3vw, 18px);
+ line-height: 3em;
+}
+.popup_nenko_button_yes:after,
+.popup_nenko_button_no:after {
+ font-size: clamp(12px, 3vw, 18px);
+}
+/*
 .popup_nenko_buttonbox a {
- border: 1px solid #318F39;
+ border: 1px solid #E66700;
  line-height: 2em;
  text-decoration: none;
  padding: 10px;
@@ -122,13 +138,13 @@ $("#popup_nenko_button_yes").on("click", function() {
  border-radius: 30px;
 }
 .popup_nenko_button_yes{
- background-color: #318F39;
+ background-color: #E66700;
  color: #fff;
  position: relative;
 }
 .popup_nenko_button_no{
  background-color: #fff;
- color: #318F39;
+ color: #E66700;
  position: relative;
 }
 .popup_nenko_button_yes::after {
@@ -148,11 +164,12 @@ $("#popup_nenko_button_yes").on("click", function() {
  font-size: clamp(14px, 3vw, 20px);
  font-weight: 900;
  margin-right: 4px;
- color: #318F39;
+ color: #E66700;
  position: absolute;
  top: 20%;
  right: 5%;
 }
+   */
 .marker_yellow {
  background: linear-gradient(transparent 80%, #ffff66 80%, #ffff66 90%,transparent 90%);
 }
@@ -167,7 +184,7 @@ $("#popup_nenko_button_yes").on("click", function() {
  margin: 20px 0;
 }
 .popup_nenko_buttonbox2 a {
- border: 1px solid #318F39;
+ border: 1px solid #E66700;
  line-height: 2em;
  text-decoration: none;
  padding: 10px;
@@ -191,6 +208,14 @@ $("#popup_nenko_button_yes").on("click", function() {
   padding: 20px 20px 20px 20px;
  }
 }
+   
+.popup_nenko_x {
+    position: absolute;
+    right: 5px;
+    top: -1.5em;
+    color: #ccc;
+    cursor: pointer;
+}   
   </style>
   <!-- https://www.sejuku.net/blog/104657 -->
  <?php } ?>

@@ -1,0 +1,44 @@
+/* CSS Document */
+
+.common_button {
+    display: flex;
+    padding: 0;
+    background-color: #E66700;
+    color: #fff!important;
+    border-radius: clamp(28px, 8vw, 56px);
+    position: relative;
+    cursor: pointer;
+    font-size: clamp(22px, 5vw, 32px);
+    box-shadow: 0px 5px 0px 0px #AB4E03;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    line-height: 3em;
+ border: 2px solid #E66700;
+}
+.common_button.reverse {
+ color: #E66700!important;
+ background-color: #fff!important;
+}
+.common_button.noshadow {
+    box-shadow: none;
+}
+.common_button:after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f054';
+    font-size: clamp(18px, 4vw, 25px);
+    font-weight: 900;
+    color: #fff;
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    -webkit-transform: translate(0%, -50%);
+    -ms-transform: translate(0%, -50%);
+}
+.common_button.reverse:after {
+ color: #E66700!important;
+}
+
+
