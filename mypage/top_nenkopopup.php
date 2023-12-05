@@ -16,6 +16,10 @@
   $y = $datetime->format('Y');
   $m = $datetime->format('m');
   $d = $datetime->format('d');
+  $day_of_week = $datetime->format('N');
+  $days_in_japanese = ['月', '火', '水', '木', '金', '土', '日'];
+  $day_of_week_japanese = $days_in_japanese[$day_of_week - 1];
+  
   $kigen_days = $diff->days+1;
   $kanyu_year = intval(date('Y', strtotime($_SESSION['row']['Kanyudate__c'])));
   if($kanyu_year < 2023){
@@ -34,7 +38,7 @@
    <div class="popup_nenko_x" id="popup_nenko_close">×</div>
    <div class="popup_nenko_title">継続手続き期間中です！</div>
    <div class="popup_nenko_body" id="popup_body1">
-    <p class="popup_nenko_kigen"><?php echo $y;?><span class="ymd_ch">年</span><?php echo $m;?><span class="ymd_ch">月</span><?php echo $d;?><span class="ymd_ch">日</span>まで<br>あと、<span class="marker_yellow"><?php echo $kigen_days; ?><span class="ymd_ch">日</span></span></p>
+    <p class="popup_nenko_kigen"><?php echo $y;?><span class="ymd_ch">年</span><?php echo $m;?><span class="ymd_ch">月</span><?php echo $d;?><span class="ymd_ch">日(<?php echo $day_of_week_japanese;?>)</span>まで<br>あと、<span class="marker_yellow"><?php echo $kigen_days; ?><span class="ymd_ch">日</span></span></p>
     <p>継続手続きをする</p>
     <p class="popup_nenko_buttonbox"><a href="#" class="popup_nenko_button_yes common_button" id="popup_nenko_button_yes">する</a><a href="#" id="popup_nenko_close2" class="popup_nenko_button_no common_button reverse noshadow">今はしない</a></p>
    </div>
