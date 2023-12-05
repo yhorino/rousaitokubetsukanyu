@@ -628,15 +628,15 @@ $(function(){
   
   $('input[name="youzai"]').click(function(){
    $sel = $('input[name="youzai"]:checked').val();
-   $('#mb_shiharai_kaisu').show();
+   //$('#mb_shiharai_kaisu').show();
    $('#youzai_next').hide();
-   $('#shiharai_kaisu1').prop('checked', false);
-   $('#shiharai_kaisu2').prop('checked', false);
+   //$('#shiharai_kaisu1').prop('checked', false);
+   //$('#shiharai_kaisu2').prop('checked', false);
    if($sel == 'はい'){
-    $('#mb_shiharai_kaisu').hide();
+    //$('#mb_shiharai_kaisu').hide();
     $('#youzai_next').show();
-    $('#shiharai_kaisu1').prop('checked', false);
-    $('#shiharai_kaisu2').prop('checked', true);
+    //$('#shiharai_kaisu1').prop('checked', false);
+    //$('#shiharai_kaisu2').prop('checked', true);
    }
    jouken_selchange();
   });
