@@ -114,7 +114,7 @@ include('session_check.php');
         <input type="hidden" id="city" name="city" value = "<?php echo $_SESSION['city'];?>">
         <input type="hidden" id="address" name="address" value = "<?php echo $_SESSION['address'];?>">
         <input type="hidden" id="address2" name="address2" value = "<?php echo $_SESSION['address2'];?>">
-        <input type="hidden" id="apart" name="apart" value = "">
+        <input type="hidden" id="apart" name="apart" value = "<?php echo $_SESSION['apart'];?>">
         
         <input type="hidden" id="denwabangou" name="denwabangou" value = "<?php echo $_SESSION['denwabangou'];?>">
         <input type="hidden" id="faxbangou" name="faxbangou" value = "<?php echo $_SESSION['faxbangou'];?>">
