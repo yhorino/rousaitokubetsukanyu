@@ -825,6 +825,8 @@ $(function(){
   });
   /* 20230302 従業員雇っているか？ */
   $('input[name="motouke"]').click(function(){
+    show_tanin(); // 20231206 どちらでもOKにする
+   /*
    const val_yes = 1;
    const val_no = -1;
    const selected_val = $('input[name="motouke"]:checked').val();
@@ -835,6 +837,7 @@ $(function(){
    } else {
     init_mitsumori_start();
    }
+   */
   });
 	});
 
