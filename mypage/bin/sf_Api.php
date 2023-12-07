@@ -25,7 +25,7 @@ function getNendkoshinId_NoMoshikomiuketsuke($kaisya_no){
 
   $_nendo = NENDO;
   $returns = array();
-  $query = "SELECT ID, Name FROM nendokoshin__c WHERE dairimadokuchikaishabango__c = '$kaisya_no' AND dairishinchokujokyo__c = '' AND Nendo__c = '$_nendo'";
+  $query = "SELECT ID, Name, dairinyukinshubetsu__c FROM nendokoshin__c WHERE dairimadokuchikaishabango__c = '$kaisya_no' AND dairishinchokujokyo__c = '' AND Nendo__c = '$_nendo'";
   try {
     $response = $_con->query($query);
 

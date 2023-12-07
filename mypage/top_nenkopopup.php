@@ -1,15 +1,30 @@
 
 <?php 
+ function isTypeBank($type){
+  if($type == '銀行振込') return true;
+  else return false;
+ }
+ function isTypeFurikomi($type){
+  $_type = mb_substr($type, 0, 4);
+  if($_type == '口座振替') return true;
+  else return false;
+ }
+
  require_once($_SERVER['DOCUMENT_ROOT'].'/mypage/bin/sf_Api.php');
  sf_login();
 
 // 年更SFから取引先データ取得
  $result = null;
  $result = (array)getNendkoshinId_NoMoshikomiuketsuke($_SESSION['row']['jimuKaiinNo__c']);
+ $row_nenko = (array)$result['fields'];
 
  sf_logout();
 
  if(isset($result['Id'])){
+ // 最初は振込の場合のみポップアップ表示
+ // 振込受付完了したら銀振受付に切り替える
+ if(isTypeFurikomi($row_nenko['dairinyukinshubetsu__c'])) {
+ //if(isTypeBank($row__nenko['dairinyukinshubetsu__c'])) {
   $datetime = new DateTime('2024/01/19 23:59:59');
   $current  = new DateTime('now');
   $diff     = $current->diff($datetime);
@@ -222,5 +237,6 @@ $("#popup_nenko_button_yes").on("click", function() {
 }   
   </style>
   <!-- https://www.sejuku.net/blog/104657 -->
+ <?php } ?>
  <?php } ?>
  <?php } ?>
