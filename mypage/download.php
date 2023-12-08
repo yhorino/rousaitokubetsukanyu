@@ -541,19 +541,19 @@ function outputPDF_kakuninjikou(){
  doc_content.push({text: '', pageBreak: 'before'});
  doc_content.push(     
      {
-      text: zth(y), absolutePosition:{x:65,y:379}, fontSize: 10
+      text: zth(y), absolutePosition:{x:57,y:436}, fontSize: 10
      },
      {
-      text: zth(m), absolutePosition:{x:105,y:379}, fontSize: 10
+      text: zth(m), absolutePosition:{x:96,y:436}, fontSize: 10
      },
      {
-      text: zth(d), absolutePosition:{x:130,y:379}, fontSize: 10
+      text: zth(d), absolutePosition:{x:121,y:436}, fontSize: 10
      },
      {
-      text: zth(KaisyaName), absolutePosition:{x:340,y:393}, fontSize: 10
+      text: zth(KaisyaName), absolutePosition:{x:340,y:449}, fontSize: 10
      },
      {
-      text: zth(Daihyosyaname), absolutePosition:{x:340,y:408}, fontSize: 10
+      text: zth(Daihyosyaname), absolutePosition:{x:340,y:464}, fontSize: 10
      },
   );
  
