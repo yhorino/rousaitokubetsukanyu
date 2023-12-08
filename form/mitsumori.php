@@ -628,15 +628,15 @@ $(function(){
   
   $('input[name="youzai"]').click(function(){
    $sel = $('input[name="youzai"]:checked').val();
-   $('#mb_shiharai_kaisu').show();
+   //$('#mb_shiharai_kaisu').show();
    $('#youzai_next').hide();
-   $('#shiharai_kaisu1').prop('checked', false);
-   $('#shiharai_kaisu2').prop('checked', false);
+   //$('#shiharai_kaisu1').prop('checked', false);
+   //$('#shiharai_kaisu2').prop('checked', false);
    if($sel == 'はい'){
-    $('#mb_shiharai_kaisu').hide();
+    //$('#mb_shiharai_kaisu').hide();
     $('#youzai_next').show();
-    $('#shiharai_kaisu1').prop('checked', false);
-    $('#shiharai_kaisu2').prop('checked', true);
+    //$('#shiharai_kaisu1').prop('checked', false);
+    //$('#shiharai_kaisu2').prop('checked', true);
    }
    jouken_selchange();
   });
@@ -825,6 +825,8 @@ $(function(){
   });
   /* 20230302 従業員雇っているか？ */
   $('input[name="motouke"]').click(function(){
+    show_tanin(); // 20231206 どちらでもOKにする
+   /*
    const val_yes = 1;
    const val_no = -1;
    const selected_val = $('input[name="motouke"]:checked').val();
@@ -835,6 +837,7 @@ $(function(){
    } else {
     init_mitsumori_start();
    }
+   */
   });
 	});
 

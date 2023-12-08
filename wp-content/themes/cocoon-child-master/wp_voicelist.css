@@ -105,3 +105,13 @@
   display: none;
  }
 }
+
+.voice_item_title {
+ font-size: 17px;
+ line-height: 30px;
+ font-weight: bold;
+}
+
+.voice_item{
+ grid-template-rows: 96px 30px 1fr;
+}
