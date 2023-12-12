@@ -199,6 +199,10 @@ include('session_check.php');
         <input type="hidden" id="shiharaibi" name="shiharaibi" value = "<?php echo $_SESSION['shiharaibi'];?>">
         <?php /* 20230206 給与支払日項目追加 */ ?>
 
+        <input type="hidden" id="motouke" name="motouke" value = "<?php echo $_SESSION['motouke'];?>">
+        <input type="hidden" id="motouke_kingaku" name="motouke_kingaku" value = "<?php echo $_SESSION['motouke_kingaku'];?>">
+        <input type="hidden" id="motouke_kensu" name="motouke_kensu" value = "<?php echo $_SESSION['motouke_kensu'];?>">
+     
         <h1 class="mitsumori-ttl">お申込み内容のご確認</h1>
         <section class="mitsumori">
           <div class="mitsumori-inner">
