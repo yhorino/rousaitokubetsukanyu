@@ -36,7 +36,7 @@ $detect = new Mobile_Detect;
 */
 
 // 各ページから遷移したときに全てのPOST項目をSESSIONに保存する
-   $params = array('type','shiharai','jugyouin', 'jugyouinninzu','nitigaku','kikan','jigyou','ninzu','sougaku','kaihi','sougaku_cp','kaihi_cp','kaisyamei','kaisyamei_furi','juusyo','juusyo_furi','zip','pref','city','address','address2','apart','daihyosyamei','daihyosyamei_sei','daihyosyamei_mei','daihyosyamei_furi','daihyosyamei_furi_sei','daihyosyamei_furi_mei','tantousyamei','tantousyamei_sei','tantousyamei_mei','tantousyamei_furi','tantousyamei_furi_sei','tantousyamei_furi_mei','denwabangou','faxbangou','mail','emailchk','daihyomobile','tantoumobile','kanyusyamei1','kanyusyamei_sei1','kanyusyamei_mei1','kanyusyamei_furi1','kanyusyamei_furi_sei1','kanyusyamei_furi_mei1','wareki1','birthday_y1','birthday_m1','birthday_d1','funjin1','funjin_naiyou1','shindou1','shindou_naiyou1','namari1','namari_naiyou1','youzai1','youzai_naiyou1','youzai_itukara_y1','youzai_itukara_m1','jimuKanyuOyakatadantai1','denwabangou1','kanyusyamei2','kanyusyamei_sei2','kanyusyamei_mei2','kanyusyamei_furi2','kanyusyamei_furi_sei2','kanyusyamei_furi_mei2','wareki2','birthday_y2','birthday_m2','birthday_d2','funjin2','funjin_naiyou2','shindou2','shindou_naiyou2','namari2','namari_naiyou2','youzai2','youzai_naiyou2','youzai_itukara_y2','youzai_itukara_m2','jimuKanyuOyakatadantai2','denwabangou2','kanyusyamei3','kanyusyamei_sei3','kanyusyamei_mei3','kanyusyamei_furi3','kanyusyamei_furi_sei3','kanyusyamei_furi_mei3','wareki3','birthday_y3','birthday_m3','birthday_d3','funjin3','funjin_naiyou3','shindou3','shindou_naiyou3','namari3','namari_naiyou3','youzai3','youzai_naiyou3','youzai_itukara_y3','youzai_itukara_m3','jimuKanyuOyakatadantai3','denwabangou3','kanyusyamei4','kanyusyamei_sei4','kanyusyamei_mei4','kanyusyamei_furi4','kanyusyamei_furi_sei4','kanyusyamei_furi_mei4','wareki4','birthday_y4','birthday_m4','birthday_d4','funjin4','funjin_naiyou4','shindou4','shindou_naiyou4','namari4','namari_naiyou4','youzai4','youzai_naiyou4','youzai_itukara_y4','youzai_itukara_m4','jimuKanyuOyakatadantai4','denwabangou4','kanyusyamei5','kanyusyamei_sei5','kanyusyamei_mei5','kanyusyamei_furi5','kanyusyamei_furi_sei5','kanyusyamei_furi_mei5','wareki5','birthday_y5','birthday_m5','birthday_d5','funjin5','funjin_naiyou5','shindou5','shindou_naiyou5','namari5','namari_naiyou5','youzai5','youzai_naiyou5','youzai_itukara_y5','youzai_itukara_m5','jimuKanyuOyakatadantai5','denwabangou5','daihyosyayakusyoku','tantousyayakusyoku','jimuGyousyuBangou__c','file_rirekisyo','file_kakutei','file_tutyo_omote','file_tutyo_ura','file_menkyo_omote_1','file_menkyo_omote_2','file_menkyo_omote_3','file_menkyo_omote_4','file_menkyo_omote_5','file_menkyo_ura_1','file_menkyo_ura_2','file_menkyo_ura_3','file_menkyo_ura_4','file_menkyo_ura_5','f_num','i','RJC_kantan__c','RJC_anshin__c','','RJC_hayasa__c','RJC_from__c','RJC_from_sonota__c','RJC_why__c','RJC_why_sonota__c','tokubetsukanyu_why__c','tokubetsukanyu_why_sonota__c','have_kyoka__c','join_koyouhoken__c','jyugyouin_ninzu__c', 'SNS_WEB__c','SNS_WEB_sonota__c','kouji_newold','tukuri','kanyu_kikan','maitsuki_kaihi','kikane','fromSyokaiCupon__c','syoukai_kaisya_id','SyoukoukaiKaiin__c','CellsNo__c', 'Previd__c','nyukaikin_camp_wari','camp_kaihi_wari','nyukaikin','motouke','jyugyouin_yatoi', 'youzai', 'youzai_naiyou', 'youzai_itukara_y', 'youzai_itukara_m','shimebi','shiharaibi_month','shiharaibi', 'hokenryo', 'hokenryo1', 'hokenryo2', 'card_hiyou','shiharai_kaisu');
+   $params = array('type','shiharai','jugyouin', 'jugyouinninzu','nitigaku','kikan','jigyou','ninzu','sougaku','kaihi','sougaku_cp','kaihi_cp','kaisyamei','kaisyamei_furi','juusyo','juusyo_furi','zip','pref','city','address','address2','apart','daihyosyamei','daihyosyamei_sei','daihyosyamei_mei','daihyosyamei_furi','daihyosyamei_furi_sei','daihyosyamei_furi_mei','tantousyamei','tantousyamei_sei','tantousyamei_mei','tantousyamei_furi','tantousyamei_furi_sei','tantousyamei_furi_mei','denwabangou','faxbangou','mail','emailchk','daihyomobile','tantoumobile','kanyusyamei1','kanyusyamei_sei1','kanyusyamei_mei1','kanyusyamei_furi1','kanyusyamei_furi_sei1','kanyusyamei_furi_mei1','wareki1','birthday_y1','birthday_m1','birthday_d1','funjin1','funjin_naiyou1','shindou1','shindou_naiyou1','namari1','namari_naiyou1','youzai1','youzai_naiyou1','youzai_itukara_y1','youzai_itukara_m1','jimuKanyuOyakatadantai1','denwabangou1','kanyusyamei2','kanyusyamei_sei2','kanyusyamei_mei2','kanyusyamei_furi2','kanyusyamei_furi_sei2','kanyusyamei_furi_mei2','wareki2','birthday_y2','birthday_m2','birthday_d2','funjin2','funjin_naiyou2','shindou2','shindou_naiyou2','namari2','namari_naiyou2','youzai2','youzai_naiyou2','youzai_itukara_y2','youzai_itukara_m2','jimuKanyuOyakatadantai2','denwabangou2','kanyusyamei3','kanyusyamei_sei3','kanyusyamei_mei3','kanyusyamei_furi3','kanyusyamei_furi_sei3','kanyusyamei_furi_mei3','wareki3','birthday_y3','birthday_m3','birthday_d3','funjin3','funjin_naiyou3','shindou3','shindou_naiyou3','namari3','namari_naiyou3','youzai3','youzai_naiyou3','youzai_itukara_y3','youzai_itukara_m3','jimuKanyuOyakatadantai3','denwabangou3','kanyusyamei4','kanyusyamei_sei4','kanyusyamei_mei4','kanyusyamei_furi4','kanyusyamei_furi_sei4','kanyusyamei_furi_mei4','wareki4','birthday_y4','birthday_m4','birthday_d4','funjin4','funjin_naiyou4','shindou4','shindou_naiyou4','namari4','namari_naiyou4','youzai4','youzai_naiyou4','youzai_itukara_y4','youzai_itukara_m4','jimuKanyuOyakatadantai4','denwabangou4','kanyusyamei5','kanyusyamei_sei5','kanyusyamei_mei5','kanyusyamei_furi5','kanyusyamei_furi_sei5','kanyusyamei_furi_mei5','wareki5','birthday_y5','birthday_m5','birthday_d5','funjin5','funjin_naiyou5','shindou5','shindou_naiyou5','namari5','namari_naiyou5','youzai5','youzai_naiyou5','youzai_itukara_y5','youzai_itukara_m5','jimuKanyuOyakatadantai5','denwabangou5','daihyosyayakusyoku','tantousyayakusyoku','jimuGyousyuBangou__c','file_rirekisyo','file_kakutei','file_tutyo_omote','file_tutyo_ura','file_menkyo_omote_1','file_menkyo_omote_2','file_menkyo_omote_3','file_menkyo_omote_4','file_menkyo_omote_5','file_menkyo_ura_1','file_menkyo_ura_2','file_menkyo_ura_3','file_menkyo_ura_4','file_menkyo_ura_5','f_num','i','RJC_kantan__c','RJC_anshin__c','','RJC_hayasa__c','RJC_from__c','RJC_from_sonota__c','RJC_why__c','RJC_why_sonota__c','tokubetsukanyu_why__c','tokubetsukanyu_why_sonota__c','have_kyoka__c','join_koyouhoken__c','jyugyouin_ninzu__c', 'SNS_WEB__c','SNS_WEB_sonota__c','kouji_newold','tukuri','kanyu_kikan','maitsuki_kaihi','kikane','fromSyokaiCupon__c','syoukai_kaisya_id','SyoukoukaiKaiin__c','CellsNo__c', 'Previd__c','nyukaikin_camp_wari','camp_kaihi_wari','nyukaikin','motouke','jyugyouin_yatoi', 'youzai', 'youzai_naiyou', 'youzai_itukara_y', 'youzai_itukara_m','shimebi','shiharaibi_month','shiharaibi', 'hokenryo', 'hokenryo1', 'hokenryo2', 'card_hiyou','shiharai_kaisu','motouke_kingaku','motouke_kensu');
    // データを取得する ＋ 必須入力のvalidate
    foreach($params as $p) {
        if(isset($_POST[$p])){
@@ -341,6 +341,20 @@ if($items['shiharai_kaisu'] == '毎月払い'){
  $KanyuType__c = $items['shiharai_kaisu']; 
 }
  
+$motouke = '';
+$motouke_kingaku = 10;
+$motouke_kensu = 0;
+if($items['motouke']=='1'){
+$motouke = 'はい';
+$motouke_kingaku = $items['motouke_kingaku'];
+$motouke_kensu = $items['motouke_kensu'];
+}
+if($items['motouke']=='-1'){
+ $motouke = 'いいえ';
+ $motouke_kingaku = 10;
+ $motouke_kensu = 0;
+}
+ 
 $fields = array(
 // Salesforceへのパラメーター
 'orgid' => $oid,
@@ -412,6 +426,9 @@ $fields = array(
 'shimebi__c'=>urlencode($items['shimebi']),
 'shiharaibi__c'=>urlencode($items['kyuyoshiharaibi']),
 'Kanyumankibi__c'=>urlencode($items['kanyumankibi']),
+'motoukekouji_ari__c'=>urlencode($motouke),
+'motoukekouji_kingaku__c'=>urlencode($motouke_kingaku),
+'motoukekouji_kensu__c'=>urlencode($motouke_kensu),
  
 //'debug' => '1',
 //'debugEmail' => urlencode("xxx@xxxx"),
