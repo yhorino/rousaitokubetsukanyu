@@ -107,26 +107,6 @@ setcookie('norikae', '0', 0, '/');
         
       <div class="mitsumori-block-flex">
        <div class="mitsumori-block">
-        <h2 class="mitsumori-subttl"><span class="st_orange">元請工事</span>はありますか？</h2>
-         <ul class="mitsumori-list">
-           <li>
-             <input id="motouke2" type="radio" name="motouke" value="-1">
-             <label for="motouke2"><span>いいえ</span></label>
-           </li>
-           <li>
-             <input id="motouke1" type="radio" name="motouke" value="1">
-             <label for="motouke1"><span>はい</span></label>
-           </li>
-           <li class="motouke_msg">
-            <p class="motouke_msg_info">当組合ではご加入いただけません。</p>
-            <a href="/" class="totop_button">トップページへ</a>
-           </li>
-         </ul>
-       </div>
-      </div><!-- mitsumori-block-flex -->
-        
-      <div class="mitsumori-block-flex second_block">
-       <div class="mitsumori-block">
         <h2 class="mitsumori-subttl"><span class="st_orange">赤の他人</span>を雇っていますか？</h2>
          <ul class="mitsumori-list">
            <li>
@@ -447,6 +427,42 @@ setcookie('norikae', '0', 0, '/');
             </div>
            </div>
            
+           <div class="mitsumori-block-flex">
+            <div class="mitsumori-block">
+             <h2 class="mitsumori-subttl"><span class="st_orange">元請工事</span>はありますか？</h2>
+              <ul class="mitsumori-list">
+                <li>
+                  <input id="motouke2" type="radio" name="motouke" value="-1">
+                  <label for="motouke2"><span>いいえ</span></label>
+                </li>
+                <li>
+                  <input id="motouke1" type="radio" name="motouke" value="1">
+                  <label for="motouke1"><span>はい</span></label>
+                </li>
+              </ul>
+              <a class="popup_link show_sp hide_pc" onclick="popup('#msg5');">元請工事とは？</a>
+             
+             <div id="motouke_input" class="motouke_input">
+              <h3 class="motouke_input_title">1年間の元請工事について教えてください</h3>
+              <div class="motouke_input_box">
+               <h4 class="motouke_input_box_title"><span class="motouke_input_no">1</span> 元請工事の請負金額</h4>
+               <span class="motouke_input_item">だいたい <input id="motouke_kingaku" type="tel" name="motouke_kingaku"> 万円</span>
+              </div>
+              <div class="motouke_input_box">
+               <h4 class="motouke_input_box_title"><span class="motouke_input_no">2</span> 元請工事の件数</h4>
+               <span class="motouke_input_item">だいたい <input id="motouke_kensu" type="tel" name="motouke_kensu"> 件</span>
+              </div>
+             </div>
+            </div>
+            <div id="msg5">
+            <div class="mitsumori-block2">
+             <p class="q_title">元請工事とは？</p>
+             <p class="q_text">施主から直接仕事を請けるのが、「元請工事」です。<br>どこかの会社を経由して請けた場合は「下請工事」となります。 </p>
+             <a class="close_btn show_sp hide_pc" onclick="popup_close('#msg5');">閉じる</a>
+            </div>
+            </div>
+           </div><!-- mitsumori-block-flex -->
+
            <input type="hidden" name="jimuGyousyuBangou__c" value="">
            <input id="kikane2" type="hidden" name="kikane" value="0">
 
@@ -675,6 +691,12 @@ $(function(){
   $('input[name="kanyu_kikan"]').click(function(){
    jouken_selchange();
   });
+  $('input[name="motouke"]').click(function(){
+   jouken_selchange();
+  });
+  $('input[name="motouke_kingaku"]').change(function(){
+   jouken_selchange();
+  });
   $('input[name="kouji_newold"]').click(function(){
    $roumu_sel = $('input[name="jigyou"]:checked').val();
    $kouji_newold_sel = $('input[name="kouji_newold"]:checked').val();
@@ -785,12 +807,12 @@ $(function(){
    $('.mitsumori').hide();
    $('.to_oyakata').hide();
    $('.mitsumori-block-flex.second_block').hide();
-   $('.motouke_msg').hide();
+   //$('.motouke_msg').hide();
   }
   function show_mitsumori(){
    $('.mitsumori').show();
    $('.to_oyakata').hide();
-   $('.motouke_msg').hide();
+   //$('.motouke_msg').hide();
   }
   function show_to_oyakata(){
    $('.mitsumori').hide();
@@ -800,13 +822,7 @@ $(function(){
    $('.mitsumori-block-flex.second_block').show();
    $('.to_oyakata').hide();
    $('.mitsumori').hide();
-   $('.motouke_msg').hide();
-  }
-  function show_motouke_msg(){
-   $('.mitsumori-block-flex.second_block').hide();
-   $('.to_oyakata').hide();
-   $('.motouke_msg').show();
-   $('.mitsumori').hide();
+   //$('.motouke_msg').hide();
   }
   
   init_mitsumori_start();
@@ -825,21 +841,23 @@ $(function(){
   });
   /* 20230302 従業員雇っているか？ */
   $('input[name="motouke"]').click(function(){
-    show_tanin(); // 20231206 どちらでもOKにする
-   /*
    const val_yes = 1;
    const val_no = -1;
    const selected_val = $('input[name="motouke"]:checked').val();
    if(selected_val == val_yes){
-    show_motouke_msg();
+    show_motouke_input();
    } else if(selected_val == val_no){
-    show_tanin();
-   } else {
-    init_mitsumori_start();
+    hide_motouke_input();
    }
-   */
   });
 	});
+ function show_motouke_input(){
+  $('#motouke_input').show();
+ }
+ function hide_motouke_input(){
+  $('#motouke_input').hide();
+ }
+ hide_motouke_input();
 
  function browser(){
    var userAgent = window.navigator.userAgent.toLowerCase();
@@ -865,8 +883,6 @@ $(function(){
   $('#input_sec').hide();
   $('input[name="jimuGyousyuBangou__c"]').val("0");
   
-  const $motouke_kingaku = 100000;
-
   const $nyukaikin = 10000;
   const $hokenryo = calc_hokenryo();
   const $kaihi = calc_kaihi();
@@ -1077,9 +1093,14 @@ console.log('card_hiyou:'+$card_hiyou);
 
    let $ret = 0;
   
+   let $_motouke_kingaku = 100000;
+   if($('input[name="motouke"]:checked').val()=='1'){
+    $_motouke_kingaku = parseInt($('input[name="motouke_kingaku"]').val())*10000;
+    if($_motouke_kingaku < 100000) {$_motouke_kingaku = 100000;}
+   }
+console.log('motouke_kingaku='+$_motouke_kingaku);
    const $_kanyutuki = $('input[name="kikan"]:checked').val();
    const $_nitigaku = $('input[name="nitigaku"]:checked').val();
-   const $_motouke_kingaku = 100000;
    const $_roumu_val = calc_roumu_val();
    const $_tmp_a = ($_motouke_kingaku * roumu_hiritu[$_roumu_val]) / 1000;
    const $_ninzu = $('input[name="ninzu"]:checked').val();
