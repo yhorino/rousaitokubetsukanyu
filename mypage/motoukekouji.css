@@ -1,0 +1,147 @@
+.motoukekouji_table_outer {
+ width: 100%;
+ overflow-x: auto;
+}
+.motoukekouji_table {
+ width: 1000px;
+ height: 250px;
+ overflow-y: auto;
+ border-top: 1px solid #707070;
+ border-bottom: 1px solid #707070;
+ border-right: 1px solid #707070;
+ display: block;
+ border-collapse: collapse;
+ background-color: #fff;
+ table-layout: fixed;
+}
+.motoukekouji_table th {
+ position: sticky;
+ top: 0;
+ left: 0;
+ background-color: #F9B830;
+ padding: 3px 0;
+ border: 1px solid #707070;
+ border-top: none;
+}
+.motoukekouji_table td {
+ border: 1px solid #707070;
+ padding: 3px 0.5em;
+}
+.motoukekouji_table tr:last-child td {
+ border-bottom: none;
+}
+.print_checkbox_td {
+ text-align: center;
+ line-height: 1em;
+}
+.number_td {
+ text-align: right;
+}
+.edit_button_td{
+ text-align: center;
+ line-height: 1em; 
+}
+
+.th_print {
+ width: 50px;
+}
+.th_kikan {
+ width: 140px;
+}
+.th_type {
+ width: 270px;
+}
+.th_address {
+ width: 140px;
+}
+.th_kingaku {
+ width: 140px;
+}
+.th_hokenryo {
+ width: 140px;
+}
+.th_edit {
+ width: 100px;
+}
+
+.mk_button {
+ display: inline-block;
+ padding: 10px 1em;
+ border: 1px solid #707070;
+ background-color: #EBF4FC;
+ text-decoration: none;
+ cursor: pointer;
+ font-size: 0.8em;
+ line-height: 1em;
+}
+.button_box {
+ margin-bottom: 20px;
+ display: flex;
+ gap: 15px;
+}
+.print_checkbox {
+ width: 25px;
+ height: 25px;
+ cursor: pointer;
+}
+
+
+
+
+
+.motoukekouji_input_outer {
+ background-color: #EBECED;
+ padding: 30px 40px;
+}
+.mk_submit_button {
+ margin: 40px auto 0 auto!important;
+}
+.motoukekouji_inputitem {
+ display: grid;
+ grid-template-columns: 220px 1fr;
+ gap: 10px;
+ align-items: center;
+}
+.motoukekouji_inputitem_title {
+ width: 220px;
+ display: inline-block;
+ background-color: #F9B830;
+ padding: 5px;
+}
+.motoukekouji_inputitems {
+ display: grid;
+ gap: 10px;
+}
+.motoukekouji_inputitem_box input, .motoukekouji_inputitem_box select {
+ padding: 5px;
+}
+.fixsize_inputitem {
+ width: 290px;
+ max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+ .motoukekouji_input_outer {
+  padding: 20px 15px;
+ }
+ .motoukekouji_inputitems {
+  grid-template-columns: 1fr;
+  gap: 20px;
+ }
+ .motoukekouji_inputitem {
+  grid-template-columns: 1fr;
+ }
+ .motoukekouji_inputitem_title {
+  width: 100%;
+ }
+ .motoukekouji_inputitem_box {
+  width: 100%;
+ }
+ .fixsize_inputitem {
+  width: 100%;
+ }
+ .fixsize_inputitem.kingakuitem {
+  width: calc(100% - 7em);
+ }
+}
+

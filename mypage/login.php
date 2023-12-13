@@ -115,6 +115,7 @@ require_once("bin/sf_Api.php");
  unset($_SESSION['row']);
  $_SESSION['auth']['id'] = $user_input_data['id'];
  $_SESSION['row'] = (array)$result2['fields'];
+ $_SESSION['row']['Id'] = $result2['Id'];
  $r1 = (array)$result_kaiin[0];
  unset($_SESSION['row_kaiin1']);
  $_SESSION['row_kaiin1'] = (array)$r1['fields'];
