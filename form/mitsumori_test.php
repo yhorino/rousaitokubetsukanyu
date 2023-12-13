@@ -1096,6 +1096,7 @@ console.log('card_hiyou:'+$card_hiyou);
    let $_motouke_kingaku = 100000;
    if($('input[name="motouke"]:checked').val()=='1'){
     $_motouke_kingaku = parseInt($('input[name="motouke_kingaku"]').val())*10000;
+    if($_motouke_kingaku < 100000) {$_motouke_kingaku = 100000;}
    }
 console.log('motouke_kingaku='+$_motouke_kingaku);
    const $_kanyutuki = $('input[name="kikan"]:checked').val();
