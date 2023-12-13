@@ -23,7 +23,7 @@
  if(isset($result['Id'])){
  // 最初は振込の場合のみポップアップ表示
  // 振込受付完了したら銀振受付に切り替える
-// if(isTypeFurikomi($row_nenko['dairinyukinshubetsu__c'])) {
+ if(isTypeFurikomi($row_nenko['dairinyukinshubetsu__c'])) {
  //if(isTypeBank($row__nenko['dairinyukinshubetsu__c'])) {
   $datetime = new DateTime('2024/01/19 23:59:59');
   $current  = new DateTime('now');
@@ -237,6 +237,6 @@ $("#popup_nenko_button_yes").on("click", function() {
 }   
   </style>
   <!-- https://www.sejuku.net/blog/104657 -->
- <?php /*}*/ ?>
+ <?php } ?>
  <?php } ?>
  <?php } ?>
