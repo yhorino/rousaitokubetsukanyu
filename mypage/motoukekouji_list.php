@@ -56,7 +56,7 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
 	
  <div class="button_box">
   <?php if($motoukekouji_array_data->MotoukekoujiDataNum() > 0){ ?>
-  <a class="button_print mk_button">チェックした工事を印刷</a>
+  <a class="button_print mk_button" onclick="window.print();">チェックした工事を印刷</a>
   <?php } ?>
   <a href="motoukekouji_input.php" class="button_new mk_button">新規登録</a>
  </div>
@@ -65,23 +65,23 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
  <div class="motoukekouji_table_outer">
  <table class="motoukekouji_table">
   <tr>
-   <th class="th_print">印刷</th>
+   <th class="th_print noprint">印刷</th>
    <th class="th_kikan">工事の期間</th>
    <th class="th_type">工事の種類</th>
    <th class="th_address">現場の住所</th>
    <th class="th_kingaku">請負金額（税別）</th>
    <th class="th_hokenryo">労災保険料</th>
-   <th class="th_edit">登録情報</th>
+   <th class="th_edit noprint">登録情報</th>
   </tr>
   <?php for($i=0;$i<$motoukekouji_array_data->MotoukekoujiDataNum();$i++){ ?>
-  <tr>
-   <td class="print_checkbox_td"><input type="checkbox" name="print<?php echo $i;?>" class="print_checkbox"></td>
+  <tr class="noprint">
+   <td class="print_checkbox_td noprint"><input type="checkbox" name="print<?php echo $i;?>" class="print_checkbox"></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiKikan();?></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiType();?></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiAddress();?></td>
-   <td class="number_td"><?php echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiKingaku());?> 円</td>
-   <td class="number_td"><?php echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiHokenryo());?> 円</td>
-   <td class="edit_button_td"><a href="motoukekouji_input.php?id=<?php echo $motoukekouji_array_data->MotoukekoujiData($i)->Id();?>" class="edit_button mk_button">変更する</a></td>
+   <td class="number_td"><?php echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiKingaku()).' 円';?></td>
+   <td class="number_td"><?php if(intval($motoukekouji_array_data->MotoukekoujiData($i)->KoujiHokenryo())<=0){echo '- 対象外 -';} else {echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiHokenryo()).' 円';}?></td>
+   <td class="edit_button_td noprint"><a href="motoukekouji_input.php?id=<?php echo $motoukekouji_array_data->MotoukekoujiData($i)->Id();?>" class="edit_button mk_button">変更する</a></td>
   </tr>
   <?php } ?>
  </table>
@@ -98,3 +98,17 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
 
 </body>
 </html>
+
+<script>
+ $(function () {
+   $('.print_checkbox').on('change', function () {
+     // チェックボックスのON/OFFによってprintクラスを制御
+     const row = $(this).closest('tr');
+     if ($(this).prop('checked')) {
+       row.removeClass('noprint');
+     } else {
+       row.addClass('noprint');
+     }
+   });
+ });
+</script>

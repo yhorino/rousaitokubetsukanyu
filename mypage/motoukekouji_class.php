@@ -2,8 +2,8 @@
  include_once('./bin/sf_Api.php');
 
  define('DATATYPE_MOTOUKEKOUJI', '事務組合元請工事');
- define('SELECT_MOTOUKEKOUJI','Id,Name');
- define('SF_OBJECT', 'jimu_motoukekouji__c');
+ define('SELECT_MOTOUKEKOUJI','Id,Name,Account__c,KoujiType__c,KoujiKikanStart__c,KoujiKikanEnd__c,KoujiAddress__c,KoujiKingaku__c,KoujiHokenryo__c');
+ define('SF_OBJECT', 'jimuMotoukeKouji__c');
 
  class MotoukekoujiDataArray{
   private $_Id;
@@ -20,12 +20,11 @@
   public function MotoukekoujiData($_idx){return $this->_MotoukekoujiData[$_idx];}
   
   public function getMotoukekoujiRecordData(){
-   /*
    $_type = DATATYPE_MOTOUKEKOUJI;
    $_select = SELECT_MOTOUKEKOUJI;
    $_from = SF_OBJECT;
-   $_where = "dairikaisha__c = '$this->_Id' AND Nendo__c = '$_nendo' AND Type__c = '$_type'";
-   $_orderby = " ORDER BY seirinumber__c ASC ";
+   $_where = "Account__c = '$this->_Id'";
+   $_orderby = " ORDER BY Name DESC ";
    
    $_result = (array)sf_soql_select($_select, $_from, $_where, $_orderby);
    if(count($_result) <= 0) return false;
@@ -33,11 +32,18 @@
    for($i=0;$i<count($_result);$i++){
     $_row = (array)$_result[$i]['fields'];
     $_record = new MotoukekoujiData();
+    $_record->setId($_result[$i]['Id']);
+    $_record->setAccountId($_row['Account__c']);
+    $_record->setKoujiKikanStart($_row['KoujiKikanStart__c']);
+    $_record->setKoujiKikanEnd($_row['KoujiKikanEnd__c']);
+    $_record->setKoujiType($_row['KoujiType__c']);
+    $_record->setKoujiAddress($_row['KoujiAddress__c']);
+    $_record->setKoujiKingaku($_row['KoujiKingaku__c']);
+    $_record->setKoujiHokenryo($_row['KoujiHokenryo__c']);
     $this->_MotoukekoujiData[] = $_record;
    }
-   */
    
-   /* TEST */
+   /* TEST /
    for($i=0;$i<20;$i++){
     $_record = new MotoukekoujiData();
     $_record->setId('0000000'.$i);
@@ -50,7 +56,7 @@
     $_record->setKoujiHokenryo('60000');
     $this->_MotoukekoujiData[] = $_record;
    }
-   /* TEST */
+   / TEST */
    
    return true;
   }
@@ -65,6 +71,8 @@
   private $_KoujiAddress;
   private $_KoujiKingaku;
   private $_KoujiHokenryo; // SF数式項目から
+  
+  public $_dump; // DEBUG用
   
   public function __construct(){
   }
@@ -107,7 +115,27 @@
   }
   
   public function getMotoukekoujiRecordData(){
-   /* TEST */
+   $_type = DATATYPE_MOTOUKEKOUJI;
+   $_select = SELECT_MOTOUKEKOUJI;
+   $_from = SF_OBJECT;
+   $_where = "Id = '$this->_Id'";
+   $_orderby = "";
+   
+   $_result = sf_soql_select($_select, $_from, $_where, $_orderby);
+   if(count($_result) <= 0) return false;
+   
+   $_row = (array)$_result[0]['fields'];
+   $this->setId($_result[0]['Id']);
+   $this->setAccountId($_row['Account__c']);
+   $this->setKoujiKikanStart($_row['KoujiKikanStart__c']);
+   $this->setKoujiKikanEnd($_row['KoujiKikanEnd__c']);
+   $this->setKoujiType($_row['KoujiType__c']);
+   $this->setKoujiAddress($_row['KoujiAddress__c']);
+   $this->setKoujiKingaku($_row['KoujiKingaku__c']);
+   $this->setKoujiHokenryo($_row['KoujiHokenryo__c']);
+   
+   $this->_dump = $_result;
+   /* TEST /
    $this->setId('00000009');
    $this->setKoujiKikanStart('2023-11-01');
    $this->setKoujiKikanEnd('2023-12-31');
@@ -115,7 +143,7 @@
    $this->setKoujiAddress('鹿児島県いちき串木野市');
    $this->setKoujiKingaku('1500000');
    $this->setKoujiHokenryo('60000');
-   /* TEST */
+   / TEST */
    
    return true;
   }

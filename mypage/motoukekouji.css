@@ -4,8 +4,8 @@
 }
 .motoukekouji_table {
  width: 1000px;
- height: 250px;
- overflow-y: auto;
+ max-height: 250px;
+ overflow-y: scroll;
  border-top: 1px solid #707070;
  border-bottom: 1px solid #707070;
  border-right: 1px solid #707070;
@@ -143,5 +143,60 @@
  .fixsize_inputitem.kingakuitem {
   width: calc(100% - 7em);
  }
+}
+
+@media print{
+ header,
+ footer,
+ .button_box,
+ .noprint{
+  display: none!important;
+ }
+ .inner{
+  max-width: none;
+ }
+ .motoukekouji_table {
+  width: 100%;
+  table-layout: auto;
+  max-height: none;
+  overflow-y: auto;
+  border: none;
+ }
+ .motoukekouji_table th {
+  position: relative;
+  background-color: transparent;
+  padding: 3px 0.5em;
+  border: 1px solid #707070;
+  font-size: 14px;
+ }
+ .motoukekouji_table td {
+  border: 1px solid #707070;
+  padding: 3px 0.5em;
+  font-size: 14px;
+ }
+ .motoukekouji_table tr:last-child td {
+  border: 1px solid #707070;
+ }
+ .th_kikan {
+  width: 140px;
+  width: 20%;
+ }
+ .th_type {
+  width: auto;
+  width: 20%;
+ }
+ .th_address {
+  width: 140px;
+  width: 20%;
+ }
+ .th_kingaku {
+  width: 140px;
+  width: 20%;
+ }
+ .th_hokenryo {
+  width: 140px;
+  width: 20%;
+ }
+
 }
 

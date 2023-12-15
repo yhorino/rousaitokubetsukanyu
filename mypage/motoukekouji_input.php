@@ -14,11 +14,11 @@ $address = '';
 $kikan_start = '';
 $kikan_end = '';
 $kingaku = '';
+
+$motoukekouji_data = new MotoukekoujiData();
 if(isset($_GET['id']) && $_GET['id'] != ''){
  $id = $_GET['id'];
- $motoukekouji_data = new MotoukekoujiData();
- $motoukekouji_data->setId($_id);
- $motoukekouji_data->setAccountId($_SESSION['row']['Id']); // TEST
+ $motoukekouji_data->setId($id);
  $ret = $motoukekouji_data->getMotoukekoujiRecordData();
  $accountid = $motoukekouji_data->AccountId();
  $type = $motoukekouji_data->KoujiType();
@@ -26,6 +26,9 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
  $kikan_start = $motoukekouji_data->KoujiKikanStart();
  $kikan_end = $motoukekouji_data->KoujiKikanEnd();
  $kingaku = $motoukekouji_data->KoujiKingaku();
+} else {
+ $motoukekouji_data->setAccountId($_SESSION['row']['Id']);
+ $accountid = $motoukekouji_data->AccountId();
 }
 
 $gyosyu_list = array('足場工事業','電気工事業','内装工事業','管工事業','とび・土工・コンクリート工事業','大工工事業','塗装工事業','防水工事業','板金工事業','タイル・れんが・ブロック工事業','左官工事業','鉄筋工事業','屋根工事業','機械器具設置工事業','電気通信工事業','建具工事業','熱絶縁工事業','ガラス工事業','消防設備工事業','美装工事業','解体工事業','造園工事業','外構工事業','型枠工事業','鉄骨工事業');
@@ -68,7 +71,7 @@ $gyosyu_list = array('足場工事業','電気工事業','内装工事業','管�
 	
  
 <?php include_once('header.php'); ?>
-
+ 
 <div class="inner">
 	
  <form name="form" method="post" action="motoukekouji_regist.php">
