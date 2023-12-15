@@ -42,7 +42,7 @@ $title="マイページTOP";
 	
  
 <?php include_once('header.php'); ?>
-<?php /*include("top_nenkopopup.php");*/?>
+<?php include("top_nenkopopup.php");?>
 
 <div class="inner">
 	
