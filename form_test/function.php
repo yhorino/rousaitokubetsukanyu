@@ -339,10 +339,11 @@ function get_youzai_syurui(){
     $pref["鹿児島県"]="46";
     $pref["沖縄県"]="47";
 
+    $kouji_syubetu_btn[]='足場';
     $kouji_syubetu_btn[]='電気';
-    $kouji_syubetu_btn[]='とび・土工・コンクリート';
     $kouji_syubetu_btn[]='内装';
     $kouji_syubetu_btn[]='管';
+    $kouji_syubetu_btn[]='とび・土工・コンクリート';
     $kouji_syubetu_btn[]='大工';
     $kouji_syubetu_btn[]='塗装';
     $kouji_syubetu_btn[]='防水';
@@ -351,7 +352,6 @@ function get_youzai_syurui(){
     $kouji_syubetu_btn[]='左官';
     $kouji_syubetu_btn[]='鉄筋';
     $kouji_syubetu_btn[]='屋根';
-    $kouji_syubetu_btn[]='足場';
     $kouji_syubetu_btn[]='機械器具設置';
     $kouji_syubetu_btn[]='電気通信';
     $kouji_syubetu_btn[]='建具';
@@ -403,7 +403,7 @@ $roumu["タイル・れんが・ブロック"] = 3501;
 $roumu["左官"] = 3504;
 $roumu["鉄筋"] = 3501;
 $roumu["屋根"] = 3501;
-$roumu["足場"] = 3506;
+$roumu["足場"] = 3501;
 $roumu["電気"] = 3507;
 $roumu["内装"] = 3501;
 $roumu["管"] = 3504;
@@ -415,8 +415,8 @@ $roumu["ガラス"] = 3801;
 $roumu["消防施設"] = 3504;
 $roumu["美装"] = 3501;
 $roumu["とび・土工・コンクリート"] = 3718;
-$roumu["解体"] = 3716;
-$roumu["造園"] = 3719;
+$roumu["解体"] = 3505;
+$roumu["造園"] = 3506;
 $roumu["外構"] = 3506;
 $roumu["型枠"] = 3505;
 $roumu["鉄骨"] = 3501;
@@ -435,9 +435,14 @@ $roumu["鉄骨"] = 3501;
     $ryouritsu[37] = 0.015;
   
     $tukisuu = array();
+/*
     $tukisuu[1] = 15;
     $tukisuu[2] = 14;
     $tukisuu[3] = 13;
+    */
+    $tukisuu[1] = 3;
+    $tukisuu[2] = 2;
+    $tukisuu[3] = 1;
     $tukisuu[4] = 12;
     $tukisuu[5] = 11;
     $tukisuu[6] = 10;

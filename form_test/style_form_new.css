@@ -4829,3 +4829,40 @@ input[type="submit"].submit_card,
  width: auto!important;
 }
 
+/* 20231212 元請金額 */
+.motouke_input {
+    display: grid;
+    grid-row-gap: 20px;
+    margin: 30px 0 10px;
+}
+.motouke_input_box {
+    display: grid;
+    grid-row-gap: 10px;
+}
+.motouke_input_box input {
+    width: 6em;
+    padding: 0.5em 0.5em;
+    height: 2em;
+    font-size: 1em;
+}
+.motouke_input_box_title {
+    display: grid;
+    grid-template-columns: 1.4em 1fr;
+    align-items: center;
+    grid-column-gap: 5px;
+}
+.motouke_input_no {
+    background-color: #01A6EB;
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    padding: 0.2em;
+    font-size: 0.9em;
+    border-radius: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    color: #fff;
+    line-height: 1em;
+}
+/* 20231212 元請金額 */
+
