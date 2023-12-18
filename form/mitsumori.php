@@ -98,7 +98,7 @@ setcookie('norikae', '0', 0, '/');
  <div id="mainbody">
   <main id="main">
    
-    <form name="form" method="post" action="trans.php" enctype="multipart/mitsumori-data">
+    <form name="form" method="post" action="trans.php" enctype="multipart/mitsumori-data" id="mitsumori_form">
       <input type="hidden" id="pagename" name="pagename" value = "mitsumori.php">
         <input type="hidden" id="CellsNo__c" name="CellsNo__c" value = "<?php echo $_GET['cellsno'];?>">
      
@@ -446,11 +446,11 @@ setcookie('norikae', '0', 0, '/');
               <h3 class="motouke_input_title">1年間の元請工事について教えてください</h3>
               <div class="motouke_input_box">
                <h4 class="motouke_input_box_title"><span class="motouke_input_no">1</span> 元請工事の請負金額</h4>
-               <span class="motouke_input_item">だいたい <input id="motouke_kingaku" type="tel" name="motouke_kingaku"> 万円</span>
+               <span class="motouke_input_item">約 <input id="motouke_kingaku" type="tel" name="motouke_kingaku"> 万円</span>
               </div>
               <div class="motouke_input_box">
                <h4 class="motouke_input_box_title"><span class="motouke_input_no">2</span> 元請工事の件数</h4>
-               <span class="motouke_input_item">だいたい <input id="motouke_kensu" type="tel" name="motouke_kensu"> 件</span>
+               <span class="motouke_input_item">約 <input id="motouke_kensu" type="tel" name="motouke_kensu"> 件</span>
               </div>
              </div>
             </div>
@@ -853,8 +853,10 @@ $(function(){
 	});
  function show_motouke_input(){
   $('#motouke_input').show();
+  $('#motouke_input input').attr('required', 'true');
  }
  function hide_motouke_input(){
+  $('#motouke_input input').removeAttr('required');
   $('#motouke_input').hide();
  }
  hide_motouke_input();
@@ -1458,6 +1460,13 @@ function popup_close($id){
  $($id).removeClass('popup2');
  $($id).find('.mitsumori-block2').height($height);
 }
+ 
+/* EnterでのSubmit無効化 */
+document.getElementById('mitsumori_form').onkeypress = function(e) {
+ if (e.keyCode === 13) {
+  return false;
+ }
+};
 </script>
 
  
