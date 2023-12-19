@@ -39,7 +39,7 @@
    roumu["屋根2"] = 0;
    roumu["屋根3"] = 0;
    roumu["屋根4"] = 0;
-   roumu["足場0"] = 3506;
+   roumu["足場0"] = 3501;
    roumu["足場1"] = 0;
    roumu["足場2"] = 0;
    roumu["足場3"] = 0;
@@ -99,12 +99,12 @@
    roumu["とび・土工・コンクリート2"] = 0;
    roumu["とび・土工・コンクリート3"] = 0;
    roumu["とび・土工・コンクリート4"] = 0;
-   roumu["解体0"] = 3716;
+   roumu["解体0"] = 3505;
    roumu["解体1"] = 0;
    roumu["解体2"] = 0;
    roumu["解体3"] = 0;
    roumu["解体4"] = 0;
-   roumu["造園0"] = 3719;
+   roumu["造園0"] = 3506;
    roumu["造園1"] = 0;
    roumu["造園2"] = 0;
    roumu["造園3"] = 0;
@@ -138,9 +138,14 @@
     ryouritsu[37] = 0.015;
   
     var tukisuu = {};
+/*
     tukisuu[1] = 15;
     tukisuu[2] = 14;
     tukisuu[3] = 13;
+    */
+    tukisuu[1] = 3;
+    tukisuu[2] = 2;
+    tukisuu[3] = 1;
     tukisuu[4] = 12;
     tukisuu[5] = 11;
     tukisuu[6] = 10;

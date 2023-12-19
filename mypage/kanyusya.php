@@ -123,6 +123,10 @@ if($roudouno[$j] != '') {
  <table>';
    for($i=1;$i<=5;$i++){
     $kanyusya = $_SESSION['row_kaiin'.$i];
+    
+    $kanyudate = $kanyusya[$kanyudate_itemname[$j]];
+    if($j==1 && $kanyudate == ''){$kanyudate = '2023-04-01';}
+    
     if($kanyusya['Name'] != '' && 
        (
         $kanyusya['jimuRoudouhokenBangou0__c'] == $roudouno[$j] || 
