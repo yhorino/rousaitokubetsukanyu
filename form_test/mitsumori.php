@@ -583,6 +583,8 @@ setcookie('norikae', '0', 0, '/');
                <button class="mitsumori_submit_button" id="mousikomi_next_ikatsu" type="submit" name="mousikomi_next_ikatsu">年払いで<br><span class='submit_text_large'>申込みへ進む</span></button>
               </div>
              </div>
+             <input id="kaihi_ikatsu" type="hidden" name="kaihi_ikatsu" value="">
+             <input id="card_hiyou_ikatsu" type="hidden" name="card_hiyou_ikatsu" value="">
             </div>
             
            </div>
@@ -953,6 +955,10 @@ $(function(){
    $('#mitumori_result').hide();
   }
 
+  if($motoukeari == undefined || $motoukeari == ''){
+   $('#mitumori_result').hide();
+  }
+  
   let $kaihi_disp = $kaihi + $card_hiyou;
   $("#kaihi_disp_maitsuki").val($kaihi_disp.toLocaleString('ja-JP'));
   $("#kaihi_maitsuki").val($kaihi.toLocaleString('ja-JP'));
@@ -972,6 +978,7 @@ $(function(){
   const $kaihi = calc_kaihi_ikatsu();
   const $card_hiyou = calc_cardhiyou();
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
+  const $motoukeari = $('input[name="motouke"]:checked').val();
 
   let $_kanyuyear = 0;
   if($kanyutuki == <?php echo $kanyu_month;?>){
@@ -1010,6 +1017,10 @@ $(function(){
    $('#mitumori_result').hide();
   }
 
+  if($motoukeari == undefined || $motoukeari == ''){
+   $('#mitumori_result').hide();
+  }
+  
   let $kaihi_disp = $kaihi + $card_hiyou;
   $("#kaihi_disp_ikatsu").val($kaihi_disp.toLocaleString('ja-JP'));
   $("#kaihi_ikatsu").val($kaihi.toLocaleString('ja-JP'));

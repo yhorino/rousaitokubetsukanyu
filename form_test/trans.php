@@ -47,6 +47,20 @@ $detect = new Mobile_Detect;
 switch($_POST['pagename']){
  case 'mitsumori.php':
  {
+  if(isset($_POST['mousikomi_next_maitsuki'])){
+   $_SESSION['shiharai_kaisu'] = '毎月払い';
+   $_SESSION['sougaku'] = $_POST['sougaku_maitsuki'];
+   $_SESSION['hokenryo'] = intval($_POST['hokenryo_maitsuki'])+intval($_POST['motoukehokenryo_maitsuki']);
+   $_SESSION['kaihi'] = $_POST['kaihi_maitsuki'];
+   $_SESSION['card_hiyou'] = $_POST['card_hiyou_maitsuki'];
+  } else {
+   $_SESSION['shiharai_kaisu'] = '年払い';
+   $_SESSION['sougaku'] = $_POST['sougaku_ikatsu'];
+   $_SESSION['hokenryo'] = intval($_POST['hokenryo_ikatsu'])+intval($_POST['motoukehokenryo_ikatsu']);
+   $_SESSION['kaihi'] = $_POST['kaihi_ikatsu'];
+   $_SESSION['card_hiyou'] = $_POST['card_hiyou_ikatsu'];
+  }
+  
   if(isset($_SESSION['CellsNo__c']) && $_SESSION['CellsNo__c'] != ''){
    $result = (array)getAccountAll($_SESSION['CellsNo__c']);
    $row = (array)$result['fields'];
