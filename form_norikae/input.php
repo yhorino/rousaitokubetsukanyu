@@ -42,6 +42,7 @@ require_once('function.php');
   <link rel="stylesheet" href="style_form_new.css">
   <!-- JS-->
   <script src="../assets/js/app.js"></script>
+  <script src="https://kit.fontawesome.com/a366e23f99.js" crossorigin="anonymous"></script>
 
 <script type="text/javascript" src="../assets/js/jquery.autoKana.js"></script>
  
@@ -199,6 +200,7 @@ $(function () {
 <body> 
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
+ <!--
  <a href="#main">メインコンテンツに移動</a>
 	
     <header>
@@ -213,7 +215,12 @@ $(function () {
       <h1 class="div_center"><span>お客様情報のご登録</span></h1>
      </div>
     </header>
-	
+	-->
+   <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
   <!-- contents ///////////////////////////////////-->
  <div id="mainbody" class="with-aside-flex">
   <main id="main">

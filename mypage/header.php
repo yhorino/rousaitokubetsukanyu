@@ -16,6 +16,7 @@ header("Content-type: text/html;charset=utf-8");
 */
 ?>
 
+<?php /*
 <style>
 @media screen and (min-width: 961px){
  .sp {
@@ -28,8 +29,8 @@ header("Content-type: text/html;charset=utf-8");
  }
 }
  
-/* 20201012 ナビ固定 */
-/* https://littlethings.jp/blog/web/scroll-menu */
+// 20201012 ナビ固定 
+// https://littlethings.jp/blog/web/scroll-menu 
 .is-fixed {
   position: fixed;
   top: 0;
@@ -53,15 +54,12 @@ header("Content-type: text/html;charset=utf-8");
   margin-top: -43px;
  }
  header #h_menu .flex_row{
-/*  max-width: 545px;*/
-/*  max-width: 600px;*/
   max-width: 640px;
   margin: 0 0 0 auto;
  }
  header #h_menu .flex_row li{
   width: auto;
   border: none;
-/*  padding: 0 20px 5px;*/
   padding: 0 15px 5px;
   font-size: 14px;
   color: #ccc;
@@ -70,7 +68,6 @@ header("Content-type: text/html;charset=utf-8");
  header #h_menu .flex_row li a{
   color: #1B983A;
   display: inline-block;
-/*  font-size: 14px;*/
   font-size: 13px;
  }
  header #h_menu .flex_row li a:hover{
@@ -105,7 +102,6 @@ header #h_menu .flex_row li:last-child:before {
  .header_body .main-nav {
      display: -webkit-flex;
      display: flex;
-/*     max-width: 1100px;*/
      max-width: 100%;
      margin: auto;
      padding: 15px 0px 10px;
@@ -359,4 +355,12 @@ header #h_title #flex1 a {
 		$('.header_sp .header-dropdown').slideToggle();
 	});
 </script>
+*/ ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+  <?php 
+ $sidemenu_mode = 'mypage';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+
+ ?>
 

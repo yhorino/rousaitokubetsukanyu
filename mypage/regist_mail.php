@@ -182,7 +182,10 @@ setcookie('regist','0');
 <body>
 <?php include_once $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
 
-<?php include_once('header.php'); ?>
+<?php 
+ $option_class = 'no_menu no_login';
+ include_once('header.php');
+ ?>
 	
 <div class="inner" id="body_inner">
 

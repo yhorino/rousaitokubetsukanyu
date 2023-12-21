@@ -45,12 +45,13 @@ include('session_check.php');
   <link rel="stylesheet" href="style_form_new.css">
   <!-- JS-->
   <script src="../assets/js/app.js"></script>
+  <script src="https://kit.fontawesome.com/a366e23f99.js" crossorigin="anonymous"></script>
 
 </head>
 <body id="check_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
- 
+ <!--
  <a href="#main">メインコンテンツに移動</a>
 	
     <header>
@@ -63,7 +64,12 @@ include('session_check.php');
       <img src="../assets/img/form_flow2_sp.png" alt="STEP2 確認画面" class="show_sp hide_pc">
       </div>
     </header>
-	
+	-->
+  <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
  <!-- 本番環境へ流す -->
 
 <!--<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">-->

@@ -71,14 +71,20 @@ setcookie('norikae', '0', 0, '/');
 
 <body id="input_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
- 
+
+ <!--
     <header>
       <div class="header__flex">
         <a href="/"><img class="h_logo" src="../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
       </div>
       <h1 class="mitsumori-maintitle">中小事業主の特別加入見積り</h1>
     </header>
-	
+	-->
+ <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+ 
   <!-- contents ///////////////////////////////////-->
  <div id="mainbody">
   <main id="main">
@@ -887,6 +893,7 @@ $(function(){
   const $kaihi = calc_kaihi_maitsuki();
   const $card_hiyou = calc_cardhiyou();
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
+  const $motoukeari = $('input[name="motouke"]:checked').val();
 
   var $kanyu_year = <?php echo $kanyu_year;?>;
   var $kanyu2_year = <?php echo $kanyu2_year;?>;
