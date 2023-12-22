@@ -149,19 +149,16 @@ setcookie('norikae', '0', 0, '/');
         $sel4 = 'checked';
        }
 							?>
-             <script>console.log('last5day='+<?php echo $last5day; ?>);</script>
+             <script>console.log('last4day='+<?php echo $last4day; ?>);</script>
               <ul class="mitsumori-list">
                 <li>
                   <input id="kikan1" type="radio" name="kikan" value="<?php echo $kanyu_month1;?>" required="" <?php echo $sel1;?>>
                   <label for="kikan1"><span><?php echo $kanyu_month1;?>月</span></label>
                 </li>
-               <?php /* 2月　料率確定まで非表示 */ ?>
-               <!--
                 <li>
                   <input id="kikan2" type="radio" name="kikan" value="<?php echo $kanyu2_month1;?>" required="" <?php echo $sel2;?>>
                   <label for="kikan2"><span><?php echo $kanyu2_month1;?>月</span></label>
                 </li>
--->
                <?php /* 1月～2月　表示して受付する */ ?>
                <!--
                 <li>
@@ -912,16 +909,19 @@ $(function(){
   var kikan_s_y;
   var $m;
   if($kanyutuki == today_m){
+   /*
    if($kanyutuki == 1){
     $m = 3;
     kikan_s_y = $kanyu_year;
     kikan_e = month3;
    } else {
+   */
     $m = 4;
     kikan_s_y = $kanyu_year;
     kikan_e = month4;
-   }
+//   }
   } else {
+   /*
    if($kanyutuki == 1){
     $m = 3;
     if($kanyutuki == $kanyu_month){
@@ -932,6 +932,7 @@ $(function(){
      kikan_e = month3_2;
     }
    } else {
+   */
     $m = 4;
     if($kanyutuki == $kanyu_month){
      kikan_s_y = $kanyu_year;
@@ -940,7 +941,7 @@ $(function(){
      kikan_s_y = $kanyu2_year;
      kikan_e = month4_2;
     }
-   }
+//   }
   }
   $('#syokai_tsukisu').text($m);
   $('#syokai_tsukisu_next').text($m+1);
@@ -1154,11 +1155,13 @@ $(function(){
   var today_m = now.getMonth()+1;
   let $ret = 0;
   let $kaihi1 = calc_kaihi_per_month();
+  /*
   if($kanyutuki == 1){
    $m = 3;
   } else {
+  */
    $m = 4;
-  }
+//  }
   $ret = $kaihi1 * $m;
   
   return $ret;

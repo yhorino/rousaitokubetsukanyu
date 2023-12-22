@@ -90,26 +90,27 @@ function telno_split($no){
  return $no_split;
 }
 
-// 休日を除外した月末5日前を計算し、日時を返す
-function calc_last5day(){
+// 休日を除外した月末4日前を計算し、日時を返す
+// 20221222 5営業日前→4営業日前に変更 一人親方と同じにする
+function calc_last4day(){
 		
 	$holiday = db_getTholiday('DESC');
 
 		$lastday = date('Y-m-t');
-		$last5day = date('Y-m-d', strtotime('-5 days', strtotime(date('Y-m-t'))));
+		$last4day = date('Y-m-d', strtotime('-4 days', strtotime(date('Y-m-t'))));
 		
 		$checkday = $lastday;
-		for($i=0;$i<=5;$i++){
+		for($i=0;$i<=4;$i++){
 			foreach($holiday as $hday){
 				if($hday == $checkday){
-					$last5day = date('Y-m-d', strtotime('-1 day', strtotime($last5day)));
+					$last4day = date('Y-m-d', strtotime('-1 day', strtotime($last4day)));
 					$checkday = date('Y-m-d', strtotime('-1 day', strtotime($checkday)));
 				}
 			}
 			$checkday = date('Y-m-d', strtotime('-1 day', strtotime($checkday)));
 		}
 
-		return $last5day;
+		return $last4day;
 }
 
  function seireki_to_wareki($year){
@@ -145,8 +146,8 @@ function calc_last5day(){
 }
 
 $today = intval(date('j'));
-$last5day = intval(date('j', strtotime(calc_last5day())));
-if($today > $last5day){
+$last4day = intval(date('j', strtotime(calc_last4day())));
+if($today > $last4day){
 	$kanyu_year = date('Y', strtotime(date('Y-m-01').' +1 month'));
 	$kanyu_month = date('n', strtotime(date('Y-m-01').' +1 month'));
 	$kanyu2_year = date('Y', strtotime(date('Y-m-01').' +2 month'));
@@ -435,14 +436,9 @@ $roumu["鉄骨"] = 3501;
     $ryouritsu[37] = 0.015;
   
     $tukisuu = array();
-/*
     $tukisuu[1] = 15;
     $tukisuu[2] = 14;
     $tukisuu[3] = 13;
-    */
-    $tukisuu[1] = 3;
-    $tukisuu[2] = 2;
-    $tukisuu[3] = 1;
     $tukisuu[4] = 12;
     $tukisuu[5] = 11;
     $tukisuu[6] = 10;

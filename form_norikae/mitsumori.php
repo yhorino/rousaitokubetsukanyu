@@ -215,14 +215,9 @@ $detect = new Mobile_Detect;
     ryouritsu[37] = 0.015;
   
     var tukisuu = {};
-   /*
     tukisuu[1] = 15;
     tukisuu[2] = 14;
     tukisuu[3] = 13;
-    */
-    tukisuu[1] = 3;
-    tukisuu[2] = 2;
-    tukisuu[3] = 1;
     tukisuu[4] = 12;
     tukisuu[5] = 11;
     tukisuu[6] = 10;
@@ -396,13 +391,10 @@ $detect = new Mobile_Detect;
                 <input id="kikan1" type="radio" name="kikan" value="<?php echo $kanyu_month1;?>" required="" <?php echo $sel1;?>>
                 <label for="kikan1"><span><?php echo $kanyu_month1;?>月</span></label>
               </li>
-               <?php /* 2月　料率確定まで非表示 */ ?>
-             <!--
               <li>
                 <input id="kikan2" type="radio" name="kikan" value="<?php echo $kanyu2_month1;?>" required="" <?php echo $sel2;?>>
                 <label for="kikan2"><span><?php echo $kanyu2_month1;?>月</span></label>
               </li>
-             -->
              <?php /* 1月～2月　表示して受付する */ ?>
               <!--<li style="position: relative;">-->
              <!--
