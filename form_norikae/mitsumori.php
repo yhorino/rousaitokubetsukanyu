@@ -396,11 +396,13 @@ $detect = new Mobile_Detect;
                 <input id="kikan1" type="radio" name="kikan" value="<?php echo $kanyu_month1;?>" required="" <?php echo $sel1;?>>
                 <label for="kikan1"><span><?php echo $kanyu_month1;?>月</span></label>
               </li>
+               <?php /* 2月　料率確定まで非表示 */ ?>
+             <!--
               <li>
                 <input id="kikan2" type="radio" name="kikan" value="<?php echo $kanyu2_month1;?>" required="" <?php echo $sel2;?>>
                 <label for="kikan2"><span><?php echo $kanyu2_month1;?>月</span></label>
               </li>
-             
+             -->
              <?php /* 1月～2月　表示して受付する */ ?>
               <!--<li style="position: relative;">-->
              <!--
