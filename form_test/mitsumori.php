@@ -149,7 +149,7 @@ setcookie('norikae', '0', 0, '/');
         $sel4 = 'checked';
        }
 							?>
-             <script>console.log('last5day='+<?php echo $last5day; ?>);</script>
+             <script>console.log('last4day='+<?php echo $last4day; ?>);</script>
               <ul class="mitsumori-list">
                 <li>
                   <input id="kikan1" type="radio" name="kikan" value="<?php echo $kanyu_month1;?>" required="" <?php echo $sel1;?>>
@@ -218,8 +218,12 @@ setcookie('norikae', '0', 0, '/');
                 </li>
                 */ ?>
                 <li>
-                  <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年払い" required="" <?php echo $sel4;?>>
-                  <label for="kanyu_kikan4"><span class="button_label_small">2024年3月31日まで</span></label>
+                  <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年払い今年度のみ" required="" <?php echo $sel4;?>>
+                  <label for="kanyu_kikan4"><span class="button_label_small"><?php echo $end_year;?>年3月31日まで</span></label>
+                </li>
+                <li>
+                  <input id="kanyu_kikan5" type="radio" name="kanyu_kikan" value="年払い" required="" <?php echo $sel4;?>>
+                  <label for="kanyu_kikan5"><span class="button_label_small"><?php echo $end_year+1;?>年3月31日まで</span></label>
                 </li>
               </ul>
             </div>
@@ -519,7 +523,7 @@ setcookie('norikae', '0', 0, '/');
              <div class="maitsuki_balloon">今、お金がない人はこっち！</div>
              <div class="mitsumori_box_title">毎月払い</div>
              <div class="mitsumori_box_body">
-              <div class="mitsumori_box_kikan">保険期間は<span id="syokai_tsukisu">4</span>か月</div>
+              <div class="mitsumori_box_kikan">保険期間は年度（年度末３月まで）</div>
               <div class="mitsumori_box_inner">
                <div class="mitsumori_box_sougaku">
                 <div class="mitsumori_box_sougaku_title">お支払総額</div>
@@ -717,6 +721,9 @@ $(function(){
   $('input[name="kikan"]').click(function(){
    jouken_selchange();
   });
+  $('input[name="kanyu_kikan"]').click(function(){
+   jouken_selchange();
+  });
   $('input[name="nitigaku"]').click(function(){
    jouken_selchange();
   });
@@ -909,16 +916,19 @@ $(function(){
   var kikan_s_y;
   var $m;
   if($kanyutuki == today_m){
+   /*
    if($kanyutuki == 1){
     $m = 3;
     kikan_s_y = $kanyu_year;
     kikan_e = month3;
    } else {
+   */
     $m = 4;
     kikan_s_y = $kanyu_year;
     kikan_e = month4;
-   }
+//   }
   } else {
+   /*
    if($kanyutuki == 1){
     $m = 3;
     if($kanyutuki == $kanyu_month){
@@ -929,6 +939,7 @@ $(function(){
      kikan_e = month3_2;
     }
    } else {
+   */
     $m = 4;
     if($kanyutuki == $kanyu_month){
      kikan_s_y = $kanyu_year;
@@ -937,7 +948,7 @@ $(function(){
      kikan_s_y = $kanyu2_year;
      kikan_e = month4_2;
     }
-   }
+//   }
   }
   $('#syokai_tsukisu').text($m);
   $('#syokai_tsukisu_next').text($m+1);
@@ -1003,6 +1014,12 @@ $(function(){
    $_kanyu_tsukisu = get_kikan();
    $em = $kanyutuki + $_kanyu_tsukisu - 1;
    if($em > 12) $em -= 12;
+  } else if(is_kikan_tyoki_konnendo()){
+   $_kanyu_tsukisu = tukisuu[$kanyutuki];
+   if(parseInt($_kanyu_tsukisu)>12){
+    $_kanyu_tsukisu = tukisuu[$kanyutuki]-12;
+   }
+   $em = 3;
   }
   const $ey = Math.ceil((($_kanyuyear-1)*12+$kanyutuki+parseInt($_kanyu_tsukisu))/12);
   $('input[name="kikane"]').val($ey+""+$em);
@@ -1113,6 +1130,12 @@ $(function(){
    if(is_kikan_tanki()){
     $_tsukisu = get_kikan();
    }
+   if(is_kikan_tyoki_konnendo()){
+    $_tsukisu = tukisuu[$_kanyutuki];
+    if(parseInt($_tsukisu)>12){
+     $_tsukisu = tukisuu[$_kanyutuki]-12;
+    }
+   }
 
    // 20210319メモ　年度またぎの時は各年度の条件（料率等）で計算してから合算
    // 現時点ではそうなっていないので修正すること
@@ -1151,11 +1174,13 @@ $(function(){
   var today_m = now.getMonth()+1;
   let $ret = 0;
   let $kaihi1 = calc_kaihi_per_month();
+  /*
   if($kanyutuki == 1){
    $m = 3;
   } else {
+  */
    $m = 4;
-  }
+//  }
   $ret = $kaihi1 * $m;
   
   return $ret;
@@ -1172,6 +1197,9 @@ $(function(){
   let $ret = 0;
   $ret = $_kaihi_base + ($_kaihi_per_ninzu * ($_ninzu - 1));
   
+  if(is_kikan_tyoki_konnendo()){
+   $ret = Math.floor($ret / 2);
+  }
   return $ret;
  }
  
@@ -1192,6 +1220,16 @@ $(function(){
    $ret = 2;
   } else if($_kikan == '３か月'){
    $ret = 3;
+  } else if($_kikan == '年払い今年度のみ'){
+   $ret = 4;
+  }
+  return $ret;
+ }
+ function is_kikan_tyoki_konnendo(){
+  const $_kikan = $('input[name="kanyu_kikan"]:checked').val();
+  let $ret = false;
+  if($_kikan == '年払い今年度のみ'){
+   $ret = true;
   }
   return $ret;
  }
@@ -1263,6 +1301,22 @@ $(function(){
   }
   $('#kikane2 + label span').text("令和" + $end_year_r + "年" + $end_month + "月末日");
 */
+  $kikan_sel = $('input[name="kikan"]:checked').val();
+  if(parseInt($kikan_sel) == 12){
+   $('input[name="kanyu_kikan"]').prop('checked', false);
+   $('#kanyu_kikan4').prop('checked', true);
+   $('#kanyu_kikan5 + label').hide();
+  } else {
+   $('#kanyu_kikan5 + label').show();
+  }
+  
+  if(is_kikan_tyoki_konnendo()){
+   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year;?>年3月末日まで）');
+   $('.mitsumori-result').addClass('no_maitsuki');
+  } else {
+   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year+1;?>年3月末日まで）');
+   $('.mitsumori-result').removeClass('no_maitsuki');
+  }
   
   /* 20211227 塗装、防水を選んだら３か月、毎月払い不可 */
   $('.kikan_short').show();
@@ -1287,9 +1341,9 @@ $(function(){
   } else {
   }
   
-  $('input[name="kanyu_kikan"]').prop('checked', false);
-  $('#kanyu_kikan4').prop('checked', true);
-  $('#mb_kanyu_kikan').hide();
+  //$('input[name="kanyu_kikan"]').prop('checked', false);
+  //$('#kanyu_kikan4').prop('checked', true);
+  //$('#mb_kanyu_kikan').hide();
   
   get_price();
   

@@ -4906,6 +4906,20 @@ input[type="submit"].submit_card,
 .mitsumori_box {
  position: relative;
 }
+.no_maitsuki .mitsumori_result_title{
+ display: none;
+}
+.no_maitsuki .mitsumori_result_box{
+ grid-template-columns: 1fr;
+ margin: 0;
+}
+.no_maitsuki .mitsumori_maitsuki_box{
+ display: none;
+}
+.no_maitsuki .mitsumori_ikatsu_box{
+ max-width: 400px;
+ margin: 0 auto;
+}
 .maitsuki_balloon {
  position: absolute;
  top: -28px;
