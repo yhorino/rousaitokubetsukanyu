@@ -51,7 +51,7 @@ include('session_check.php');
 <body id="check_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
- <!--
+<!-- 
  <a href="#main">メインコンテンツに移動</a>
 	
     <header>
@@ -65,7 +65,7 @@ include('session_check.php');
       </div>
     </header>
 	-->
-  <?php 
+   <?php 
  $option_class = 'no_menu';
  include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
  ?>

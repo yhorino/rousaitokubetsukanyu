@@ -56,7 +56,7 @@ require_once('function.php');
       </div>
     </header>
 	-->
-  <?php 
+   <?php 
  $option_class = 'no_menu';
  include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
  ?>

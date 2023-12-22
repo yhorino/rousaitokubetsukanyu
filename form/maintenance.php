@@ -56,7 +56,7 @@ require_once('Mobile_Detect.php');
       <h1 class="mitsumori-maintitle">台風７号の影響による休止期間延長のお知らせ（～8/21）</h1>
     </header>
 	-->
-  <?php 
+   <?php 
  $option_class = 'no_menu';
  include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
  ?>
