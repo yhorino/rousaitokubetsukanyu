@@ -219,11 +219,11 @@ setcookie('norikae', '0', 0, '/');
                 */ ?>
                 <li>
                   <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年払い今年度のみ" required="" <?php echo $sel4;?>>
-                  <label for="kanyu_kikan4"><span class="button_label_small"><?php echo $end_year;?>年3月31日まで</span></label>
+                  <label for="kanyu_kikan4"><span class="button_label_small"><?php echo $end_year-1;?>年3月31日</span></label>
                 </li>
                 <li>
                   <input id="kanyu_kikan5" type="radio" name="kanyu_kikan" value="年払い" required="" <?php echo $sel4;?>>
-                  <label for="kanyu_kikan5"><span class="button_label_small"><?php echo $end_year+1;?>年3月31日まで</span></label>
+                  <label for="kanyu_kikan5"><span class="button_label_small"><?php echo $end_year;?>年3月31日</span></label>
                 </li>
               </ul>
             </div>
@@ -1311,10 +1311,10 @@ $(function(){
   }
   
   if(is_kikan_tyoki_konnendo()){
-   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year;?>年3月末日まで）');
+   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year-1;?>年3月31日まで）');
    $('.mitsumori-result').addClass('no_maitsuki');
   } else {
-   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year+1;?>年3月末日まで）');
+   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year;?>年3月31日まで）');
    $('.mitsumori-result').removeClass('no_maitsuki');
   }
   
