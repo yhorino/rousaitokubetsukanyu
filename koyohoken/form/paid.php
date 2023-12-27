@@ -43,11 +43,13 @@ require_once('../../form/function.php');
   <link rel="stylesheet" href="style_form_new.css">
    <!-- JS-->
   <script src="../../assets/js/app.js"></script>
+  <script src="https://kit.fontawesome.com/a366e23f99.js" crossorigin="anonymous"></script>
+ 
 </head>
 <body id="paid_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
- 
+<!-- 
  <a href="#main">メインコンテンツに移動</a>
 
     <header>
@@ -60,7 +62,12 @@ require_once('../../form/function.php');
       <img src="../../assets/img/form_flow4_sp.png" alt="STEP4 お申込み完了" class="show_sp hide_pc">
       </div>
     </header>
-	
+	-->
+   <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
   <!-- contents ///////////////////////////////////-->
   <main id="main">
     <section class="mitsumori">

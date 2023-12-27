@@ -240,6 +240,10 @@ switch($_POST['pagename']){
    //$kanyumankibi = '2023/5/31';//test
    //$kanyumankibi = $_kanyuyear.'/5/31';//test
   }
+  if($_SESSION['kanyu_kikan'] == '年払い今年度のみ'){
+   $kanyumankibi = '2024/3/31';
+  }
+  
   $_SESSION['kanyumankibi'] = $kanyumankibi;
   
   web2case_kaisya($_SESSION);

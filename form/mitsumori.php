@@ -67,33 +67,24 @@ setcookie('norikae', '0', 0, '/');
   <script type="text/javascript" src="../assets/js/jquery.jpostal.js-master/jquery.jpostal.js"></script>
   <script src="https://kit.fontawesome.com/a366e23f99.js" crossorigin="anonymous"></script>
 
-  <script>
-  $(function () {
-   $('#zip').jpostal({
-    postcode : [
-     '#zip'
-    ],
-    address : {
-     '#pref' : '%3',
-     '#city' : '%4',
-     '#address' : '%5%6%7',
-    }
-   });
-  });
-  </script>
- 
 </head>
 
 <body id="input_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
- 
+
+ <!--
     <header>
       <div class="header__flex">
         <a href="/"><img class="h_logo" src="../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
       </div>
       <h1 class="mitsumori-maintitle">中小事業主の特別加入見積り</h1>
     </header>
-	
+	-->
+ <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+ 
   <!-- contents ///////////////////////////////////-->
  <div id="mainbody">
   <main id="main">
@@ -141,44 +132,6 @@ setcookie('norikae', '0', 0, '/');
         <div class="mitsumori-inner">
           <div class="mitsumori-select">
            
-           <div class="mitsumori-block-flex" id="mb_shiharai_kaisu">
-            <div class="mitsumori-block">
-             <h2 class="mitsumori-subttl"><span class="st_orange">お支払い方法</span>は？</h2>
-							<?php
-							$sel1 = '';
-							$sel2 = '';
-							if($_SESSION['shiharai_kaisu']=='毎月払い') $sel1 = 'checked';
-							if($_SESSION['shiharai_kaisu']=='年払い') $sel2 = 'checked';
-							?>
-              <ul class="mitsumori-list">
-                <li>
-                  <input id="shiharai_kaisu1" type="radio" name="shiharai_kaisu" value="毎月払い" required="" <?php echo $sel1;?>>
-                  <label for="shiharai_kaisu1"><span>毎月払い</span></label>
-                </li>
-                <li>
-                  <input id="shiharai_kaisu2" type="radio" name="shiharai_kaisu" value="年払い" required="" <?php echo $sel2;?>>
-                  <label for="shiharai_kaisu2"><span>一括払い</span></label>
-                </li>
-              </ul>
-            </div>
-            
-            <div id="msg3-2">
-            <div class="mitsumori-block2">
-             <div class="shiharai_kaisu_info_1 shiharai_kaisu_info_0">
-             <p class="q_title">毎月払いとは？</p>
-             <p class="q_text">初回費用として保険料と4か月分の会費等をお支払いただき、5か月目から月額会費を口座振替にてお支払いただく方法です。</p>
-             <br>
-             </div>
-             <div class="shiharai_kaisu_info_2 shiharai_kaisu_info_0">
-             <p class="q_title">一括払いとは？</p>
-             <p class="q_text">お申込み時に、保険料等を一括でお支払いただく方法です。</p>
-             </div>
-             <a class="close_btn show_sp hide_pc" onclick="popup_close('#msg2');">閉じる</a>
-            </div>
-            </div>
-            
-           </div><!-- mitsumori-block-flex -->
-                      
            <div class="mitsumori-block-flex">
             <div class="mitsumori-block">
              <h2 class="mitsumori-subttl"><span class="st_orange">いつから</span>ご加入が必要ですか？</h2>
@@ -196,7 +149,7 @@ setcookie('norikae', '0', 0, '/');
         $sel4 = 'checked';
        }
 							?>
-             <script>console.log('last5day='+<?php echo $last5day; ?>);</script>
+             <script>console.log('last4day='+<?php echo $last4day; ?>);</script>
               <ul class="mitsumori-list">
                 <li>
                   <input id="kikan1" type="radio" name="kikan" value="<?php echo $kanyu_month1;?>" required="" <?php echo $sel1;?>>
@@ -265,8 +218,12 @@ setcookie('norikae', '0', 0, '/');
                 </li>
                 */ ?>
                 <li>
-                  <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年払い" required="" <?php echo $sel4;?>>
-                  <label for="kanyu_kikan4"><span class="button_label_small">2024年3月31日まで</span></label>
+                  <input id="kanyu_kikan4" type="radio" name="kanyu_kikan" value="年払い今年度のみ" required="" <?php echo $sel4;?>>
+                  <label for="kanyu_kikan4"><span class="button_label_small"><?php echo $end_year-1;?>年3月31日</span></label>
+                </li>
+                <li>
+                  <input id="kanyu_kikan5" type="radio" name="kanyu_kikan" value="年払い" required="" <?php echo $sel4;?>>
+                  <label for="kanyu_kikan5"><span class="button_label_small"><?php echo $end_year;?>年3月31日</span></label>
                 </li>
               </ul>
             </div>
@@ -558,43 +515,145 @@ setcookie('norikae', '0', 0, '/');
          
           <div class="mitsumori-result" id="mitumori_result">
            
-           <p id="result_kikan"><span id="result_kikan_title">保険期間</span>　<span id="result_kikan_s"></span>　～　<span id="result_kikan_e"></span></p>
+           <p class="mitsumori_result_title">支払方法を <span class="mitsumori_result_title_maitsuki">毎月払い</span> と <span class="mitsumori_result_title_ikatsu">年払い</span> からお選びください。</p>
            
-           <div id="mousikomi_result_flex">
-            <div class="mitsumori-result_item">
-             <table style="display: none;">
-              <tr><th>入会金</th>
-              <td><input id="nyukaikin" type="text" name="nyukaikin" readonly required="" value="10,000">円</td></tr>
+           <div class="mitsumori_result_box">
+            
+            <div id="mitsumori_maitsuki_box" class="mitsumori_maitsuki_box mitsumori_box">
+             <div class="maitsuki_balloon">今、お金がない人はこっち！</div>
+             <div class="mitsumori_box_title">毎月払い</div>
+             <div class="mitsumori_box_body">
+              <div class="mitsumori_box_kikan">保険期間は年度（年度末３月まで）</div>
+              <div class="mitsumori_box_inner">
+               <div class="mitsumori_box_sougaku">
+                <div class="mitsumori_box_sougaku_title">お支払総額</div>
+                <div class="mitsumori_box_sougaku_kingaku"><input id="sougaku_maitsuki" type="text" name="sougaku_maitsuki" readonly required="" value=""></div>
+                <div class="mitsumori_box_sougaku_kingaku_yen">円</div>
+               </div>
+               <div class="mitsumori_box_morebutton" onclick="toggle_mitsumori_more('mitsumori_maitsuki_box');"><span class="toggle_text">明細を見る</span>　<i class="fas fa-chevron-down toggle_icon"></i></div>
+               <div class="mitsumori_box_more">
+                <div class="mitsumori_box_more_line">
+                 <div class="mitsumori_box_more_line_title">特別加入保険料</div>
+                 <div class="mitsumori_box_more_line_kingaku"><input id="hokenryo_maitsuki" type="text" name="hokenryo_maitsuki" readonly required="" value=""></div>
+                 <div class="mitsumori_box_more_line_kingaku_yen">円</div>
+                </div>
+                <div class="mitsumori_box_more_line">
+                 <div class="mitsumori_box_more_line_title">元請工事保険料</div>
+                 <div class="mitsumori_box_more_line_kingaku"><input id="motoukehokenryo_maitsuki" type="text" name="motoukehokenryo_maitsuki" readonly required="" value=""></div>
+                 <div class="mitsumori_box_more_line_kingaku_yen">円</div>
+                </div>
+                <div class="mitsumori_box_more_line">
+                 <div class="mitsumori_box_more_line_title">初期経費（会費等）</div>
+                 <div class="mitsumori_box_more_line_kingaku"><input id="kaihi_disp_maitsuki" type="text" name="kaihi_disp_maitsuki" readonly required="" value=""></div>
+                 <div class="mitsumori_box_more_line_kingaku_yen">円</div>
+                </div>
+                <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から、月々<span class="maitsuki_val"></span>円の会費振替となります。</div>
+               </div>
+              </div>
+              <div class="mitsumori_box_submit">
+               <button class="mitsumori_submit_button" id="mousikomi_next_maitsuki" type="submit" name="mousikomi_next_maitsuki">毎月払いで<br><span class='submit_text_large'>申込みへ進む</span></button>
+              </div>
+             </div>
+             <input id="kaihi_maitsuki" type="hidden" name="kaihi_maitsuki" value="">
+             <input id="card_hiyou_maitsuki" type="hidden" name="card_hiyou_maitsuki" value="">
+             <input type="hidden" name="maitsuki_kaihi" value="">
+            </div>
+
+            <div id="mitsumori_ikatsu_box" class="mitsumori_ikatsu_box mitsumori_box">
+             <div class="mitsumori_box_title">年払い</div>
+             <div class="mitsumori_box_body">
+              <div class="mitsumori_box_kikan">保険期間は年度（年度末３月まで）</div>
+              <div class="mitsumori_box_inner">
+               <div class="mitsumori_box_sougaku">
+                <div class="mitsumori_box_sougaku_title">お支払総額</div>
+                <div class="mitsumori_box_sougaku_kingaku"><input id="sougaku_ikatsu" type="text" name="sougaku_ikatsu" readonly required="" value=""></div>
+                <div class="mitsumori_box_sougaku_kingaku_yen">円</div>
+               </div>
+               <div class="mitsumori_box_morebutton" onclick="toggle_mitsumori_more('mitsumori_ikatsu_box');"><span class="toggle_text">明細を見る</span>　<i class="fas fa-chevron-down toggle_icon"></i></div>
+               <div class="mitsumori_box_more">
+                <div class="mitsumori_box_more_line">
+                 <div class="mitsumori_box_more_line_title">特別加入保険料</div>
+                 <div class="mitsumori_box_more_line_kingaku"><input id="hokenryo_ikatsu" type="text" name="hokenryo_ikatsu" readonly required="" value=""></div>
+                 <div class="mitsumori_box_more_line_kingaku_yen">円</div>
+                </div>
+                <div class="mitsumori_box_more_line">
+                 <div class="mitsumori_box_more_line_title">元請工事保険料</div>
+                 <div class="mitsumori_box_more_line_kingaku"><input id="motoukehokenryo_ikatsu" type="text" name="motoukehokenryo_ikatsu" readonly required="" value=""></div>
+                 <div class="mitsumori_box_more_line_kingaku_yen">円</div>
+                </div>
+                <div class="mitsumori_box_more_line">
+                 <div class="mitsumori_box_more_line_title">初期経費（会費等）</div>
+                 <div class="mitsumori_box_more_line_kingaku"><input id="kaihi_disp_ikatsu" type="text" name="kaihi_disp_ikatsu" readonly required="" value=""></div>
+                 <div class="mitsumori_box_more_line_kingaku_yen">円</div>
+                </div>
+                <div class="mitsumori_box_more_info">　</div>
+               </div>
+              </div>
+              <div class="mitsumori_box_submit">
+               <button class="mitsumori_submit_button" id="mousikomi_next_ikatsu" type="submit" name="mousikomi_next_ikatsu">年払いで<br><span class='submit_text_large'>申込みへ進む</span></button>
+              </div>
+             </div>
+             <input id="kaihi_ikatsu" type="hidden" name="kaihi_ikatsu" value="">
+             <input id="card_hiyou_ikatsu" type="hidden" name="card_hiyou_ikatsu" value="">
+            </div>
+            
+           </div>
+           
+           
+           
+           <!--
+           <div id="mitsumori_maitsuki_box">
+             <table style="">
               <tr><th>会　費</th>
-              <td><input id="kaihi_disp" type="text" name="kaihi_disp" readonly required="" value="<?php echo $_SESSION['kaihi']; ?>">円</td>
-              <input id="kaihi" type="hidden" name="kaihi" value="<?php echo $_SESSION['kaihi']; ?>"></tr>
+              <td><input id="kaihi_disp_maitsuki" type="text" name="kaihi_disp_maitsuki" readonly required="" value="">円</td>
+              <input id="kaihi_maitsuki" type="hidden" name="kaihi_maitsuki" value=""></tr>
               <tr><th>保険料</th>
-              <td><input id="hokenryo" type="text" name="hokenryo" readonly required="" value="">円</td></tr>
-              <tr id="syokei_tr" class="camp"><th>小　計</th>
-              <td><input id="syokei" type="text" name="syokei" readonly required="" value="">円</td></tr>
-              <tr id="camp_nyukaikin_wari_tr" class="camp_wari_tr camp"><th>入会金割引</th>
-              <td><input id="camp_nyukaikin_wari" type="text" name="nyukaikin_camp_wari" readonly required="" value="">円</td></tr>
-              <tr id="camp_kaihi_wari_tr" class="camp_wari_tr camp"><th>会費割引</th>
-              <td><input id="camp_kaihi_wari" type="text" name="camp_kaihi_wari" readonly required="" value="">円</td></tr>
+              <td><input id="hokenryo_maitsuki" type="text" name="hokenryo_maitsuki" readonly required="" value="">円</td></tr>
+              <tr><th>元請工事保険料</th>
+              <td><input id="motoukehokenryo_maitsuki" type="text" name="motoukehokenryo_maitsuki" readonly required="" value="">円</td></tr>
+              
               </table>
               <div id="sougaku_title">お支払総額</div>
               <div id="sougaku_price">
-                <input id="sougaku" type="text" name="sougaku" readonly required="" value="<?php echo $_SESSION['sougaku']; ?>">円
+                <input id="sougaku_maitsuki" type="text" name="sougaku_maitsuki" readonly required="" value="">円
               </div>
-            </div>
             <div id="mitsumori-result_button">
-             <input class="mitsumori-btn" id="mousikomi_next" type="submit" name="mousikomi_next" value="">
+             <input class="mitsumori-btn" id="mousikomi_next_maitsuki" type="submit" name="mousikomi_next_maitsuki" value="">
             </div>
-           </div>
            
-           <input id="hokenryo1" type="hidden" name="hokenryo1" value="">
-           <input id="hokenryo2" type="hidden" name="hokenryo2" value="">
-           <input id="card_hiyou" type="hidden" name="card_hiyou" value="">
+           <input id="card_hiyou_maitsuki" type="hidden" name="card_hiyou_maitsuki" value="">
+           <input type="hidden" name="maitsuki_kaihi" value="">
            
            <p class="mitsumori_info">※1 お支払総額には会費、保険料、会員カード発行費用が含まれています。</p>
            
            <p class="mitsumori_info">※2 毎月払いの場合は、初回費用として<span id="syokai_tsukisu">4</span>か月分をお支払いただき、<span id="syokai_tsukisu_next">5</span>か月目から月々<span class="maitsuki_val"></span>円を口座振替にてお支払いただきます。</p>
-           <input type="hidden" name="maitsuki_kaihi" value="">
+           </div>-->
+           
+           <!--
+           <div id="mitsumori_ikatsu_box">
+             <table style="">
+              <tr><th>会　費</th>
+              <td><input id="kaihi_disp_ikatsu" type="text" name="kaihi_disp_ikatsu" readonly required="" value="">円</td>
+              <input id="kaihi_ikatsu" type="hidden" name="kaihi_ikatsu" value=""></tr>
+              <tr><th>保険料</th>
+              <td><input id="hokenryo_ikatsu" type="text" name="hokenryo_ikatsu" readonly required="" value="">円</td></tr>
+              <tr><th>元請工事保険料</th>
+              <td><input id="motoukehokenryo_ikatsu" type="text" name="motoukehokenryo_ikatsu" readonly required="" value="">円</td></tr>
+              
+              </table>
+              <div id="sougaku_title">お支払総額</div>
+              <div id="sougaku_price">
+                <input id="sougaku_ikatsu" type="text" name="sougaku_ikatsu" readonly required="" value="">円
+              </div>
+            <div id="mitsumori-result_button">
+             <input class="mitsumori-btn" id="mousikomi_next_ikatsu" type="submit" name="mousikomi_next_ikatsu" value="">
+            </div>
+           
+           <input id="card_hiyou_ikatsu" type="hidden" name="card_hiyou_ikatsu" value="">
+           
+           <p class="mitsumori_info">※1 お支払総額には会費、保険料、会員カード発行費用が含まれています。</p>
+           
+           </div>-->
            
           </div>
         </div>
@@ -622,17 +681,9 @@ $(function(){
   $('.jigyou_sonota').show();
   $('#jigyou_sonota').hide();
  }
- function show_sonota_m(){
-  $('.nitigaku_sonota').show();
-  $('#nitigaku_sonota').hide();
- }
  function show_sonota_ninzu(){
   $('.ninzu_sonota').show();
   $('#ninzu_sonota').hide();
- }
- function show_sonota_ninzu2(){
-  $('.ninzu2_sonota').show();
-  $('#ninzu2_sonota').hide();
  }
  
  $(window).on('load', function() {
@@ -644,15 +695,9 @@ $(function(){
   
   $('input[name="youzai"]').click(function(){
    $sel = $('input[name="youzai"]:checked').val();
-   //$('#mb_shiharai_kaisu').show();
    $('#youzai_next').hide();
-   //$('#shiharai_kaisu1').prop('checked', false);
-   //$('#shiharai_kaisu2').prop('checked', false);
    if($sel == 'はい'){
-    //$('#mb_shiharai_kaisu').hide();
     $('#youzai_next').show();
-    //$('#shiharai_kaisu1').prop('checked', false);
-    //$('#shiharai_kaisu2').prop('checked', true);
    }
    jouken_selchange();
   });
@@ -670,25 +715,16 @@ $(function(){
    jouken_selchange();
   });
   
-  $('#mitumori').click(function(){
-   get_price();
-  });
   $('input[name="type"]').click(function(){
    jouken_selchange();
   });
   $('input[name="kikan"]').click(function(){
    jouken_selchange();
   });
-  $('input[name="nitigaku"]').click(function(){
-   jouken_selchange();
-  });
-  $('input[name="shiharai_kaisu"]').click(function(){
-   jouken_selchange();
-  });
-  $('input[name="shiharai_kaisu1"]').click(function(){
-   jouken_selchange();
-  });
   $('input[name="kanyu_kikan"]').click(function(){
+   jouken_selchange();
+  });
+  $('input[name="nitigaku"]').click(function(){
    jouken_selchange();
   });
   $('input[name="motouke"]').click(function(){
@@ -697,47 +733,15 @@ $(function(){
   $('input[name="motouke_kingaku"]').change(function(){
    jouken_selchange();
   });
-  $('input[name="kouji_newold"]').click(function(){
-   $roumu_sel = $('input[name="jigyou"]:checked').val();
-   $kouji_newold_sel = $('input[name="kouji_newold"]:checked').val();
-
-   $('#mb_tukuri').hide();
-   $('input[name="tukuri"]').prop('checked', false);
-   $('input[name="tukuri"]').prop('required', false);
-   if(roumu[$roumu_sel+"3"] > 0){
-    if(roumu[$roumu_sel+"2"] > 0){
-     if($kouji_newold_sel == "新築工事"){
-      $('#mb_tukuri').show();
-      $('input[name="tukuri"]').prop('required', 'required');
-     }
-    }
-   }
-   
-   jouken_selchange();
-  });
-  $('input[name="tukuri"]').click(function(){
-   jouken_selchange();
-  });
   <?php /* 20220122 紹介クーポン */ ?>
   $('input[name="cupon_check"]').click(function(){
    cupon_check();
   });
   <?php /* 20220122 紹介クーポン */ ?>
 
-  $('#mb_kouji_newold').hide();
-  $('#mb_tukuri').hide();
-  
   $('input[name="jigyou"]').click(function(){
-   $('input[name="kouji_newold"]').prop('checked', false);
-   $('input[name="tukuri"]').prop('checked', false);
    
    jouken_selchange();
-   $('input[name="jigyou1"]').val($('input[name="jigyou"]:checked').val());
-   $('input[name="jigyou2"]').val($('input[name="jigyou"]:checked').val());
-   $('input[name="jigyou3"]').val($('input[name="jigyou"]:checked').val());
-   $('input[name="jigyou4"]').val($('input[name="jigyou"]:checked').val());
-   $('input[name="jigyou5"]').val($('input[name="jigyou"]:checked').val());
-   
    $jigyou = $('input[name="jigyou"]:checked').val();
    $('#youzai_next').hide();
    $('#youzai_n').prop('checked', false);
@@ -753,31 +757,18 @@ $(function(){
     $('#youzai_n').prop('checked', true);
    }
   });
- $('input[name="jigyou1"]').val($('input[name="jigyou"]:checked').val());
- $('input[name="jigyou2"]').val($('input[name="jigyou"]:checked').val());
- $('input[name="jigyou3"]').val($('input[name="jigyou"]:checked').val());
- $('input[name="jigyou4"]').val($('input[name="jigyou"]:checked').val());
- $('input[name="jigyou5"]').val($('input[name="jigyou"]:checked').val());
 
   $('input[name="ninzu"]').click(function(){
-   ninzu_selchange();
    jouken_selchange();
   });
-  ninzu_selchange();
   $kanyutuki = $('input[name="kikan"]:checked').val();
   $roumu_sel = $('input[name="jigyou"]:checked').val();
   $ninzu = $('input[name="ninzu"]:checked').val();
   if($kanyutuki === undefined || $roumu_sel === undefined || $ninzu === undefined){
-   $('#input_sec').hide();
-   $('#mousikomi_next').hide();
-   $('.mitsumori-result').hide();
-   $('.mitsumori-result-btn_block').hide();
-   $('#input_sec input, #input_sec select').prop('disabled', true);
+   $('#mitumori_result').hide();
   }
   $('.jigyou_sonota').hide();
-  $('.nitigaku_sonota').hide();
   $('.ninzu_sonota').hide();
-  $('.ninzu2_sonota').hide();
   
   $('#error_jugyouin').hide();
   $('input[name="jugyouin"]').click(function(){
@@ -785,10 +776,8 @@ $(function(){
    jouken_selchange();
    if($sel == 'はい'){
     $('#error_jugyouin').hide();
-    $('#mitumori').prop('disabled', false);
    } else {
     $('#error_jugyouin').show();
-    $('#mitumori').prop('disabled', true);
    }
    $('input[name="jugyouinninzu"]').click(function(){
     jouken_selchange();
@@ -800,19 +789,16 @@ $(function(){
   });
   
 	if($ss==1) show_sonota();
-	if($ss2==1) show_sonota_m();
 		
   /* 20230302 従業員雇っているか？ */
   function init_mitsumori_start(){
    $('.mitsumori').hide();
    $('.to_oyakata').hide();
    $('.mitsumori-block-flex.second_block').hide();
-   //$('.motouke_msg').hide();
   }
   function show_mitsumori(){
    $('.mitsumori').show();
    $('.to_oyakata').hide();
-   //$('.motouke_msg').hide();
   }
   function show_to_oyakata(){
    $('.mitsumori').hide();
@@ -822,7 +808,6 @@ $(function(){
    $('.mitsumori-block-flex.second_block').show();
    $('.to_oyakata').hide();
    $('.mitsumori').hide();
-   //$('.motouke_msg').hide();
   }
   
   init_mitsumori_start();
@@ -881,32 +866,138 @@ $(function(){
        return "";
    }
  }
+ 
+ function youzai_minyuryoku(){
+  let $ret = false;
+  // 20220418 有機溶剤あり　未入力の場合のチェック
+  if($('input[name="youzai"]:checked').val() == 'はい'){
+   if($('select[name="youzai_naiyou"]').val() == ''){
+    $ret = true;
+   }
+   if($('select[name="youzai_itukara_y"]').val() == ''){
+    $ret = true;
+   }
+   if($('select[name="youzai_itukara_m"]').val() == ''){
+    $ret = true;
+   }
+   if($('input[name="youzai_kakunin_y"]:checked').val() != 'わかりました'){
+    $ret = true;
+   }
+  }
+  
+  return $ret;
+ }
+ 
 	function get_price(){
-  $('#input_sec').hide();
+  get_price_maitsuki();
+  get_price_ikatsu();
+ }
+	function get_price_maitsuki(){
   $('input[name="jimuGyousyuBangou__c"]').val("0");
   
-  const $nyukaikin = 10000;
-  const $hokenryo = calc_hokenryo();
-  const $kaihi = calc_kaihi();
+  const $hokenryo = calc_hokenryo_maitsuki();
+  const $motoukehokenryo = calc_motoukehokenryo();
+  const $kaihi = calc_kaihi_maitsuki();
   const $card_hiyou = calc_cardhiyou();
-
-console.log('hokenryo:'+$hokenryo);
-console.log('kaihi:'+$kaihi);
-console.log('card_hiyou:'+$card_hiyou);
-  
-  //$('.maitsuki_text3').hide();
-  //$('.maitsuki_text4').hide();
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
+  const $motoukeari = $('input[name="motouke"]:checked').val();
 
-  let $kaihi_2y = $kaihi;
-  /*
-  if($kanyutuki <= 3){
-   $kaihi_2y = $kaihi * 2;
+  var $kanyu_year = <?php echo $kanyu_year;?>;
+  var $kanyu2_year = <?php echo $kanyu2_year;?>;
+  var $kanyu_month = <?php echo $kanyu_month;?>;
+  var $kanyu2_month = <?php echo $kanyu2_month;?>;
+  var now = new Date();
+  var today_m = now.getMonth()+1;
+  var month3 = new Date($kanyu_year, $kanyu_month+2, 0);
+  var month3_2 = new Date($kanyu2_year, $kanyu2_month+2, 0);
+  var month4 = new Date($kanyu_year, $kanyu_month+3, 0);
+  var month4_2 = new Date($kanyu2_year, $kanyu2_month+3, 0);
+  var kikan_e;
+  var kikan_s_y;
+  var $m;
+  if($kanyutuki == today_m){
+   /*
+   if($kanyutuki == 1){
+    $m = 3;
+    kikan_s_y = $kanyu_year;
+    kikan_e = month3;
+   } else {
+   */
+    $m = 4;
+    kikan_s_y = $kanyu_year;
+    kikan_e = month4;
+//   }
   } else {
-   $kaihi_2y = $kaihi;
+   /*
+   if($kanyutuki == 1){
+    $m = 3;
+    if($kanyutuki == $kanyu_month){
+     kikan_s_y = $kanyu_year;
+     kikan_e = month3;
+    } else {
+     kikan_s_y = $kanyu2_year;
+     kikan_e = month3_2;
+    }
+   } else {
+   */
+    $m = 4;
+    if($kanyutuki == $kanyu_month){
+     kikan_s_y = $kanyu_year;
+     kikan_e = month4;
+    } else {
+     kikan_s_y = $kanyu2_year;
+     kikan_e = month4_2;
+    }
+//   }
   }
-*/
+  $('#syokai_tsukisu').text($m);
+  $('#syokai_tsukisu_next').text($m+1);
+
+  let $kaihi1 = calc_kaihi_per_month();
+  $('.maitsuki_val').text($kaihi1.toLocaleString('ja-JP'));
+  $('input[name="maitsuki_kaihi"]').val($kaihi1);
   
+  let $syokai_sougaku = $hokenryo + $kaihi + $card_hiyou + $motoukehokenryo;
+  $syokai_sougaku = Math.floor($syokai_sougaku);
+
+  $('#mitumori_result').show();
+  if(isNaN($syokai_sougaku) || isNaN($kaihi)){
+   $('#mitumori_result').hide();
+  }
+
+  if(youzai_minyuryoku() == true){
+   $('#mitumori_result').hide();
+  }
+
+  if($kaihi == 0){
+   $('#mitumori_result').hide();
+  }
+
+  if($motoukeari == undefined || $motoukeari == ''){
+   $('#mitumori_result').hide();
+  }
+  
+  let $kaihi_disp = $kaihi + $card_hiyou;
+  $("#kaihi_disp_maitsuki").val($kaihi_disp.toLocaleString('ja-JP'));
+  $("#kaihi_maitsuki").val($kaihi.toLocaleString('ja-JP'));
+  $("#hokenryo_maitsuki").val($hokenryo.toLocaleString('ja-JP'));
+  $("#motoukehokenryo_maitsuki").val($motoukehokenryo.toLocaleString('ja-JP'));
+  $("#card_hiyou_maitsuki").val($card_hiyou.toLocaleString('ja-JP'));
+
+  $("#sougaku_maitsuki").val($syokai_sougaku.toLocaleString('ja-JP'));
+
+	}
+ 
+ function get_price_ikatsu(){
+  $('input[name="jimuGyousyuBangou__c"]').val("0");
+  
+  const $hokenryo = calc_hokenryo_ikatsu();
+  const $motoukehokenryo = calc_motoukehokenryo();
+  const $kaihi = calc_kaihi_ikatsu();
+  const $card_hiyou = calc_cardhiyou();
+  const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
+  const $motoukeari = $('input[name="motouke"]:checked').val();
+
   let $_kanyuyear = 0;
   if($kanyutuki == <?php echo $kanyu_month;?>){
    $_kanyuyear = <?php echo $kanyu_year;?>;
@@ -914,151 +1005,54 @@ console.log('card_hiyou:'+$card_hiyou);
    $_kanyuyear = <?php echo $kanyu2_year;?>;
   }
   
-  if(is_shiharai_maitsuki()){
-   $('#result_kikan_title').text('初回費用');
-   var $kanyu_year = <?php echo $kanyu_year;?>;
-   var $kanyu2_year = <?php echo $kanyu2_year;?>;
-   var $kanyu_month = <?php echo $kanyu_month;?>;
-   var $kanyu2_month = <?php echo $kanyu2_month;?>;
-   var now = new Date();
-   var today = now.getDate();
-   var today_m = now.getMonth()+1;
-   var month3 = new Date($kanyu_year, $kanyu_month+2, 0);
-   var month3_2 = new Date($kanyu2_year, $kanyu2_month+2, 0);
-   var month4 = new Date($kanyu_year, $kanyu_month+3, 0);
-   var month4_2 = new Date($kanyu2_year, $kanyu2_month+3, 0);
-   var kikan_e;
-   var kikan_s_y;
-   var $m;
-   if($kanyutuki == today_m){
-    if($kanyutuki == 1){
-     $m = 3;
-     kikan_s_y = $kanyu_year;
-     kikan_e = month3;
-    } else {
-     $m = 4;
-     kikan_s_y = $kanyu_year;
-     kikan_e = month4;
-    }
-   } else {
-    if($kanyutuki == 1){
-     $m = 3;
-     if($kanyutuki == $kanyu_month){
-      kikan_s_y = $kanyu_year;
-      kikan_e = month3;
-     } else {
-      kikan_s_y = $kanyu2_year;
-      kikan_e = month3_2;
-     }
-    } else {
-     $m = 4;
-     if($kanyutuki == $kanyu_month){
-      kikan_s_y = $kanyu_year;
-      kikan_e = month4;
-     } else {
-      kikan_s_y = $kanyu2_year;
-      kikan_e = month4_2;
-     }
-    }
+  let $_kanyu_tsukisu = 0;
+  let $em = 0;
+  if(is_kikan_tyoki()){
+   $_kanyu_tsukisu = tukisuu[$kanyutuki];
+   $em = 3;
+  } else if(is_kikan_tanki()){
+   $_kanyu_tsukisu = get_kikan();
+   $em = $kanyutuki + $_kanyu_tsukisu - 1;
+   if($em > 12) $em -= 12;
+  } else if(is_kikan_tyoki_konnendo()){
+   $_kanyu_tsukisu = tukisuu[$kanyutuki];
+   if(parseInt($_kanyu_tsukisu)>12){
+    $_kanyu_tsukisu = tukisuu[$kanyutuki]-12;
    }
-   $('#syokai_tsukisu').text($m);
-   $('#syokai_tsukisu_next').text($m+1);
-   
-   $('#result_kikan_s').text(kikan_s_y+"年"+$kanyutuki+"月");
-   $('#result_kikan_e').text(kikan_e.getFullYear()+"年"+(kikan_e.getMonth()+1)+"月末日");
-   
-   let $kaihi1 = calc_kaihi_per_month();
-   $('.maitsuki_text').show();
-   $('.maitsuki_text'+$m).show();
-   $('.maitsuki_val').text($kaihi1.toLocaleString('ja-JP'));
-   $('input[name="maitsuki_kaihi"]').val($kaihi1);
-   $kaihi_2y = $kaihi;
-   //$kaihi_camp = $kaihi;
+   $em = 3;
   }
+  const $ey = Math.ceil((($_kanyuyear-1)*12+$kanyutuki+parseInt($_kanyu_tsukisu))/12);
+  $('input[name="kikane"]').val($ey+""+$em);
+  $('input[name="maitsuki_kaihi"]').val("");
   
-  if(is_shiharai_ikatsu()){
-   $('#result_kikan_title').text('加入期間');
-   
-   let $_kanyu_tsukisu = 0;
-   let $em = 0;
-   if(is_kikan_tyoki()){
-    $_kanyu_tsukisu = tukisuu[$kanyutuki];
-    $em = 3;
-   } else if(is_kikan_tanki()){
-    $_kanyu_tsukisu = get_kikan();
-    $em = $kanyutuki + $_kanyu_tsukisu - 1;
-    if($em > 12) $em -= 12;
-   }
-   $('#result_kikan_s').text($_kanyuyear+"年"+$kanyutuki+"月");
-   const $ey = Math.ceil((($_kanyuyear-1)*12+$kanyutuki+parseInt($_kanyu_tsukisu))/12);
-   $('#result_kikan_e').text($ey+"年"+$em+"月末日");
-   $('input[name="kikane"]').val($ey+""+$em);
-   $('input[name="maitsuki_kaihi"]').val("");
-  }
-  
-  let $syokai_sougaku = $hokenryo + $nyukaikin + $kaihi_2y + $card_hiyou;
+  let $syokai_sougaku = $hokenryo + $kaihi + $card_hiyou + $motoukehokenryo;
   $syokai_sougaku = Math.floor($syokai_sougaku);
 
-  let $syokai_sougaku_camp = $hokenryo + $kaihi + $card_hiyou;
-  $syokai_sougaku_camp = Math.floor($syokai_sougaku_camp);
-
-  $('#mousikomi_next').show();
-  $('.mitsumori-result').show();
-  $('.mitsumori-result-btn_block').show();
-  $('#input_sec input, #input_sec select').prop('disabled', false);
+  $('#mitumori_result').show();
   if(isNaN($syokai_sougaku) || isNaN($kaihi)){
-   //$syokai_sougaku = "";
-   //$kaihi = "";
-   $('#mousikomi_next').hide();
-   $('.mitsumori-result').hide();
-   $('.mitsumori-result-btn_block').hide();
-   $('#input_sec input, #input_sec select').prop('disabled', true);
+   $('#mitumori_result').hide();
   }
 
-  // 20220418 有機溶剤あり　未入力の場合のチェック
-  if($('input[name="youzai"]:checked').val() == 'はい'){
-   let $youzai_minyuryoku = false;
-   if($('select[name="youzai_naiyou"]').val() == ''){
-    $youzai_minyuryoku = true;
-   }
-   if($('select[name="youzai_itukara_y"]').val() == ''){
-    $youzai_minyuryoku = true;
-   }
-   if($('select[name="youzai_itukara_m"]').val() == ''){
-    $youzai_minyuryoku = true;
-   }
-   if($('input[name="youzai_kakunin_y"]:checked').val() != 'わかりました'){
-    $youzai_minyuryoku = true;
-   }
-
-   if($youzai_minyuryoku == true){
-    $('#mousikomi_next').hide();
-    $('.mitsumori-result').hide();
-    $('.mitsumori-result-btn_block').hide();
-    $('#input_sec input, #input_sec select').prop('disabled', true);
-   }
+  if(youzai_minyuryoku() == true){
+   $('#mitumori_result').hide();
   }
 
   if($kaihi == 0){
-   $('#mousikomi_next').hide();
-   $('.mitsumori-result').hide();
-   $('.mitsumori-result-btn_block').hide();
-   $('#input_sec input, #input_sec select').prop('disabled', true);
+   $('#mitumori_result').hide();
   }
 
-  $("#kaihi_disp").val($kaihi_2y.toLocaleString('ja-JP'));
-  $("#kaihi").val($kaihi_2y.toLocaleString('ja-JP'));
-  $("#hokenryo").val($hokenryo.toLocaleString('ja-JP'));
-  $("#card_hiyou").val($card_hiyou.toLocaleString('ja-JP'));
+  if($motoukeari == undefined || $motoukeari == ''){
+   $('#mitumori_result').hide();
+  }
+  
+  let $kaihi_disp = $kaihi + $card_hiyou;
+  $("#kaihi_disp_ikatsu").val($kaihi_disp.toLocaleString('ja-JP'));
+  $("#kaihi_ikatsu").val($kaihi.toLocaleString('ja-JP'));
+  $("#hokenryo_ikatsu").val($hokenryo.toLocaleString('ja-JP'));
+  $("#motoukehokenryo_ikatsu").val($motoukehokenryo.toLocaleString('ja-JP'));
+  $("#card_hiyou_ikatsu").val($card_hiyou.toLocaleString('ja-JP'));
 
-  $(".camp").show();
-  const $syokei = $syokai_sougaku;
-  const $nyukaikin_wari = -1 * ($nyukaikin);
-  const $kaihi_wari = -1 * ($kaihi_2y - $kaihi);
-  $("#syokei").val($syokei.toLocaleString('ja-JP'));
-  $("#camp_nyukaikin_wari").val($nyukaikin_wari.toLocaleString('ja-JP'));
-  $("#camp_kaihi_wari").val($kaihi_wari.toLocaleString('ja-JP'));
-  $("#sougaku").val($syokai_sougaku_camp.toLocaleString('ja-JP'));
+  $("#sougaku_ikatsu").val($syokai_sougaku.toLocaleString('ja-JP'));
 
 	}
  
@@ -1068,59 +1062,20 @@ console.log('card_hiyou:'+$card_hiyou);
     if(roumu[$_roumu_sel+"0"] > 0){
      $ret = parseInt(roumu[$_roumu_sel+"0"] / 100);
      $('input[name="jimuGyousyuBangou__c"]').val(roumu[$_roumu_sel+"0"]);
-    } else {
-     const $_kouji_newold_sel = $('input[name="kouji_newold"]:checked').val();
-     if($_kouji_newold_sel == "新築工事"){
-      $ret = parseInt(roumu[$_roumu_sel+"1"] / 100);
-      $('input[name="jimuGyousyuBangou__c"]').val(roumu[$_roumu_sel+"1"]);
-     }
-     if($_kouji_newold_sel == "改修工事"){
-      $ret = parseInt(roumu[$_roumu_sel+"2"] / 100);
-      $('input[name="jimuGyousyuBangou__c"]').val(roumu[$_roumu_sel+"2"]);
-     }
-     const $_tukuri_sel = $('input[name="tukuri"]:checked').val();
-     if($_tukuri_sel == "木造"){
-      $ret = parseInt(roumu[$_roumu_sel+"3"] / 100);
-      $('input[name="jimuGyousyuBangou__c"]').val(roumu[$_roumu_sel+"3"]);
-     }
-     if($_tukuri_sel == "鉄骨"){
-      $ret = parseInt(roumu[$_roumu_sel+"4"] / 100);
-      $('input[name="jimuGyousyuBangou__c"]').val(roumu[$_roumu_sel+"4"]);
-     }
     }
     return $ret;
  }
  
- function calc_hokenryo(){
+ function calc_hokenryo_maitsuki(){
 
    let $ret = 0;
   
-   let $_motouke_kingaku = 100000;
-   if($('input[name="motouke"]:checked').val()=='1'){
-    $_motouke_kingaku = parseInt($('input[name="motouke_kingaku"]').val())*10000;
-    if($_motouke_kingaku < 100000) {$_motouke_kingaku = 100000;}
-   }
-console.log('motouke_kingaku='+$_motouke_kingaku);
    const $_kanyutuki = $('input[name="kikan"]:checked').val();
    const $_nitigaku = $('input[name="nitigaku"]:checked').val();
    const $_roumu_val = calc_roumu_val();
-   const $_tmp_a = ($_motouke_kingaku * roumu_hiritu[$_roumu_val]) / 1000;
    const $_ninzu = $('input[name="ninzu"]:checked').val();
-   const $_shiharai_kaisu = $('input[name="shiharai_kaisu"]:checked').val();
-   let $_tsukisu = get_kikan();
-   if(is_shiharai_maitsuki()){
-    $_tsukisu = tukisuu[$_kanyutuki];
-   }
-   if(is_shiharai_ikatsu()){
-    if(is_kikan_tyoki()){
-     $_tsukisu = tukisuu[$_kanyutuki];
-    }
-    if(is_kikan_tanki()){
-     $_tsukisu = get_kikan();
-    }
-   }
+   const $_tsukisu = tukisuu[$_kanyutuki];
 
-console.log('tsukisu:'+$_tsukisu);
    // 20210319メモ　年度またぎの時は各年度の条件（料率等）で計算してから合算
    // 現時点ではそうなっていないので修正すること
      if($_tsukisu>12){
@@ -1131,20 +1086,79 @@ console.log('tsukisu:'+$_tsukisu);
       const $_v2 = $_nitigaku+"_"+($_tsukisu-12);
       const $_kisogaku2 = value[$_v2];
       const $_a2 = Math.floor(Math.floor($_kisogaku2/1000 * $_ninzu) * (ryouritsu[$_roumu_val] * 1000));
-      const $_a = $_a1 + $_a2;
-      const $_b = Math.floor($_tmp_a * (ryouritsu[$_roumu_val] * 1000));
-      $ret = $_a + $_b;
+      const $_hokenryo = $_a1 + $_a2;
+      $ret = $_hokenryo;
      } else {
       const $_v = $_nitigaku+"_"+$_tsukisu;
       const $_kisogaku = value[$_v];
-      const $_a = Math.floor(Math.floor($_kisogaku/1000 * $_ninzu) * (ryouritsu[$_roumu_val] * 1000));
-      const $_b = Math.floor($_tmp_a * (ryouritsu[$_roumu_val] * 1000));
-      $ret = $_a + $_b;
+      const $_hokenryo = Math.floor(Math.floor($_kisogaku/1000 * $_ninzu) * (ryouritsu[$_roumu_val] * 1000));
+      $ret = $_hokenryo;
      }
   
    return $ret;
  }
- 
+ function calc_motoukehokenryo(){
+
+   let $ret = 0;
+  
+   let $_motouke_kingaku = 100000;
+   if($('input[name="motouke"]:checked').val()=='1'){
+    $_motouke_kingaku = parseInt($('input[name="motouke_kingaku"]').val())*10000;
+    if($_motouke_kingaku < 100000) {$_motouke_kingaku = 100000;}
+   }
+   const $_roumu_val = calc_roumu_val();
+   const $_tmp_a = ($_motouke_kingaku * roumu_hiritu[$_roumu_val]) / 1000;
+
+   const $_motouke_hokenryo = Math.floor($_tmp_a * (ryouritsu[$_roumu_val] * 1000));
+   $ret = $_motouke_hokenryo;
+  
+   return $ret;
+ }
+
+ function calc_hokenryo_ikatsu(){
+
+   let $ret = 0;
+  
+   const $_kanyutuki = $('input[name="kikan"]:checked').val();
+   const $_nitigaku = $('input[name="nitigaku"]:checked').val();
+   const $_roumu_val = calc_roumu_val();
+   const $_ninzu = $('input[name="ninzu"]:checked').val();
+   let $_tsukisu = get_kikan();
+   if(is_kikan_tyoki()){
+    $_tsukisu = tukisuu[$_kanyutuki];
+   }
+   if(is_kikan_tanki()){
+    $_tsukisu = get_kikan();
+   }
+   if(is_kikan_tyoki_konnendo()){
+    $_tsukisu = tukisuu[$_kanyutuki];
+    if(parseInt($_tsukisu)>12){
+     $_tsukisu = tukisuu[$_kanyutuki]-12;
+    }
+   }
+
+   // 20210319メモ　年度またぎの時は各年度の条件（料率等）で計算してから合算
+   // 現時点ではそうなっていないので修正すること
+   if($_tsukisu>12){
+    const $_v = $_nitigaku+"_12";
+    const $_kisogaku = value[$_v];
+    const $_a1 = Math.floor(Math.floor($_kisogaku/1000 * $_ninzu) * (ryouritsu[$_roumu_val] * 1000));
+
+    const $_v2 = $_nitigaku+"_"+($_tsukisu-12);
+    const $_kisogaku2 = value[$_v2];
+    const $_a2 = Math.floor(Math.floor($_kisogaku2/1000 * $_ninzu) * (ryouritsu[$_roumu_val] * 1000));
+    const $_hokenryo = $_a1 + $_a2;
+    $ret = $_hokenryo;
+   } else {
+    const $_v = $_nitigaku+"_"+$_tsukisu;
+    const $_kisogaku = value[$_v];
+    const $_hokenryo = Math.floor(Math.floor($_kisogaku/1000 * $_ninzu) * (ryouritsu[$_roumu_val] * 1000));
+    $ret = $_hokenryo;
+   }
+  
+   return $ret;
+ }
+
  function calc_kaihi_per_month(){
   const $_ninzu = $('input[name="ninzu"]:checked').val();
   const $_kaihi_base_maitsuki = 8000;
@@ -1153,59 +1167,46 @@ console.log('tsukisu:'+$_tsukisu);
   return $_kaihi_base_maitsuki + ($_kaihi_per_ninzu_maitsuki * ($_ninzu - 1));
  }
  
- function calc_kaihi(){
-  const $_ninzu = $('input[name="ninzu"]:checked').val();
-  const $_kaihi_base = 60000;
-  const $_kaihi_per_ninzu = 24000;
-  const $_kaihi_base_tanki = 40000;
-  const $_kaihi_per_ninzu_tanki = 16000;
+ function calc_kaihi_maitsuki(){
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
   
   var now = new Date();
-  var today = now.getDate();
   var today_m = now.getMonth()+1;
   let $ret = 0;
-  if(is_shiharai_maitsuki()){
-   let $kaihi1 = calc_kaihi_per_month();
-     // 20211227 会費計算修正
-   /*
-     if($kanyutuki == today_m){
-      if(today > 20){
-       $m = 4;
-       $ret = $kaihi1 * 4;
-      } else {
-       $m = 3;
-       $ret = $kaihi1 * 3;
-      }
-     } else {
-      $m = 3;
-      $ret = $kaihi1 * 3;      
-     }
-     */
-     if($kanyutuki == 1){
-      $m = 3;
-     } else {
-      $m = 4;
-     }
-     $ret = $kaihi1 * $m;
-     // 20211227 会費計算修正
-  }
-  if(is_shiharai_ikatsu()){
-   /*
-   if(is_kikan_tyoki()){
-    $ret = $_kaihi_base + ($_kaihi_per_ninzu * ($_ninzu - 1));
-   } else if(is_kikan_tanki()){
-    $ret = $_kaihi_base_tanki + ($_kaihi_per_ninzu_tanki * ($_ninzu - 1));
-   }
-   */
-   $ret = $_kaihi_base + ($_kaihi_per_ninzu * ($_ninzu - 1));
+  let $kaihi1 = calc_kaihi_per_month();
+  /*
+  if($kanyutuki == 1){
+   $m = 3;
+  } else {
+  */
+   $m = 4;
+//  }
+  $ret = $kaihi1 * $m;
+  
+  return $ret;
+ }
+ 
+ function calc_kaihi_ikatsu(){
+  const $_ninzu = $('input[name="ninzu"]:checked').val();
+  const $_kaihi_base = 60000;
+  const $_kaihi_per_ninzu = 24000;
+  //const $_kaihi_base_tanki = 40000;
+  //const $_kaihi_per_ninzu_tanki = 16000;
+  //const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
+  
+  let $ret = 0;
+  $ret = $_kaihi_base + ($_kaihi_per_ninzu * ($_ninzu - 1));
+  
+  if(is_kikan_tyoki_konnendo()){
+   $ret = Math.floor($ret / 2);
   }
   return $ret;
  }
  
  function calc_cardhiyou(){
+  const $_cardhiyou_base = 3300;
   const $_ninzu = $('input[name="ninzu"]:checked').val();
-  return 3300 * $_ninzu;
+  return $_cardhiyou_base * $_ninzu;
  }
  
  function get_kikan(){
@@ -1219,24 +1220,18 @@ console.log('tsukisu:'+$_tsukisu);
    $ret = 2;
   } else if($_kikan == '３か月'){
    $ret = 3;
+  } else if($_kikan == '年払い今年度のみ'){
+   $ret = 4;
   }
   return $ret;
  }
- function is_shiharai_maitsuki(){
-  const $_shiharai_kaisu = $('input[name="shiharai_kaisu"]:checked').val();
+ function is_kikan_tyoki_konnendo(){
+  const $_kikan = $('input[name="kanyu_kikan"]:checked').val();
   let $ret = false;
-  if($_shiharai_kaisu == '毎月払い'){
+  if($_kikan == '年払い今年度のみ'){
    $ret = true;
   }
-  return $ret;  
- }
- function is_shiharai_ikatsu(){
-  const $_shiharai_kaisu = $('input[name="shiharai_kaisu"]:checked').val();
-  let $ret = false;
-  if($_shiharai_kaisu == '年払い'){
-   $ret = true;
-  }
-  return $ret;  
+  return $ret;
  }
  function is_kikan_tyoki(){
   const $_kikan = $('input[name="kanyu_kikan"]:checked').val();
@@ -1261,31 +1256,11 @@ console.log('tsukisu:'+$_tsukisu);
   return $ret;
  }
  
- function ninzu_selchange(){
-  $ninzu_sel = $('input[name="ninzu"]:checked').val();
-  for($i=0;$i<=5;$i++){
-   if($i <= $ninzu_sel){
-    $('#kanyusya_input'+$i).show();
-    $('#kanyusya_input'+$i).find('input').prop('required', true);
-    $('#kanyusya_input'+$i).find('select.birthday').prop('required', true);
-   } else {
-    $('#kanyusya_input'+$i).hide();
-    $('#kanyusya_input'+$i).find('input').prop('required', false);
-    $('#kanyusya_input'+$i).find('select.birthday').prop('required', false);
-   }
-  }
- }
  function jouken_selchange(){
-  $('#input_sec').hide();
-  $('#mousikomi_next').hide();
-  $('.mitsumori-result').hide();
-  $('.mitsumori-result-btn_block').hide();
-  $('#input_sec input, #input_sec select').prop('disabled', true);
+  $('#mitumori_result').hide();
   $('#sougaku').val("");
   $('#kaihi').val("");
   $('#hokenryo').val("");
-  $('#hokenryo1').val("");
-  $('#hokenryo2').val("");
   
 <?php /* 20220122 紹介クーポン */ ?>
   $('.cupon_no_input').hide();
@@ -1297,53 +1272,10 @@ console.log('tsukisu:'+$_tsukisu);
 <?php /* 20220122 紹介クーポン */ ?>
  
   $roumu_sel = $('input[name="jigyou"]:checked').val();
-  $kouji_newold_sel = $('input[name="kouji_newold"]:checked').val();
-  $tukuri_sel = $('input[name="tukuri"]:checked').val();
   
-  $('#mb_kouji_newold').hide();
-  $('input[name="kouji_newold"]').prop('required', false);
-  if((roumu[$roumu_sel+"3"] == 0) || (roumu[$roumu_sel+"2"] == 0)){
-   $('#mb_tukuri').hide();
-   $('input[name="tukuri"]').prop('required', false);
-  }
-  if(roumu[$roumu_sel+"0"] > 0){
-   $('input[name="kouji_newold"]').prop('checked', false);
-   $('input[name="tukuri"]').prop('checked', false);
-  } else {
-   if(roumu[$roumu_sel+"3"] > 0){
-    if(roumu[$roumu_sel+"2"] > 0){
-     $('#mb_kouji_newold').show();
-     $('input[name="kouji_newold"]').prop('required', 'required');
-    } else {
-     $('#mb_tukuri').show();
-     $('input[name="tukuri"]').prop('required', 'required');
-    }
-   } else if(roumu[$roumu_sel+"2"] > 0){
-     $('#mb_kouji_newold').show();
-     $('input[name="kouji_newold"]').prop('required', 'required');
-     $('input[name="tukuri"]').prop('checked', false);
-     $('input[name="tukuri"]').prop('required', false);
-   }
-  }
-  
-  if(roumu[$roumu_sel+"3"] > 0){
-   if(roumu[$roumu_sel+"2"] > 0){
-    if($kouji_newold_sel == "新築工事"){
-     $('#mb_tukuri').show();
-     $('input[name="tukuri"]').prop('required', 'required');
-    } else {
-     $('#mb_tukuri').hide();
-     $('input[name="tukuri"]').prop('checked', false);
-     $('input[name="tukuri"]').prop('required', false);
-    }
-   }
-  }
-
    $('#nitigaku4').parent('li').hide();
    $('#nitigaku1').parent('li').show();
    $('#nitigaku4').prop('checked', false);
-  
-//  get_price();
   
   /* 20211227 いつまでご加入が必要ですか？ */
   /*
@@ -1369,6 +1301,22 @@ console.log('tsukisu:'+$_tsukisu);
   }
   $('#kikane2 + label span').text("令和" + $end_year_r + "年" + $end_month + "月末日");
 */
+  $kikan_sel = $('input[name="kikan"]:checked').val();
+  if(parseInt($kikan_sel) == 12){
+   $('input[name="kanyu_kikan"]').prop('checked', false);
+   $('#kanyu_kikan4').prop('checked', true);
+   $('#kanyu_kikan5 + label').hide();
+  } else {
+   $('#kanyu_kikan5 + label').show();
+  }
+  
+  if(is_kikan_tyoki_konnendo()){
+   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year-1;?>年3月31日まで）');
+   $('.mitsumori-result').addClass('no_maitsuki');
+  } else {
+   $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year;?>年3月31日まで）');
+   $('.mitsumori-result').removeClass('no_maitsuki');
+  }
   
   /* 20211227 塗装、防水を選んだら３か月、毎月払い不可 */
   $('.kikan_short').show();
@@ -1393,13 +1341,9 @@ console.log('tsukisu:'+$_tsukisu);
   } else {
   }
   
-  if(is_shiharai_maitsuki()){
-   $('input[name="kanyu_kikan"]').prop('checked', false);
-   $('#kanyu_kikan4').prop('checked', true);
-   $('#mb_kanyu_kikan').hide();
-  } else {
-   $('#mb_kanyu_kikan').show();
-  }
+  //$('input[name="kanyu_kikan"]').prop('checked', false);
+  //$('#kanyu_kikan4').prop('checked', true);
+  //$('#mb_kanyu_kikan').hide();
   
   get_price();
   
@@ -1467,6 +1411,23 @@ document.getElementById('mitsumori_form').onkeypress = function(e) {
   return false;
  }
 };
+ 
+/* 見積り　明細を見るボタン */
+function toggle_mitsumori_more($boxname){
+ $('.' + $boxname + ' .mitsumori_box_more').toggle();
+ if($('.' + $boxname + ' .toggle_icon').hasClass('fa-chevron-down')){
+  $('.' + $boxname + ' .toggle_icon').removeClass('fa-chevron-down');
+  $('.' + $boxname + ' .toggle_icon').addClass('fa-chevron-up');
+  $('.' + $boxname + ' .toggle_text').text('明細を閉じる');
+ } else {
+  $('.' + $boxname + ' .toggle_icon').addClass('fa-chevron-down');
+  $('.' + $boxname + ' .toggle_icon').removeClass('fa-chevron-up');
+  $('.' + $boxname + ' .toggle_text').text('明細を見る');
+ }
+}
+$(function(){
+ $('.mitsumori_box_more').hide();
+});
 </script>
 
  

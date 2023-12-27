@@ -215,14 +215,9 @@ $detect = new Mobile_Detect;
     ryouritsu[37] = 0.015;
   
     var tukisuu = {};
-   /*
     tukisuu[1] = 15;
     tukisuu[2] = 14;
     tukisuu[3] = 13;
-    */
-    tukisuu[1] = 3;
-    tukisuu[2] = 2;
-    tukisuu[3] = 1;
     tukisuu[4] = 12;
     tukisuu[5] = 11;
     tukisuu[6] = 10;
@@ -269,7 +264,7 @@ $detect = new Mobile_Detect;
 <body id="input_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
- 
+ <!--
     <header>
       <div class="header__flex">
         <a href="/"><img class="h_logo" src="../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
@@ -281,7 +276,12 @@ $detect = new Mobile_Detect;
       <h1 class="div_center"><span>中小事業主の特別加入　見積もり</span></h1>
      </div>
     </header>
-	
+	-->
+   <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
   <!-- contents ///////////////////////////////////-->
  <div id="mainbody">
   <main id="main">
@@ -395,7 +395,6 @@ $detect = new Mobile_Detect;
                 <input id="kikan2" type="radio" name="kikan" value="<?php echo $kanyu2_month1;?>" required="" <?php echo $sel2;?>>
                 <label for="kikan2"><span><?php echo $kanyu2_month1;?>月</span></label>
               </li>
-             
              <?php /* 1月～2月　表示して受付する */ ?>
               <!--<li style="position: relative;">-->
              <!--

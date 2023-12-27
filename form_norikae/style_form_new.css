@@ -4956,7 +4956,12 @@ span.label.req {
 .top-fixed {
   position: fixed;
   z-index: 999;
+  top: 110px;
+}
+@media screen and (max-width: 960px) {
+ .top-fixed {
   top: 0;
+ }
 }
 .tr_hojin input[type="file"] {
   display: inline-block;

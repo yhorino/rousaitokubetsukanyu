@@ -153,7 +153,7 @@ $(function () {
  
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
- 
+ <!--
  <a href="#main">メインコンテンツに移動</a>
 	
     <header>
@@ -162,7 +162,12 @@ $(function () {
       </div>
       <h1 class="mitsumori-maintitle">雇用保険の加入申込み</h1>
     </header>
-	
+	-->
+   <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
 <?php /* https://blog-and-destroy.com/7283 */ ?>
 <style>
 #overlay, 

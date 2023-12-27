@@ -70,7 +70,7 @@ setcookie('norikae', '0', 0, '/');
 <body id="input_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
- 
+ <!--
   <header>
     <div class="header__flex">
       <a href="/koyohoken/"><img class="h_logo" src="../../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
@@ -78,7 +78,12 @@ setcookie('norikae', '0', 0, '/');
     <h1 class="mitsumori-maintitle">雇用保険の加入申込み</h1>
     <h2 class="mitsumori-ttl">かんたん見積もり</h2>
   </header>
-	
+	-->
+   <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
   <!-- contents ///////////////////////////////////-->
  <div id="mainbody">
   <main id="main">

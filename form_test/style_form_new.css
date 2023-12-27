@@ -4876,8 +4876,12 @@ input[type="submit"].submit_card,
  padding: 40px 30px;
 }
 .mitsumori_result_title {
- font-size: 26px;
+ /*font-size: 26px;*/
  font-weight: bold;
+ /* 20231226 期間限定キャンペーン */
+ font-size: clamp(16px, 4vw, 26px);
+ padding-top: 10px;
+ /* 20231226 期間限定キャンペーン */
 }
 .mitsumori_result_title_ikatsu,
 .mitsumori_result_title_maitsuki {
@@ -4901,10 +4905,24 @@ input[type="submit"].submit_card,
  display: grid;
  grid-template-columns: 1fr 1fr;
  grid-column-gap: 55px;
- margin-top: 50px;
+ margin-top: 30px;
 }
 .mitsumori_box {
  position: relative;
+}
+.no_maitsuki .mitsumori_result_title{
+ display: none;
+}
+.no_maitsuki .mitsumori_result_box{
+ grid-template-columns: 1fr;
+ margin: 0;
+}
+.no_maitsuki .mitsumori_maitsuki_box{
+ display: none;
+}
+.no_maitsuki .mitsumori_ikatsu_box{
+ max-width: 400px;
+ margin: 0 auto;
 }
 .maitsuki_balloon {
  position: absolute;
@@ -4948,7 +4966,10 @@ input[type="submit"].submit_card,
  padding: 20px 15px;
  border-radius: 0 0 8px 8px;
  display: grid;
- grid-template-rows: 40px 1fr 80px;
+/* 20231226 期間限定キャンペーン */
+ /*grid-template-rows: 40px 1fr 80px;*/
+ grid-template-rows: 20px 1fr 80px;
+/* 20231226 期間限定キャンペーン */
  grid-row-gap: 15px;
 }
 .mitsumori_box_kikan {
@@ -4959,27 +4980,75 @@ input[type="submit"].submit_card,
  align-items: center;
  font-weight: bold;
 }
+/* 20231226 期間限定キャンペーン */
+.mitsumori_box_sougakutitle{
+ background-color: #FFF;
+ font-size: 14px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-weight: bold;
+}
+.mitsumori_box_sougaku input {
+ width: 100%;
+ max-width: 5em;
+}
+/* 20231226 期間限定キャンペーン */
 .mitsumori_box_inner {
- margin: 0 40px;
+ /* 20231226 期間限定キャンペーン */
+ /*margin: 0 40px;*/
+ margin: 0 20px;
+ /* 20231226 期間限定キャンペーン */
  display: grid;
  grid-template-rows: 50px 32px 1fr;
  grid-row-gap: 10px;
 }
 .mitsumori_box_sougaku {
  display: grid;
- grid-template-columns: 5em 1fr 1em;
+ /* 20231226 期間限定キャンペーン */
+ /*grid-template-columns: 5em 1fr 1em;*/
+ grid-template-columns: 7em 2em 1fr 1em;
+ /* 20231226 期間限定キャンペーン */
  font-size: 14px;
  font-weight: bold;
  justify-content: center;
  align-items: center;
 }
+/* 20231226 期間限定キャンペーン */
+.mitsumori_box_sougaku_kingaku {
+    text-align: right;
+}
+/* 20231226 期間限定キャンペーン */
 .mitsumori_box_sougaku_kingaku input {
  font-size: 32px;
  font-weight: bold;
  text-align: right;
  width: 100%;
  height: auto;
+ /* 20231226 期間限定キャンペーン */
+ max-width: 125px;
+ color: #E92929;
+ /* 20231226 期間限定キャンペーン */
 }
+/* 20231226 期間限定キャンペーン */
+.mitsumori_box_sougaku_kingaku_yen {
+ color: #E92929;
+}
+.mitsumori_box_sougaku_kingaku_normal {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ text-decoration: line-through;
+}
+.mitsumori_box_sougaku_kingaku_normal span {
+ font-size: 25px;
+ font-weight: bold;
+ text-align: right;
+ width: 100%;
+ height: auto;
+ max-width: 5em;
+}
+/* 20231226 期間限定キャンペーン */
 .mitsumori_box_morebutton {
  font-size: 13px;
  display: flex;
@@ -5001,6 +5070,9 @@ input[type="submit"].submit_card,
  font-size: 14px;
  align-items: center;
  justify-content: center;
+}
+.mitsumori_box_more_line.more_line_kaihi {
+ grid-template-columns: 5em 1fr 2em 1fr 1em;
 }
 .mitsumori_box_more_line_title {
  font-weight: bold;
@@ -5077,6 +5149,72 @@ input[type="submit"].submit_card,
  background-color: var(--color_ikatsu);
  color: #fff;
 }
+.kaihi_normal {
+ text-decoration: line-through;
+ display: flex;
+ justify-content: end;
+ align-items: center;
+}
+.kaihi_camp input {
+ color: #FF224C;
+}
+.sougaku_disp_box_ribbon {
+ text-align: center;
+ background-color: #FF224C;
+ line-height: 1em;
+ padding: 5px 0;
+ position: relative;
+ font-size: 14px;
+ 
+ position: absolute;
+ width: 420px;
+ max-width: 90%;
+ top: -15px;
+ left: 50%;
+ transform: translate(-50%, 0%);
+ -webkit-transform: translate(-50%, 0%);
+ -ms-transform: translate(-50%, 0%);
+}
+.sougaku_disp_box_ribbon:before {
+ content: '';
+ position: absolute;
+ right: 100%;
+ top: 0;
+ border-top: 15px solid #FF224C;
+ border-bottom: 15px solid #FF224C;
+ border-right: none;
+ border-left: 13px solid transparent;
+ width: 0;
+ height: 0;
+}
+.sougaku_disp_box_ribbon:after {
+ content: '';
+ position: absolute;
+ left: 100%;
+ top: 0;
+ border-top: 15px solid #FF224C;
+ border-bottom: 15px solid #FF224C;
+ border-right: 13px solid transparent;
+ border-left: none;
+ width: 0;
+ height: 0;
+}
+.sougaku_disp_box_ribbon_title {
+ color: #fff;
+ font-weight: bold;
+ padding: 3px 5px;
+ line-height: 1em;
+ display: inline-block;
+}
+.sougaku_disp_box_ribbon_val {
+ background-color: #fff;
+ color: #FF224C;
+ font-weight: bold;
+ padding: 3px 5px;
+ line-height: 1em;
+ display: inline-block;
+}
+
 @media screen and (max-width: 960px) {
  .mitsumori_result_box {
   grid-template-columns: 1fr;

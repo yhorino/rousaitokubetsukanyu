@@ -62,7 +62,10 @@ if (true === $regist) {
 <body>
 <?php include_once $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
 
-<?php include_once('header.php'); ?>
+<?php 
+ $option_class = 'no_menu no_login';
+ include_once('header.php');
+ ?>
 <?php include_once('pw_toggle.inc'); ?>
  
 <?php

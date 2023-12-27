@@ -49,14 +49,20 @@ $_SESSION['idle_time'] = time();
 </head>
 <body id="done_php">
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
- 
+
+ <!--
     <header>
       <div class="header__flex">
 				<a href="/koyohoken/"><img class="h_logo" src="../../assets/logo_img/logo_jimukumiai.png" width="327" alt="" /></a>
       </div>
      
     </header>
-	
+	-->
+   <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
   <!-- contents ///////////////////////////////////-->
   <main id="main">
       <section class="mitsumori">

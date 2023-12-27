@@ -43,12 +43,14 @@ $_SESSION['zip'] = substr($_SESSION['zip'],0,3).'-'.substr($_SESSION['zip'],-4);
   <link rel="stylesheet" href="style_form_new.css">
   <!-- JS-->
   <script src="../assets/js/app.js"></script>
+  <script src="https://kit.fontawesome.com/a366e23f99.js" crossorigin="anonymous"></script>
 
 </head>
 <!--<body id="check_php">-->
 <body> 
 <?php include_once  $_SERVER['DOCUMENT_ROOT'].'/template_php/gtag_body.html'; ?>
  
+ <!--
  <a href="#main">メインコンテンツに移動</a>
 	
     <header>
@@ -63,7 +65,12 @@ $_SESSION['zip'] = substr($_SESSION['zip'],0,3).'-'.substr($_SESSION['zip'],-4);
       <h1 class="div_center"><span>お客様情報のご確認</span></h1>
      </div>
     </header>
-	
+	-->
+   <?php 
+ $option_class = 'no_menu';
+ include_once $_SERVER['DOCUMENT_ROOT'].'/wp-content/themes/cocoon-child-master/tmp/header-container.php'; 
+ ?>
+
  <!-- 本番環境へ流す -->
 
 <!--<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">-->

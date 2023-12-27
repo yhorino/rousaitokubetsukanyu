@@ -4866,3 +4866,239 @@ input[type="submit"].submit_card,
 }
 /* 20231212 元請金額 */
 
+
+/* 20231218 見積り表示　毎月払いと年払い */
+:root{
+ --color_maitsuki: #FF850D;
+ --color_ikatsu: #22893B;
+}
+.mitsumori-result {
+ padding: 40px 30px;
+}
+.mitsumori_result_title {
+ font-size: 26px;
+ font-weight: bold;
+}
+.mitsumori_result_title_ikatsu,
+.mitsumori_result_title_maitsuki {
+ display: inline-block;
+ background-color: #ccc;
+ font-size: 0.8em;
+ padding: 7px 14px;
+ border-radius: 5px 5px 0 0;
+ position: relative;
+ bottom: 3px;
+}
+.mitsumori_result_title_maitsuki {
+ background-color: var(--color_maitsuki);
+ color: #fff;
+}
+.mitsumori_result_title_ikatsu {
+ background-color: var(--color_ikatsu);
+ color: #fff;
+}
+.mitsumori_result_box {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-column-gap: 55px;
+ margin-top: 50px;
+}
+.mitsumori_box {
+ position: relative;
+}
+.no_maitsuki .mitsumori_result_title{
+ display: none;
+}
+.no_maitsuki .mitsumori_result_box{
+ grid-template-columns: 1fr;
+ margin: 0;
+}
+.no_maitsuki .mitsumori_maitsuki_box{
+ display: none;
+}
+.no_maitsuki .mitsumori_ikatsu_box{
+ max-width: 400px;
+ margin: 0 auto;
+}
+.maitsuki_balloon {
+ position: absolute;
+ top: -28px;
+ left: 50%;
+ transform: translate(-50%, 0%);
+ -webkit-transform: translate(-50%, 0%);
+ -ms-transform: translate(-50%, 0%);
+ width: 300px;
+ text-align: center;
+ padding: 7px 0;
+ background-color: #ff0;
+ border-radius: 20px;
+ color: #f00;
+ font-weight: bold;
+ max-width: 65vw;
+}
+.maitsuki_balloon:after {
+ content: '';
+ border-top: 7px solid #ff0;
+ border-left: 7px solid transparent;
+ border-bottom: 7px solid transparent;
+ border-right: 7px solid transparent;
+ position: absolute;
+ top: 100%;
+ left: 50%;
+ transform: translate(-50%, 0%);
+ -webkit-transform: translate(-50%, 0%);
+ -ms-transform: translate(-50%, 0%);
+}
+.mitsumori_box_title {
+ background-color: #fff;
+ font-size: 24px;
+ font-weight: bold;
+ text-align: center;
+ padding: 12px 0;
+ border-radius: 8px 8px 0 0;
+}
+.mitsumori_box_body {
+ background-color: #fff;
+ padding: 20px 15px;
+ border-radius: 0 0 8px 8px;
+ display: grid;
+ grid-template-rows: 40px 1fr 80px;
+ grid-row-gap: 15px;
+}
+.mitsumori_box_kikan {
+ background-color: #FFF6CC;
+ font-size: 14px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ font-weight: bold;
+}
+.mitsumori_box_inner {
+ margin: 0 40px;
+ display: grid;
+ grid-template-rows: 50px 32px 1fr;
+ grid-row-gap: 10px;
+}
+.mitsumori_box_sougaku {
+ display: grid;
+ grid-template-columns: 5em 1fr 1em;
+ font-size: 14px;
+ font-weight: bold;
+ justify-content: center;
+ align-items: center;
+}
+.mitsumori_box_sougaku_kingaku input {
+ font-size: 32px;
+ font-weight: bold;
+ text-align: right;
+ width: 100%;
+ height: auto;
+}
+.mitsumori_box_morebutton {
+ font-size: 13px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ padding: 5px 0;
+ background-color: #EEEEEE;
+ border-radius: 15px;
+ cursor: pointer;
+ user-select: none;
+}
+.toggle_icon {
+ font-size: 10px;
+ color: #FF850D;
+}
+.mitsumori_box_more_line {
+ display: grid;
+ grid-template-columns: 10em 1fr 1em;
+ font-size: 14px;
+ align-items: center;
+ justify-content: center;
+}
+.mitsumori_box_more_line_title {
+ font-weight: bold;
+}
+.mitsumori_box_more_line_kingaku input {
+ font-size: 16px;
+ text-align: right;
+ width: 100%;
+ height: auto;
+}
+.mitsumori_box_more_info {
+ font-size: 10px;
+ margin-top: 5px;
+}
+.mitsumori_box_submit {
+ display: grid;
+ grid-template-columns: 230px;
+ justify-content: center;
+ align-items: center;
+}
+.mitsumori_box_submit button {
+ height: 76px;
+ border: 3px solid #fff;
+ border-radius: 10px;
+ box-shadow: 2px 2px 5px 0px #ccc;
+ cursor: pointer;
+ font-size: 16px;
+ font-weight: bold;
+ line-height: 1.2em;
+ text-align: left;
+ padding: 0 30px;
+ position: relative;
+ user-select: none;
+}
+.mitsumori_box_submit button:after {
+ font-family: "Font Awesome 5 Free";
+ content: '\f138';
+ font-size: 20px;
+ font-weight: 900;
+ color: #fff;
+ position: absolute;
+ right: 15px;
+ top: 50%;
+ transform: translate(0%, -50%);
+ -webkit-transform: translate(0%, -50%);
+ -ms-transform: translate(0%, -50%);
+}
+.submit_text_large {
+ font-size: 1.5em;
+ margin-top: 0.2em;
+ display: inline-block;
+}
+.mitsumori_maitsuki_box .mitsumori_box_title {
+ background-color: var(--color_maitsuki);
+ border: 1px solid var(--color_maitsuki);
+ color: #fff;
+}
+.mitsumori_ikatsu_box .mitsumori_box_title {
+ background-color: var(--color_ikatsu);
+ border: 1px solid var(--color_ikatsu);
+ color: #fff;
+}
+.mitsumori_maitsuki_box .mitsumori_box_body {
+ border: 1px solid var(--color_maitsuki);
+}
+.mitsumori_ikatsu_box .mitsumori_box_body {
+ border: 1px solid var(--color_ikatsu);
+}
+.mitsumori_maitsuki_box .mitsumori_box_submit button {
+ background-color: var(--color_maitsuki);
+ color: #fff;
+}
+.mitsumori_ikatsu_box .mitsumori_box_submit button {
+ background-color: var(--color_ikatsu);
+ color: #fff;
+}
+@media screen and (max-width: 960px) {
+ .mitsumori_result_box {
+  grid-template-columns: 1fr;
+  grid-row-gap: 40px;
+ }
+ .mitsumori_box_inner {
+  margin: 0;
+ }
+}
+
+/* 20231218 見積り表示　毎月払いと年払い */
