@@ -547,7 +547,7 @@ setcookie('norikae', '0', 0, '/');
                  <div class="mitsumori_box_more_line_kingaku"><input id="kaihi_disp_maitsuki" type="text" name="kaihi_disp_maitsuki" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
-                <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から会費が月々<span class="maitsuki_val"></span>円かかります。</div>
+                <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から、月々<span class="maitsuki_val"></span>円の会費振替となります。</div>
                </div>
               </div>
               <div class="mitsumori_box_submit">
