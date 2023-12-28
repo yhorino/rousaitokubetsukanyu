@@ -22,11 +22,11 @@ if($dayofweek == 5) { // 金
   $kigen = date('Y-m-d', strtotime('+3 day', strtotime($date)));
 }
 
-if(db_isholiday($date) != ''){
+if(db_isHoliday($date) == true){
   $holiday = true;
 }
 
-while(db_isholiday($kigen) != ''){
+while(db_isHoliday($kigen) == true){
   $kigen = date('Y-m-d', strtotime('+1 day', strtotime($kigen)));
 }
 

@@ -2,33 +2,39 @@
 //	include_once 'get_hokenryo.php';
 //	include_once 'settings.php';
 //$dbh = null;
-$wpdb = null;
+$wpdb_rjc = null;
 
 //include_once $_SERVER['DOCUMENT_ROOT'].'/dbinfo.php';
-include_once '/home/rjc/domains/xn--y5q0r2lqcz91qdrc.com/public_html/wp-content/themes/cocoon-child-master/dbinfo.php';
+include '/home/rjc/domains/xn--y5q0r2lqcz91qdrc.com/public_html/wp-content/themes/cocoon-child-master/dbinfo.php';
+// **** dbinfo.phpで$dbinfo_dbnameをセットしているが入っていない？
+// **** パス間違いでインクルードできていないのか？要調査
 
 function db_init(){
- global $dbinfo_dbname;
- global $dbinfo_dbpass;
-	global $wpdb;
- if($wpdb == null){	
-		$wpdb = new wpdb($dbinfo_dbname, $dbinfo_dbpass, $dbinfo_dbname, 'localhost');
-	}
+ //global $dbinfo_dbname;
+ //global $dbinfo_dbpass;
+ $dbinfo_dbname = 'rjc_aichi1998_db';
+ $dbinfo_dbpass = 'tmgt0216';
+	global $wpdb_rjc;
+ if($wpdb_rjc == null){	
+		$wpdb_rjc = new wpdb($dbinfo_dbname, $dbinfo_dbpass, $dbinfo_dbname, 'localhost');
+ }
 }
 
 function db_isHoliday($date){
 	header("Content-type: text/html;charset=utf-8");
 	
-	global $wpdb;
+	global $wpdb_rjc;
  db_init();
 	$data=array();
 	$sql = 'SELECT `date` from `T_holiday` WHERE `date`="'.$date.'"';
- $result = $wpdb->get_results($sql);
+ $result = $wpdb_rjc->get_results($sql);
 	
 	$found = false;
- foreach($result as $rec){
+ /*foreach($result as $rec){
   if($rec->date != '') $found = true;
- }
+ }*/
+ $found = !empty($result);
+ 
 	return $found;
 }
 

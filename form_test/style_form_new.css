@@ -5007,7 +5007,7 @@ input[type="submit"].submit_card,
  display: grid;
  /* 20231226 期間限定キャンペーン */
  /*grid-template-columns: 5em 1fr 1em;*/
- grid-template-columns: 7em 2em 1fr 1em;
+ grid-template-columns: 7em 1.5em 135px 1em;
  /* 20231226 期間限定キャンペーン */
  font-size: 14px;
  font-weight: bold;
@@ -5026,7 +5026,7 @@ input[type="submit"].submit_card,
  width: 100%;
  height: auto;
  /* 20231226 期間限定キャンペーン */
- max-width: 125px;
+ max-width: 135px;
  color: #E92929;
  /* 20231226 期間限定キャンペーン */
 }
@@ -5035,13 +5035,14 @@ input[type="submit"].submit_card,
  color: #E92929;
 }
 .mitsumori_box_sougaku_kingaku_normal {
- display: flex;
+ display: grid;
+ grid-template-columns: 1fr 1.5em;
  justify-content: center;
  align-items: center;
  text-decoration: line-through;
 }
 .mitsumori_box_sougaku_kingaku_normal span {
- font-size: 25px;
+ font-size: 20px;
  font-weight: bold;
  text-align: right;
  width: 100%;
@@ -5072,10 +5073,13 @@ input[type="submit"].submit_card,
  justify-content: center;
 }
 .mitsumori_box_more_line.more_line_kaihi {
- grid-template-columns: 5em 1fr 2em 1fr 1em;
+ grid-template-columns: 7em 1fr 1.5em 5.5em 1em;
 }
 .mitsumori_box_more_line_title {
  font-weight: bold;
+}
+.mitsumori_box_more_line_title.small {
+ font-size: 0.8em;
 }
 .mitsumori_box_more_line_kingaku input {
  font-size: 16px;
@@ -5154,6 +5158,7 @@ input[type="submit"].submit_card,
  display: flex;
  justify-content: end;
  align-items: center;
+ font-size: 0.8em;
 }
 .kaihi_camp input {
  color: #FF224C;
@@ -5164,12 +5169,12 @@ input[type="submit"].submit_card,
  line-height: 1em;
  padding: 5px 0;
  position: relative;
- font-size: 14px;
+ font-size: 22px;
  
  position: absolute;
- width: 420px;
+ width: 600px;
  max-width: 90%;
- top: -15px;
+ top: -19px;
  left: 50%;
  transform: translate(-50%, 0%);
  -webkit-transform: translate(-50%, 0%);
@@ -5180,8 +5185,8 @@ input[type="submit"].submit_card,
  position: absolute;
  right: 100%;
  top: 0;
- border-top: 15px solid #FF224C;
- border-bottom: 15px solid #FF224C;
+ border-top: 19px solid #FF224C;
+ border-bottom: 19px solid #FF224C;
  border-right: none;
  border-left: 13px solid transparent;
  width: 0;
@@ -5192,8 +5197,8 @@ input[type="submit"].submit_card,
  position: absolute;
  left: 100%;
  top: 0;
- border-top: 15px solid #FF224C;
- border-bottom: 15px solid #FF224C;
+ border-top: 19px solid #FF224C;
+ border-bottom: 19px solid #FF224C;
  border-right: 13px solid transparent;
  border-left: none;
  width: 0;
@@ -5216,6 +5221,9 @@ input[type="submit"].submit_card,
 }
 
 @media screen and (max-width: 960px) {
+ .mitsumori-result{
+  padding: 30px 15px;
+ }
  .mitsumori_result_box {
   grid-template-columns: 1fr;
   grid-row-gap: 40px;
@@ -5225,4 +5233,33 @@ input[type="submit"].submit_card,
  }
 }
 
+@media screen and (max-width: 540px) {
+ .mitsumori_box_sougaku {
+  /*font-size: 12px;*/
+ }
+ .mitsumori_box_sougaku_kingaku_normal span {
+  font-size: 14px;
+ }
+ .mitsumori_box_sougaku_kingaku input {
+  font-size: 24px;
+ }
+ .sougaku_disp_box_ribbon {
+  height: 60px;
+  top: -30px;
+  font-size: 16px;
+  padding: 10px;
+  width: 80%;
+ }
+ .sougaku_disp_box_ribbon:before {
+  border-top: 30px solid #FF224C;
+  border-bottom: 30px solid #FF224C;
+  border-left: 20px solid transparent;
+ }
+ .sougaku_disp_box_ribbon:after {
+  border-top: 30px solid #FF224C;
+  border-bottom: 30px solid #FF224C;
+  border-right: 20px solid transparent;
+ }
+
+}
 /* 20231218 見積り表示　毎月払いと年払い */
