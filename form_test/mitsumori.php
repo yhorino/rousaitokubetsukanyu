@@ -521,7 +521,7 @@ setcookie('norikae', '0', 0, '/');
            <div class="sougaku_disp_box_ribbon">
             <span class="sougaku_disp_box_ribbon_title">期間限定！</span><span class="sougaku_disp_box_ribbon_title">会費</span> <span class="sougaku_disp_box_ribbon_val">50%OFF</span> <span class="sougaku_disp_box_ribbon_title">キャンペーン中</span>
            </div>
-           <p class="mitsumori_result_title">保険期間は2025年3月31日までです。</p>
+           <p class="mitsumori_result_title">保険期間は2024年<span id="mitsumori_result_title_kikan_m"></span>月～25年3月31日</p>
            <?php /* 20231226 期間限定キャンペーン */ ?>
            <p class="mitsumori_result_title">支払方法を <span class="mitsumori_result_title_maitsuki">毎月払い</span> と <span class="mitsumori_result_title_ikatsu">年払い</span> からお選びください。</p>
            
@@ -543,8 +543,8 @@ setcookie('norikae', '0', 0, '/');
            <?php /* 20231226 期間限定キャンペーン */ /* ?>
                 <div class="mitsumori_box_sougaku_title">お支払総額</div>
            <?php */ ?>
-                <div class="mitsumori_box_sougaku_kingaku_normal"><span id="sougaku_maitsuki_normal"></span><span>円</span></div>
-                <div class="mitsumori_box_sougaku_kingaku_arrow">　→　</div>
+                <div class="mitsumori_box_sougaku_kingaku_normal"><span id="sougaku_maitsuki_normal"></span><span>円</span> </div>
+                <div class="mitsumori_box_sougaku_kingaku_arrow">→</div>
            <?php /* 20231226 期間限定キャンペーン */ ?>
                 <div class="mitsumori_box_sougaku_kingaku"><input id="sougaku_maitsuki" type="text" name="sougaku_maitsuki" readonly required="" value=""></div>
                 <div class="mitsumori_box_sougaku_kingaku_yen">円</div>
@@ -561,15 +561,17 @@ setcookie('norikae', '0', 0, '/');
                  <div class="mitsumori_box_more_line_kingaku"><input id="motoukehokenryo_maitsuki" type="text" name="motoukehokenryo_maitsuki" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
+                <!--
                 <div class="mitsumori_box_more_line">
                  <div class="mitsumori_box_more_line_title">プレミアムカード</div>
                  <div class="mitsumori_box_more_line_kingaku"><input id="card_disp_maitsuki" type="text" name="card_disp_maitsuki" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
+-->
                 <div class="mitsumori_box_more_line more_line_kaihi">
-                 <div class="mitsumori_box_more_line_title">会費</div>
+                 <div class="mitsumori_box_more_line_title small">初期経費(会費等)</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_normal"><div id="kaihi_disp_maitsuki_normal"></div><div class="mitsumori_box_more_line_kingaku_yen">円</div></div>
-                 <div class="mitsumori_box_more_line_kingaku_arrow">　→　</div>
+                 <div class="mitsumori_box_more_line_kingaku_arrow">→</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_camp"><input id="kaihi_disp_maitsuki" type="text" name="kaihi_disp_maitsuki" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
@@ -598,8 +600,8 @@ setcookie('norikae', '0', 0, '/');
            <?php /* 20231226 期間限定キャンペーン */ /* ?>
                 <div class="mitsumori_box_sougaku_title">お支払総額</div>
            <?php */ ?>
-                <div class="mitsumori_box_sougaku_kingaku_normal"><span id="sougaku_ikatsu_normal"></span><span>円</span></div>
-                <div class="mitsumori_box_sougaku_kingaku_arrow">　→　</div>
+                <div class="mitsumori_box_sougaku_kingaku_normal"><span id="sougaku_ikatsu_normal"></span><span>円</span> </div>
+                <div class="mitsumori_box_sougaku_kingaku_arrow">→</div>
            <?php /* 20231226 期間限定キャンペーン */ ?>
                 <div class="mitsumori_box_sougaku_kingaku"><input id="sougaku_ikatsu" type="text" name="sougaku_ikatsu" readonly required="" value=""></div>
                 <div class="mitsumori_box_sougaku_kingaku_yen">円</div>
@@ -616,15 +618,17 @@ setcookie('norikae', '0', 0, '/');
                  <div class="mitsumori_box_more_line_kingaku"><input id="motoukehokenryo_ikatsu" type="text" name="motoukehokenryo_ikatsu" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
+                <!--
                 <div class="mitsumori_box_more_line">
                  <div class="mitsumori_box_more_line_title">プレミアムカード</div>
                  <div class="mitsumori_box_more_line_kingaku"><input id="card_disp_ikatsu" type="text" name="card_disp_ikatsu" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
+-->
                 <div class="mitsumori_box_more_line more_line_kaihi">
-                 <div class="mitsumori_box_more_line_title">会費</div>
+                 <div class="mitsumori_box_more_line_title small">初期経費(会費等)</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_normal"><div id="kaihi_disp_ikatsu_normal"></div><div class="mitsumori_box_more_line_kingaku_yen">円</div></div>
-                 <div class="mitsumori_box_more_line_kingaku_arrow">　→　</div>
+                 <div class="mitsumori_box_more_line_kingaku_arrow">→</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_camp"><input id="kaihi_disp_ikatsu" type="text" name="kaihi_disp_ikatsu" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
@@ -1000,6 +1004,7 @@ $(function(){
   $('input[name="maitsuki_kaihi"]').val($kaihi1);
   
   /* 20231226 期間限定キャンペーン */
+  $('#mitsumori_result_title_kikan_m').text($kanyutuki);
   let $kaihi_normal = $kaihi;
   $kaihi = $kaihi / 2;
   let $syokai_sougaku_normal = $hokenryo + $kaihi_normal + $card_hiyou + $motoukehokenryo;
@@ -1027,10 +1032,10 @@ $(function(){
   
   let $kaihi_disp = $kaihi + $card_hiyou;
   /* 20231226 期間限定キャンペーン */
-  $("#card_disp_maitsuki").val($card_hiyou.toLocaleString('ja-JP'));
-  $("#kaihi_disp_maitsuki_normal").text($kaihi_normal.toLocaleString('ja-JP'));
-  $("#kaihi_disp_maitsuki").val($kaihi.toLocaleString('ja-JP'));
-  //$("#kaihi_disp_maitsuki").val($kaihi_disp.toLocaleString('ja-JP'));
+  let $kaihi_normal_disp = $kaihi_normal + $card_hiyou;
+  //$("#card_disp_maitsuki").val($card_hiyou.toLocaleString('ja-JP'));
+  $("#kaihi_disp_maitsuki_normal").text($kaihi_normal_disp.toLocaleString('ja-JP'));
+  $("#kaihi_disp_maitsuki").val($kaihi_disp.toLocaleString('ja-JP'));
   /* 20231226 期間限定キャンペーン */
   $("#kaihi_maitsuki").val($kaihi.toLocaleString('ja-JP'));
   $("#hokenryo_maitsuki").val($hokenryo.toLocaleString('ja-JP'));
@@ -1082,6 +1087,7 @@ $(function(){
   $('input[name="maitsuki_kaihi"]').val("");
   
   /* 20231226 期間限定キャンペーン */
+  $('#mitsumori_result_title_kikan_m').text($kanyutuki);
   let $kaihi_normal = $kaihi;
   $kaihi = $kaihi / 2;
   let $syokai_sougaku_normal = $hokenryo + $kaihi_normal + $card_hiyou + $motoukehokenryo;
@@ -1109,10 +1115,10 @@ $(function(){
   
   let $kaihi_disp = $kaihi + $card_hiyou;
   /* 20231226 期間限定キャンペーン */
-  $("#card_disp_ikatsu").val($card_hiyou.toLocaleString('ja-JP'));
-  $("#kaihi_disp_ikatsu_normal").text($kaihi_normal.toLocaleString('ja-JP'));
-  $("#kaihi_disp_ikatsu").val($kaihi.toLocaleString('ja-JP'));
-  //$("#kaihi_disp_ikatsu").val($kaihi_disp.toLocaleString('ja-JP'));
+  let $kaihi_normal_disp = $kaihi_normal + $card_hiyou;
+  //$("#card_disp_ikatsu").val($card_hiyou.toLocaleString('ja-JP'));
+  $("#kaihi_disp_ikatsu_normal").text($kaihi_normal_disp.toLocaleString('ja-JP'));
+  $("#kaihi_disp_ikatsu").val($kaihi_disp.toLocaleString('ja-JP'));
   /* 20231226 期間限定キャンペーン */
   $("#kaihi_ikatsu").val($kaihi.toLocaleString('ja-JP'));
   $("#hokenryo_ikatsu").val($hokenryo.toLocaleString('ja-JP'));
