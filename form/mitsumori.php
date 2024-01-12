@@ -160,12 +160,10 @@ setcookie('norikae', '0', 0, '/');
                   <label for="kikan2"><span><?php echo $kanyu2_month1;?>月</span></label>
                 </li>
                <?php /* 1月～2月　表示して受付する */ ?>
-               <!--
                 <li>
                   <input id="kikan4" type="radio" name="kikan" value="4" required="" <?php echo $sel4;?>>
                   <label for="kikan4"><span>4月</span></label>
                 </li>
--->
                <?php /* 1月～2月　表示して受付する */ ?>
               </ul>
              
@@ -948,6 +946,7 @@ $(function(){
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
   const $motoukeari = $('input[name="motouke"]:checked').val();
 
+//  console.log('毎月　元請保険料='+$motoukehokenryo);
   var $kanyu_year = <?php echo $kanyu_year;?>;
   var $kanyu2_year = <?php echo $kanyu2_year;?>;
   var $kanyu_month = <?php echo $kanyu_month;?>;
@@ -1059,6 +1058,7 @@ $(function(){
   const $kanyutuki = parseInt($('input[name="kikan"]:checked').val());
   const $motoukeari = $('input[name="motouke"]:checked').val();
 
+//  console.log('一括　元請保険料='+$motoukehokenryo);
   let $_kanyuyear = 0;
   if($kanyutuki == <?php echo $kanyu_month;?>){
    $_kanyuyear = <?php echo $kanyu_year;?>;
@@ -1183,8 +1183,12 @@ $(function(){
     if($_motouke_kingaku < 100000) {$_motouke_kingaku = 100000;}
    }
    const $_roumu_val = calc_roumu_val();
-   const $_tmp_a = ($_motouke_kingaku * roumu_hiritu[$_roumu_val]) / 1000;
+   let $_roumu_hiritu = roumu_hiritu[$_roumu_val];
+   // 2024年4月以降は全て0.23にする　roumu_hiritu[]を変更し、下記削除
+   if($('input[name="kikan"]:checked').val()=='4'){ $_roumu_hiritu = 0.23; }
+   const $_tmp_a = ($_motouke_kingaku * $_roumu_hiritu) / 1000;
 
+  console.log('tmp_a='+$_tmp_a);
    const $_motouke_hokenryo = Math.floor($_tmp_a * (ryouritsu[$_roumu_val] * 1000));
    $ret = $_motouke_hokenryo;
   
