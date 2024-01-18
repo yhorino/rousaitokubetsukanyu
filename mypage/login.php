@@ -133,6 +133,21 @@ require_once("bin/sf_Api.php");
  $_SESSION['row_kaiin5'] = (array)$r5['fields'];
 // TopPage(認証後トップページ)に遷移させる
 
+// 進捗状況が「脱退手続済」「不承認」「取下げ」の場合はログインNG
+ if($_SESSION['row']['Status__c'] == '脱退手続済' || $_SESSION['row']['Status__c'] == '不承認' || $_SESSION['row']['Status__c'] == '取下げ') {
+    // エラー情報をセッションに入れて持ちまわる
+    $_SESSION['output_buffer']['error_invalid_state'] = true;
+    // IDは保持する
+    $_SESSION['output_buffer']['id'] = $user_input_data['id'];
+    $_SESSION['auth']['id'] = $user_input_data['id'];
+    $_SESSION['output_buffer']['Status__c'] = $_SESSION['row']['Status__c'];
+
+//put_log('認証', 'ログイン', 'ログイン失敗：認証NG');
+    // 入力ページに遷移する
+    header('Location: ./index.php');
+    exit;
+ }
+
 //put_log('認証', 'ログイン', 'ログイン成功');
 
 // 会員ランク　5年以上：シルバー　10年以上：ゴールド
