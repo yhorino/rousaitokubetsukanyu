@@ -20,12 +20,19 @@
 
  sf_logout();
 
+ // 20240122 期限を1/31に変更
+ // ポップアップ表示条件に「【年更　代理】入金種別：空でない人」を追加
+ // 通常は不要な条件文のため、次回年度更新開始時には削除しておくこと
+ if($row_nenko['dairinyukinshubetsu__c'] == '') return;
+
+
  if(isset($result['Id'])){
  // 最初は振込の場合のみポップアップ表示
  // 振込受付完了したら銀振受付に切り替える
  //if(isTypeFurikomi($row_nenko['dairinyukinshubetsu__c'])) {
  //if(isTypeBank($row__nenko['dairinyukinshubetsu__c'])) {
-  $datetime = new DateTime('2024/01/19 23:59:59');
+//  $datetime = new DateTime('2024/01/19 23:59:59');
+  $datetime = new DateTime('2024/01/31 23:59:59');
   $current  = new DateTime('now');
   $diff     = $current->diff($datetime);
   $y = $datetime->format('Y');
