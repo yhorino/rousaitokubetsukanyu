@@ -64,6 +64,7 @@ wp_reset_postdata();
     });
  
  /* 左右ボタンでスクロール */
+ /*
  $(function(){
   $('.prevbutton').click(function(){
    voice_scroll(-1);
@@ -87,4 +88,55 @@ wp_reset_postdata();
     }, 500);
   }
  });
+ */
+ /* 左右ボタンでスクロール */
+ $(function(){
+  $('.prevbutton').click(function(){
+   voice_scroll(-1, false);
+  });
+  $('.nextbutton').click(function(){
+   voice_scroll(1, false);
+  });
+  // 4秒ごとにスクロール
+  setInterval(function(){voice_scroll(1, true);}, 4000);
+  
+  function voice_scroll($scrollDirection, $loop){
+    const gap = 30;
+    const pagewidth=getVoiceItemWidth() + gap;
+    var scrollableElement = $("#scrollContainer");
+    var currentScrollLeft = scrollableElement.scrollLeft();
+    var newScrollLeft;
+    var pagenum = Math.floor(currentScrollLeft / pagewidth);
+    if($scrollDirection<0 && (currentScrollLeft % pagewidth == 0)) pagenum--;
+    if($scrollDirection>0) pagenum++;
+    if(pagenum<0) pagenum=0;
+    newScrollLeft = pagewidth * pagenum;
+   
+    if ($loop == true){
+     var viewWidth = scrollableElement.innerWidth();
+     var scrollWidth = getVoiceItemNum() * pagewidth - gap;
+     var currentScrollRight = currentScrollLeft + viewWidth;
+     if(currentScrollRight >= scrollWidth) {
+      newScrollLeft = 0;
+     }
+    }
+   
+    scrollableElement.animate({
+      scrollLeft: newScrollLeft
+    }, 500);
+  }
+  function getVoiceItemWidth(){
+   const voiceItemsContainer = document.querySelector('.voice_items');
+   const voiceItemElements = voiceItemsContainer.querySelectorAll('.voice_item');
+   const widthOfVoiceItems = voiceItemElements[0].offsetWidth;
+   return widthOfVoiceItems;
+  }
+  function getVoiceItemNum(){
+   const voiceItemsContainer = document.querySelector('.voice_items');
+   const voiceItemElements = voiceItemsContainer.querySelectorAll('.voice_item');
+   const numberOfVoiceItems = voiceItemElements.length;   
+   return numberOfVoiceItems;
+  }
+ });
+ 
 </script>
