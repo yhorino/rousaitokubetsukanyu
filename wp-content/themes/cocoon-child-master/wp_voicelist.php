@@ -12,12 +12,43 @@ $args = array( 'category_name' => 'c_voice', 'orderby' => 'date', 'order' => 'DE
 //$newslist = get_posts( $args );
 //foreach ( $newslist as $post ) :  setup_postdata( $post ); 
 $newslist = new WP_Query($args);
+ 
+function get_the_content_starvalue($_content){
+    // 正規表現を使用して star_value クラスが設定された span タグを抜き出す
+    preg_match('/<(\w+)[^>]*class\s*=\s*["\']([^"\']*\bstar_value\b[^"\']*)["\'][^>]*>(.*?)<\/\1>/', $_content, $matches);
+
+    // $matches[0] にはマッチした全体の部分が、$matches[3] にはキャプチャした部分が格納される
+    $_specific_content = isset($matches[3]) ? $matches[3] : '';
+
+    return $_specific_content;
+}
+function get_the_content_without_starvalue($_content){
+    $_specific_content = preg_replace('/<(\w+)[^>]*class\s*=\s*["\']([^"\']*\bstar_value\b[^"\']*)["\'][^>]*>.*?<\/\1>/', '', $_content);
+
+    return $_specific_content;
+}
+ 
 while ($newslist->have_posts()) : $newslist->the_post();
  ?>
     <div class="voice_item">
       <span class="voice_item_img"><?php the_post_thumbnail(); ?></span>
       <span class="voice_item_title"><?php the_title(); ?></span>
-      <span class="voice_item_content note"><?php the_content(); ?></span>
+     <?php
+     $star_value_str = get_the_content_starvalue(get_the_content());
+     $star_tag = '';
+     if($star_value_str != ''){ 
+      $star_value = intval($star_value_str);
+      for($i=0;$i<5;$i++){
+       if($i<$star_value){
+        $star_tag .= '<i class="fas fa-star star_on"></i>';
+       } else {
+        $star_tag .= '<i class="fas fa-star star_off"></i>';
+       }
+      }
+     }
+     ?>
+      <span class="voice_item_star"><?php echo $star_tag; ?></span>
+      <span class="voice_item_content note"><?php echo get_the_content_without_starvalue(get_the_content()); ?></span>
     </div>
 <?php
 endwhile;

@@ -24,7 +24,7 @@
  border: 1px solid #e4e4e4;
  display: grid;
  grid-template-columns: 1fr;
- grid-template-rows: 96px 1em 1fr;
+ grid-template-rows: 96px 1em 1em 1fr;
  grid-row-gap: 10px;
  text-align: left;
  font-size: 18px;
@@ -113,5 +113,12 @@
 }
 
 .voice_item{
- grid-template-rows: 96px 30px 1fr;
+ grid-template-rows: 96px 30px 30px 1fr;
+}
+
+.star_on{
+ color: #EBCE54;
+}
+.star_off{
+ color: #D1D1D1;
 }
