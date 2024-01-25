@@ -12,12 +12,43 @@ $args = array( 'category_name' => 'c_voice', 'orderby' => 'date', 'order' => 'DE
 //$newslist = get_posts( $args );
 //foreach ( $newslist as $post ) :  setup_postdata( $post ); 
 $newslist = new WP_Query($args);
+ 
+function get_the_content_starvalue($_content){
+    // 正規表現を使用して star_value クラスが設定された span タグを抜き出す
+    preg_match('/<(\w+)[^>]*class\s*=\s*["\']([^"\']*\bstar_value\b[^"\']*)["\'][^>]*>(.*?)<\/\1>/', $_content, $matches);
+
+    // $matches[0] にはマッチした全体の部分が、$matches[3] にはキャプチャした部分が格納される
+    $_specific_content = isset($matches[3]) ? $matches[3] : '';
+
+    return $_specific_content;
+}
+function get_the_content_without_starvalue($_content){
+    $_specific_content = preg_replace('/<(\w+)[^>]*class\s*=\s*["\']([^"\']*\bstar_value\b[^"\']*)["\'][^>]*>.*?<\/\1>/', '', $_content);
+
+    return $_specific_content;
+}
+ 
 while ($newslist->have_posts()) : $newslist->the_post();
  ?>
     <div class="voice_item">
       <span class="voice_item_img"><?php the_post_thumbnail(); ?></span>
       <span class="voice_item_title"><?php the_title(); ?></span>
-      <span class="voice_item_content note"><?php the_content(); ?></span>
+     <?php
+     $star_value_str = get_the_content_starvalue(get_the_content());
+     $star_tag = '';
+     if($star_value_str != ''){ 
+      $star_value = intval($star_value_str);
+      for($i=0;$i<5;$i++){
+       if($i<$star_value){
+        $star_tag .= '<i class="fas fa-star star_on"></i>';
+       } else {
+        $star_tag .= '<i class="fas fa-star star_off"></i>';
+       }
+      }
+     }
+     ?>
+      <span class="voice_item_star"><?php echo $star_tag; ?></span>
+      <span class="voice_item_content note"><?php echo get_the_content_without_starvalue(get_the_content()); ?></span>
     </div>
 <?php
 endwhile;
@@ -64,6 +95,7 @@ wp_reset_postdata();
     });
  
  /* 左右ボタンでスクロール */
+ /*
  $(function(){
   $('.prevbutton').click(function(){
    voice_scroll(-1);
@@ -87,4 +119,55 @@ wp_reset_postdata();
     }, 500);
   }
  });
+ */
+ /* 左右ボタンでスクロール */
+ $(function(){
+  $('.prevbutton').click(function(){
+   voice_scroll(-1, false);
+  });
+  $('.nextbutton').click(function(){
+   voice_scroll(1, false);
+  });
+  // 4秒ごとにスクロール
+  setInterval(function(){voice_scroll(1, true);}, 4000);
+  
+  function voice_scroll($scrollDirection, $loop){
+    const gap = 30;
+    const pagewidth=getVoiceItemWidth() + gap;
+    var scrollableElement = $("#scrollContainer");
+    var currentScrollLeft = scrollableElement.scrollLeft();
+    var newScrollLeft;
+    var pagenum = Math.floor(currentScrollLeft / pagewidth);
+    if($scrollDirection<0 && (currentScrollLeft % pagewidth == 0)) pagenum--;
+    if($scrollDirection>0) pagenum++;
+    if(pagenum<0) pagenum=0;
+    newScrollLeft = pagewidth * pagenum;
+   
+    if ($loop == true){
+     var viewWidth = scrollableElement.innerWidth();
+     var scrollWidth = getVoiceItemNum() * pagewidth - gap;
+     var currentScrollRight = currentScrollLeft + viewWidth;
+     if(currentScrollRight >= scrollWidth) {
+      newScrollLeft = 0;
+     }
+    }
+   
+    scrollableElement.animate({
+      scrollLeft: newScrollLeft
+    }, 500);
+  }
+  function getVoiceItemWidth(){
+   const voiceItemsContainer = document.querySelector('.voice_items');
+   const voiceItemElements = voiceItemsContainer.querySelectorAll('.voice_item');
+   const widthOfVoiceItems = voiceItemElements[0].offsetWidth;
+   return widthOfVoiceItems;
+  }
+  function getVoiceItemNum(){
+   const voiceItemsContainer = document.querySelector('.voice_items');
+   const voiceItemElements = voiceItemsContainer.querySelectorAll('.voice_item');
+   const numberOfVoiceItems = voiceItemElements.length;   
+   return numberOfVoiceItems;
+  }
+ });
+ 
 </script>
