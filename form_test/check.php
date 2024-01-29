@@ -614,7 +614,7 @@ RJCグループが個人データを共同利用している提携先企業は�
 
 </pre>
 <p style='text-align: right;'>作成及び使用開始；20240124</p>
-             </div>
+              </div>
             </div>
           </section>
 

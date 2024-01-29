@@ -1,16 +1,20 @@
 <?php
 /* 動作モード 0:本番環境 -1:試験環境 */
-$mode = 0;
+if(!isset($mode)){ $mode = 0; }
 
 /* 共通設定コード */
 if($mode == -1){
  include $_SERVER["DOCUMENT_ROOT"].'/pg_hash.php';
  $pg_url = 'https://sandbox.paygent.co.jp/v/u/request';
  $seq_merchant_id = '52462';
+ $return_url = 'https://'.$_SERVER['HTTP_HOST'].'/form_test/paid.php';
+ $stop_return_url = 'https://'.$_SERVER['HTTP_HOST'].'/form_test/done.php';
 } else {
  include $_SERVER["DOCUMENT_ROOT"].'/pg_hash_h.php';
  $pg_url = 'https://link.paygent.co.jp/v/u/request';
  $seq_merchant_id = '62094';
+ $return_url = 'https://'.$_SERVER['HTTP_HOST'].'/form/paid.php';
+ $stop_return_url = 'https://'.$_SERVER['HTTP_HOST'].'/form/done.php';
 }
 
 $merchant_name = '労働保険事務組合ＲＪＣ';

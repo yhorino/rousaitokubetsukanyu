@@ -694,7 +694,6 @@ $(function () {
               </figure>
              <?php } ?>
          
-          <!--
          <h1 class="mitsumori-ttl" style="margin-top: 80px;">お支払方法の登録</h1>
          <figure>
          <table class="input_table">
@@ -717,8 +716,7 @@ $(function () {
           </tr>
           </table>
          </figure>
--->
-         <input id="shiharai2" type="hidden" name="shiharai" value="銀行振込">
+         <!--<input id="shiharai2" type="hidden" name="shiharai" value="銀行振込">-->
 
          <?php if($_SESSION['shiharai_kaisu']=='毎月払い'){ ?>
          <figure class="maitsuki_input" style="">
