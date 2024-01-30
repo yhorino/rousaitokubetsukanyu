@@ -36,7 +36,7 @@ $stock_card_mode = 2;
 /* 下記パラメータは個別に設定すること */
 $payment_detail = '';
 $payment_detail_kana = '';
-$return_url = '';
-$stop_return_url = '';
+//$return_url = '';
+//$stop_return_url = '';
 
 ?>
