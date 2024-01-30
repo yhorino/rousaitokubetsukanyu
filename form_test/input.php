@@ -708,7 +708,8 @@ $(function () {
            if($_SESSION['shiharai']=='銀行振込') $sel2 = 'checked';
            ?>
             <input id="shiharai1" type="radio" name="shiharai" value="クレジットカード" required="" <?php echo $sel1;?>>
-            <label for="shiharai1"><span>クレジットカード</span></label><br><br>
+            <label for="shiharai1"><span>クレジットカード</span></label>
+            <p>使用できるのはコーポレートカードか代表者名義のカードのみです。</p><br>
             <input id="shiharai2" type="radio" name="shiharai" value="銀行振込" required="" <?php echo $sel2;?>>
             <label for="shiharai2"><span>銀行振込</span></label>
             <p>お申込み完了後、振込先をメールにてご案内します。</p>
