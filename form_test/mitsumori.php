@@ -167,10 +167,12 @@ setcookie('norikae', '0', 0, '/');
                   <label for="kikan2"><span><?php echo $kanyu2_month1;?>月</span></label>
                 </li>
                <?php /* 1月～2月　表示して受付する */ ?>
+               <!--
                 <li>
                   <input id="kikan3" type="radio" name="kikan" value="3" required="" <?php echo $sel3;?>>
                   <label for="kikan3"><span>3月</span></label>
                 </li>
+-->
                 <li>
                   <input id="kikan4" type="radio" name="kikan" value="4" required="" <?php echo $sel4;?>>
                   <label for="kikan4"><span>4月</span></label>
