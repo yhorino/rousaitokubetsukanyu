@@ -734,7 +734,7 @@ $(function () {
              }
              $kikan_m_next = $kikan_m + 1;
             ?>
-            毎月払いの場合は、初回費用として<?php echo $kikan_m;?>か月分をお支払いただき、<?php echo $kikan_m_next;?>か月目から月々8,000円を口座振替にてお支払いただきます。<br>
+            毎月払いの場合は、初回費用として<?php echo $kikan_m;?>か月分をお支払いただき、<?php echo $kikan_m_next;?>か月目から月々<?php echo number_format($_SESSION['maitsuki_kaihi']);?>円を口座振替にてお支払いただきます。<br>
             <label><input id="check_maitsuki" type="checkbox" name="check_maitsuki" value="1" required> 確認しました</label>
            </td>
           </tr>
