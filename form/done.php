@@ -73,12 +73,13 @@ $_SESSION['idle_time'] = time();
       <section class="mitsumori">
 <?php
 if($_SESSION['shiharai']=='クレジットカード'){ ?>
+<?php 
+ $mode=0; // NO DEBUG
+ ?>
 <?php include_once $_SERVER["DOCUMENT_ROOT"].'/pg_setting.php'; ?>
   <?php 
   $payment_detail = '中小事業主の特別加入';
   $payment_detail_kana = 'ﾁｭｳｼｮｳｼﾞｷﾞｮｳﾇｼﾉﾄｸﾍﾞﾂｶﾆｭｳ';
-  $return_url = 'https://'.$_SERVER['HTTP_HOST'].'/form/paid.php';
-  $stop_return_url = 'https://'.$_SERVER['HTTP_HOST'].'/form/done.php';
 
   // DEBUG
   if(isset($_GET['customer_id'])){
