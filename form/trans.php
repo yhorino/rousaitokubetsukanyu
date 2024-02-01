@@ -201,6 +201,8 @@ switch($_POST['pagename']){
   $_SESSION['kanyu_kisogaku'] = intval($_SESSION['kanyu_kisogaku']) / 1000;
   $_SESSION['kanyu_ryouritsu'] = floatval($ryouritsu[intval($roumu[$_SESSION['jigyou']])/100])*1000;
   $_SESSION['kanyu_roumuhiritsu'] = floatval($roumu_hiritu[intval($roumu[$_SESSION['jigyou']])/100]) * 100;
+  // 2024年4月以降は全て0.23にする　roumu_hiritu[]を変更し、下記削除
+  if($_SESSION['kikan']=='4'){ $_SESSION['kanyu_roumuhiritsu'] = 23; }
   
   $_SESSION['order_no'] = rand(0,99999999);
   $_SESSION['trading_id'] = rand(0,99999999);
@@ -355,8 +357,10 @@ $kaihi = intval(str_replace(',','',$items['kaihi'])) + intval(str_replace(',',''
 $card_hakkohiyo = intval(str_replace(',','',$items['card_hiyou']));
  
 $KanyuType__c = $items['kanyu_kikan'];
+$maitsuki_kaihi = 0;
 if($items['shiharai_kaisu'] == '毎月払い'){
  $KanyuType__c = $items['shiharai_kaisu']; 
+ $maitsuki_kaihi = $items['maitsuki_kaihi'];
 }
  
 $motouke = '';
@@ -385,7 +389,7 @@ $fields = array(
 'Kanyuhopemonth__c'=>urlencode($items['kikan'].'月'),
 'Kyuhukisonitigaku__c'=>urlencode($items['nitigaku']),
 'jimuHokenryoutotal__c'=>urlencode($items['sougaku']),
-'jimuMaitukihurikae__c'=>urlencode($items['maitsuki_kaihi']),
+'jimuMaitukihurikae__c'=>urlencode($maitsuki_kaihi),
 //'jimuKaihiMaitsuki__c'=>urlencode($items['maitsuki_kaihi']),
 'Furi__c'=>urlencode($items['kaisyamei_furi']),
 'Daihyosya__c'=>urlencode($items['daihyosyamei']),

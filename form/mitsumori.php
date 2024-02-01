@@ -1097,7 +1097,7 @@ $(function(){
   }
   const $ey = Math.ceil((($_kanyuyear-1)*12+$kanyutuki+parseInt($_kanyu_tsukisu))/12);
   $('input[name="kikane"]').val($ey+""+$em);
-  $('input[name="maitsuki_kaihi"]').val("");
+  //$('input[name="maitsuki_kaihi"]').val("");
   
   /* 20231226 期間限定キャンペーン */
   $('#mitsumori_result_title_kikan_m').text($kanyutuki);
