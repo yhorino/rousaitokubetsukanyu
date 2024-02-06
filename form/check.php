@@ -273,6 +273,13 @@ include('session_check.php');
             </tr>
             
             <tr>
+             <th colspan="2">代表者携帯番号</th>
+             <td>
+              <?php echo $_SESSION['daihyomobile'];?>
+             </td>
+            </tr>
+            
+            <tr>
              <th colspan="2">担当者</th>
              <td>
               <?php echo $_SESSION['tantousyamei_furi'];?><br>
@@ -284,6 +291,13 @@ include('session_check.php');
              <th colspan="2">担当者につながる携帯番号</th>
              <td>
               <?php echo $_SESSION['tantoumobile'];?>
+             </td>
+            </tr>
+            
+            <tr>
+             <th colspan="2">従業員人数</th>
+             <td>
+              <?php echo $_SESSION['jugyouinninzu'];?> 人
              </td>
             </tr>
             
@@ -483,11 +497,15 @@ include('session_check.php');
            <figure id="kikan_alert">
             <?php
              $this_month = date('m');
+             /* 20240206 フォーム修正　期間表示変更　「加入承認日～」 */
+             $start = '加入承認日';
+             /*
              if(intval($_SESSION['kikan']) == intval($this_month)){
               $start = '加入承認日';              
              } else {
               $start = $_SESSION['kikan'].'月1日（予定）';
              }
+             */
 //             $end = date('Y年3月31日', strtotime('+1 year'));
              if(intval($_SESSION['kikane']) > 0){
               $kikane_y = intval(substr($_SESSION['kikane'],0,4));

@@ -348,10 +348,20 @@ $(function () {
            </td>
           </tr>
           
+          <?php $_SESSION['daihyomobile'] = str_replace('-', '', $_SESSION['daihyomobile']); ?>
+          <tr>
+           <th>日中につながる携帯番号</th><th><span class="label req">必須</span></th>
+           <td>
+            
+            <input id="daihyomobile" type="tel" name="daihyomobile" class="" required="" placeholder="09011112222(ハイフンなし)" maxlength="13" value="<?php echo $_SESSION['daihyomobile']; ?>" pattern="[0-9]+$" title="数字(ハイフンなし)"><br>
+            <span style="display: inline-block; margin-top: 10px; font-size: 13px;">ご連絡がつきやすい番号の入力をお願いします。</span>
+           </td>
+          </tr>
+          
          </table>
          </figure>
          <figure>
-         <figcaption>担当者情報 <!--<input type="button" name="kanyusya_input_copy0" id="kanyusya_input_copy0" class="kanyusya_input_copy"  onClick="kanyusya_copy(0);" value="代表者名をコピー">--><span class="input_title_info">ご加入状況などの個人情報は、代表者または担当者以外の方にはお話しできません</span></figcaption>
+         <figcaption>担当者情報 <!--<input type="button" name="kanyusya_input_copy0" id="kanyusya_input_copy0" class="kanyusya_input_copy"  onClick="kanyusya_copy(0);" value="代表者名をコピー">--><span class="input_title_info">※ ご加入状況などの個人情報は、代表者または担当者以外の方にはお話しできません<br>※ 0120-855-865よりお電話がありましたら、必ず受電いただくか、当日17時までに折り返しお電話ください。</span></figcaption>
          <table class="input_table">
           
           <tr class="fl_l fl_c">
@@ -712,7 +722,7 @@ $(function () {
             <p>使用できるのはコーポレートカードか代表者名義のカードのみです。</p><br>
             <input id="shiharai2" type="radio" name="shiharai" value="銀行振込" required="" <?php echo $sel2;?>>
             <label for="shiharai2"><span>銀行振込</span></label>
-            <p>お申込み完了後、振込先をメールにてご案内します。</p>
+            <p>お申込み完了後、振込先をメールにてご案内します。<br>期限内に入金が確認できない場合は取消となります。</p>
            </td>
           </tr>
           </table>
