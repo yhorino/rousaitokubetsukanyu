@@ -1326,7 +1326,7 @@ input[type="reset"].mitsumori-back {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  max-width: 380px;
+  max-width: 550px;
 }
 .mitsumori-list input[type=radio],
 .mitsumori-list input[type=checkbox] {
@@ -2585,7 +2585,7 @@ input[type="button"].mitsumori-other:hover {
         flex-basis: 26%;
     -ms-flex-preferred-size: 26%;
     -ms-flex-preferred-size: 26%;*/
-    margin: 0 11px 1.5% 0;
+    margin: 0 5px 1.5% 0;
   }
   .mitsumori-list > span {
     margin: 0 0 1.5% 0;
@@ -3404,6 +3404,9 @@ div#blue_tri {
   font-weight: bold;
   margin-bottom: 18px;
   margin-top: 50px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
 }
 #check_php .input_table,
 #input_php .input_table {
@@ -3736,6 +3739,7 @@ div#blue_tri {
     font-size: 20px;
     border-left: 5px solid #FF850D;
     padding: 2px 5px;
+   display: block;
   }
   #input_php .input_table tr,
   #check_php .input_table tr {
@@ -4585,18 +4589,23 @@ input[type="submit"].submit_card,
   color: #000;
   text-align: center;
 }
+.info_tel_pc,
 .mitsumori_start .info_tel_pc {
   display: block;
 }
+.info_tel_sp,
 .mitsumori_start .info_tel_sp {
   display: none;
 }
+.to_oyakata_info,
 .mitsumori_start .to_oyakata_info {
   line-height: 1.5em;
   padding: 10px 0 0;
   color: #FF850D;
   font-weight: bold;
 }
+.to_oyakata_button:hover,
+.to_oyakata_button,
 .mitsumori_start .to_oyakata_button:hover,
 .mitsumori_start .to_oyakata_button {
   display: grid;
@@ -4610,13 +4619,14 @@ input[type="submit"].submit_card,
   align-items: center;
   background-size: 100%;
   background-repeat: no-repeat;
-  color: #fff;
+  color: #fff!important;
   position: relative;
   text-align: center;
   margin: 20px auto 0;
   max-width: 300px;
   text-decoration: none;
 }
+.to_oyakata_button::after,
 .mitsumori_start .to_oyakata_button::after {
   font-family: "Font Awesome 5 Free";
   content: '\f0da';
@@ -4819,6 +4829,7 @@ input[type="submit"].submit_card,
     font-size: 12px;
     font-weight: normal;
     display: inline-block;
+ line-height: 14px;
 }
 
 .maitsuki_input{
@@ -4882,6 +4893,7 @@ input[type="submit"].submit_card,
  font-size: clamp(16px, 4vw, 26px);
  padding-top: 10px;
  /* 20231226 期間限定キャンペーン */
+ text-align: center;
 }
 .mitsumori_result_title_ikatsu,
 .mitsumori_result_title_maitsuki {
@@ -4903,12 +4915,16 @@ input[type="submit"].submit_card,
 }
 .mitsumori_result_box {
  display: grid;
- grid-template-columns: 1fr 1fr;
+ /*grid-template-columns: 1fr 1fr;*/
+ grid-template-columns: 1fr;
  grid-column-gap: 55px;
  margin-top: 30px;
 }
 .mitsumori_box {
  position: relative;
+ width: 100%;
+ max-width: 400px;
+ margin: 0 auto;
 }
 .no_maitsuki .mitsumori_result_title{
  display: none;

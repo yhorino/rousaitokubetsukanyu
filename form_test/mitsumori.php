@@ -96,6 +96,8 @@ setcookie('norikae', '0', 0, '/');
      <?php /* 20230302 従業員雇っているか？ */ ?>
      <section class="mitsumori_start">
         
+      <?php /* 20240206 フォーム修正　従業員人数 */  ?>
+      <?php /* ?>
       <div class="mitsumori-block-flex">
        <div class="mitsumori-block">
         <h2 class="mitsumori-subttl"><span class="st_orange">赤の他人</span>を雇っていますか？</h2>
@@ -121,7 +123,7 @@ setcookie('norikae', '0', 0, '/');
          </p>
        </div>
       </div><!-- mitsumori-block-flex -->
-        
+        <?php */ ?>
      </section>
      <?php /* 20230302 従業員雇っているか？ */ ?>
      
@@ -131,6 +133,41 @@ setcookie('norikae', '0', 0, '/');
        
         <div class="mitsumori-inner">
           <div class="mitsumori-select">
+           
+           <?php /* 20240206 フォーム修正　従業員人数 */  ?>
+           <div class="mitsumori-block-flex">
+            <div class="mitsumori-block">
+             <h2 class="mitsumori-subttl"><span class="st_orange">家族以外の従業員</span>（パート、アルバイトを含む）は何人いますか？</h2>
+              <ul class="mitsumori-list">
+                <li>
+                  <input id="jugyouinninzu0" type="radio" name="jugyouinninzu" value="0">
+                  <label for="jugyouinninzu0"><span>0人</span></label>
+                </li>
+                <li>
+                  <input id="jugyouinninzu1" type="radio" name="jugyouinninzu" value="1">
+                  <label for="jugyouinninzu1"><span>1人</span></label>
+                </li>
+                <li>
+                  <input id="jugyouinninzu2" type="radio" name="jugyouinninzu" value="2">
+                  <label for="jugyouinninzu2"><span>2人</span></label>
+                </li>
+                <li>
+                  <input id="jugyouinninzu3" type="radio" name="jugyouinninzu" value="3">
+                  <label for="jugyouinninzu3"><span>3人以上</span></label>
+                </li>
+                <li class="to_oyakata">
+                 <p class="to_oyakata_info">家族以外の従業員を雇っていない方は一人親方労災保険へのご加入となります。</p>
+                 <a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/mailform_new/single_new/mitsumori_input.php?utm_campaign=jimu_form_tanin" class="to_oyakata_button">一人親方労災保険はこちら</a>
+                </li>
+              </ul>
+              <p class="info_tel info_tel_pc">
+               ※ 雇っているかわからない方は、労働保険事務組合RJC（0120-855-865）までお電話ください。
+              </p>
+              <p class="info_tel info_tel_sp">
+               ※ 雇っているかわからない方は、お電話ください。<br><a href="tel:0120855865">労働保険事務組合RJCへ電話する</a>
+              </p>
+            </div>
+           </div><!-- mitsumori-block-flex -->
            
            <div class="mitsumori-block-flex">
             <div class="mitsumori-block">
@@ -198,7 +235,8 @@ setcookie('norikae', '0', 0, '/');
            </div><!-- mitsumori-block-flex -->
 
            <?php /* 20230508 支払種別→加入期間 */ ?>
-           <div class="mitsumori-block-flex" id="mb_kanyu_kikan">
+           <?php /* 20240206 フォーム修正　いつまでボタン非表示 */  ?>
+           <div class="mitsumori-block-flex" id="mb_kanyu_kikan" style="display: none;">
             <div class="mitsumori-block">
              <h2 class="mitsumori-subttl"><span class="st_orange">いつまで</span>ご加入が必要ですか？</h2>
 							<?php
@@ -416,7 +454,14 @@ setcookie('norikae', '0', 0, '/');
               <h3 class="motouke_input_title">1年間の元請工事について教えてください</h3>
               <div class="motouke_input_box">
                <h4 class="motouke_input_box_title"><span class="motouke_input_no">1</span> 元請工事の請負金額</h4>
-               <span class="motouke_input_item">約 <input id="motouke_kingaku" type="tel" name="motouke_kingaku"> 万円</span>
+               <?php /* 20240206 フォーム修正　datalistによる選択＋入力 */  ?>
+               <span class="motouke_input_item">～ <input list="motouke_kingaku"　id="motouke_kingaku" type="tel" name="motouke_kingaku"> 万円</span>
+               <datalist id="motouke_kingaku">
+                <option value="100"></option>
+                <option value="500"></option>
+                <option value="1000"></option>
+               </datalist>
+               <span>※ 1,000万円以上の場合は、金額を直接入力してください。</span>
               </div>
               <div class="motouke_input_box">
                <h4 class="motouke_input_box_title"><span class="motouke_input_no">2</span> 元請工事の件数</h4>
@@ -433,6 +478,22 @@ setcookie('norikae', '0', 0, '/');
             </div>
            </div><!-- mitsumori-block-flex -->
 
+           <div class="mitsumori-block-flex">            
+            <div class="mitsumori-block">
+             <h2 class="mitsumori-subttl"><span class="st_orange">お支払い方法</span>をお選びください</h2>
+              <ul class="mitsumori-list">
+                <li>
+                  <input id="shiharai1" type="radio" name="shiharai" value="毎月払い" required>
+                  <label for="shiharai1"><span>毎月払い</span></label>
+                </li>
+                <li>
+                  <input id="shiharai2" type="radio" name="shiharai" value="一括払い" required>
+                  <label for="shiharai2"><span>一括払い</span></label>
+                </li>
+              </ul>
+            </div>
+           </div><!-- mitsumori-block-flex -->
+           
            <input type="hidden" name="jimuGyousyuBangou__c" value="">
            <input id="kikane2" type="hidden" name="kikane" value="0">
 
@@ -532,9 +593,14 @@ setcookie('norikae', '0', 0, '/');
            <div class="sougaku_disp_box_ribbon">
             <span class="sougaku_disp_box_ribbon_title">期間限定！</span><span class="sougaku_disp_box_ribbon_title">会費</span> <span class="sougaku_disp_box_ribbon_val">50%OFF</span> <span class="sougaku_disp_box_ribbon_title">キャンペーン中</span>
            </div>
-           <p class="mitsumori_result_title">保険期間は2024年<span id="mitsumori_result_title_kikan_m"></span>月～25年3月31日</p>
+           <?php /* 20240206 フォーム修正　期間表示変更　「加入承認日～」 */  ?>
+           <!--<p class="mitsumori_result_title">保険期間は2024年<span id="mitsumori_result_title_kikan_m"></span>月～25年3月31日</p>-->
+           <p class="mitsumori_result_title">保険期間は加入承認日～25年3月31日</p>
            <?php /* 20231226 期間限定キャンペーン */ ?>
+           <?php /* 20240206 フォーム修正　見積は１種類 */  ?>
+           <?php /* ?>
            <p class="mitsumori_result_title">支払方法を <span class="mitsumori_result_title_maitsuki">毎月払い</span> と <span class="mitsumori_result_title_ikatsu">年払い</span> からお選びください。</p>
+           <?php */ ?>
            
            <div class="mitsumori_result_box">
             
@@ -588,6 +654,10 @@ setcookie('norikae', '0', 0, '/');
                 </div>
                 <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から、月々<span class="maitsuki_val"></span>円の会費振替となります。</div>
                </div>
+               
+               <?php /* 20240206 フォーム修正　毎月払い注記追加 */  ?>
+               <div class="mitsumori_box_more_info">※ 毎月の会費支払が確認できない場合は脱退となります。</div>
+               
               </div>
               <div class="mitsumori_box_submit">
                <button class="mitsumori_submit_button" id="mousikomi_next_maitsuki" type="submit" name="mousikomi_next_maitsuki">毎月払いで<br><span class='submit_text_large'>申込みへ進む</span></button>
@@ -599,7 +669,7 @@ setcookie('norikae', '0', 0, '/');
             </div>
 
             <div id="mitsumori_ikatsu_box" class="mitsumori_ikatsu_box mitsumori_box">
-             <div class="mitsumori_box_title">年払い</div>
+             <div class="mitsumori_box_title">一括払い</div>
              <div class="mitsumori_box_body">
            <?php /* 20231226 期間限定キャンペーン */ /* ?>
               <div class="mitsumori_box_kikan">保険期間は年度（年度末３月まで）</div>
@@ -647,7 +717,7 @@ setcookie('norikae', '0', 0, '/');
                </div>
               </div>
               <div class="mitsumori_box_submit">
-               <button class="mitsumori_submit_button" id="mousikomi_next_ikatsu" type="submit" name="mousikomi_next_ikatsu">年払いで<br><span class='submit_text_large'>申込みへ進む</span></button>
+               <button class="mitsumori_submit_button" id="mousikomi_next_ikatsu" type="submit" name="mousikomi_next_ikatsu">一括払いで<br><span class='submit_text_large'>申込みへ進む</span></button>
               </div>
              </div>
              <input id="kaihi_ikatsu" type="hidden" name="kaihi_ikatsu" value="">
@@ -790,6 +860,9 @@ $(function(){
   $('input[name="motouke_kingaku"]').change(function(){
    jouken_selchange();
   });
+  $('input[name="shiharai"]').change(function(){
+   jouken_selchange();
+  });
   <?php /* 20220122 紹介クーポン */ ?>
   $('input[name="cupon_check"]').click(function(){
    cupon_check();
@@ -858,8 +931,12 @@ $(function(){
    $('.to_oyakata').hide();
   }
   function show_to_oyakata(){
-   $('.mitsumori').hide();
+   //$('.mitsumori').hide();
    $('.to_oyakata').show();
+  }
+  function hide_to_oyakata(){
+   //$('.mitsumori').show();
+   $('.to_oyakata').hide();
   }
   function show_tanin(){
    $('.mitsumori-block-flex.second_block').show();
@@ -867,6 +944,10 @@ $(function(){
    $('.mitsumori').hide();
   }
   
+  <?php /* 20240206 フォーム修正　従業員人数 */  ?>
+  init_mitsumori_start();
+  show_mitsumori();
+  /*
   init_mitsumori_start();
   $('input[name="tanin"]').prop('checked', false);
   $('input[name="tanin"]').click(function(){
@@ -881,6 +962,16 @@ $(function(){
     init_mitsumori_start();
    }
   });
+  */
+  $('input[name="jugyouinninzu"]').click(function(){
+   const selected_val = parseInt($('input[name="jugyouinninzu"]:checked').val());
+   if(selected_val == 0){
+    show_to_oyakata();
+   } else {
+    hide_to_oyakata();
+   }
+  });
+  
   /* 20230302 従業員雇っているか？ */
   $('input[name="motouke"]').click(function(){
    const val_yes = 1;
@@ -948,6 +1039,17 @@ $(function(){
 	function get_price(){
   get_price_maitsuki();
   get_price_ikatsu();
+  
+  if(is_shiharai_maitsuki()){
+   $('#mitsumori_maitsuki_box').show();
+   $('#mitsumori_ikatsu_box').hide();
+  } else if(is_shiharai_ikatsu()){
+   $('#mitsumori_maitsuki_box').hide();
+   $('#mitsumori_ikatsu_box').show();   
+  } else {
+   $('#mitumori_result').hide();
+  }
+  
  }
 	function get_price_maitsuki(){
   $('input[name="jimuGyousyuBangou__c"]').val("0");
@@ -1349,6 +1451,24 @@ $(function(){
   return $ret;
  }
  
+ function is_shiharai_maitsuki(){
+  const $_shiharai = $('input[name="shiharai"]:checked').val();
+  let $ret = false;
+  if($_shiharai == '毎月払い'){
+   $ret = true;
+  }
+  return $ret;
+ }
+ function is_shiharai_ikatsu(){
+  const $_shiharai = $('input[name="shiharai"]:checked').val();
+  let $ret = false;
+  if($_shiharai == '一括払い'){
+   $ret = true;
+  }
+  return $ret;
+ }
+ 
+ 
  function jouken_selchange(){
   $('#mitumori_result').hide();
   $('#sougaku').val("");
@@ -1403,6 +1523,7 @@ $(function(){
    $('#kanyu_kikan5 + label').show();
   }
   
+  /*
   if(is_kikan_tyoki_konnendo()){
    $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year-1;?>年3月31日まで）');
    $('.mitsumori-result').addClass('no_maitsuki');
@@ -1410,6 +1531,7 @@ $(function(){
    $('.mitsumori_box_kikan').text('保険期間は年度（<?php echo $end_year;?>年3月31日まで）');
    $('.mitsumori-result').removeClass('no_maitsuki');
   }
+  */
   
   /* 20211227 塗装、防水を選んだら３か月、毎月払い不可 */
   $('.kikan_short').show();
