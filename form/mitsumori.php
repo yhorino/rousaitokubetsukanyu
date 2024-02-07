@@ -161,10 +161,10 @@ setcookie('norikae', '0', 0, '/');
                 </li>
               </ul>
               <p class="info_tel info_tel_pc">
-               ※ 雇っているかわからない方は、労働保険事務組合RJC（0120-855-865）までお電話ください。
+               ※ 外注か、雇用しているのか、お悩みの場合は、労働保険事務組合RJC（0120-855-865）にご相談ください。
               </p>
               <p class="info_tel info_tel_sp">
-               ※ 雇っているかわからない方は、お電話ください。<br><a href="tel:0120855865">労働保険事務組合RJCへ電話する</a>
+               ※ 外注か、雇用しているのか、お悩みの場合は、ご相談ください。<br><a href="tel:0120855865">労働保険事務組合RJCへ相談する</a>
               </p>
             </div>
            </div><!-- mitsumori-block-flex -->
@@ -613,9 +613,9 @@ setcookie('norikae', '0', 0, '/');
            <?php /* 20231226 期間限定キャンペーン */ /* ?>
               <div class="mitsumori_box_kikan">保険期間は年度（年度末３月まで）</div>
            <?php */ ?>
-              <div class="mitsumori_box_sougakutitle">お支払総額</div>
+              <div class="mitsumori_box_sougakutitle">頭金（4か月分）</div>
            <?php /* 20231226 期間限定キャンペーン */ ?>
-              <div class="mitsumori_box_inner">
+              <div class="mitsumori_box_inner inner_maitsuki">
                <div class="mitsumori_box_sougaku">
            <?php /* 20231226 期間限定キャンペーン */ /* ?>
                 <div class="mitsumori_box_sougaku_title">お支払総額</div>
@@ -626,6 +626,11 @@ setcookie('norikae', '0', 0, '/');
                 <div class="mitsumori_box_sougaku_kingaku"><input id="sougaku_maitsuki" type="text" name="sougaku_maitsuki" readonly required="" value=""></div>
                 <div class="mitsumori_box_sougaku_kingaku_yen">円</div>
                </div>
+               
+               <?php /* 20240206 フォーム修正　毎月払い注記追加 */  ?>
+               <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から、月々<span class="maitsuki_val"></span>円の口座振替となります。<br>
+                ※ 毎月の会費支払が確認できない場合は脱退となります。</div>
+               
                <div class="mitsumori_box_morebutton" onclick="toggle_mitsumori_more('mitsumori_maitsuki_box');"><span class="toggle_text">明細を見る</span>　<i class="fas fa-chevron-down toggle_icon"></i></div>
                <div class="mitsumori_box_more">
                 <div class="mitsumori_box_more_line">
@@ -652,11 +657,7 @@ setcookie('norikae', '0', 0, '/');
                  <div class="mitsumori_box_more_line_kingaku kaihi_camp"><input id="kaihi_disp_maitsuki" type="text" name="kaihi_disp_maitsuki" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
-                <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から、月々<span class="maitsuki_val"></span>円の会費振替となります。</div>
                </div>
-               
-               <?php /* 20240206 フォーム修正　毎月払い注記追加 */  ?>
-               <div class="mitsumori_box_more_info">※ 毎月の会費支払が確認できない場合は脱退となります。</div>
                
               </div>
               <div class="mitsumori_box_submit">
