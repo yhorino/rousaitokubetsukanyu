@@ -156,15 +156,15 @@ setcookie('norikae', '0', 0, '/');
                   <label for="jugyouinninzu3"><span>3人以上</span></label>
                 </li>
                 <li class="to_oyakata">
-                 <p class="to_oyakata_info">家族以外の従業員を雇っていない方は一人親方労災保険へのご加入となります。</p>
+                 <p class="to_oyakata_info">家族以外の従業員を雇っていない方は一人親方です。</p>
                  <a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/mailform_new/single_new/mitsumori_input.php?utm_campaign=jimu_form_tanin" class="to_oyakata_button">一人親方労災保険はこちら</a>
                 </li>
               </ul>
               <p class="info_tel info_tel_pc">
-               ※ 外注か、雇用しているのか、お悩みの場合は、労働保険事務組合RJC（0120-855-865）にご相談ください。
+               ※ 外注か、雇用しているのか、お悩みの場合は、労災特別加入RJC（0120-855-865）にご相談ください。
               </p>
               <p class="info_tel info_tel_sp">
-               ※ 外注か、雇用しているのか、お悩みの場合は、ご相談ください。<br><a href="tel:0120855865">労働保険事務組合RJCへ相談する</a>
+               ※ 外注か、雇用しているのか、お悩みの場合は、ご相談ください。<br><a href="tel:0120855865">労災特別加入RJCへ相談する</a>
               </p>
             </div>
            </div><!-- mitsumori-block-flex -->
@@ -329,7 +329,7 @@ setcookie('norikae', '0', 0, '/');
            
            <div class="mitsumori-block-flex">            
             <div class="mitsumori-block">
-             <h2 class="mitsumori-subttl"><span class="st_orange">特別加入する人数</span>は？</h2>
+             <h2 class="mitsumori-subttl"><span class="st_orange">特別加入する社長、役員の人数</span>は？</h2>
               <ul class="mitsumori-list">
 								<?php 
         $show_num=2;
@@ -651,7 +651,7 @@ setcookie('norikae', '0', 0, '/');
                 </div>
 -->
                 <div class="mitsumori_box_more_line more_line_kaihi">
-                 <div class="mitsumori_box_more_line_title small">初期経費(会費等)</div>
+                 <div class="mitsumori_box_more_line_title">会費等</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_normal"><div id="kaihi_disp_maitsuki_normal"></div><div class="mitsumori_box_more_line_kingaku_yen">円</div></div>
                  <div class="mitsumori_box_more_line_kingaku_arrow">→</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_camp"><input id="kaihi_disp_maitsuki" type="text" name="kaihi_disp_maitsuki" readonly required="" value=""></div>
@@ -708,7 +708,7 @@ setcookie('norikae', '0', 0, '/');
                 </div>
 -->
                 <div class="mitsumori_box_more_line more_line_kaihi">
-                 <div class="mitsumori_box_more_line_title small">初期経費(会費等)</div>
+                 <div class="mitsumori_box_more_line_title">会費等</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_normal"><div id="kaihi_disp_ikatsu_normal"></div><div class="mitsumori_box_more_line_kingaku_yen">円</div></div>
                  <div class="mitsumori_box_more_line_kingaku_arrow">→</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_camp"><input id="kaihi_disp_ikatsu" type="text" name="kaihi_disp_ikatsu" readonly required="" value=""></div>

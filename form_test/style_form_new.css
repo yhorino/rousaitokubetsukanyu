@@ -4597,6 +4597,10 @@ input[type="submit"].submit_card,
 .mitsumori_start .info_tel_sp {
   display: none;
 }
+.to_oyakata {
+    width: 100%;
+    text-align: center;
+}
 .to_oyakata_info,
 .mitsumori_start .to_oyakata_info {
   line-height: 1.5em;
