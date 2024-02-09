@@ -94,7 +94,7 @@ setcookie('norikae', '0', 0, '/');
         <input type="hidden" id="CellsNo__c" name="CellsNo__c" value = "<?php echo $_GET['cellsno'];?>">
      
      <?php /* 20230302 従業員雇っているか？ */ ?>
-     <section class="mitsumori_start">
+     <section class="mitsumori_start mitsumori" id="mitsumori_start">
         
       <?php /* 20240206 フォーム修正　従業員人数 */  ?>
       <?php /* ?>
@@ -124,17 +124,10 @@ setcookie('norikae', '0', 0, '/');
        </div>
       </div><!-- mitsumori-block-flex -->
         <?php */ ?>
-     </section>
-     <?php /* 20230302 従業員雇っているか？ */ ?>
-     
-      <section class="mitsumori">
-       
-      <!--<h1 class="mitsumori-ttl">質問は５つです</h1>-->
-       
+      
+           <?php /* 20240206 フォーム修正　従業員人数 */  ?>
         <div class="mitsumori-inner">
           <div class="mitsumori-select">
-           
-           <?php /* 20240206 フォーム修正　従業員人数 */  ?>
            <div class="mitsumori-block-flex">
             <div class="mitsumori-block">
              <h2 class="mitsumori-subttl"><span class="st_orange">家族以外の従業員</span>（パート、アルバイトを含む）は何人いますか？</h2>
@@ -168,6 +161,20 @@ setcookie('norikae', '0', 0, '/');
               </p>
             </div>
            </div><!-- mitsumori-block-flex -->
+          </div>
+         </div>
+           <?php /* 20240206 フォーム修正　従業員人数 */  ?>
+      
+     </section>
+     <?php /* 20230302 従業員雇っているか？ */ ?>
+     
+      <section class="mitsumori" id="mitsumori">
+       
+      <!--<h1 class="mitsumori-ttl">質問は５つです</h1>-->
+       
+        <div class="mitsumori-inner">
+          <div class="mitsumori-select">
+           
            
            <div class="mitsumori-block-flex">
             <div class="mitsumori-block">
@@ -923,31 +930,32 @@ $(function(){
 		
   /* 20230302 従業員雇っているか？ */
   function init_mitsumori_start(){
-   $('.mitsumori').hide();
+   $('#mitsumori').hide();
    $('.to_oyakata').hide();
-   $('.mitsumori-block-flex.second_block').hide();
+   $('#mitsumori-block-flex.second_block').hide();
   }
   function show_mitsumori(){
-   $('.mitsumori').show();
+   $('#mitsumori').show();
    $('.to_oyakata').hide();
   }
   function show_to_oyakata(){
-   //$('.mitsumori').hide();
+   $('#mitsumori').hide();
    $('.to_oyakata').show();
   }
   function hide_to_oyakata(){
-   //$('.mitsumori').show();
+   //$('#mitsumori').show();
    $('.to_oyakata').hide();
   }
   function show_tanin(){
    $('.mitsumori-block-flex.second_block').show();
    $('.to_oyakata').hide();
-   $('.mitsumori').hide();
+   $('#mitsumori').hide();
   }
   
   <?php /* 20240206 フォーム修正　従業員人数 */  ?>
   init_mitsumori_start();
-  show_mitsumori();
+  //show_mitsumori();
+  
   /*
   init_mitsumori_start();
   $('input[name="tanin"]').prop('checked', false);
@@ -969,7 +977,7 @@ $(function(){
    if(selected_val == 0){
     show_to_oyakata();
    } else {
-    hide_to_oyakata();
+    show_mitsumori();
    }
   });
   
