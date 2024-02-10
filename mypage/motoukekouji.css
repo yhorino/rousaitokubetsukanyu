@@ -84,8 +84,12 @@
  height: 25px;
  cursor: pointer;
 }
-
-
+.button_box_bottom {
+ margin-top: 20px;
+}
+.button_box_bottom .button_new{
+ background-color: #F9B830;
+}
 
 
 

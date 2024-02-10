@@ -18,6 +18,7 @@ if(isset($_POST['Id']) && $_POST['Id'] != ''){
 }
 $motoukekouji_data->setAccountId($_POST['AccountId']);
 $motoukekouji_data->setKoujiType($_POST['kouji_type']);
+$motoukekouji_data->setKoujiSubType($_POST['kouji_subtype']);
 $motoukekouji_data->setKoujiAddress($_POST['kouji_address']);
 $motoukekouji_data->setKoujiKikanStart($_POST['kouji_kikan_start']);
 $motoukekouji_data->setKoujiKikanEnd($_POST['kouji_kikan_end']);
@@ -29,6 +30,7 @@ if($mode == SF_MODE_INSERT){
  $insertitems=array(
   'Account__c'=>$motoukekouji_data->AccountId(),
   'KoujiType__c'=>$motoukekouji_data->KoujiType(),
+  'KoujiSubType__c'=>$motoukekouji_data->KoujiSubType(),
   'KoujiKikanStart__c'=>$motoukekouji_data->KoujiKikanStart(),
   'KoujiKikanEnd__c'=>$motoukekouji_data->KoujiKikanEnd(),
   'KoujiAddress__c'=>$motoukekouji_data->KoujiAddress(),
@@ -45,6 +47,7 @@ if($mode == SF_MODE_UPDATE){
  $_orderby = "";
  $updateitems=array(
   'KoujiType__c'=>$motoukekouji_data->KoujiType(),
+  'KoujiSubType__c'=>$motoukekouji_data->KoujiSubType(),
   'KoujiKikanStart__c'=>$motoukekouji_data->KoujiKikanStart(),
   'KoujiKikanEnd__c'=>$motoukekouji_data->KoujiKikanEnd(),
   'KoujiAddress__c'=>$motoukekouji_data->KoujiAddress(),

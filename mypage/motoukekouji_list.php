@@ -58,7 +58,6 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
   <?php if($motoukekouji_array_data->MotoukekoujiDataNum() > 0){ ?>
   <a class="button_print mk_button" onclick="window.print();">チェックした工事を印刷</a>
   <?php } ?>
-  <a href="motoukekouji_input.php" class="button_new mk_button">新規登録</a>
  </div>
  
  <?php if($motoukekouji_array_data->MotoukekoujiDataNum() > 0){ ?>
@@ -77,7 +76,7 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
   <tr class="noprint">
    <td class="print_checkbox_td noprint"><input type="checkbox" name="print<?php echo $i;?>" class="print_checkbox"></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiKikan();?></td>
-   <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiType();?></td>
+   <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiType();?><br><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiSubType();?></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiAddress();?></td>
    <td class="number_td"><?php echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiKingaku()).' 円';?></td>
    <td class="number_td"><?php if(intval($motoukekouji_array_data->MotoukekoujiData($i)->KoujiHokenryo())<=0){echo '- 対象外 -';} else {echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiHokenryo()).' 円';}?></td>
@@ -91,6 +90,10 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
   現在登録されている元請け工事はございません。<br>新規登録ボタンから登録をお願いします。
  </p>
  <?php } ?>
+ 
+ <div class="button_box button_box_bottom">
+  <a href="motoukekouji_input.php" class="button_new mk_button">+ 工事を追加</a>
+ </div>
  
 </div>
 	

@@ -2,7 +2,7 @@
  include_once('./bin/sf_Api.php');
 
  define('DATATYPE_MOTOUKEKOUJI', '事務組合元請工事');
- define('SELECT_MOTOUKEKOUJI','Id,Name,Account__c,KoujiType__c,KoujiKikanStart__c,KoujiKikanEnd__c,KoujiAddress__c,KoujiKingaku__c,KoujiHokenryo__c');
+ define('SELECT_MOTOUKEKOUJI','Id,Name,Account__c,KoujiType__c,KoujiSubType__c,KoujiKikanStart__c,KoujiKikanEnd__c,KoujiAddress__c,KoujiKingaku__c,KoujiHokenryo__c');
  define('SF_OBJECT', 'jimuMotoukeKouji__c');
 
  class MotoukekoujiDataArray{
@@ -37,6 +37,7 @@
     $_record->setKoujiKikanStart($_row['KoujiKikanStart__c']);
     $_record->setKoujiKikanEnd($_row['KoujiKikanEnd__c']);
     $_record->setKoujiType($_row['KoujiType__c']);
+    $_record->setKoujiSubType($_row['KoujiSubType__c']);
     $_record->setKoujiAddress($_row['KoujiAddress__c']);
     $_record->setKoujiKingaku($_row['KoujiKingaku__c']);
     $_record->setKoujiHokenryo($_row['KoujiHokenryo__c']);
@@ -68,6 +69,7 @@
   private $_KoujiKikanStart;
   private $_KoujiKikanEnd;
   private $_KoujiType;
+  private $_KoujiSubType;
   private $_KoujiAddress;
   private $_KoujiKingaku;
   private $_KoujiHokenryo; // SF数式項目から
@@ -84,6 +86,7 @@
   public function KoujiKikanEnd(){return $this->_KoujiKikanEnd;}
   public function KoujiKikan(){return str_replace('-','/',$this->_KoujiKikanStart).'～'.str_replace('-','/',$this->_KoujiKikanEnd);}
   public function KoujiType(){return $this->_KoujiType;}
+  public function KoujiSubType(){return $this->_KoujiSubType;}
   public function KoujiAddress(){return $this->_KoujiAddress;}
   public function KoujiKingaku(){return $this->_KoujiKingaku;}
   public function KoujiHokenryo(){return $this->_KoujiHokenryo;}
@@ -103,6 +106,9 @@
   }
   public function setKoujiType($val){
    $this->_KoujiType = $val;
+  }
+  public function setKoujiSubType($val){
+   $this->_KoujiSubType = $val;
   }
   public function setKoujiAddress($val){
    $this->_KoujiAddress = $val;
@@ -130,6 +136,7 @@
    $this->setKoujiKikanStart($_row['KoujiKikanStart__c']);
    $this->setKoujiKikanEnd($_row['KoujiKikanEnd__c']);
    $this->setKoujiType($_row['KoujiType__c']);
+   $this->setKoujiSubType($_row['KoujiSubType__c']);
    $this->setKoujiAddress($_row['KoujiAddress__c']);
    $this->setKoujiKingaku($_row['KoujiKingaku__c']);
    $this->setKoujiHokenryo($_row['KoujiHokenryo__c']);
