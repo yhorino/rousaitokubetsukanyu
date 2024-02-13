@@ -61,6 +61,70 @@
    
    return true;
   }
+  
+  public function getMotoukekoujiRecordDataWithYM($ym){
+   $_type = DATATYPE_MOTOUKEKOUJI;
+   $_select = SELECT_MOTOUKEKOUJI;
+   $_from = SF_OBJECT;
+   $_where = "Account__c = '$this->_Id'";
+   $_orderby = " ORDER BY Name DESC ";
+   
+   $_result = (array)sf_soql_select($_select, $_from, $_where, $_orderby);
+   if(count($_result) <= 0) return false;
+   
+   for($i=0;$i<count($_result);$i++){
+    $_row = (array)$_result[$i]['fields'];
+    $end = $_row['KoujiKikanEnd__c'];
+    $end = str_replace('/', '', $end);
+    $end = str_replace('-', '', $end);
+    $end = substr($end,0,6);
+    if($end == $ym){
+     $_record = new MotoukekoujiData();
+     $_record->setId($_result[$i]['Id']);
+     $_record->setAccountId($_row['Account__c']);
+     $_record->setKoujiKikanStart($_row['KoujiKikanStart__c']);
+     $_record->setKoujiKikanEnd($_row['KoujiKikanEnd__c']);
+     $_record->setKoujiType($_row['KoujiType__c']);
+     $_record->setKoujiSubType($_row['KoujiSubType__c']);
+     $_record->setKoujiAddress($_row['KoujiAddress__c']);
+     $_record->setKoujiKingaku($_row['KoujiKingaku__c']);
+     $_record->setKoujiHokenryo($_row['KoujiHokenryo__c']);
+     $this->_MotoukekoujiData[] = $_record;
+    }
+   }
+   
+   /* TEST /
+   for($i=0;$i<20;$i++){
+    $_record = new MotoukekoujiData();
+    $_record->setId('0000000'.$i);
+    $_record->setAccountId($this->_Id);
+    $_record->setKoujiKikanStart('2023-11-01');
+    $_record->setKoujiKikanEnd('2023-12-31');
+    $_record->setKoujiType('タイル・れんが・ブロック工事業');
+    $_record->setKoujiAddress('鹿児島県いちき串木野市');
+    $_record->setKoujiKingaku('1500000');
+    $_record->setKoujiHokenryo('60000');
+    $this->_MotoukekoujiData[] = $_record;
+   }
+   / TEST */
+   
+   return true;
+  }
+  
+  public function getMotoukekoujiRecordDataNumWithYM($ym){
+   $count = 0;
+   foreach($this->_MotoukekoujiData as $md){
+    $end = $md->KoujiKikanEnd();
+    $end = str_replace('/', '', $end);
+    $end = str_replace('-', '', $end);
+    $end = substr($end,0,6);
+    if($end == $ym){
+     $count++;
+    }
+   }
+   return $count;
+  }
+  
  }
 
  class MotoukekoujiData{

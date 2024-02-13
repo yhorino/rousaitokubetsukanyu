@@ -16,6 +16,22 @@ $kikan_end = '';
 $kingaku = '';
 
 $motoukekouji_data = new MotoukekoujiData();
+if(isset($_GET['kikan']) && $_GET['kikan'] != ''){
+ $kikan_end_y = substr($_GET['kikan'],0,4);
+ $kikan_end_m = substr($_GET['kikan'],4,2);
+ $kikan_end_nextm = intval($kikan_end_m)+1;
+ $kikan_end_nexty = $kikan_end_y;
+ if($kikan_end_nextm > 12) {
+  $kikan_end_nextm = 1;
+  $kikan_end_nexty = intval($kikan_end_y)+1;
+ }
+ $kikan_end_time = mktime(0, 0, 0, $kikan_end_nextm, 0, $kikan_end_nexty);
+ $kikan_end_d = date('d', $kikan_end_time); 
+ $kikan_end = $kikan_end_y.'-'.$kikan_end_m.'-'.$kikan_end_d;
+ $kikan_end_e = $kikan_end;
+ $kikan_end_s = $kikan_end_y.'-'.$kikan_end_m.'-01';
+ $_SESSION['kikan'] = $_GET['kikan'];
+}
 if(isset($_GET['id']) && $_GET['id'] != ''){
  $id = $_GET['id'];
  $motoukekouji_data->setId($id);
@@ -108,7 +124,7 @@ $gyosyu_list = array('大工','塗装','防水','板金','タイル・れんが�
    <div class="motoukekouji_inputitem">
     <span class="motoukekouji_inputitem_title">工事の期間</span>
     <span class="motoukekouji_inputitem_box inputitem_kikan">
-     <input type="date" name="kouji_kikan_start" value="<?php echo $kikan_start;?>">　～　<input type="date" name="kouji_kikan_end" value="<?php echo $kikan_end;?>">
+     <input type="date" name="kouji_kikan_start" value="<?php echo $kikan_start;?>">　～　<input type="date" name="kouji_kikan_end" value="<?php echo $kikan_end;?>" min="<?php echo $kikan_end_s;?>" max="<?php echo $kikan_end_e;?>">
     </span>
    </div>
 

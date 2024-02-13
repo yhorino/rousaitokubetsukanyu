@@ -1,11 +1,10 @@
 <?php
+session_start();
+header("Content-type: text/html;charset=utf-8");
 
 define('SF_MODE_UNKNOWN', -1);
 define('SF_MODE_INSERT', 1);
 define('SF_MODE_UPDATE', 2);
-
-session_start();
-header("Content-type: text/html;charset=utf-8");
 
 include_once('./motoukekouji_class.php');
 $mode = SF_MODE_UNKNOWN;
@@ -56,7 +55,7 @@ if($mode == SF_MODE_UPDATE){
  sf_soql_update($_select, $_from, $_where, $_orderby, $updateitems);
 }
 
-header('Location: motoukekouji_list.php');
+header('Location: motoukekouji_list.php?kikan='.$_SESSION['kikan']);
 exit;
 
 ?>

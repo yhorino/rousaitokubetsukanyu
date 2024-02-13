@@ -12,6 +12,25 @@ $_name = $_SESSION['row']['Name'];
 $motoukekouji_array_data = new MotoukekoujiDataArray($_id, $_name);
 $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
 
+$this_year = date('Y');
+$next_year = ''.(intval($this_year) + 1);
+$ym_list = array(
+ $this_year."01",
+ $this_year."02",
+ $this_year."03",
+ $this_year."04",
+ $this_year."05",
+ $this_year."06",
+ $this_year."07",
+ $this_year."08",
+ $this_year."09",
+ $this_year."10",
+ $this_year."11",
+ $this_year."12",
+ $next_year."01",
+ $next_year."02",
+ $next_year."03"
+);
 ?>
 
 <!doctype html>
@@ -53,25 +72,39 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
 <?php include_once('header.php'); ?>
 
 <div class="inner">
-
+ <a href="top.php">マイページトップへ戻る</a>
+ 
  <p>月ごとに完了した元請工事を登録してください。</p>
  <p>元請工事がない月は　<span class="edit_button mk_button">工事なし</span>　をクリックしてください。</p>
  <p>元請工事がある月は　<span class="edit_button mk_button">工事入力・編集</span>　から工事を登録してください。</p>
  
- <?php if($motoukekouji_array_data->MotoukekoujiDataNum() > 0){ ?>
  <div class="motoukekouji_table_outer">
- <table class="motoukekouji_table">
+ <table class="motoukekouji_table motoukekouji_toplist_table">
   <tr>
    <th class="toplist_th_kikan">工事の期間</th>
    <th class="toplist_th_status">ステータス</th>
    <th class="toplist_th_regist">登録</th>
   </tr>
+  <?php foreach($ym_list as $ym){ ?>
+  <?php 
+   $y = substr($ym,0,4);
+   $m = substr($ym,4,2);
+   $cnt = intval($motoukekouji_array_data->getMotoukekoujiRecordDataNumWithYM($ym));
+   $no_kouji_disable = '';
+   if($cnt > 0) {
+    $no_kouji_disable = ' disabled ';
+    $status = '<span class="kouji_ari">工事 <span class="kouji_count">'.$cnt.'</span> 件　登録済</span>';
+   } else {
+    $no_kouji_disable = '';
+    $status = '（工事未登録）';    
+   }
+  ?>
   <tr>
-   <td>2024年01月　完了工事</td>
-   <td>工事X件　登録済</td>
-   <td><a href="motoukekouji_nodata.php?kikan=202401" class="edit_button mk_button">工事なし</a>　<a href="motoukekouji_list.php?kikan=202401" class="edit_button mk_button">工事入力・編集</a></td>
+   <td><?php echo $y;?>年<?php echo $m;?>月　完了工事</td>
+   <td><?php echo $status;?></td>
+   <td><a href="motoukekouji_nodata.php?kikan=<?php echo $ym;?>" class="edit_button mk_button <?php echo $no_kouji_disable;?>">工事なし</a>　<a href="motoukekouji_list.php?kikan=<?php echo $ym;?>" class="edit_button mk_button">工事入力・編集</a></td>
   </tr>
-  <?php } ?>
+  <?php } ?>  
  </table>
  </div>
  
