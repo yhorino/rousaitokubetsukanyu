@@ -1156,7 +1156,8 @@ main p:empty {
 }
 .mitsumori-block {
   padding: 15px 37px 33px;
-  background-color: #E8F7FE;
+  /*background-color: #E8F7FE;*/
+  background-color: #EFF5EE;
   margin-bottom: 35px;
   border-radius: 10px;
   /* box-shadow: 0px 3px 6px #00000029;*/
@@ -1207,7 +1208,8 @@ main p:empty {
 .mitsumori-subttl:before {
   content: 'Q.';
   font: normal normal bold 27px/45px Arial;
-  color: #01A6EB;
+  /*color: #01A6EB;*/
+  color: #22893B;
   margin-right: 8px;
 }
 #youzai_next .mitsumori-subttl {
@@ -1395,7 +1397,8 @@ input[type="reset"].mitsumori-back {
   color: #fff;
     background: #01A6EB;
     color: #fff;*/
-  color: #01A6EB;
+  /*color: #01A6EB;*/
+  color: #fff;
   border-radius: 3px;
   box-shadow: none;
   font-weight: bold;
@@ -4574,13 +4577,21 @@ input[type="submit"].submit_card,
   padding-top: 30px;
 }
 .mitsumori_start .mitsumori-block {
+ /*
   width: 100%;
   max-width: 100%;
+ */
+}
+.mitsumori_start .mitsumori-inner {
+ padding: 30px 0 0 0;
+}
+.mitsumori_start .mitsumori-select {
+ margin-bottom: 0;
 }
 .mitsumori_start .mitsumori-list {
   width: 100%;
   max-width: 100%;
-  justify-content: center;
+  /*justify-content: center;*/
 }
 .mitsumori_start .info_tel {
   font-size: 16px;
@@ -4597,6 +4608,10 @@ input[type="submit"].submit_card,
 .mitsumori_start .info_tel_sp {
   display: none;
 }
+.to_oyakata {
+    width: 100%;
+    text-align: center;
+}
 .to_oyakata_info,
 .mitsumori_start .to_oyakata_info {
   line-height: 1.5em;
@@ -4612,7 +4627,8 @@ input[type="submit"].submit_card,
   gap: 10px;
   width: 100%;
   grid-template-columns: 1fr;
-  background-color: #09b550;
+  /*background-color: #09b550;*/
+  background-color: #1E843A;
   padding: 20px 0;
   box-sizing: border-box;
   border-radius: 5px;
@@ -5019,6 +5035,9 @@ input[type="submit"].submit_card,
  grid-template-rows: 50px 32px 1fr;
  grid-row-gap: 10px;
 }
+.mitsumori_box_inner.inner_maitsuki{
+ grid-template-rows: 50px 30px 32px 1fr; 
+}
 .mitsumori_box_sougaku {
  display: grid;
  /* 20231226 期間限定キャンペーン */
@@ -5106,6 +5125,7 @@ input[type="submit"].submit_card,
 .mitsumori_box_more_info {
  font-size: 10px;
  margin-top: 5px;
+ line-height: 14px;
 }
 .mitsumori_box_submit {
  display: grid;

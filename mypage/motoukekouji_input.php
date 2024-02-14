@@ -16,12 +16,29 @@ $kikan_end = '';
 $kingaku = '';
 
 $motoukekouji_data = new MotoukekoujiData();
+if(isset($_GET['kikan']) && $_GET['kikan'] != ''){
+ $kikan_end_y = substr($_GET['kikan'],0,4);
+ $kikan_end_m = substr($_GET['kikan'],4,2);
+ $kikan_end_nextm = intval($kikan_end_m)+1;
+ $kikan_end_nexty = $kikan_end_y;
+ if($kikan_end_nextm > 12) {
+  $kikan_end_nextm = 1;
+  $kikan_end_nexty = intval($kikan_end_y)+1;
+ }
+ $kikan_end_time = mktime(0, 0, 0, $kikan_end_nextm, 0, $kikan_end_nexty);
+ $kikan_end_d = date('d', $kikan_end_time); 
+ $kikan_end = $kikan_end_y.'-'.$kikan_end_m.'-'.$kikan_end_d;
+ $kikan_end_e = $kikan_end;
+ $kikan_end_s = $kikan_end_y.'-'.$kikan_end_m.'-01';
+ $_SESSION['kikan'] = $_GET['kikan'];
+}
 if(isset($_GET['id']) && $_GET['id'] != ''){
  $id = $_GET['id'];
  $motoukekouji_data->setId($id);
  $ret = $motoukekouji_data->getMotoukekoujiRecordData();
  $accountid = $motoukekouji_data->AccountId();
  $type = $motoukekouji_data->KoujiType();
+ $subtype = $motoukekouji_data->KoujiSubType();
  $address = $motoukekouji_data->KoujiAddress();
  $kikan_start = $motoukekouji_data->KoujiKikanStart();
  $kikan_end = $motoukekouji_data->KoujiKikanEnd();
@@ -31,7 +48,8 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
  $accountid = $motoukekouji_data->AccountId();
 }
 
-$gyosyu_list = array('足場工事業','電気工事業','内装工事業','管工事業','とび・土工・コンクリート工事業','大工工事業','塗装工事業','防水工事業','板金工事業','タイル・れんが・ブロック工事業','左官工事業','鉄筋工事業','屋根工事業','機械器具設置工事業','電気通信工事業','建具工事業','熱絶縁工事業','ガラス工事業','消防設備工事業','美装工事業','解体工事業','造園工事業','外構工事業','型枠工事業','鉄骨工事業');
+$gyosyu_list = array('大工','塗装','防水','板金','タイル・れんが・ブロック','左官','鉄筋','屋根','足場','電気','内装','管','機械器具設置','電気通信','建具','熱絶縁','ガラス','消防施設','美装','とび・土工・道路','解体','造園','外構','型枠','鉄骨');
+
 ?>
 
 <!doctype html>
@@ -85,11 +103,13 @@ $gyosyu_list = array('足場工事業','電気工事業','内装工事業','管�
    <div class="motoukekouji_inputitem">
     <span class="motoukekouji_inputitem_title">工事の種類</span>
     <span class="motoukekouji_inputitem_box">
-     <select name="kouji_type" class="fixsize_inputitem">
+     <select name="kouji_type" id="kouji_type" class="fixsize_inputitem">
       <option value="">-</option>
       <?php for($i=0;$i<count($gyosyu_list);$i++){ ?>
       <option value="<?php echo $gyosyu_list[$i];?>" <?php if($gyosyu_list[$i] == $type) echo 'selected'; ?>><?php echo $gyosyu_list[$i];?></option>
       <?php } ?>
+     </select>
+     <select name="kouji_subtype" id="kouji_subtype" class="fixsize_inputitem">
      </select>
     </span>
    </div>
@@ -104,7 +124,7 @@ $gyosyu_list = array('足場工事業','電気工事業','内装工事業','管�
    <div class="motoukekouji_inputitem">
     <span class="motoukekouji_inputitem_title">工事の期間</span>
     <span class="motoukekouji_inputitem_box inputitem_kikan">
-     <input type="date" name="kouji_kikan_start" value="<?php echo $kikan_start;?>">　～　<input type="date" name="kouji_kikan_end" value="<?php echo $kikan_end;?>">
+     <input type="date" name="kouji_kikan_start" value="<?php echo $kikan_start;?>">　～　<input type="date" name="kouji_kikan_end" value="<?php echo $kikan_end;?>" min="<?php echo $kikan_end_s;?>" max="<?php echo $kikan_end_e;?>">
     </span>
    </div>
 
@@ -126,5 +146,70 @@ $gyosyu_list = array('足場工事業','電気工事業','内装工事業','管�
 	
 <?php include_once('footer.php'); ?>
 
+<script>
+ const majorSelect = document.getElementById('kouji_type');
+ const minorSelect = document.getElementById('kouji_subtype');
+ const categories = {
+     "大工": [""],
+     "塗装": ["新築工事","改修工事"],
+     "防水": [""],
+     "板金": ["新築工事","改修工事"],
+     "タイル・れんが・ブロック": [""],
+     "左官": ["新築工事","改修工事"],
+     "鉄筋": [""],
+     "屋根": [""],
+     "足場": [""],
+     "電気": ["新築工事","改修工事"],
+     "内装": ["新築工事","改修工事"],
+     "管": ["新築工事","改修工事","地面下の埋設工事"],
+     "機械器具設置": ["小型機械（家庭用エアコン、パイプ取付けなど）","太陽光発電装置","大型機械（エレベーターやボイラー、ベルトコンベアー）","保守点検のみ"],
+     "電気通信": [""],
+     "建具": [""],
+     "熱絶縁": [""],
+     "ガラス": [""],
+     "消防施設": ["新築工事","改修工事","保守点検のみ"],
+     "美装": ["新築工事","改修工事"],
+     "とび・土工・道路": ["造成工事や河川工事などの地面を掘って行う工事","道路改修工事","ガードレルや標識設置などの工事","草刈り"],
+     "解体": [""],
+     "造園": ["庭園の造園工事","公園、ゴルフ場など広場の造園工事","草刈りや剪定のみ"],
+     "型枠": [""],
+     "鉄骨": [""]
+ };
+
+ document.addEventListener('DOMContentLoaded', function() {
+
+    majorSelect.addEventListener('change', setSubtypeItems);
+  
+  initSubtypeItem();
+
+});
+function initSubtypeItem(){
+ setSubtypeItems();
+ $('#kouji_subtype').val('<?php echo $subtype;?>');
+}
+function setSubtypeItems(){
+  // 小分類をクリア
+  minorSelect.innerHTML = '';
+
+  const selectedCategory = majorSelect.value;
+
+  if (categories[selectedCategory]) {
+      // 選択された大分類に応じて小分類の選択肢を追加
+      categories[selectedCategory].forEach(function(item) {
+          const option = document.createElement('option');
+          option.value = item;
+          option.textContent = item;
+          minorSelect.appendChild(option);
+      });
+  } else {
+      // 大分類が選択されていない場合の処理
+      const defaultOption = document.createElement('option');
+      defaultOption.textContent = '先に大分類を選択してください';
+      minorSelect.appendChild(defaultOption);
+  }   
+}
+
+</script>
+ 
 </body>
 </html>

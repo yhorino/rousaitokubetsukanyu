@@ -94,7 +94,7 @@ setcookie('norikae', '0', 0, '/');
         <input type="hidden" id="CellsNo__c" name="CellsNo__c" value = "<?php echo $_GET['cellsno'];?>">
      
      <?php /* 20230302 従業員雇っているか？ */ ?>
-     <section class="mitsumori_start">
+     <section class="mitsumori_start mitsumori" id="mitsumori_start">
         
       <?php /* 20240206 フォーム修正　従業員人数 */  ?>
       <?php /* ?>
@@ -124,17 +124,10 @@ setcookie('norikae', '0', 0, '/');
        </div>
       </div><!-- mitsumori-block-flex -->
         <?php */ ?>
-     </section>
-     <?php /* 20230302 従業員雇っているか？ */ ?>
-     
-      <section class="mitsumori">
-       
-      <!--<h1 class="mitsumori-ttl">質問は５つです</h1>-->
-       
+      
+           <?php /* 20240206 フォーム修正　従業員人数 */  ?>
         <div class="mitsumori-inner">
           <div class="mitsumori-select">
-           
-           <?php /* 20240206 フォーム修正　従業員人数 */  ?>
            <div class="mitsumori-block-flex">
             <div class="mitsumori-block">
              <h2 class="mitsumori-subttl"><span class="st_orange">家族以外の従業員</span>（パート、アルバイトを含む）は何人いますか？</h2>
@@ -156,18 +149,32 @@ setcookie('norikae', '0', 0, '/');
                   <label for="jugyouinninzu3"><span>3人以上</span></label>
                 </li>
                 <li class="to_oyakata">
-                 <p class="to_oyakata_info">家族以外の従業員を雇っていない方は一人親方労災保険へのご加入となります。</p>
+                 <p class="to_oyakata_info">家族以外の従業員を雇っていない方は一人親方です。</p>
                  <a href="https://www.xn--4gqprf2ac7ft97aryo6r5b3ov.tokyo/mailform_new/single_new/mitsumori_input.php?utm_campaign=jimu_form_tanin" class="to_oyakata_button">一人親方労災保険はこちら</a>
                 </li>
               </ul>
               <p class="info_tel info_tel_pc">
-               ※ 雇っているかわからない方は、労働保険事務組合RJC（0120-855-865）までお電話ください。
+               ※ 外注か、雇用しているのか、お悩みの場合は、労災特別加入RJC（0120-855-865）にご相談ください。
               </p>
               <p class="info_tel info_tel_sp">
-               ※ 雇っているかわからない方は、お電話ください。<br><a href="tel:0120855865">労働保険事務組合RJCへ電話する</a>
+               ※ 外注か、雇用しているのか、お悩みの場合は、ご相談ください。<br><a href="tel:0120855865">労災特別加入RJCへ相談する</a>
               </p>
             </div>
            </div><!-- mitsumori-block-flex -->
+          </div>
+         </div>
+           <?php /* 20240206 フォーム修正　従業員人数 */  ?>
+      
+     </section>
+     <?php /* 20230302 従業員雇っているか？ */ ?>
+     
+      <section class="mitsumori" id="mitsumori">
+       
+      <!--<h1 class="mitsumori-ttl">質問は５つです</h1>-->
+       
+        <div class="mitsumori-inner">
+          <div class="mitsumori-select">
+           
            
            <div class="mitsumori-block-flex">
             <div class="mitsumori-block">
@@ -329,7 +336,7 @@ setcookie('norikae', '0', 0, '/');
            
            <div class="mitsumori-block-flex">            
             <div class="mitsumori-block">
-             <h2 class="mitsumori-subttl"><span class="st_orange">特別加入する人数</span>は？</h2>
+             <h2 class="mitsumori-subttl"><span class="st_orange">特別加入する社長、役員の人数</span>は？</h2>
               <ul class="mitsumori-list">
 								<?php 
         $show_num=2;
@@ -613,9 +620,9 @@ setcookie('norikae', '0', 0, '/');
            <?php /* 20231226 期間限定キャンペーン */ /* ?>
               <div class="mitsumori_box_kikan">保険期間は年度（年度末３月まで）</div>
            <?php */ ?>
-              <div class="mitsumori_box_sougakutitle">お支払総額</div>
+              <div class="mitsumori_box_sougakutitle">頭金（4か月分）</div>
            <?php /* 20231226 期間限定キャンペーン */ ?>
-              <div class="mitsumori_box_inner">
+              <div class="mitsumori_box_inner inner_maitsuki">
                <div class="mitsumori_box_sougaku">
            <?php /* 20231226 期間限定キャンペーン */ /* ?>
                 <div class="mitsumori_box_sougaku_title">お支払総額</div>
@@ -626,6 +633,11 @@ setcookie('norikae', '0', 0, '/');
                 <div class="mitsumori_box_sougaku_kingaku"><input id="sougaku_maitsuki" type="text" name="sougaku_maitsuki" readonly required="" value=""></div>
                 <div class="mitsumori_box_sougaku_kingaku_yen">円</div>
                </div>
+               
+               <?php /* 20240206 フォーム修正　毎月払い注記追加 */  ?>
+               <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から、月々<span class="maitsuki_val"></span>円の口座振替となります。<br>
+                ※ 毎月の会費支払が確認できない場合は脱退となります。</div>
+               
                <div class="mitsumori_box_morebutton" onclick="toggle_mitsumori_more('mitsumori_maitsuki_box');"><span class="toggle_text">明細を見る</span>　<i class="fas fa-chevron-down toggle_icon"></i></div>
                <div class="mitsumori_box_more">
                 <div class="mitsumori_box_more_line">
@@ -646,17 +658,13 @@ setcookie('norikae', '0', 0, '/');
                 </div>
 -->
                 <div class="mitsumori_box_more_line more_line_kaihi">
-                 <div class="mitsumori_box_more_line_title small">初期経費(会費等)</div>
+                 <div class="mitsumori_box_more_line_title">会費等</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_normal"><div id="kaihi_disp_maitsuki_normal"></div><div class="mitsumori_box_more_line_kingaku_yen">円</div></div>
                  <div class="mitsumori_box_more_line_kingaku_arrow">→</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_camp"><input id="kaihi_disp_maitsuki" type="text" name="kaihi_disp_maitsuki" readonly required="" value=""></div>
                  <div class="mitsumori_box_more_line_kingaku_yen">円</div>
                 </div>
-                <div class="mitsumori_box_more_info">※ <span id="syokai_tsukisu_next">5</span>か月目から、月々<span class="maitsuki_val"></span>円の会費振替となります。</div>
                </div>
-               
-               <?php /* 20240206 フォーム修正　毎月払い注記追加 */  ?>
-               <div class="mitsumori_box_more_info">※ 毎月の会費支払が確認できない場合は脱退となります。</div>
                
               </div>
               <div class="mitsumori_box_submit">
@@ -707,7 +715,7 @@ setcookie('norikae', '0', 0, '/');
                 </div>
 -->
                 <div class="mitsumori_box_more_line more_line_kaihi">
-                 <div class="mitsumori_box_more_line_title small">初期経費(会費等)</div>
+                 <div class="mitsumori_box_more_line_title">会費等</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_normal"><div id="kaihi_disp_ikatsu_normal"></div><div class="mitsumori_box_more_line_kingaku_yen">円</div></div>
                  <div class="mitsumori_box_more_line_kingaku_arrow">→</div>
                  <div class="mitsumori_box_more_line_kingaku kaihi_camp"><input id="kaihi_disp_ikatsu" type="text" name="kaihi_disp_ikatsu" readonly required="" value=""></div>
@@ -922,31 +930,32 @@ $(function(){
 		
   /* 20230302 従業員雇っているか？ */
   function init_mitsumori_start(){
-   $('.mitsumori').hide();
+   $('#mitsumori').hide();
    $('.to_oyakata').hide();
-   $('.mitsumori-block-flex.second_block').hide();
+   $('#mitsumori-block-flex.second_block').hide();
   }
   function show_mitsumori(){
-   $('.mitsumori').show();
+   $('#mitsumori').show();
    $('.to_oyakata').hide();
   }
   function show_to_oyakata(){
-   //$('.mitsumori').hide();
+   $('#mitsumori').hide();
    $('.to_oyakata').show();
   }
   function hide_to_oyakata(){
-   //$('.mitsumori').show();
+   //$('#mitsumori').show();
    $('.to_oyakata').hide();
   }
   function show_tanin(){
    $('.mitsumori-block-flex.second_block').show();
    $('.to_oyakata').hide();
-   $('.mitsumori').hide();
+   $('#mitsumori').hide();
   }
   
   <?php /* 20240206 フォーム修正　従業員人数 */  ?>
   init_mitsumori_start();
-  show_mitsumori();
+  //show_mitsumori();
+  
   /*
   init_mitsumori_start();
   $('input[name="tanin"]').prop('checked', false);
@@ -968,7 +977,7 @@ $(function(){
    if(selected_val == 0){
     show_to_oyakata();
    } else {
-    hide_to_oyakata();
+    show_mitsumori();
    }
   });
   

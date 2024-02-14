@@ -14,6 +14,9 @@
  background-color: #fff;
  table-layout: fixed;
 }
+.motoukekouji_table tr:nth-child(2n) {
+ background-color: #f0f0f0;
+}
 .motoukekouji_table th {
  position: sticky;
  top: 0;
@@ -30,6 +33,31 @@
 .motoukekouji_table tr:last-child td {
  border-bottom: none;
 }
+.motoukekouji_toplist_table {
+ width: 800px;
+ margin: 0 auto;
+ max-height: none;
+ overflow-y: auto;
+ border-top: 1px solid #707070;
+ border-bottom: 1px solid #707070;
+ border-right: 1px solid #707070;
+ display: table;
+ border-collapse: collapse;
+ background-color: #fff;
+ table-layout: auto;
+}
+.kouji_ari {
+ display: flex;
+ align-items: center;
+ gap: 5px;
+ margin-top: 2px;
+ margin-bottom: -2px;
+}
+.kouji_count {
+ font-size: 1.5em;
+ font-weight: bold;
+}
+
 .print_checkbox_td {
  text-align: center;
  line-height: 1em;
@@ -49,13 +77,13 @@
  width: 140px;
 }
 .th_type {
- width: 270px;
+ width: 130px;
 }
 .th_address {
  width: 140px;
 }
 .th_kingaku {
- width: 140px;
+ width: 150px;
 }
 .th_hokenryo {
  width: 140px;
@@ -74,18 +102,37 @@
  font-size: 0.8em;
  line-height: 1em;
 }
+.mk_button.disabled {
+ background-color: #ccc;
+ color: #999;
+ pointer-events: none;
+}
+
+.title_box{
+ display: grid;
+ grid-template-columns: 1fr 170px;
+ align-items: center;
+ margin: 10px 0;
+}
 .button_box {
  margin-bottom: 20px;
  display: flex;
  gap: 15px;
+}
+.list_title{
+ font-size: 1.5em;
 }
 .print_checkbox {
  width: 25px;
  height: 25px;
  cursor: pointer;
 }
-
-
+.button_box_bottom {
+ margin-top: 20px;
+}
+.button_box_bottom .button_new{
+ background-color: #F9B830;
+}
 
 
 

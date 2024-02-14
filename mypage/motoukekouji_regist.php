@@ -1,11 +1,10 @@
 <?php
+session_start();
+header("Content-type: text/html;charset=utf-8");
 
 define('SF_MODE_UNKNOWN', -1);
 define('SF_MODE_INSERT', 1);
 define('SF_MODE_UPDATE', 2);
-
-session_start();
-header("Content-type: text/html;charset=utf-8");
 
 include_once('./motoukekouji_class.php');
 $mode = SF_MODE_UNKNOWN;
@@ -18,6 +17,7 @@ if(isset($_POST['Id']) && $_POST['Id'] != ''){
 }
 $motoukekouji_data->setAccountId($_POST['AccountId']);
 $motoukekouji_data->setKoujiType($_POST['kouji_type']);
+$motoukekouji_data->setKoujiSubType($_POST['kouji_subtype']);
 $motoukekouji_data->setKoujiAddress($_POST['kouji_address']);
 $motoukekouji_data->setKoujiKikanStart($_POST['kouji_kikan_start']);
 $motoukekouji_data->setKoujiKikanEnd($_POST['kouji_kikan_end']);
@@ -29,6 +29,7 @@ if($mode == SF_MODE_INSERT){
  $insertitems=array(
   'Account__c'=>$motoukekouji_data->AccountId(),
   'KoujiType__c'=>$motoukekouji_data->KoujiType(),
+  'KoujiSubType__c'=>$motoukekouji_data->KoujiSubType(),
   'KoujiKikanStart__c'=>$motoukekouji_data->KoujiKikanStart(),
   'KoujiKikanEnd__c'=>$motoukekouji_data->KoujiKikanEnd(),
   'KoujiAddress__c'=>$motoukekouji_data->KoujiAddress(),
@@ -45,6 +46,7 @@ if($mode == SF_MODE_UPDATE){
  $_orderby = "";
  $updateitems=array(
   'KoujiType__c'=>$motoukekouji_data->KoujiType(),
+  'KoujiSubType__c'=>$motoukekouji_data->KoujiSubType(),
   'KoujiKikanStart__c'=>$motoukekouji_data->KoujiKikanStart(),
   'KoujiKikanEnd__c'=>$motoukekouji_data->KoujiKikanEnd(),
   'KoujiAddress__c'=>$motoukekouji_data->KoujiAddress(),
@@ -53,7 +55,7 @@ if($mode == SF_MODE_UPDATE){
  sf_soql_update($_select, $_from, $_where, $_orderby, $updateitems);
 }
 
-header('Location: motoukekouji_list.php');
+header('Location: motoukekouji_list.php?kikan='.$_SESSION['kikan']);
 exit;
 
 ?>

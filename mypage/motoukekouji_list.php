@@ -9,9 +9,15 @@ $title="元請工事入力";
 include_once('./motoukekouji_class.php');
 $_id = $_SESSION['row']['Id'];
 $_name = $_SESSION['row']['Name'];
+$kikan = $_GET['kikan'];
+if(isset($_SESSION['kikan'])){
+ $kikan = $_SESSION['kikan'];
+ unset($_SESSION['kikan']);
+}
 $motoukekouji_array_data = new MotoukekoujiDataArray($_id, $_name);
-$ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
-
+$ret = $motoukekouji_array_data->getMotoukekoujiRecordDataWithYM($kikan);
+$kikan_y = substr($kikan,0,4);
+$kikan_m = substr($kikan,4,2);
 ?>
 
 <!doctype html>
@@ -53,12 +59,13 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
 <?php include_once('header.php'); ?>
 
 <div class="inner">
-	
- <div class="button_box">
+	<a href="motoukekouji_toplist.php">一覧へ戻る</a>
+ 
+ <div class="title_box">
+  <span class="list_title">【<?php echo $kikan_y;?>年<?php echo $kikan_m;?>月分】完了工事一覧</span>
   <?php if($motoukekouji_array_data->MotoukekoujiDataNum() > 0){ ?>
   <a class="button_print mk_button" onclick="window.print();">チェックした工事を印刷</a>
   <?php } ?>
-  <a href="motoukekouji_input.php" class="button_new mk_button">新規登録</a>
  </div>
  
  <?php if($motoukekouji_array_data->MotoukekoujiDataNum() > 0){ ?>
@@ -67,21 +74,23 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
   <tr>
    <th class="th_print noprint">印刷</th>
    <th class="th_kikan">工事の期間</th>
-   <th class="th_type">工事の種類</th>
+   <th class="th_type">工事の大分類</th>
+   <th class="th_type">工事の小分類</th>
    <th class="th_address">現場の住所</th>
    <th class="th_kingaku">請負金額（税別）</th>
    <th class="th_hokenryo">労災保険料</th>
-   <th class="th_edit noprint">登録情報</th>
+   <th class="th_edit noprint"></th>
   </tr>
   <?php for($i=0;$i<$motoukekouji_array_data->MotoukekoujiDataNum();$i++){ ?>
   <tr class="noprint">
    <td class="print_checkbox_td noprint"><input type="checkbox" name="print<?php echo $i;?>" class="print_checkbox"></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiKikan();?></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiType();?></td>
+   <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiSubType();?></td>
    <td><?php echo $motoukekouji_array_data->MotoukekoujiData($i)->KoujiAddress();?></td>
    <td class="number_td"><?php echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiKingaku()).' 円';?></td>
    <td class="number_td"><?php if(intval($motoukekouji_array_data->MotoukekoujiData($i)->KoujiHokenryo())<=0){echo '- 対象外 -';} else {echo number_format($motoukekouji_array_data->MotoukekoujiData($i)->KoujiHokenryo()).' 円';}?></td>
-   <td class="edit_button_td noprint"><a href="motoukekouji_input.php?id=<?php echo $motoukekouji_array_data->MotoukekoujiData($i)->Id();?>" class="edit_button mk_button">変更する</a></td>
+   <td class="edit_button_td noprint"><a href="motoukekouji_input.php?id=<?php echo $motoukekouji_array_data->MotoukekoujiData($i)->Id();?>&kikan=<?php echo $kikan;?>" class="edit_button mk_button">編集</a></td>
   </tr>
   <?php } ?>
  </table>
@@ -91,6 +100,10 @@ $ret = $motoukekouji_array_data->getMotoukekoujiRecordData();
   現在登録されている元請け工事はございません。<br>新規登録ボタンから登録をお願いします。
  </p>
  <?php } ?>
+ 
+ <div class="button_box button_box_bottom">
+  <a href="motoukekouji_input.php?kikan=<?php echo $kikan;?>" class="button_new mk_button">+ 工事を追加</a>
+ </div>
  
 </div>
 	
