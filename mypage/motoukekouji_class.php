@@ -4,6 +4,7 @@
  define('DATATYPE_MOTOUKEKOUJI', '事務組合元請工事');
  define('SELECT_MOTOUKEKOUJI','Id,Name,Account__c,KoujiType__c,KoujiSubType__c,KoujiKikanStart__c,KoujiKikanEnd__c,KoujiAddress__c,KoujiKingaku__c,KoujiHokenryo__c');
  define('SF_OBJECT', 'jimuMotoukeKouji__c');
+ define('SF_SENDMAIL_OBJECT', 'SendEmail__c');
 
  class MotoukekoujiDataArray{
   private $_Id;

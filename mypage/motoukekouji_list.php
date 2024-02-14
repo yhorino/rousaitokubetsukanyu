@@ -59,12 +59,12 @@ $kikan_m = substr($kikan,4,2);
 <?php include_once('header.php'); ?>
 
 <div class="inner">
-	<a href="motoukekouji_toplist.php">一覧へ戻る</a>
+	<a href="motoukekouji_toplist.php" class="noprint">一覧へ戻る</a>
  
  <div class="title_box">
   <span class="list_title">【<?php echo $kikan_y;?>年<?php echo $kikan_m;?>月分】完了工事一覧</span>
   <?php if($motoukekouji_array_data->MotoukekoujiDataNum() > 0){ ?>
-  <a class="button_print mk_button" onclick="window.print();">チェックした工事を印刷</a>
+  <a class="button_print mk_button noprint" onclick="window.print();" id="print_button">チェックした工事を印刷</a>
   <?php } ?>
  </div>
  
@@ -77,7 +77,7 @@ $kikan_m = substr($kikan,4,2);
    <th class="th_type">工事の大分類</th>
    <th class="th_type">工事の小分類</th>
    <th class="th_address">現場の住所</th>
-   <th class="th_kingaku">請負金額（税別）</th>
+   <th class="th_kingaku">請負金額<span class="small">（税別）</span></th>
    <th class="th_hokenryo">労災保険料</th>
    <th class="th_edit noprint"></th>
   </tr>
@@ -102,8 +102,18 @@ $kikan_m = substr($kikan,4,2);
  <?php } ?>
  
  <div class="button_box button_box_bottom">
-  <a href="motoukekouji_input.php?kikan=<?php echo $kikan;?>" class="button_new mk_button">+ 工事を追加</a>
+  <a href="motoukekouji_input.php?kikan=<?php echo $kikan;?>" class="button_new mk_button noprint">+ 工事を追加</a>
  </div>
+ 
+ <?php if(isset($_SESSION['changed']) && $_SESSION['changed'] == 1){ ?>
+ <div class="regist_box">
+  <p class="regist_msg">登録完了ボタンを押すと、工事の登録完了となります</p>
+  <form name="form" method="post" action="motoukekouji_regist_sendmail.php">
+   <input type="hidden" name="kikan" value="<?php echo $kikan;?>">
+   <input type="submit" name="submit" class="mk_submit_button mk_button" value="登録完了">
+  </form>
+ </div>
+ <?php } ?>
  
 </div>
 	
@@ -122,6 +132,15 @@ $kikan_m = substr($kikan,4,2);
      } else {
        row.addClass('noprint');
      }
+    
+     // チェック数が０個の場合は印刷ボタン非表示
+    var checkedCount = $('.print_checkbox:checked').length;
+    if(checkedCount > 0){
+     $('#print_button').show();
+    } else {
+     $('#print_button').hide();
+    }
    });
+  $('#print_button').hide();
  });
 </script>

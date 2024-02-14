@@ -91,6 +91,9 @@
 .th_edit {
  width: 100px;
 }
+th .small{
+ font-size: 0.6em;
+}
 
 .mk_button {
  display: inline-block;
@@ -134,7 +137,22 @@
  background-color: #F9B830;
 }
 
-
+.regist_msg {
+    text-align: center;
+    color: #f00;
+    font-size: 25px;
+    margin: 0;
+}
+.regist_message {
+    text-align: center;
+    background-color: #F9B830;
+    padding: 1em 0;
+    color: #fff;
+    margin: 1em 0;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 5px;
+}
 
 .motoukekouji_input_outer {
  background-color: #EBECED;
@@ -226,11 +244,11 @@
  }
  .th_kikan {
   width: 140px;
-  width: 20%;
+  width: 15%;
  }
  .th_type {
   width: auto;
-  width: 20%;
+  width: 15%;
  }
  .th_address {
   width: 140px;
@@ -238,11 +256,11 @@
  }
  .th_kingaku {
   width: 140px;
-  width: 20%;
+  width: 15%;
  }
  .th_hokenryo {
   width: 140px;
-  width: 20%;
+  width: 15%;
  }
 
 }
