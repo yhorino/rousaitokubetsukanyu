@@ -461,7 +461,7 @@ setcookie('norikae', '0', 0, '/');
               <h3 class="motouke_input_title">1年間の元請工事について教えてください</h3>
               <div class="motouke_input_box">
                <h4 class="motouke_input_box_title"><span class="motouke_input_no">1</span> 元請工事の請負金額</h4>
-               <?php /* 20240206 フォーム修正　datalistによる選択＋入力 */  ?>
+               <?php /* 20240206 フォーム修正　datalistによる選択＋入力 */  /*?>
                <span class="motouke_input_item">～ <input list="motouke_kingaku"　id="motouke_kingaku" type="tel" name="motouke_kingaku"> 万円</span>
                <datalist id="motouke_kingaku">
                 <option value="100"></option>
@@ -469,6 +469,31 @@ setcookie('norikae', '0', 0, '/');
                 <option value="1000"></option>
                </datalist>
                <span>※ 1,000万円以上の場合は、金額を直接入力してください。</span>
+               <?php */ ?>
+               <ul class="mitsumori-list">
+                 <li>
+                   <input id="motouke_kingaku1" type="radio" name="motouke_kingaku" value="100">
+                   <label for="motouke_kingaku1"><span>～100万円</span></label>
+                 </li>
+                 <li>
+                   <input id="motouke_kingaku2" type="radio" name="motouke_kingaku" value="500">
+                   <label for="motouke_kingaku2"><span>～500万円</span></label>
+                 </li>
+                 <li>
+                   <input id="motouke_kingaku3" type="radio" name="motouke_kingaku" value="1000">
+                   <label for="motouke_kingaku3"><span>～1,000万円</span></label>
+                 </li>
+                 <li>
+                   <input id="motouke_kingaku4" type="radio" name="motouke_kingaku" value="5000">
+                   <label for="motouke_kingaku4"><span>～5,000万円</span></label>
+                 </li>
+                 <li>
+                   <input id="motouke_kingaku9" type="radio" name="motouke_kingaku" value="999999">
+                   <label for="motouke_kingaku9"><span>それ以上</span></label>
+                 </li>
+               </ul>
+               <span id="motouke_kingaku_msg">※ 「それ以上」を選択した場合は、お電話にて詳細確認のうえ金額を再計算いたします。</span>
+               
               </div>
               <div class="motouke_input_box">
                <h4 class="motouke_input_box_title"><span class="motouke_input_no">2</span> 元請工事の件数</h4>
@@ -827,6 +852,7 @@ $(function(){
  
 	$(function(){
   $('#youzai_box').hide();
+  $('#motouke_kingaku_msg').hide();
   
   $('input[name="youzai"]').click(function(){
    $sel = $('input[name="youzai"]:checked').val();
@@ -1302,9 +1328,19 @@ $(function(){
    let $ret = 0;
   
    let $_motouke_kingaku = 100000;
+   const $_motouke_kingaku_min = 100000;
+   const $_motouke_kingaku_max = 50000000;
+   $('#motouke_kingaku_msg').hide();
    if($('input[name="motouke"]:checked').val()=='1'){
-    $_motouke_kingaku = parseInt($('input[name="motouke_kingaku"]').val())*10000;
-    if($_motouke_kingaku < 100000) {$_motouke_kingaku = 100000;}
+    //$_motouke_kingaku = parseInt($('input[name="motouke_kingaku"]').val())*10000;
+    $_motouke_kingaku = parseInt($('input[name="motouke_kingaku"]:checked').val())*10000;
+    if($_motouke_kingaku < $_motouke_kingaku_min) {
+     $_motouke_kingaku = $_motouke_kingaku_min;
+    }
+    if($_motouke_kingaku > $_motouke_kingaku_max) {
+     $_motouke_kingaku = $_motouke_kingaku_max;
+     $('#motouke_kingaku_msg').show();
+    }
    }
    const $_roumu_val = calc_roumu_val();
    let $_roumu_hiritu = roumu_hiritu[$_roumu_val];
