@@ -74,6 +74,20 @@ $ym_list = array(
 <div class="inner">
  <a href="top.php">マイページトップへ戻る</a>
  
+ <?php if(isset($_SESSION['message'])) { ?>
+  <div class="regist_message" id="regist_message">
+   <?php echo $_SESSION['message']; ?>
+  </div>
+  <script>
+   $(document).ready(function() {
+       setTimeout(function() {
+           $('#regist_message').slideUp();
+       }, 3000); // 3000ミリ秒 = 3秒
+   });
+  </script>
+ <?php unset($_SESSION['message']); ?>
+ <?php } ?>
+ 
  <p>月ごとに完了した元請工事を登録してください。</p>
  <p>元請工事がない月は　<span class="edit_button mk_button">工事なし</span>　をクリックしてください。</p>
  <p>元請工事がある月は　<span class="edit_button mk_button">工事入力・編集</span>　から工事を登録してください。</p>

@@ -55,6 +55,8 @@ if($mode == SF_MODE_UPDATE){
  sf_soql_update($_select, $_from, $_where, $_orderby, $updateitems);
 }
 
+$_SESSION['changed'] = 1;
+
 header('Location: motoukekouji_list.php?kikan='.$_SESSION['kikan']);
 exit;
 
