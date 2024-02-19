@@ -88,9 +88,13 @@ $ym_list = array(
  <?php unset($_SESSION['message']); ?>
  <?php } ?>
  
- <p>月ごとに完了した元請工事を登録してください。</p>
- <p>元請工事がない月は　<span class="edit_button mk_button">工事なし</span>　をクリックしてください。</p>
- <p>元請工事がある月は　<span class="edit_button mk_button">工事入力・編集</span>　から工事を登録してください。</p>
+ <div class="toplist_info">
+  <p>月ごとに完了した元請工事を登録してください。</p>
+  <p>元請工事がない月は　<span class="edit_button mk_button">工事なし</span>　をクリックしてください。</p>
+  <p>元請工事がある月は　<span class="edit_button mk_button">工事入力・編集</span>　から工事を登録してください。</p>
+  <p>登録後も工事内容は編集可能です。<br></p>
+  <p>保険料は概算保険料です。<br>年度更新手続き時に正確な保険料が確定します。</p>
+ </div>
  
  <div class="motoukekouji_table_outer">
  <table class="motoukekouji_table motoukekouji_toplist_table">

@@ -2,7 +2,7 @@
  include_once('./bin/sf_Api.php');
 
  define('DATATYPE_MOTOUKEKOUJI', '事務組合元請工事');
- define('SELECT_MOTOUKEKOUJI','Id,Name,Account__c,KoujiType__c,KoujiSubType__c,KoujiKikanStart__c,KoujiKikanEnd__c,KoujiAddress__c,KoujiKingaku__c,KoujiHokenryo__c');
+ define('SELECT_MOTOUKEKOUJI','Id,Name,Account__c,KoujiType__c,KoujiSubType__c,KoujiKikanStart__c,KoujiKikanEnd__c,KoujiAddress__c,KoujiKingaku__c,KoujiHokenryo__c,KoujiMeisyo__c');
  define('SF_OBJECT', 'jimuMotoukeKouji__c');
  define('SF_SENDMAIL_OBJECT', 'SendEmail__c');
 
@@ -42,6 +42,7 @@
     $_record->setKoujiAddress($_row['KoujiAddress__c']);
     $_record->setKoujiKingaku($_row['KoujiKingaku__c']);
     $_record->setKoujiHokenryo($_row['KoujiHokenryo__c']);
+    $_record->setKoujiMeisyo($_row['KoujiMeisyo__c']);
     $this->_MotoukekoujiData[] = $_record;
    }
    
@@ -90,6 +91,7 @@
      $_record->setKoujiAddress($_row['KoujiAddress__c']);
      $_record->setKoujiKingaku($_row['KoujiKingaku__c']);
      $_record->setKoujiHokenryo($_row['KoujiHokenryo__c']);
+     $_record->setKoujiMeisyo($_row['KoujiMeisyo__c']);
      $this->_MotoukekoujiData[] = $_record;
     }
    }
@@ -138,6 +140,7 @@
   private $_KoujiAddress;
   private $_KoujiKingaku;
   private $_KoujiHokenryo; // SF数式項目から
+  private $_KoujiMeisyo;
   
   public $_dump; // DEBUG用
   
@@ -155,6 +158,7 @@
   public function KoujiAddress(){return $this->_KoujiAddress;}
   public function KoujiKingaku(){return $this->_KoujiKingaku;}
   public function KoujiHokenryo(){return $this->_KoujiHokenryo;}
+  public function KoujiMeisyo(){return $this->_KoujiMeisyo;}
   
   /* 更新関数 */
   public function setId($val){
@@ -184,6 +188,9 @@
   public function setKoujiHokenryo($val){
    $this->_KoujiHokenryo = intval($val);
   }
+  public function setKoujiMeisyo($val){
+   $this->_KoujiMeisyo = $val;
+  }
   
   public function getMotoukekoujiRecordData(){
    $_type = DATATYPE_MOTOUKEKOUJI;
@@ -205,6 +212,7 @@
    $this->setKoujiAddress($_row['KoujiAddress__c']);
    $this->setKoujiKingaku($_row['KoujiKingaku__c']);
    $this->setKoujiHokenryo($_row['KoujiHokenryo__c']);
+   $this->setKoujiMeisyo($_row['KoujiMeisyo__c']);
    
    $this->_dump = $_result;
    /* TEST /

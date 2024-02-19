@@ -43,6 +43,7 @@ if(isset($_GET['id']) && $_GET['id'] != ''){
  $kikan_start = $motoukekouji_data->KoujiKikanStart();
  $kikan_end = $motoukekouji_data->KoujiKikanEnd();
  $kingaku = $motoukekouji_data->KoujiKingaku();
+ $meisyo = $motoukekouji_data->KoujiMeisyo();
 } else {
  $motoukekouji_data->setAccountId($_SESSION['row']['Id']);
  $accountid = $motoukekouji_data->AccountId();
@@ -92,6 +93,10 @@ $gyosyu_list = array('大工','塗装','防水','板金','タイル・れんが�
  
 <div class="inner">
 	
+ <div class="title_box">
+  <span class="list_title">【<?php echo $kikan_end_y;?>年<?php echo $kikan_end_m;?>月分】完了工事　入力画面</span>
+ </div>
+ 
  <form name="form" method="post" action="motoukekouji_regist.php">
   <input type="hidden" name="Id" value="<?php echo $id;?>">
   <input type="hidden" name="AccountId" value="<?php echo $accountid;?>">
@@ -101,43 +106,53 @@ $gyosyu_list = array('大工','塗装','防水','板金','タイル・れんが�
   <div class="motoukekouji_inputitems">
    
    <div class="motoukekouji_inputitem">
-    <span class="motoukekouji_inputitem_title">工事の種類</span>
+    <span class="motoukekouji_inputitem_title">工事の種類　大分類</span>
     <span class="motoukekouji_inputitem_box">
-     <select name="kouji_type" id="kouji_type" class="fixsize_inputitem">
+     <select name="kouji_type" id="kouji_type" class="fixsize_inputitem" required>
       <option value="">-</option>
       <?php for($i=0;$i<count($gyosyu_list);$i++){ ?>
       <option value="<?php echo $gyosyu_list[$i];?>" <?php if($gyosyu_list[$i] == $type) echo 'selected'; ?>><?php echo $gyosyu_list[$i];?></option>
       <?php } ?>
      </select>
+    </span>
+    <span class="motoukekouji_inputitem_title">工事の種類　小分類</span>
+    <span class="motoukekouji_inputitem_box">
      <select name="kouji_subtype" id="kouji_subtype" class="fixsize_inputitem">
      </select>
     </span>
    </div>
 
    <div class="motoukekouji_inputitem">
+    <span class="motoukekouji_inputitem_title">工事名称</span>
+    <span class="motoukekouji_inputitem_box">
+     <input type="text" name="kouji_meisyo" placeholder="例：〇〇邸　〇〇工事" value="<?php echo $meisyo;?>" class="fixsize_inputitem" required>
+    </span>
+   </div>
+
+   <div class="motoukekouji_inputitem">
     <span class="motoukekouji_inputitem_title">現場の住所</span>
     <span class="motoukekouji_inputitem_box">
-     <input type="text" name="kouji_address" placeholder="都道府県と市をご記入ください" value="<?php echo $address;?>" class="fixsize_inputitem">
+     <input type="text" name="kouji_address" placeholder="例：〇〇県〇〇市〇〇町9-9　マンション名" value="<?php echo $address;?>" class="fixsize_inputitem" required>
     </span>
    </div>
 
    <div class="motoukekouji_inputitem">
     <span class="motoukekouji_inputitem_title">工事の期間</span>
     <span class="motoukekouji_inputitem_box inputitem_kikan">
-     <input type="date" name="kouji_kikan_start" value="<?php echo $kikan_start;?>">　～　<input type="date" name="kouji_kikan_end" value="<?php echo $kikan_end;?>" min="<?php echo $kikan_end_s;?>" max="<?php echo $kikan_end_e;?>">
+     <input type="date" name="kouji_kikan_start" value="<?php echo $kikan_start;?>" max="<?php echo $kikan_end;?>" required>　～　<input type="date" name="kouji_kikan_end" value="<?php echo $kikan_end;?>" min="<?php echo $kikan_end_s;?>" max="<?php echo $kikan_end_e;?>" required>
     </span>
    </div>
 
    <div class="motoukekouji_inputitem">
     <span class="motoukekouji_inputitem_title">工事の請負金額</span>
     <span class="motoukekouji_inputitem_box">
-     <input type="tel" name="kouji_kingaku" value="<?php echo $kingaku;?>" class="fixsize_inputitem kingakuitem"> 円（税別）
+     <input type="tel" name="kouji_kingaku" value="<?php echo $kingaku;?>" class="fixsize_inputitem kingakuitem" required> 円（税別）
     </span>
    </div>
    
   </div>
 
-   <input type="submit" name="submit" class="mk_submit_button mk_button" value="登録する">
+   <input type="submit" name="submit" class="mk_submit_button mk_button" value="仮登録する">
   </div>
   
  </form>
@@ -150,30 +165,31 @@ $gyosyu_list = array('大工','塗装','防水','板金','タイル・れんが�
  const majorSelect = document.getElementById('kouji_type');
  const minorSelect = document.getElementById('kouji_subtype');
  const categories = {
-     "大工": [""],
+     "大工": [],
      "塗装": ["新築工事","改修工事"],
-     "防水": [""],
+     "防水": [],
      "板金": ["新築工事","改修工事"],
-     "タイル・れんが・ブロック": [""],
+     "タイル・れんが・ブロック": [],
      "左官": ["新築工事","改修工事"],
-     "鉄筋": [""],
-     "屋根": [""],
-     "足場": [""],
+     "鉄筋": [],
+     "屋根": [],
+     "足場": [],
      "電気": ["新築工事","改修工事"],
      "内装": ["新築工事","改修工事"],
      "管": ["新築工事","改修工事","地面下の埋設工事"],
-     "機械器具設置": ["小型機械（家庭用エアコン、パイプ取付けなど）","太陽光発電装置","大型機械（エレベーターやボイラー、ベルトコンベアー）","保守点検のみ"],
-     "電気通信": [""],
-     "建具": [""],
-     "熱絶縁": [""],
-     "ガラス": [""],
+     "機械器具設置": ["小型機械（家庭用エアコン、パイプ取付けなど）","太陽光発電装置","大型機械（エレベーターやボイラー、ベルトコンベアーなど）","保守点検のみ"],
+     "電気通信": [],
+     "建具": [],
+     "熱絶縁": [],
+     "ガラス": [],
      "消防施設": ["新築工事","改修工事","保守点検のみ"],
      "美装": ["新築工事","改修工事"],
      "とび・土工・道路": ["造成工事や河川工事などの地面を掘って行う工事","道路改修工事","ガードレルや標識設置などの工事","草刈り"],
-     "解体": [""],
+     "解体": [],
      "造園": ["庭園の造園工事","公園、ゴルフ場など広場の造園工事","草刈りや剪定のみ"],
-     "型枠": [""],
-     "鉄骨": [""]
+     "外構": [],
+     "型枠": [],
+     "鉄骨": []
  };
 
  document.addEventListener('DOMContentLoaded', function() {
@@ -193,14 +209,35 @@ function setSubtypeItems(){
 
   const selectedCategory = majorSelect.value;
 
-  if (categories[selectedCategory]) {
+ minorSelect.classList.remove("sel_disabled");
+ minorSelect.removeAttribute("disabled");
+ minorSelect.required = true;
+ if (categories[selectedCategory]) {
+   if (categories[selectedCategory].length <= 0){
+     const option = document.createElement('option');
+     option.value = "";
+     option.textContent = "選択不要";
+     minorSelect.appendChild(option);
+    
+     minorSelect.classList.add("sel_disabled");
+     minorSelect.disabled = true;
+     minorSelect.removeAttribute("required");
+   } else {
       // 選択された大分類に応じて小分類の選択肢を追加
+      const option1 = document.createElement('option');
+      option1.value = "";
+      option1.textContent = "選択してください";
+      minorSelect.appendChild(option1);
       categories[selectedCategory].forEach(function(item) {
           const option = document.createElement('option');
-          option.value = item;
-          option.textContent = item;
+          if(item == ""){
+          } else {
+           option.value = item;
+           option.textContent = item;
+          }
           minorSelect.appendChild(option);
       });
+   }
   } else {
       // 大分類が選択されていない場合の処理
       const defaultOption = document.createElement('option');
@@ -209,6 +246,17 @@ function setSubtypeItems(){
   }   
 }
 
+/* 終了日を変更したら、開始日のmaxに指定して制限する */
+document.addEventListener('DOMContentLoaded', function () {
+    const startDateInput = document.querySelector('input[name="kouji_kikan_start"]');
+    const endDateInput = document.querySelector('input[name="kouji_kikan_end"]');
+
+    // 終了日の入力が変更されたときにイベントリスナーを設定
+    endDateInput.addEventListener('change', function() {
+        // 開始日のmax属性を終了日の値に設定
+        startDateInput.max = endDateInput.value;
+    });
+});
 </script>
  
 </body>
