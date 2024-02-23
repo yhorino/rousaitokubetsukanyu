@@ -1,6 +1,6 @@
 <?php /* 20220512 9～12時申込LP */
 //echo $_SERVER['DOCUMENT_ROOT'];
-include '/home/rjc/domains/xn--y5q0r2lqcz91qdrc.com/public_html/wp-content/themes/cocoon-child-master/db_getdata.php';
+include_once '/home/rjc/domains/xn--y5q0r2lqcz91qdrc.com/public_html/wp-content/themes/cocoon-child-master/db_getdata.php';
 
 date_default_timezone_set('Asia/Tokyo');
 

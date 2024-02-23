@@ -4,11 +4,13 @@
 }
 .motoukekouji_table {
  width: 1000px;
+ /*
  max-height: 250px;
  overflow-y: scroll;
+ */
  border-top: 1px solid #707070;
  border-bottom: 1px solid #707070;
- border-right: 1px solid #707070;
+ /*border-right: 1px solid #707070;*/
  display: block;
  border-collapse: collapse;
  background-color: #fff;
@@ -80,7 +82,7 @@
  width: 130px;
 }
 .th_address {
- width: 140px;
+ /*width: 140px;*/
 }
 .th_kingaku {
  width: 150px;
@@ -157,6 +159,8 @@ th .small{
 .motoukekouji_input_outer {
  background-color: #EBECED;
  padding: 30px 40px;
+ max-width: 700px;
+ margin: 30px auto;
 }
 .mk_submit_button {
  margin: 40px auto 0 auto!important;
@@ -265,3 +269,15 @@ th .small{
 
 }
 
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.blink-text {
+    animation: blink 2s infinite;
+}
+
+.toplist_info {
+    padding: 0 1em;
+}

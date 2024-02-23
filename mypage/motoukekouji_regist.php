@@ -22,6 +22,7 @@ $motoukekouji_data->setKoujiAddress($_POST['kouji_address']);
 $motoukekouji_data->setKoujiKikanStart($_POST['kouji_kikan_start']);
 $motoukekouji_data->setKoujiKikanEnd($_POST['kouji_kikan_end']);
 $motoukekouji_data->setKoujiKingaku($_POST['kouji_kingaku']);
+$motoukekouji_data->setKoujiMeisyo($_POST['kouji_meisyo']);
 
 /* SFに登録 */
 if($mode == SF_MODE_INSERT){
@@ -33,7 +34,8 @@ if($mode == SF_MODE_INSERT){
   'KoujiKikanStart__c'=>$motoukekouji_data->KoujiKikanStart(),
   'KoujiKikanEnd__c'=>$motoukekouji_data->KoujiKikanEnd(),
   'KoujiAddress__c'=>$motoukekouji_data->KoujiAddress(),
-  'KoujiKingaku__c'=>$motoukekouji_data->KoujiKingaku()
+  'KoujiKingaku__c'=>$motoukekouji_data->KoujiKingaku(),
+  'KoujiMeisyo__c'=>$motoukekouji_data->KoujiMeisyo()
  );
  sf_soql_insert($type, $insertitems);
 }
@@ -50,7 +52,8 @@ if($mode == SF_MODE_UPDATE){
   'KoujiKikanStart__c'=>$motoukekouji_data->KoujiKikanStart(),
   'KoujiKikanEnd__c'=>$motoukekouji_data->KoujiKikanEnd(),
   'KoujiAddress__c'=>$motoukekouji_data->KoujiAddress(),
-  'KoujiKingaku__c'=>$motoukekouji_data->KoujiKingaku()
+  'KoujiKingaku__c'=>$motoukekouji_data->KoujiKingaku(),
+  'KoujiMeisyo__c'=>$motoukekouji_data->KoujiMeisyo()
  );
  sf_soql_update($_select, $_from, $_where, $_orderby, $updateitems);
 }

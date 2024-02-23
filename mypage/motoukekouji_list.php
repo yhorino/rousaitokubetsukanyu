@@ -78,7 +78,7 @@ $kikan_m = substr($kikan,4,2);
    <th class="th_type">工事の小分類</th>
    <th class="th_address">現場の住所</th>
    <th class="th_kingaku">請負金額<span class="small">（税別）</span></th>
-   <th class="th_hokenryo">労災保険料</th>
+   <th class="th_hokenryo">概算労働保険料</th>
    <th class="th_edit noprint"></th>
   </tr>
   <?php for($i=0;$i<$motoukekouji_array_data->MotoukekoujiDataNum();$i++){ ?>
@@ -107,7 +107,7 @@ $kikan_m = substr($kikan,4,2);
  
  <?php if(isset($_SESSION['changed']) && $_SESSION['changed'] == 1){ ?>
  <div class="regist_box">
-  <p class="regist_msg">登録完了ボタンを押すと、工事の登録完了となります</p>
+  <p class="regist_msg blink-text">工事の登録は、まだ確定していません。<br>登録完了ボタンを押して確定してください。</p>
   <form name="form" method="post" action="motoukekouji_regist_sendmail.php">
    <input type="hidden" name="kikan" value="<?php echo $kikan;?>">
    <input type="submit" name="submit" class="mk_submit_button mk_button" value="登録完了">
