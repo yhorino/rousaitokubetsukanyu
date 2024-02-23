@@ -952,7 +952,10 @@ $(function(){
     $motouke_kingaku = 100000;
     $nyukaikin = 10000;
     $jikotou_tsumitatekin = 0;
-    $tmp_a = ($motouke_kingaku * roumu_hiritu[$roumu_val]) / 1000;
+    let $_roumu_hiritu = roumu_hiritu[$_roumu_val];
+    // 2024年4月以降は全て0.23にする　roumu_hiritu[]を変更し、下記削除
+    if($('input[name="kikan"]:checked').val()=='4'){ $_roumu_hiritu = 0.23; }
+    $tmp_a = ($motouke_kingaku * $_roumu_hiritu) / 1000;
     $ninzu = $('input[name="ninzu"]:checked').val();
   
   console.log("ninzu="+$ninzu);
