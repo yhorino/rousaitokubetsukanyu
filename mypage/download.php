@@ -53,23 +53,25 @@ $title="各種ダウンロード・印刷";
   <tr>
    <th>No</th><th style="width: 23em;">名称</th><th style="width: 7em;">更新日</th><th style="width: 7em;">印刷</th><th>詳細</th>
   </tr>
+<!--
   <tr>
    <td>01</td><td>特別加入会員カード</td><td>2023/03/23</td><td><a href="kanyusya.php">閲覧・印刷</a></td><td>特別加入の会員カードを閲覧・印刷できます。</td>
   </tr>
   <tr>
    <td>02</td><td>特別加入証明書</td><td>2023/03/23</td><td><a href="kanyusya.php">閲覧・印刷</a></td><td>特別加入の証明書を閲覧・印刷できます。</td>
   </tr>
+-->
   <tr>
-   <td>03</td><td>団体則</td><td>2023/10/17</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
+   <td>01</td><td>団体則</td><td>2023/10/17</td><td><a href="dantaisoku.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの団体則を閲覧・印刷できます。</td>
   </tr>
   <tr>
-   <td>04</td><td>個人データの共同利用について</td><td>2024/01/25</td><td><a href="data_kyodo.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの「個人データの共同利用について」ファイルを閲覧・印刷できます。</td>
+   <td>02</td><td>個人データの共同利用について</td><td>2024/01/25</td><td><a href="data_kyodo.pdf">閲覧・印刷</a></td><td>労働保険事務組合RJCの「個人データの共同利用について」ファイルを閲覧・印刷できます。</td>
   </tr>
   <tr>
-   <td>05</td><td>労災請求に関する確認事項</td><td>2023/08/03</td><td><a href="#" onclick="outputPDF_kakuninjikou();">閲覧・印刷</a></td><td>労働保険事務組合RJCの労災請求に関する確認事項を閲覧・印刷できます。</td>
+   <td>03</td><td>労災請求に関する確認事項</td><td>2023/08/03</td><td><a href="#" onclick="outputPDF_kakuninjikou();">閲覧・印刷</a></td><td>労働保険事務組合RJCの労災請求に関する確認事項を閲覧・印刷できます。</td>
   </tr>
   <tr>
-   <td>06</td><td>営業、事務作業等の労災請求に関するお知らせ</td><td>2023/08/30</td><td><a href="sagyo_rosai.pdf">閲覧・印刷</a></td><td>営業、事務作業等の労災請求に関するお知らせを閲覧・印刷できます。</td>
+   <td>04</td><td>営業、事務作業等の労災請求に関するお知らせ</td><td>2023/08/30</td><td><a href="sagyo_rosai.pdf">閲覧・印刷</a></td><td>営業、事務作業等の労災請求に関するお知らせを閲覧・印刷できます。</td>
   </tr>
   <?php if($_SESSION['row']['kyotei36_URL__c'] != ''){ ?>
   <tr>
@@ -86,6 +88,7 @@ $title="各種ダウンロード・印刷";
 
 <figure class="show_sp hide_pc">
  <figcaption>各種ダウンロード・印刷</figcaption>
+ <!--
  <table>
   <tr>
    <th>No</th><td>01</td><th>更新日</th><td>2021/07/10</td>
@@ -111,10 +114,10 @@ $title="各種ダウンロード・印刷";
   </tr>
  </table>
  <p><a href="kanyusya.php">表示・印刷</a></p>
-
+-->
  <table>
   <tr>
-   <th>No</th><td>03</td><th>更新日</th><td>2023/05/30</td>
+   <th>No</th><td>01</td><th>更新日</th><td>2023/05/30</td>
   </tr>
   <tr>
    <th>名称</th><td colspan="3">団体則</td>
@@ -127,7 +130,7 @@ $title="各種ダウンロード・印刷";
  
  <table>
   <tr>
-   <th>No</th><td>04</td><th>更新日</th><td>2024/01/25</td>
+   <th>No</th><td>02</td><th>更新日</th><td>2024/01/25</td>
   </tr>
   <tr>
    <th>名称</th><td colspan="3">個人データの共同利用について</td>
@@ -140,7 +143,7 @@ $title="各種ダウンロード・印刷";
  
  <table>
   <tr>
-   <th>No</th><td>05</td><th>更新日</th><td>2023/08/03</td>
+   <th>No</th><td>03</td><th>更新日</th><td>2023/08/03</td>
   </tr>
   <tr>
    <th>名称</th><td colspan="3">労災請求に関する確認事項</td>
@@ -153,7 +156,7 @@ $title="各種ダウンロード・印刷";
  
  <table>
   <tr>
-   <th>No</th><td>06</td><th>更新日</th><td>2023/08/30</td>
+   <th>No</th><td>04</td><th>更新日</th><td>2023/08/30</td>
   </tr>
   <tr>
    <th>名称</th><td colspan="3">営業、事務作業等の労災請求に関するお知らせ</td>
