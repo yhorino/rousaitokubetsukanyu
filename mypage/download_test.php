@@ -3,6 +3,11 @@ include_once('auth.php');
 require_once('common_function.php');
 header("Content-type: text/html;charset=utf-8");
 
+include_once('upfile_class.php');
+$_attached_files = new AttachedFileDatas($_SESSION['row']['Id']);
+$_attached_files->getAttachedFileRecordDatas();
+$_nounyu_files = $_attached_files->getFiles(FILETYPE_NOUNYUTSUCHISYO);
+
 $title="各種ダウンロード・印刷";
 ?>
 
@@ -76,6 +81,15 @@ $title="各種ダウンロード・印刷";
   <?php if($_SESSION['row']['kyotei36_URL__c'] != ''){ ?>
   <tr>
    <td>07</td><td>休日・時間外労働に関する協定届</td><td>2023/06/09</td><td><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">閲覧・印刷</a></td><td>休日・時間外労働に関する協定届を閲覧・印刷できます。</td>
+  </tr>
+  <?php } ?>
+  <?php if(count($_nounyu_files) > 0) { ?>
+  <tr>
+   <td>08</td><td>納入通知書</td><td>2024/XX/XX</td><td>
+   <?php foreach($_nounyu_files as $_nf){ ?>
+   <a href="<?php echo $_nf->URL();?>">閲覧・印刷</a>
+   <?php } ?>
+   </td><td></td>
   </tr>
   <?php } ?>
   <!--
@@ -180,6 +194,23 @@ $title="各種ダウンロード・印刷";
   </tr>
  </table>
  <p><a href="<?php echo $_SESSION['row']['kyotei36_URL__c'];?>">表示・印刷</a></p>
+ <?php } ?>
+ <?php if(count($_nounyu_files) > 0) { ?>
+ <table>
+  <tr>
+   <th>No</th><td>08</td><th>更新日</th><td></td>
+  </tr>
+  <tr>
+   <th>名称</th><td colspan="3">納入通知書</td>
+  </tr>
+  <tr>
+   <th>詳細</th><td colspan="3">
+   <?php foreach($_nounyu_files as $_nf){ ?>
+   <a href="<?php echo $_nf->URL();?>">閲覧・印刷</a>
+   <?php } ?>
+   </td>
+  </tr>
+ </table>
  <?php } ?>
  <!--
  <table>

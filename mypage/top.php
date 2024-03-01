@@ -59,6 +59,7 @@ $title="マイページTOP";
 <a href="kanyusya.php">特別加入者情報</a>
 <p>特別加入者の情報が確認できます。</p>
 </li>
+ <!--
 <li>
 <a href="kanyusya.php"><img src="image/img_kanyusyasyo.png">
 </a>
@@ -71,6 +72,7 @@ $title="マイページTOP";
 <a href="kanyusya.php">加入証明書</a>
 <p>特別加入の加入証明書を見ることができます。</p>
 </li>
+-->
 <li>
 <a href="download.php"><img src="image/img_download.png">
 </a>

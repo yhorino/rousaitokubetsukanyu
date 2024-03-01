@@ -217,10 +217,12 @@ setcookie('norikae', '0', 0, '/');
                   <label for="kikan3"><span>3月</span></label>
                 </li>
 -->
+               <!--
                 <li>
                   <input id="kikan4" type="radio" name="kikan" value="4" required="" <?php echo $sel4;?>>
                   <label for="kikan4"><span>4月</span></label>
                 </li>
+-->
                <?php /* 1月～2月　表示して受付する */ ?>
               </ul>
              
@@ -623,7 +625,7 @@ setcookie('norikae', '0', 0, '/');
            
            <?php /* 20231226 期間限定キャンペーン */ ?>
            <div class="sougaku_disp_box_ribbon">
-            <span class="sougaku_disp_box_ribbon_title">期間限定！</span><span class="sougaku_disp_box_ribbon_title">会費</span> <span class="sougaku_disp_box_ribbon_val">50%OFF</span> <span class="sougaku_disp_box_ribbon_title">キャンペーン中</span>
+            <span class="sougaku_disp_box_ribbon_title">期間限定！</span><span class="sougaku_disp_box_ribbon_title">会費</span> <span class="sougaku_disp_box_ribbon_val">40%OFF</span> <span class="sougaku_disp_box_ribbon_title">キャンペーン中</span>
            </div>
            <?php /* 20240206 フォーム修正　期間表示変更　「加入承認日～」 */  ?>
            <!--<p class="mitsumori_result_title">保険期間は2024年<span id="mitsumori_result_title_kikan_m"></span>月～25年3月31日</p>-->
@@ -1155,7 +1157,8 @@ $(function(){
   /* 20231226 期間限定キャンペーン */
   $('#mitsumori_result_title_kikan_m').text($kanyutuki);
   let $kaihi_normal = $kaihi;
-  $kaihi = $kaihi / 2;
+//  $kaihi = $kaihi / 2;
+  $kaihi = $kaihi * 0.6;
   let $syokai_sougaku_normal = $hokenryo + $kaihi_normal + $card_hiyou + $motoukehokenryo;
   $syokai_sougaku_normal = Math.floor($syokai_sougaku_normal);
   /* 20231226 期間限定キャンペーン */
@@ -1239,7 +1242,8 @@ $(function(){
   /* 20231226 期間限定キャンペーン */
   $('#mitsumori_result_title_kikan_m').text($kanyutuki);
   let $kaihi_normal = $kaihi;
-  $kaihi = $kaihi / 2;
+//  $kaihi = $kaihi / 2;
+  $kaihi = $kaihi * 0.6;
   let $syokai_sougaku_normal = $hokenryo + $kaihi_normal + $card_hiyou + $motoukehokenryo;
   $syokai_sougaku_normal = Math.floor($syokai_sougaku_normal);
   /* 20231226 期間限定キャンペーン */
