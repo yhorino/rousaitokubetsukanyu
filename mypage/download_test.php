@@ -85,11 +85,11 @@ $title="各種ダウンロード・印刷";
   <?php } ?>
   <?php if(count($_nounyu_files) > 0) { ?>
   <tr>
-   <td>08</td><td>納入通知書</td><td>2024/XX/XX</td><td>
+   <td>08</td><td>納入通知書</td><td></td><td colspan="2">
    <?php foreach($_nounyu_files as $_nf){ ?>
-   <a href="<?php echo $_nf->URL();?>">閲覧・印刷</a>
+   <a href="<?php echo $_nf->URL();?>">閲覧・印刷 [<?php echo $_nf->LinkText();?>]</a><br>
    <?php } ?>
-   </td><td></td>
+   </td>
   </tr>
   <?php } ?>
   <!--
