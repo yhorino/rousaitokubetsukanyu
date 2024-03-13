@@ -101,7 +101,7 @@ if($roudouno[$j] != '') {
         )
        )
       ){
-     echo '<tr><td>'.$kanyusya['CellsNo__c'].'</td><td>'.$kanyusya['Name'].'</td><td>'.number_format($kanyusya['Kyuhukisonitigaku__c']).' 円</td><td>'.$kanyudate.'</td><td>'.$kanyusya['DattaiNenggapi__c'].'</td><td><a href="kaiinsyo.php?no='.$i.'&seiribangou='.$kanyusya['CellsNo__c'].'&matsubi='.$matsubi[$j].'">表示・印刷</a></td><td><a href="#" onclick="outputPDF('.$i.', \''.$roudouno[$j].'\');" >表示・印刷</a></td></tr>';
+     echo '<tr><td>'.$kanyusya['CellsNo__c'].'</td><td>'.$kanyusya['Name'].'</td><td>'.number_format($kanyusya['Nownitigaku__c']).' 円</td><td>'.$kanyudate.'</td><td>'.$kanyusya['DattaiNenggapi__c'].'</td><td><a href="kaiinsyo.php?no='.$i.'&seiribangou='.$kanyusya['CellsNo__c'].'&matsubi='.$matsubi[$j].'">表示・印刷</a></td><td><a href="#" onclick="outputPDF('.$i.', \''.$roudouno[$j].'\');" >表示・印刷</a></td></tr>';
      $count++;
     }
    }
@@ -146,7 +146,7 @@ if($roudouno[$j] != '') {
      echo '  <tr><th>氏名</th><td>'.$kanyusya['Name'].'</td>
   </tr>
 ';
-     echo '  <tr><th>給付基礎日額</th><td>'.number_format($kanyusya['Kyuhukisonitigaku__c']).' 円</td>
+     echo '  <tr><th>給付基礎日額</th><td>'.number_format($kanyusya['Nownitigaku__c']).' 円</td>
   </tr>
 ';
      echo '  <tr><th>加入日</th><td>'.$kanyudate.'</td>
@@ -226,7 +226,7 @@ function outputPDF($i, $roudouno){
     }
  
  var NamePHP = ["","<?php echo $_SESSION['row_kaiin1']['Name'];?>", "<?php echo $_SESSION['row_kaiin2']['Name'];?>", "<?php echo $_SESSION['row_kaiin3']['Name'];?>", "<?php echo $_SESSION['row_kaiin4']['Name'];?>", "<?php echo $_SESSION['row_kaiin5']['Name'];?>"];
- var NitigakuPHP = ["","<?php echo $_SESSION['row_kaiin1']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin2']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin3']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin4']['Kyuhukisonitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin5']['Kyuhukisonitigaku__c'];?>"];
+ var NitigakuPHP = ["","<?php echo $_SESSION['row_kaiin1']['Nownitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin2']['Nownitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin3']['Nownitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin4']['Nownitigaku__c'];?>", "<?php echo $_SESSION['row_kaiin5']['Nownitigaku__c'];?>"];
  var CellsNoPHP = ["","<?php echo $_SESSION['row_kaiin1']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin2']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin3']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin4']['CellsNo__c'];?>", "<?php echo $_SESSION['row_kaiin5']['CellsNo__c'];?>"];
 
  var KanyudatePHP0 = ["","<?php echo $_SESSION['row_kaiin1']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin2']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin3']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin4']['matubi0kanyubi__c'];?>", "<?php echo $_SESSION['row_kaiin5']['matubi0kanyubi__c'];?>"];
