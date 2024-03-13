@@ -57,7 +57,7 @@ $title="マイページTOP";
 <a href="kanyusya.php"><img src="image/img_kanyusyainfo.png">
 </a>
 <a href="kanyusya.php">特別加入者情報</a>
-<p>特別加入者の情報が確認できます。</p>
+<p>会員カードのダウンロード・印刷ができます。</p>
 </li>
  <!--
 <li>
@@ -77,7 +77,7 @@ $title="マイページTOP";
 <a href="download.php"><img src="image/img_download.png">
 </a>
 <a href="download.php"><span class="hide_sp" style="text-decoration: inherit;">各種</span>ダウンロード・印刷</a>
-<p>会員カードや加入証明書などのダウンロード・印刷ができます。</p>
+<p>各種書類のダウンロード・印刷ができます。</p>
 </li>
  
 <?php if($_SESSION['row']['Kanyutype__c']!='旧会員（会費3期払い）' && $_SESSION['row']['Kanyutype__c']!='旧会員（会費毎月払い）' && $_SESSION['row']['koyouhokenitakuhi__c']==''){ ?>
