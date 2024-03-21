@@ -3,6 +3,7 @@
 <div style="">
 
 <h2 class="voice_title2"><img src="https://www.xn--y5q0r2lqcz91qdrc.com/wp-content/uploads/2023/12/st@2x.png" alt="お客様の声"></h2>
+<div class="voice_score"><img src="/wp-content/uploads/2024/01/voice39_pc.png" alt="" class="show_pc hide_sp"><img src="/wp-content/uploads/2024/01/voice39_sp.png" alt="" class="show_sp hide_pc"></div>
 <div class="voice_items_outer">
  
 <div class="voice_items" id="scrollContainer">

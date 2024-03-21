@@ -5299,3 +5299,28 @@ input[type="submit"].submit_card,
 
 }
 /* 20231218 見積り表示　毎月払いと年払い */
+
+/* 20240315 お試しキャンペーン */
+.mitsumori_box_sougaku.no-waribiki {
+ display: flex;
+ text-align: center;
+ justify-content: center;
+ align-items: center;
+}
+.mitsumori_box_sougaku.no-waribiki input {
+ text-align: center;
+ line-height: 1em;
+ height: 1em;
+ max-width: 4em;
+}
+.mitsumori_box_sougaku.no-waribiki .mitsumori_box_sougaku_kingaku_yen {
+ padding-top: 10px;
+}
+.mitsumori_box_more_line.more_line_kaihi.no-waribiki {
+ grid-template-columns: 7em 1fr 1em;
+}
+.no-waribiki .kaihi_camp input {
+ color: inherit;
+}
+/* 20240315 お試しキャンペーン */
+

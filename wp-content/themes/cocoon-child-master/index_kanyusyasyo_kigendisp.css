@@ -1,0 +1,52 @@
+.index_kanyusyasyo_kigendisp_title {
+ margin: 0 0 10px 0;
+ font-size: clamp(20px, 5vw, 32px);
+ font-weight: bold;
+}
+
+.index_kanyusyasyo_kigendisp_title1 {
+ color: #f33;
+}
+.index_kanyusyasyo_kigendisp_title2 {
+ font-size: 0.95em;
+}
+
+.index_kanyusyasyo_kigendisp_title .small {
+ font-size: 0.6em;
+}
+
+
+.index_kanyusyasyo_kigendisp_title_balloon {
+ position: relative;
+ padding: 10px;
+ display: inline-block;
+ width: auto;
+}
+
+.index_kanyusyasyo_kigendisp_title_balloon::before {
+ content: "";
+ position: absolute;
+ border-left: 2px solid #ccc;
+ height: 84%;
+ left: -10px;
+ transform: skewX(30deg);
+ bottom: 5px;
+}
+.index_kanyusyasyo_kigendisp_title_balloon::after {
+ content: "";
+ position: absolute;
+ border-left: 2px solid #ccc;
+ height: 84%;
+ right: -10px;
+ transform: skewX(-30deg);
+ bottom: 5px;
+}
+
+
+.widget_custom_html_widget2 {
+    margin: 0 !important;
+    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+    padding-top: 30px;
+    line-height: 20px;
+    font-size: 18px;
+}

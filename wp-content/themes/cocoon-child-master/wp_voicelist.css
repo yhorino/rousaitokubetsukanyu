@@ -122,3 +122,16 @@
 .star_off{
  color: #D1D1D1;
 }
+
+.voice_score {
+    max-width: 80vw;
+    margin: 0 auto 10px;
+}
+.voice_score img{
+    max-width: 493px;
+}
+@media screen and (max-width: 1100px) {
+ .voice_score img{
+    max-width: 300px;
+ }
+}
